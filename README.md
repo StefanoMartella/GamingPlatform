@@ -1,14 +1,13 @@
 ## GamingPlatform
 
-Project for Object-Oriented-Software-Design course of <a href='http://www.univaq.it'>University of L'Aquila</a>
+Project for Object-Oriented-Software-Design course of [University of L'Aquila](www.univaq.it)
 
-<i>Works in progress</i>.
+*Works in progress*
 
-## TEAM
+## Team
 
-Martella Stefano
-Icaro Iari
-Tramontozzi Paolo
-D'Ascenzo Andrea 
-Morelli Davide
-
+- Martella Stefano
+- D'Ascenzo Andrea
+- Tramontozzi Paolo
+- Icaro Iari
+- Morelli Davide
