@@ -2,7 +2,7 @@
 
 Project for Object-Oriented-Software-Design course of [University of L'Aquila](http://univaq.it)
 
-*Works in progress*
+*Work in progress*
 
 ## TEAM
 
