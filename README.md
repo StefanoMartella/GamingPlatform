@@ -4,7 +4,7 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](w
 
 *Works in progress*
 
-## Team
+## TEAM
 
 - Martella Stefano
 - D'Ascenzo Andrea
