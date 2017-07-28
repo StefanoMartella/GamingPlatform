@@ -6,8 +6,8 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
 
 ## TEAM
 
-- Martella Stefano
 - D'Ascenzo Andrea
-- Tramontozzi Paolo
 - Icaro Iari
+- Martella Stefano
 - Morelli Davide
+- Tramontozzi Paolo
