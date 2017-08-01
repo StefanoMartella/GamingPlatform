@@ -3,6 +3,7 @@ CREATE DATABASE IF NOT EXISTS `Gaming`;
 USE `Gaming`;
 
 /*UTENTE*/
+
 DROP TABLE IF EXISTS `utente`;
 CREATE TABLE `utente`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -17,6 +18,7 @@ CREATE TABLE `utente`(
 
 
 /*RECENSIONE*/
+
 DROP TABLE IF EXISTS `recensione`;
 CREATE TABLE `recensione`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -30,6 +32,7 @@ UNIQUE (`gioco`, `utente`)
 
 
 /*GIOCO*/
+
 DROP TABLE IF EXISTS `gioco`;
 CREATE TABLE `gioco`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -39,6 +42,7 @@ CREATE TABLE `gioco`(
 
 
 /*TIMELINE*/
+
 DROP TABLE IF EXISTS `timeline`;
 CREATE TABLE `timeline`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -50,6 +54,7 @@ UNIQUE (`utente`, `livello`)
 
 
 /*VOTO*/
+
 DROP TABLE IF EXISTS `voto`;
 CREATE TABLE `voto`(
 `votazione` int(1) NOT NULL DEFAULT '0',
@@ -58,18 +63,15 @@ CREATE TABLE `voto`(
 PRIMARY KEY (`utente`, `gioco`)
 )ENGINE=innoDB;
 
-/*TRIGGERS*/
+/*TRIGGER on level update.*/
+
 DROP TRIGGER IF EXISTS `updatetimeline`;
 DELIMITER $$
 CREATE TRIGGER `updatetimeline`
 AFTER UPDATE ON `utente`
 FOR EACH ROW BEGIN
-DECLARE vecchio_livello INT;
-DECLARE nuovo_livello INT;
-SET vecchio_livello=OLD.livello;
-set nuovo_livello=NEW.livello;
-IF(vecchio_livello!=nuovo_livello) THEN
-	INSERT INTO timeline(utente,data,livello) VALUES (OLD.id, DATE(NOW()),nuovo_livello);
+IF(OLD.livello != NEW.livello)
+THEN INSERT INTO timeline(utente,data,livello) VALUES (OLD.id, DATE(NOW()), NEW.livello);
 END IF;
 END
 $$
