@@ -81,10 +81,8 @@ DELIMITER ;
 /* TRIGGER on new user registration */
 
 DROP TRIGGER IF EXISTS `nuovoutente`;
-DELIMITER $$
 CREATE TRIGGER `nuovoutente`
 AFTER INSERT ON `utente`
 FOR EACH ROW
 INSERT INTO timeline(utente, data, livello) VALUES (NEW.id, DATE(NOW()), NEW.livello);
-$$
-DELIMITER ;
+
