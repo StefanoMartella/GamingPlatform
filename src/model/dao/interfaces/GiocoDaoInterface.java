@@ -1,3 +1,3 @@
-package daointerfaces;
+package interfaces;
 
 public interface GiocoDaoInterface{}

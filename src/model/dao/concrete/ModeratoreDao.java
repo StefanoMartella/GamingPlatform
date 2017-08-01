@@ -1,3 +1,3 @@
-package daoobjects;
+package concrete;
 
 public class ModeratoreDao implements ModeratoreDaoInterface{}
