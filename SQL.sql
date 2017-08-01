@@ -58,19 +58,19 @@ CREATE TABLE `voto`(
 PRIMARY KEY (`utente`, `gioco`)
 )ENGINE=innoDB;
 
-/*TRIGGER*/
-DROP TRIGGER IF EXISTS 'updatetimeline'
+/*TRIGGERS*/
+DROP TRIGGER IF EXISTS `updatetimeline`;
 DELIMITER $$
-CREATE TRIGGER 'updatetimeline'
-AFTER UPDATE 'utente'
-FOR EACH ROW
+CREATE TRIGGER `updatetimeline`
+AFTER UPDATE ON `utente`
+FOR EACH ROW BEGIN
 DECLARE vecchio_livello INT;
 DECLARE nuovo_livello INT;
 SET vecchio_livello=OLD.livello;
 set nuovo_livello=NEW.livello;
 IF(vecchio_livello!=nuovo_livello) THEN
-	INSERT INTO timeline(livello,data,utente) VALUES(nuovo_livello,DATE(NOW-----------------))
+	INSERT INTO timeline(utente,data,livello) VALUES (OLD.id, DATE(NOW()),nuovo_livello);
 END IF;
 END
 $$
-DELIMITER;
+DELIMITER ;
