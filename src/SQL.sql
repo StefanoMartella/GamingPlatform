@@ -73,8 +73,7 @@ FOR EACH ROW BEGIN
 IF(OLD.livello != NEW.livello)
 THEN INSERT INTO timeline(utente, data, livello) VALUES (OLD.id, DATE(NOW()), NEW.livello);
 END IF;
-END
-$$
+END $$
 DELIMITER ;
 
 
