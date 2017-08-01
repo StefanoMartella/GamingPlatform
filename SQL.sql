@@ -9,8 +9,8 @@ CREATE TABLE `utente`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `nome` varchar(20) NOT NULL,
 `cognome` varchar(20) NOT NULL,
-`username` varchar(10) NOT NULL UNIQUE,
-`email` varchar(20) NOT NULL UNIQUE,
+`username` varchar(30) NOT NULL UNIQUE,
+`email` varchar(50) NOT NULL UNIQUE,
 `password` varchar(30) NOT NULL,
 `tipo` ENUM('U','M') NOT NULL DEFAULT 'U',
 `livello` int(33) NOT NULL DEFAULT '0'
@@ -36,7 +36,7 @@ UNIQUE (`gioco`, `utente`)
 DROP TABLE IF EXISTS `gioco`;
 CREATE TABLE `gioco`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nome` varchar(20) NOT NULL UNIQUE,
+`nome` varchar(30) NOT NULL UNIQUE,
 `exp` int(2) NOT NULL
 )ENGINE=innoDB;
 
@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS `timeline`;
 CREATE TABLE `timeline`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `data` date NOT NULL,
-`livello` int(12) NOT NULL DEFAULT '0',
+`livello` int(2) NOT NULL DEFAULT '0',
 `utente` int(5) NOT NULL REFERENCES utente (`id`),
 UNIQUE (`utente`, `livello`)
 )ENGINE=innoDB;
@@ -71,8 +71,20 @@ CREATE TRIGGER `updatetimeline`
 AFTER UPDATE ON `utente`
 FOR EACH ROW BEGIN
 IF(OLD.livello != NEW.livello)
-THEN INSERT INTO timeline(utente,data,livello) VALUES (OLD.id, DATE(NOW()), NEW.livello);
+THEN INSERT INTO timeline(utente, data, livello) VALUES (OLD.id, DATE(NOW()), NEW.livello);
 END IF;
 END
+$$
+DELIMITER ;
+
+
+/* TRIGGER on new user registration */
+
+DROP TRIGGER IF EXISTS `nuovoutente`;
+DELIMITER $$
+CREATE TRIGGER `nuovoutente`
+AFTER INSERT ON `utente`
+FOR EACH ROW
+INSERT INTO timeline(utente, data, livello) VALUES (NEW.id, DATE(NOW()), NEW.livello);
 $$
 DELIMITER ;
