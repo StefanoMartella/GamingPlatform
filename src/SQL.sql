@@ -64,7 +64,7 @@ CREATE TABLE `voto`(
 PRIMARY KEY (`utente`, `gioco`)
 )ENGINE=innoDB;
 
-/*TRIGGER on level update.*/
+/* TRIGGER on level update */
 
 DROP TRIGGER IF EXISTS `updatetimeline`;
 DELIMITER $$
