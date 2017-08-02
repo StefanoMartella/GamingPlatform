@@ -14,7 +14,7 @@ CREATE TABLE `utente`(
 `email` varchar(50) NOT NULL UNIQUE,
 `password` varchar(30) NOT NULL,
 `tipo` ENUM('U','M') NOT NULL DEFAULT 'U',
-`livello` int(33) NOT NULL DEFAULT '0',
+`livello` int(10) NOT NULL DEFAULT '0',
 `puntiExp` int(10) NOT NULL DEFAULT '0'
 )ENGINE=innoDB;
 
