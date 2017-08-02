@@ -13,9 +13,9 @@ public class Recensione{
   }
 
   // Getters.
-  public getId(){ return this.id; }
-  public getApprovazione(){ return this.approvazione; }
-  public getTesto(){ return this.testo; }
+  public int getId(){ return this.id; }
+  public boolean getApprovazione(){ return this.approvazione; }
+  public String getTesto(){ return this.testo; }
 
   // Setters.
   public void setId(int id){ this.id = id; }
