@@ -6,9 +6,10 @@ import model.Gioco;
 
 public interface GiocoDaoInterface{
 
-  Gioco insertGame(Gioco gioco) throws SQLException;
-  void deleteGame(Gioco gioco) throws SQLException;
-  List<Gioco> allGames() throws SQLException;
-  void deleteAllGames() throws SQLException;
-  Gico findById(int id) throws SQLException;
+  public Gioco insertGame(Gioco gioco) throws SQLException;
+  public void updateGame(Gioco gioco) throws SQLExeption;
+  public void deleteGame(Gioco gioco) throws SQLException;
+  public List<Gioco> allGames() throws SQLException;
+  public void deleteAllGames() throws SQLException;
+  public Gico findById(int id) throws SQLException;
 }

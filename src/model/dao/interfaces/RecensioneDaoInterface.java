@@ -6,10 +6,11 @@ import model.Recensione;
 
 public interface RecensioneDaoInterface{
 
-  Recensione insertReview(Recensione recensione) throws SQLException;
-  void deleteReview(Recensione recensione) throws SQLException;
-  List<Recensione> allReviews() throws SQLException;
-  List<Recensione> allReviewsNotApproved() throws SQLException;
-  void deleteReviews() throws SQLException;
-  Recensione findById(int id) throws SQLException;
+  public Recensione insertReview(Recensione recensione) throws SQLException;
+  public void updateReview(Recensione recensione) throws SQLException;
+  public void deleteReview(Recensione recensione) throws SQLException;
+  public List<Recensione> allReviews() throws SQLException;
+  public List<Recensione> allReviewsNotApproved() throws SQLException;
+  public void deleteReviews() throws SQLException;
+  public Recensione findById(int id) throws SQLException;
 }
