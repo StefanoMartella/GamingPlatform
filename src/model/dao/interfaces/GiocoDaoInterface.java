@@ -14,5 +14,5 @@ public interface GiocoDaoInterface{
   public void deleteAllGames() throws SQLException;
   public Gioco findById(int idGioco) throws SQLException;
   public float getVotesAvarege() throws SQLException;
-  public boolean gameAlredyVotedByUser(int idUser, int idGioco) throws SQLException;
+  public boolean gameAlredyVotedByUser(int idUser) throws SQLException;
 }
