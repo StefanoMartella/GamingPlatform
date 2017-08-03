@@ -27,7 +27,7 @@ public class GiocoDao implements GiocoDaoInterface{
   VOTES_AVARAGE = "SELECT AVG(votazione) FROM (gioco JOIN voto on gioco.id = voto.gioco) WHERE id = ?";
 
   private  static final String
-  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM table1 WHERE utente = ? and gioco = ?";
+  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM gioco WHERE utente = ? and gioco = ?";
 
   public void insertGame(String nome, int exp) throws SQLException{
     Connection connection = DB.openConnection();
@@ -40,7 +40,7 @@ public class GiocoDao implements GiocoDaoInterface{
   }
   public void deleteGame(int idGioco) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(INSERT);
+    PreparedStatement ps = con.prepareStatement(DELETE);
     ps.setString(1, idGioco);
     ResultSet rset = ps.executeUpdate();
     rset.close();
@@ -52,7 +52,7 @@ public class GiocoDao implements GiocoDaoInterface{
     PreparedStatement ps = con.prepareStatement(ALL);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
-      Gioco gioco = new Gioco(rset.getInt("id", res.getString("nome"), res.getInt("exp")));
+      Gioco gioco = new Gioco(rset.getInt("id"), res.getString("nome"), res.getInt("exp"));
 			all_games.add(gioco);
 		}
     ps.close();
