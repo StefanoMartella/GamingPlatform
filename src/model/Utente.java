@@ -23,7 +23,7 @@ public class Utente{
   }
 
   public int getId(){ return this.id; }
-  public String getNome(){ return this. nome; }
+  public String getNome(){ return this.nome; }
   public String getCognome(){ return this.cognome; }
   public String getUsername(){ return this.username; }
   public String getEmail(){ return this.email; }
