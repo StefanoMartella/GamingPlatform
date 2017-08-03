@@ -11,9 +11,11 @@ public interface UtenteDaoInterface{
   public void deleteUser(int idUtente) throws SQLException;
   public List<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
-  public Utente findUserById(int idUtente) throws SQLException;
+  public String getUserType(int idUtente) throws SQLException;
   public boolean userAlreadyRegistrated(Utente utente) throws SQLException;
   public void voteGame(int idGioco, int voto) throws SQLException;
   public void reviewGame(int idGioco) throws SQLException;
+  public void promoteUser(int idUtente) throws SQLException;
+  public void demoteUser(int idUtente) throws SQLException;
   public void play(int idGioco) throws SQLException;
 }
