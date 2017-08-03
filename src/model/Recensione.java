@@ -12,12 +12,10 @@ public class Recensione{
     this.testo = testo;
   }
 
-  // Getters.
   public int getId(){ return this.id; }
   public boolean getApprovazione(){ return this.approvazione; }
   public String getTesto(){ return this.testo; }
 
-  // Setters.
   public void setId(int id){ this.id = id; }
   public void setApprovazione(boolean approvazione){ this.approvazione = approvazione; }
   public void setTesto(String testo){ this.testo = testo; }
