@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Moderatore;
-import model.Utente;
-import model.Recensione;
 
 public interface ModeratoreDaoInterface{
 
