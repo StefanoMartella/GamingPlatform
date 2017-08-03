@@ -2,12 +2,13 @@ package interfaces;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.sql.ResultSet;
 
 import model.Utente;
 
 public interface UtenteDaoInterface{
 
-  public Utente insertUser(String nome, String cognome, String username, String email, String password, String tipo) throws SQLException;
+  public void insertUser(String nome, String cognome, String username, String email, String password, String tipo) throws SQLException;
   public void deleteUser(int idUtente) throws SQLException;
   public List<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
