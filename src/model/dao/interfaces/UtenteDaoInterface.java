@@ -14,6 +14,6 @@ public interface UtenteDaoInterface{
   public void deleteAllUsers() throws SQLException;
   public Utente findById(int idUtente) throws SQLException;
   public void voteGame(int idGioco) throws SQLException;
-  public void reviewGame(int idGioco) throws SQLException;
+  public void reviewGame(int idGioco, int voto) throws SQLException;
   public void play(int idGioco) throws SQLException;
 }
