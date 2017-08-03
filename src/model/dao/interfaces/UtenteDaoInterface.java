@@ -6,10 +6,12 @@ import model.Utente;
 
 public interface UtenteDaoInterface{
 
-  public Utente insertUser(Utente utente) throws SQLException;
+  public void insertUser(Utente utente) throws SQLException;
   public void updateUser(Utente utente) throws SQLException;
   public void deleteUser(Utente utente) throws SQLException;
   public List<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
   public Utente findById(int id) throws SQLException;
+  public void voteGame(int idGioco) throws SQLException;
+  public void reviewGame(int idGioco) throws SQLException;
 }
