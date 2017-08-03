@@ -12,12 +12,10 @@ public class Gioco{
     this.exp = exp;
   }
 
-  // Getters.
   public int getId(){ return this.id; }
   public String getNome(){ return this.nome; }
   public int getExp(){ return this.exp; }
 
-  // Setters.
   public void setId(int id){ this.id = id; }
   public void setNome(String nome){ this.nome = nome; }
   public void setExp(int exp){ this.exp = exp; }
