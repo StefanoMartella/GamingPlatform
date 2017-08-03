@@ -22,7 +22,6 @@ public class Utente{
     this.puntiExp = puntiExp;
   }
 
-  // Getters.
   public int getId(){ return this.id; }
   public String getNome(){ return this. nome; }
   public String getCognome(){ return this.cognome; }
@@ -32,7 +31,6 @@ public class Utente{
   public int getLivello(){ return this.livello; }
   public int getPuntiExp(){ return this.puntiExp; }
 
-  // Setters.
   public void setId(int id){ this.id = id; }
   public void setNome(String nome){ this.nome = nome; }
   public void setCognome(String cognome){ this.cognome = cognome; }
