@@ -36,6 +36,9 @@ public class UtenteDao implements UtenteDaoInterface{
   REVIEW_GAME = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?)";
 
   private static final String
+  APPROVE_REVIEW = "UPDATE recensione SET approvazione = 1 WHERE id = ?";
+
+  private static final String
   PROMOTE_USER = "UPDATE utente SET tipo = \"M\" WHERE id = ?";
 
   private static final String
@@ -46,7 +49,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   public void insertUser(String nome, String cognome, String username, String email, String password) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(INSERT);
+    PreparedStatement ps = connection.prepareStatement(INSERT);
     ps.setString(1, nome);
     ps.setString(2, cognome);
     ps.setString(3, username);
@@ -58,7 +61,7 @@ public class UtenteDao implements UtenteDaoInterface{
   }
   public void deleteUser(int idUtente) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(DELETE);
+    PreparedStatement ps = connection.prepareStatement(DELETE);
     ps.setString(1, idUtente);
     ResultSet rset = ps.executeUpdate();
     rset.close();
@@ -67,7 +70,7 @@ public class UtenteDao implements UtenteDaoInterface{
   public List<Utente> allUsers() throws SQLException{
     List<Utente> all_users = ArrayList<Utente>;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(ALL);
+    PreparedStatement ps = connection.prepareStatement(ALL);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"). rset.getString("password"), 0, 0);
@@ -79,7 +82,7 @@ public class UtenteDao implements UtenteDaoInterface{
   }
   public void deleteAllUsers() throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(DELETE_ALL);
+    PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
     ResultSet rset = ps.executeUpdate();
     ps.close();
     rset.close();
@@ -87,7 +90,7 @@ public class UtenteDao implements UtenteDaoInterface{
   public String getUserType(int idUtente) throws SQLException{
     String type = null;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(GET_USER_TYPE);
+    PreparedStatement ps = connection.prepareStatement(GET_USER_TYPE);
     ps.setString(1, idUtente);
     ResultSet rset = ps.executeQuery();
     type = rset.getString("tipo");
@@ -98,7 +101,7 @@ public class UtenteDao implements UtenteDaoInterface{
   public void voteGame(int voto, int idUtente, int idGioco) throws SQLException{
     if( ! new GiocoDao().gameAlredyVotedByUser(idUtente, idGioco) ){
       Connection connection = DB.openConnection();
-      PreparedStatement ps = con.prepareStatement(VOTE_GAME);
+      PreparedStatement ps = connection.prepareStatement(VOTE_GAME);
       ps.setString(1, voto);
       ps.setString(2, idUtente);
       ps.setString(3, idGioco);
@@ -111,7 +114,7 @@ public class UtenteDao implements UtenteDaoInterface{
   public void reviewGame(String testoRecensione, int idGioco, int idUtente) throws SQLException{
     if( ! new RecensioneDao().reviewAlreadyMadeByUser(idGioco, idUtente) ){
       Connection connection = DB.openConnection();
-      PreparedStatement ps = con.prepareStatement(REVIEW_GAME);
+      PreparedStatement ps = connection.prepareStatement(REVIEW_GAME);
       ps.setString(1, testoRecensione);
       ps.setString(2, idGioco);
       ps.setString(3, idUtente);
@@ -122,28 +125,36 @@ public class UtenteDao implements UtenteDaoInterface{
     else{ System.out.println("L'utente ha già votato questo gioco!";) }
   }
   public void promoteUser(int idModeratore, int idUtente) throws SQLException{
-    if( new UtenteDao().getUserType(idModeratore) == "M" ){
-      Connection connection = DB.openConnection();
-      PreparedStatement ps = con.prepareStatement(PROMOTE_USER);
-      ps.setString(1, idUtente);
-      ResultSet rset = ps.executeUpdate();
-      ps.close();
-      rset.close();
-    }
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(PROMOTE_USER);
+    ps.setString(1, idUtente);
+    ResultSet rset = ps.executeUpdate();
+    ps.close();
+    rset.close();
   }
   public void demoteUser(int idModeratore, int idUtente) throws SQLException{
-    if( new UtenteDao().getUserType(idModeratore) == "M" ){
-      Connection connection = DB.openConnection();
-      PreparedStatement ps = con.prepareStatement(DEMOTE_USER);
-      ps.setString(1, idUtente);
-      ResultSet rset = ps.executeUpdate();
-      ps.close();
-      rset.close();
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(DEMOTE_USER);
+    ps.setString(1, idUtente);
+    ResultSet rset = ps.executeUpdate();
+    ps.close();
+    rset.close();
+  }
+  public void approveReview(int idRecensione) throws SQLException{
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(APPROVE_REVIEW);
+    ps.setString(1, idRecensione);
+    ResultSet rset = ps.executeUpdate();
+    ps.close();
+    rset.close();
+  }
+  public void disapproveReview(int idRecensione){
+    new RecensioneDao().deleteReview(idRecensione);
   }
   public TreeMap<Integer, String> getTimeline(int idUtente) throws SQLException{
     TreeMap<Integer, String> timeline = new TreeMap<Integer, String>();
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(GET_TIMELINE);
+    PreparedStatement ps = connection.prepareStatement(GET_TIMELINE);
     ps.setString(1, idUtente);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){

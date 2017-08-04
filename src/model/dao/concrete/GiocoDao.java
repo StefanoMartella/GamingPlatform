@@ -35,7 +35,7 @@ public class GiocoDao implements GiocoDaoInterface{
 
   public void insertGame(String nome, int exp) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(INSERT);
+    PreparedStatement ps = connection.prepareStatement(INSERT);
     ps.setString(1, nome);
     ps.setString(2, exp);
     ResultSet rset = ps.executeUpdate();
@@ -44,7 +44,7 @@ public class GiocoDao implements GiocoDaoInterface{
   }
   public void deleteGame(int idGioco) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(DELETE);
+    PreparedStatement ps = connection.prepareStatement(DELETE);
     ps.setString(1, idGioco);
     ResultSet rset = ps.executeUpdate();
     rset.close();
@@ -53,7 +53,7 @@ public class GiocoDao implements GiocoDaoInterface{
   public List<Gioco> allGames() throws SQLException{
     List<Gioco> all_games = ArrayList<Gioco>;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(ALL);
+    PreparedStatement ps = connection.prepareStatement(ALL);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Gioco gioco = new Gioco(rset.getInt("id"), res.getString("nome"), res.getInt("exp"));
@@ -65,7 +65,7 @@ public class GiocoDao implements GiocoDaoInterface{
   }
   public void deleteAllGames() throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(DELETE_ALL);
+    PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
     ResultSet rset = ps.executeUpdate();
     ps.close();
     rset.close();
@@ -73,7 +73,7 @@ public class GiocoDao implements GiocoDaoInterface{
   public float getVotesAvarege(int idGioco) throws SQLException{
     float votes_avarage;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(VOTES_AVARAGE);
+    PreparedStatement ps = connection.prepareStatement(VOTES_AVARAGE);
     ps.setString(1, idGioco);
     ResultSet rset = ps.executeQuery();
     votes_avarage = rset.getFloat("AVG(votazione)");
@@ -82,7 +82,7 @@ public class GiocoDao implements GiocoDaoInterface{
   public List<Recensione> allGamesReviews(int idGioco){
     List<Recensione> game_reviews = ArrayList<Recensione>;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(ALL_GAME_REVIEWS);
+    PreparedStatement ps = connection.prepareStatement(ALL_GAME_REVIEWS);
     ps.setString(1, idGioco);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
@@ -96,7 +96,7 @@ public class GiocoDao implements GiocoDaoInterface{
   public boolean gameAlredyVotedByUser(int idUtente, int idGioco) throws SQLException{
     boolean already_voted = false;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(ALREADY_VOTED);
+    PreparedStatement ps = connection.prepareStatement(ALREADY_VOTED);
     ps.setString(1, idUtente);
     ps.setString(2, idGioco);
     ResultSet rset = ps.executeQuery();

@@ -32,7 +32,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   public void insertReview(String testo, int idGioco, int idUtente) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(INSERT);
+    PreparedStatement ps = connection.prepareStatement(INSERT);
     ps.setString(1, testo);
     ps.setString(2, idGioco);
     ps.setString(3, idUtente);
@@ -42,7 +42,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
   }
   public void deleteReview(int idRecensione) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(DELETE);
+    PreparedStatement ps = connection.prepareStatement(DELETE);
     ps.setString(1, idRecensione);
     ResultSet rset = ps.executeUpdate();
     rset.close();
@@ -51,7 +51,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
   public List<Recensione> filterReviews(String QUERY){
     List<Recensione> filtred_reviews = ArrayList<Recensione>;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(QUERY);
+    PreparedStatement ps = connection.prepareStatement(QUERY);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Recensione recensione = new Recensione(rset.getInt("id"), res.getInt("approvazione"), res.getString("testo"), res.getInt("gioco"), res.getInt("utente"));
@@ -69,7 +69,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
   }
   public void deleteAllReviews() throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(DELETE_ALL);
+    PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
     ResultSet rset = ps.executeUpdate();
     ps.close();
     rset.close();
@@ -77,7 +77,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
   public boolean reviewAlreadyMadeByUser(int idUtente, int idGioco) throws SQLException{
     boolean already_made = false;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = con.prepareStatement(ALREADY_MADE);
+    PreparedStatement ps = connection.prepareStatement(ALREADY_MADE);
     ps.setString(1, idUtente);
     ps.setString(2, idGioco);
     ResultSet rset = ps.executeQuery();
