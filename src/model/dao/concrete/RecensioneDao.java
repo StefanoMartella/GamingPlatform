@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.interfaces.RecensioneDaoInterface;
-import database.DB;
+import dao.database.DB;
 import model.Recensione;
 
 public class RecensioneDao implements RecensioneDaoInterface{

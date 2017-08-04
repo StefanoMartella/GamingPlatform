@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.interfaces.GiocoDaoInterface;
-import database.DB;
+import dao.database.DB;
 import model.Gioco;
 import model.Recensione;
 
