@@ -24,9 +24,6 @@ public class RecensioneDao implements RecensioneDaoInterface{
   ALL_NOT_APPROVED = "SELECT * FROM recensione WHERE approvazione = 0";
 
   private static final String
-  ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ?";
-
-  private static final String
   DELETE_ALL = "DELETE FROM gioco";
 
   private static final String
@@ -75,9 +72,6 @@ public class RecensioneDao implements RecensioneDaoInterface{
   }
   public List<Recensione> allReviewsNotApproved() throws SQLException{
     return filterReviews(ALL_NOT_APPROVED, null)
-  }
-  public List<Recensione> AllGameReviews(int idGioco) throws SQLException0{
-    return filterReviews(ALL_GAME_REVIEWS, idGioco)
   }
   public void deleteAllReviews() throws SQLException{
     Connection connection = DB.openConnection();

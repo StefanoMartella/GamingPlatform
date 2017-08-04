@@ -89,10 +89,10 @@ INSERT INTO timeline(utente, data, livello) VALUES (NEW.id, DATE(NOW()), NEW.liv
 /* DUMP UTENTE */
 
 INSERT INTO `utente`(`id`,`nome`,`cognome`,`username`,`email`,`password`,`tipo`,`livello`,`puntiExp`) VALUES
-(1, 'Peter', 'Parker', 'Spiderman', 'uomoragno@avangers.com', 'ragnetto', 'U', 0, 25),
-(2, 'Tony', 'Stark', 'IronMan', 'starkcorporation@avangers.com', 'avangers', 'M', 3, 100),
-(3, 'Bruce', 'Banner', 'Hulk', 'incredibile@avangers.com', 'uomoverde', 'U', 2, 30),
-(4, 'Steve', 'Rogers', 'CapitanAmerica', 'capitano@avangers.com', 'scudo', 'U', 2, 50);
+(1, 'Peter', 'Parker', 'Spiderman', 'uomoragno@avengers.com', 'ragnetto', 'U', 0, 25),
+(2, 'Tony', 'Stark', 'IronMan', 'starkcorporation@avengers.com', 'avengers', 'M', 3, 100),
+(3, 'Bruce', 'Banner', 'Hulk', 'incredibile@avengers.com', 'uomoverde', 'U', 2, 30),
+(4, 'Steve', 'Rogers', 'CapitanAmerica', 'capitano@avengers.com', 'scudo', 'U', 2, 50);
 
 
 /* DUMP RECENSIONI */

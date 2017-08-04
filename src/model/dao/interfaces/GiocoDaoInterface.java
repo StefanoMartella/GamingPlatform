@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Gioco;
+import model.Recensione;
 
 public interface GiocoDaoInterface{
 
@@ -12,5 +13,6 @@ public interface GiocoDaoInterface{
   public List<Gioco> allGames() throws SQLException;
   public void deleteAllGames() throws SQLException;
   public float getVotesAvarege(int idGioco) throws SQLException;
+  public List<Recensione> AllGameReviews(int idGioco) throws SQLException;
   public boolean gameAlredyVotedByUser(int idUtente, int idGioco) throws SQLException;
 }

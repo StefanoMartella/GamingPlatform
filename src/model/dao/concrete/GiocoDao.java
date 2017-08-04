@@ -9,6 +9,7 @@ import java.util.List;
 import dao.interfaces.GiocoDaoInterface;
 import database.DB;
 import model.Gioco;
+import model.Recensione;
 
 public class GiocoDao implements GiocoDaoInterface{
   private static final String
@@ -26,8 +27,11 @@ public class GiocoDao implements GiocoDaoInterface{
   private static String
   VOTES_AVARAGE = "SELECT AVG(votazione) FROM (gioco JOIN voto on gioco.id = voto.gioco) WHERE id = ?";
 
+  private static final String
+  ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ? AND recensione.approvazione = 1";
+
   private  static final String
-  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM gioco WHERE utente = ? and gioco = ?";
+  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?";
 
   public void insertGame(String nome, int exp) throws SQLException{
     Connection connection = DB.openConnection();
@@ -74,6 +78,25 @@ public class GiocoDao implements GiocoDaoInterface{
     ResultSet rset = ps.executeQuery();
     votes_avarage = rset.getFloat("AVG(votazione)");
     return votes_avarage;
+  }
+  public List<Recensione> allGamesReviews(int idGioco){
+    List<Recensione> game_reviews = ArrayList<Recensione>;
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = con.prepareStatement(ALL_GAME_REVIEWS);
+    try{
+      ps.setString(1, idGioco);
+    }
+    catch(Exception e){
+      e.printStackTrace;
+    }
+    ResultSet rset = ps.executeQuery();
+    while (rset.next()){
+      Recensione recensione = new Recensione(rset.getInt("id"), res.getInt("approvazione"), res.getString("testo"), res.getInt("gioco"), res.getInt("utente"));
+			game_reviews.add(recensione);
+    }
+    ps.close();
+    rset.close();
+    return game_reviews;
   }
   public boolean gameAlredyVotedByUser(int idUtente, int idGioco) throws SQLException{
     boolean already_voted = false;
