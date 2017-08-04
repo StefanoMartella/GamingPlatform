@@ -48,16 +48,10 @@ public class RecensioneDao implements RecensioneDaoInterface{
     rset.close();
     ps.close();
   }
-  public List<Recensione> filterReviews(String QUERY, Integer parameter){
+  public List<Recensione> filterReviews(String QUERY){
     List<Recensione> filtred_reviews = ArrayList<Recensione>;
     Connection connection = DB.openConnection();
     PreparedStatement ps = con.prepareStatement(QUERY);
-    try{
-      ps.setString(1, parameter);
-    }
-    catch(Exception e){
-      e.printStackTrace;
-    }
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Recensione recensione = new Recensione(rset.getInt("id"), res.getInt("approvazione"), res.getString("testo"), res.getInt("gioco"), res.getInt("utente"));
