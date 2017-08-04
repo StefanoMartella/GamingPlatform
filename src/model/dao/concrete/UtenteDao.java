@@ -10,7 +10,7 @@ import java.util.TreeMap;
 import dao.interfaces.UtenteDaoInterface;
 import dao.concrete.GiocoDao;
 import dao.concrete.RecensioneDao;
-import dao.database.DB;
+import model.database.DB;
 import model.Utente;
 
 public class UtenteDao implements UtenteDaoInterface{
