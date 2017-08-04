@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 import dao.interfaces.UtenteDaoInterface;
 import database.DB;
@@ -59,10 +60,10 @@ public class UtenteDao implements UtenteDaoInterface{
   public void reviewGame(String testoRecensione, int idGioco, int idUtente) throws SQLException{
     // check if game has already been reviewed by user.
   }
-  public void promoteUser(int idUtente) throws SQLException{
+  public void promoteUser(int idModeratore, int idUtente) throws SQLException{
 
   }
-  public void demoteUser(int idUtente) throws SQLException{
+  public void demoteUser(int idModeratore, int idUtente) throws SQLException{
 
   }
   public void play(int idGioco) throws SQLException{
