@@ -59,7 +59,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     }
     ps.close();
     rset.close();
-    return filterReviews;
+    return filtred_reviews;
   }
   public List<Recensione> allReviews() throws SQLException{
     return filterReviews(ALL, null);
