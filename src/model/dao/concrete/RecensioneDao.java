@@ -62,10 +62,10 @@ public class RecensioneDao implements RecensioneDaoInterface{
     return filtred_reviews;
   }
   public List<Recensione> allReviews() throws SQLException{
-    return filterReviews(ALL, null);
+    return filterReviews(ALL);
   }
   public List<Recensione> allReviewsNotApproved() throws SQLException{
-    return filterReviews(ALL_NOT_APPROVED, null)
+    return filterReviews(ALL_NOT_APPROVED)
   }
   public void deleteAllReviews() throws SQLException{
     Connection connection = DB.openConnection();
