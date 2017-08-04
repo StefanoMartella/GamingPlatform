@@ -14,11 +14,9 @@ public interface UtenteDaoInterface{
   public List<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
   public String getUserType(int idUtente) throws SQLException;
-  public boolean userAlreadyRegistrated(String username, String email) throws SQLException;
-  public void voteGame(int idGioco, int idUtente, int voto) throws SQLException;
+  public void voteGame(int voto, int idUtente, int idGioco) throws SQLException;
   public void reviewGame(String testoRecensione, int idGioco, int idUtente) throws SQLException;
   public void promoteUser(int idModeratore, int idUtente) throws SQLException;
   public void demoteUser(int idModeratore, int idUtente) throws SQLException;
   public TreeMap<Integer, String> getTimeline(int idUtente) throws SQLException;
-  public void play(int idUtente, int idGioco) throws SQLException;
 }
