@@ -83,12 +83,7 @@ public class GiocoDao implements GiocoDaoInterface{
     List<Recensione> game_reviews = ArrayList<Recensione>;
     Connection connection = DB.openConnection();
     PreparedStatement ps = con.prepareStatement(ALL_GAME_REVIEWS);
-    try{
-      ps.setString(1, idGioco);
-    }
-    catch(Exception e){
-      e.printStackTrace;
-    }
+    ps.setString(1, idGioco);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Recensione recensione = new Recensione(rset.getInt("id"), res.getInt("approvazione"), res.getString("testo"), res.getInt("gioco"), res.getInt("utente"));
