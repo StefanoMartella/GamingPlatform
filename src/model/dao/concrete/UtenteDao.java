@@ -66,7 +66,10 @@ public class UtenteDao implements UtenteDaoInterface{
   public void demoteUser(int idModeratore, int idUtente) throws SQLException{
 
   }
-  public void play(int idGioco) throws SQLException{
+  public TreeMap<Integer, String> getTimeline(int idUtente) throws SQLException{
+
+  }
+  public void play(int idUtente, int idGioco) throws SQLException{
 
   }
 }
