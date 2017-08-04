@@ -90,7 +90,7 @@ public class UtenteDao implements UtenteDaoInterface{
     PreparedStatement ps = con.prepareStatement(GET_USER_TYPE);
     ps.setString(1, idUtente);
     ResultSet rset = ps.executeQuery();
-    type = rset.get("tipo");
+    type = rset.getString("tipo");
     ps.close();
     rset.close();
     return type;
