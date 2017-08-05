@@ -3,14 +3,13 @@ package model.dao.concrete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.interfaces.GiocoDaoInterface;
 import model.database.DB;
-import model.Utente;
-import model.Gioco;
-import model.Recensione;
+import model.*;
 
 public class GiocoDao implements GiocoDaoInterface{
   private static final String
@@ -34,74 +33,84 @@ public class GiocoDao implements GiocoDaoInterface{
   private  static final String
   ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?";
 
+  @Override
   public void insertGame(Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(INSERT);
     ps.setString(1, gioco.getNome());
-    ps.setString(2, gioco.getExp());
-    ResultSet rset = ps.executeUpdate();
-    rset.close();
+    ps.setInt(2, gioco.getExp());
+    ps.executeUpdate();
     ps.close();
   }
+
+  @Override
   public void deleteGame(Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(DELETE);
-    ps.setString(1, gioco.getId());
-    ResultSet rset = ps.executeUpdate();
-    rset.close();
+    ps.setInt(1, gioco.getId());
+    ps.executeUpdate();
     ps.close();
   }
+
+  @Override
   public List<Gioco> allGames() throws SQLException{
     List<Gioco> all_games = new ArrayList<Gioco>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALL);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
-      Gioco gioco = new Gioco(rset.getInt("id"), res.getString("nome"), res.getInt("exp"));
+      Gioco gioco = new Gioco(rset.getInt("id"), rset.getString("nome"), rset.getInt("exp"));
 			all_games.add(gioco);
 		}
     ps.close();
     rset.close();
     return all_games;
   }
+
+  @Override
   public void deleteAllGames() throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
-    ResultSet rset = ps.executeUpdate();
+    ps.executeUpdate();
     ps.close();
-    rset.close();
   }
+
+  @Override
   public float getVotesAvarege(Gioco gioco) throws SQLException{
     float votes_avarage;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(VOTES_AVARAGE);
-    ps.setString(1, gioco.getId());
+    ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
     votes_avarage = rset.getFloat("AVG(votazione)");
     return votes_avarage;
   }
-  public List<Recensione> allGamesReviews(Gioco gioco){
+
+  @Override
+  public List<Recensione> allGameReviews(Gioco gioco) throws SQLException{
     List<Recensione> game_reviews = new ArrayList<Recensione>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALL_GAME_REVIEWS);
-    ps.setString(1, gioco.getId());
+    ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
-      Recensione recensione = new Recensione(rset.getInt("id"), res.getInt("approvazione"), res.getString("testo"), res.getInt("gioco"), res.getInt("utente"));
+      Recensione recensione = new Recensione(rset.getInt("id"), rset.getBoolean("approvazione"), rset.getString("testo"), rset.getInt("gioco"), rset.getInt("utente"));
 			game_reviews.add(recensione);
     }
     ps.close();
     rset.close();
     return game_reviews;
   }
+
+  @Override
   public boolean gameAlredyVotedByUser(Utente utente, Gioco gioco) throws SQLException{
     boolean already_voted = false;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALREADY_VOTED);
-    ps.setString(1, utente.getId());
-    ps.setString(2, gioco.getId());
+    ps.setInt(1, utente.getId());
+    ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
-    if(rset.geInt("total") == 1){ already_voted = true; }
+    if(rset.getInt("total") == 1){ already_voted = true; }
     ps.close();
     rset.close();
     return already_voted;

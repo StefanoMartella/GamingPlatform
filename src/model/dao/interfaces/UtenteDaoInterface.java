@@ -5,9 +5,7 @@ import java.util.List;
 import java.sql.ResultSet;
 import java.util.TreeMap;
 
-import model.Recensione;
-import model.Utente;
-import model.Gioco;
+import model.*;
 
 public interface UtenteDaoInterface{
 
@@ -21,5 +19,5 @@ public interface UtenteDaoInterface{
   public void demoteUser(Utente utente) throws SQLException;
   public void approveReview(Recensione recensione) throws SQLException;
   public void disapproveReview(Recensione recensione) throws SQLException;
-  public TreeMap<Integer, String> getTimeline(int idUtente) throws SQLException;
+  public TreeMap<Integer, String> getTimeline(Utente utente) throws SQLException;
 }

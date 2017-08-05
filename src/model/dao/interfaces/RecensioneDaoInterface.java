@@ -3,9 +3,7 @@ package model.dao.interfaces;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.Recensione;
-import model.Utente;
-import model.Gioco;
+import model.*;
 
 public interface RecensioneDaoInterface{
 

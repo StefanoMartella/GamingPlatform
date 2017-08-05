@@ -3,15 +3,14 @@ package model.dao.concrete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
 import model.dao.interfaces.UtenteDaoInterface;
 import model.database.DB;
-import model.Utente;
-import model.Recensione;
-import model.Gioco;
+import model.*;
 
 public class UtenteDao implements UtenteDaoInterface{
   private static final String
@@ -44,6 +43,7 @@ public class UtenteDao implements UtenteDaoInterface{
   private static final String
   GET_TIMELINE = "SELECT * FROM timeline WHERE utente = ?";
 
+  @Override
   public void insertUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(INSERT);
@@ -52,90 +52,102 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setString(3, utente.getUsername());
     ps.setString(4, utente.getEmail());
     ps.setString(5, utente.getPassword());
-    ResultSet rset = ps.executeUpdate();
-    rset.close();
+    ps.executeUpdate();
     ps.close();
   }
+
+  @Override
   public void deleteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(DELETE);
-    ps.setString(1, utente.getId());
-    ResultSet rset = ps.executeUpdate();
-    rset.close();
+    ps.setInt(1, utente.getId());
+    ps.executeUpdate();
     ps.close();
   }
+
+  @Override
   public List<Utente> allUsers() throws SQLException{
     List<Utente> all_users = new ArrayList<Utente>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALL);
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
-      Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"). rset.getString("password"), 0, 0);
+      Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"), rset.getString("password"), rset.getString("tipo"), 0, 0);
 			all_users.add(utente);
     }
     ps.close();
     rset.close();
     return all_users;
   }
+
+  @Override
   public void deleteAllUsers() throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
-    ResultSet rset = ps.executeUpdate();
+    ps.executeUpdate();
     ps.close();
-    rset.close();
   }
-  public void voteGame(int voto, Gioco gioco, Utente utente) throws SQLException{
+
+  @Override
+  public void voteGame(int voto, Utente utente, Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(VOTE_GAME);
-    ps.setString(1, voto);
-    ps.setString(2, utente.getId());
-    ps.setString(3, gioco.getId());
-    ResultSet rset = ps.executeUpdate();
+    ps.setInt(1, voto);
+    ps.setInt(2, utente.getId());
+    ps.setInt(3, gioco.getId());
+    ps.executeUpdate();
     ps.close();
-    rset.close();
   }
+
+  @Override
   public void reviewGame(String testoRecensione, Gioco gioco, Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(REVIEW_GAME);
     ps.setString(1, testoRecensione);
-    ps.setString(2, gioco.getId());
-    ps.setString(3, utente.getId());
-    ResultSet rset = ps.executeUpdate();
+    ps.setInt(2, gioco.getId());
+    ps.setInt(3, utente.getId());
+    ps.executeUpdate();
     ps.close();
-    rset.close();
   }
+
+  @Override
   public void promoteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(PROMOTE_USER);
-    ps.setString(1, utente.getId());
-    ResultSet rset = ps.executeUpdate();
+    ps.setInt(1, utente.getId());
+    ps.executeUpdate();
     ps.close();
-    rset.close();
   }
+
+  @Override
   public void demoteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(DEMOTE_USER);
-    ps.setString(1, utente.getId());
-    ResultSet rset = ps.executeUpdate();
+    ps.setInt(1, utente.getId());
+    ps.executeUpdate();
     ps.close();
-    rset.close();
   }
+
+  @Override
   public void approveReview(Recensione recensione) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(APPROVE_REVIEW);
-    ps.setString(1, recensione.getId());
-    ResultSet rset = ps.executeUpdate();
+    ps.setInt(1, recensione.getId());
+    ps.executeUpdate();
     ps.close();
-    rset.close();
   }
+
+  @Override
   public void disapproveReview(Recensione recensione) throws SQLException{
     new RecensioneDao().deleteReview(recensione);
   }
+
+  @Override
   public TreeMap<Integer, String> getTimeline(Utente utente) throws SQLException{
     TreeMap<Integer, String> timeline = new TreeMap<Integer, String>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(GET_TIMELINE);
-    ps.setString(1, utente.getId());
+    ps.setInt(1, utente.getId());
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       timeline.put(rset.getInt("livello"), rset.getDate("data").toString());
