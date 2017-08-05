@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.interfaces.GiocoDaoInterface;
+import model.dao.interfaces.GiocoDaoInterface;
 import model.database.DB;
 import mode.Utente;
 import model.Gioco;
@@ -52,7 +52,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.close();
   }
   public List<Gioco> allGames() throws SQLException{
-    List<Gioco> all_games = ArrayList<Gioco>;
+    List<Gioco> all_games = new ArrayList<Gioco>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALL);
     ResultSet rset = ps.executeQuery();
@@ -81,7 +81,7 @@ public class GiocoDao implements GiocoDaoInterface{
     return votes_avarage;
   }
   public List<Recensione> allGamesReviews(Gioco gioco){
-    List<Recensione> game_reviews = ArrayList<Recensione>;
+    List<Recensione> game_reviews = new ArrayList<Recensione>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALL_GAME_REVIEWS);
     ps.setString(1, gioco.getId());

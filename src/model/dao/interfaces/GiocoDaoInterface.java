@@ -3,8 +3,9 @@ package interfaces;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.Gioco;
 import model.Recensione;
+import model.Utente;
+import model.Gioco;
 
 public interface GiocoDaoInterface{
 

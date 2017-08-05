@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-import dao.interfaces.UtenteDaoInterface;
-import dao.concrete.GiocoDao;
-import dao.concrete.RecensioneDao;
+import model.dao.interfaces.UtenteDaoInterface;
 import model.database.DB;
 import model.Utente;
 import model.Recensione;
@@ -67,7 +65,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.close();
   }
   public List<Utente> allUsers() throws SQLException{
-    List<Utente> all_users = ArrayList<Utente>;
+    List<Utente> all_users = new ArrayList<Utente>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALL);
     ResultSet rset = ps.executeQuery();
