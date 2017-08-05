@@ -12,8 +12,8 @@ public class Recensione{
     this.id = id;
     this.approvazione = approvazione;
     this.testo = testo;
-    this.gioco = idGioco;
-    this.utente = idUtente;
+    this.idGioco = idGioco;
+    this.idUtente = idUtente;
   }
 
   public int getId(){ return this.id; }
