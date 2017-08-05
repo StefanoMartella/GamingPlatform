@@ -13,7 +13,7 @@ CREATE TABLE `utente`(
 `username` varchar(30) NOT NULL UNIQUE,
 `email` varchar(50) NOT NULL UNIQUE,
 `password` varchar(30) NOT NULL,
-`tipo` varchar(10) NOT NULL DEFAULT 'utente',
+`tipo` varchar(20) NOT NULL DEFAULT 'utente',
 `livello` int(10) NOT NULL DEFAULT '0',
 `puntiExp` int(10) NOT NULL DEFAULT '0'
 )ENGINE=innoDB;
