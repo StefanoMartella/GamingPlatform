@@ -1,4 +1,4 @@
-package concrete;
+package model.dao.concrete;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
