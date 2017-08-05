@@ -8,7 +8,7 @@ import java.util.List;
 
 import model.dao.interfaces.GiocoDaoInterface;
 import model.database.DB;
-import mode.Utente;
+import model.Utente;
 import model.Gioco;
 import model.Recensione;
 
