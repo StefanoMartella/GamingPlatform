@@ -6,19 +6,20 @@ import java.sql.ResultSet;
 import java.util.TreeMap;
 
 import model.Utente;
+import model.Gioco;
+import model.Recensione;
 
 public interface UtenteDaoInterface{
 
-  public void insertUser(String nome, String cognome, String username, String email, String password) throws SQLException;
-  public void deleteUser(int idUtente) throws SQLException;
+  public void insertUser(Utente utente) throws SQLException;
+  public void deleteUser(Utente utente) throws SQLException;
   public List<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
-  public String getUserType(int idUtente) throws SQLException;
-  public void voteGame(int voto, int idUtente, int idGioco) throws SQLException;
-  public void reviewGame(String testoRecensione, int idGioco, int idUtente) throws SQLException;
-  public void promoteUser(int idModeratore, int idUtente) throws SQLException;
-  public void demoteUser(int idModeratore, int idUtente) throws SQLException;
-  public void approveReview(int idRecensione) throws SQLException;
-  public void disapproveReview(int idRecensione) throws SQLException;
+  public void voteGame(int voto, Utente utente, Gioco gioco) throws SQLException;
+  public void reviewGame(String testoRecensione, Gioco gioco, Utente utente) throws SQLException;
+  public void promoteUser(Utente utente) throws SQLException;
+  public void demoteUser(Utente utente) throws SQLException;
+  public void approveReview(Recensione recensione) throws SQLException;
+  public void disapproveReview(Recensione recensione) throws SQLException;
   public TreeMap<Integer, String> getTimeline(int idUtente) throws SQLException;
 }

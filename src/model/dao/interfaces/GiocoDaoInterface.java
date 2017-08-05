@@ -8,11 +8,11 @@ import model.Recensione;
 
 public interface GiocoDaoInterface{
 
-  public void insertGame(String nome, int exp) throws SQLException;
-  public void deleteGame(int idGioco) throws SQLException;
+  public void insertGame(Gioco gioco) throws SQLException;
+  public void deleteGame(Gioco gioco) throws SQLException;
   public List<Gioco> allGames() throws SQLException;
   public void deleteAllGames() throws SQLException;
-  public float getVotesAvarege(int idGioco) throws SQLException;
-  public List<Recensione> AllGameReviews(int idGioco) throws SQLException;
-  public boolean gameAlredyVotedByUser(int idUtente, int idGioco) throws SQLException;
+  public float getVotesAvarege(Gioco gioco) throws SQLException;
+  public List<Recensione> AllGameReviews(Gioco gioco) throws SQLException;
+  public boolean gameAlredyVotedByUser(Utente utente, Gioco gioco) throws SQLException;
 }

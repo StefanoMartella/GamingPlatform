@@ -9,6 +9,8 @@ import java.util.List;
 import dao.interfaces.RecensioneDaoInterface;
 import model.database.DB;
 import model.Recensione;
+import model.Utente;
+import model.Gioco;
 
 public class RecensioneDao implements RecensioneDaoInterface{
   private static final String
@@ -30,20 +32,20 @@ public class RecensioneDao implements RecensioneDaoInterface{
   ALREADY_MADE = "SELECT COUNT(*) AS total FROM recensione WHERE gioco = ? and utente = ?";
 
 
-  public void insertReview(String testo, int idGioco, int idUtente) throws SQLException{
+  public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(INSERT);
     ps.setString(1, testo);
-    ps.setString(2, idGioco);
-    ps.setString(3, idUtente);
+    ps.setString(2, gioco.getId());
+    ps.setString(3, utente.getId());
     ResultSet rset = ps.executeUpdate();
     rset.close();
     ps.close();
   }
-  public void deleteReview(int idRecensione) throws SQLException{
+  public void deleteReview(Recensione recensione) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(DELETE);
-    ps.setString(1, idRecensione);
+    ps.setString(1, recensione.getId());
     ResultSet rset = ps.executeUpdate();
     rset.close();
     ps.close();
@@ -74,12 +76,12 @@ public class RecensioneDao implements RecensioneDaoInterface{
     ps.close();
     rset.close();
   }
-  public boolean reviewAlreadyMadeByUser(int idUtente, int idGioco) throws SQLException{
+  public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException{
     boolean already_made = false;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALREADY_MADE);
-    ps.setString(1, idUtente);
-    ps.setString(2, idGioco);
+    ps.setString(1, utente.getId());
+    ps.setString(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
     if(rset.geInt("total") == 1){ already_made = true; }
     ps.close();

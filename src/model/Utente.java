@@ -7,17 +7,19 @@ public class Utente{
   private String username;
   private String email;
   private String password;
+  private String tipo;
   private int livello;
   private int puntiExp;
 
   public Utente(){}
-  public Utente(int id, String nome, String cognome, String username, String email, String password, int livello, int puntiExp){
+  public Utente(int id, String nome, String cognome, String username, String email, String password, String tipo, int livello, int puntiExp){
     this.id = id;
     this.nome = nome;
     this.cognome = cognome;
     this.username = username;
     this.email = email;
     this.password = password;
+    this.tipo = tipo;
     this.livello = livello;
     this.puntiExp = puntiExp;
   }
@@ -28,6 +30,7 @@ public class Utente{
   public String getUsername(){ return this.username; }
   public String getEmail(){ return this.email; }
   public String getPassword(){ return this.password; }
+  public String getTipo(){ return this.tipo; }
   public int getLivello(){ return this.livello; }
   public int getPuntiExp(){ return this.puntiExp; }
 
@@ -37,6 +40,7 @@ public class Utente{
   public void setUsername(String username){ this.username = username; }
   public void setEmail(String email){ this.email = email; }
   public void setPassword(String password){ this.password = password; }
+  public void setTipo(String tipo){ this.tipo = tipo; }
   public void setLivello(int livello){ this.livello = livello; }
   public void setPuntiExp(int puntiExp){ this.puntiExp = puntiExp; }
 }
