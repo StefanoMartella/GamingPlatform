@@ -39,7 +39,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     ps.setInt(3, utente.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -49,7 +49,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     ps.setInt(1, recensione.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   public List<Recensione> filterReviews(String QUERY) throws SQLException{
@@ -63,7 +63,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     }
     ps.close();
     rset.close();
-	connection.close();
+    connection.close();
     return filtred_reviews;
   }
 
@@ -83,7 +83,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -97,7 +97,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     if(rset.getInt("total") == 1){ already_made = true; }
     ps.close();
     rset.close();
-	connection.close();
+    connection.close();
     return already_made;
   }
 }
