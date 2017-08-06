@@ -1,6 +1,7 @@
 package model.dao.concrete;
 
 import java.sql.Connection;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -58,8 +59,8 @@ public class GiocoDao implements GiocoDaoInterface{
   public List<Gioco> allGames() throws SQLException{
     List<Gioco> all_games = new ArrayList<Gioco>();
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(ALL);
-    ResultSet rset = ps.executeQuery();
+    Statement ps = connection.createStatement();
+    ResultSet rset = ps.executeQuery(ALL);
     while (rset.next()){
       Gioco gioco = new Gioco(rset.getInt("id"), rset.getString("nome"), rset.getInt("exp"));
       all_games.add(gioco);
@@ -73,8 +74,8 @@ public class GiocoDao implements GiocoDaoInterface{
   @Override
   public void deleteAllGames() throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
-    ps.executeUpdate();
+    Statement ps = connection.createStatement();
+    ps.executeUpdate(DELETE_ALL);
     ps.close();
     connection.close();
   }

@@ -1,6 +1,7 @@
 package model.dao.concrete;
 
 import java.sql.Connection;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,8 +72,8 @@ public class UtenteDao implements UtenteDaoInterface{
   public List<Utente> allUsers() throws SQLException{
     List<Utente> all_users = new ArrayList<Utente>();
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(ALL);
-    ResultSet rset = ps.executeQuery();
+    Statement ps = connection.createStatement();
+    ResultSet rset = ps.executeQuery(ALL);
     while (rset.next()){
       Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"), rset.getString("password"), rset.getString("tipo"), 0, 0);
       all_users.add(utente);
@@ -86,8 +87,8 @@ public class UtenteDao implements UtenteDaoInterface{
   @Override
   public void deleteAllUsers() throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
-    ps.executeUpdate();
+    Statement ps = connection.createStatement();
+    ps.executeUpdate(DELETE_ALL);
     ps.close();
     connection.close();
   }

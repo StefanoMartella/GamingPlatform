@@ -1,6 +1,7 @@
 package model.dao.concrete;
 
 import java.sql.Connection;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -55,8 +56,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
   public List<Recensione> filterReviews(String QUERY) throws SQLException{
     List<Recensione> filtred_reviews = new ArrayList<Recensione>();
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(QUERY);
-    ResultSet rset = ps.executeQuery();
+    Statement ps = connection.createStatement();
+    ResultSet rset = ps.executeQuery(QUERY);
     while (rset.next()){
       Recensione recensione = new Recensione(rset.getInt("id"), rset.getBoolean("approvazione"), rset.getString("testo"), rset.getInt("gioco"), rset.getInt("utente"));
       filtred_reviews.add(recensione);
@@ -80,8 +81,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
   @Override
   public void deleteAllReviews() throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
-    ps.executeUpdate();
+    Statement ps = connection.createStatement();
+    ps.executeUpdate(DELETE_ALL);
     ps.close();
     connection.close();
   }
