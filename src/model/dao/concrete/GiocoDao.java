@@ -62,8 +62,8 @@ public class GiocoDao implements GiocoDaoInterface{
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Gioco gioco = new Gioco(rset.getInt("id"), rset.getString("nome"), rset.getInt("exp"));
-			all_games.add(gioco);
-		}
+      all_games.add(gioco);
+    }
     ps.close();
     rset.close();
     connection.close();
@@ -100,7 +100,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Recensione recensione = new Recensione(rset.getInt("id"), rset.getBoolean("approvazione"), rset.getString("testo"), rset.getInt("gioco"), rset.getInt("utente"));
-			game_reviews.add(recensione);
+      game_reviews.add(recensione);
     }
     ps.close();
     rset.close();
