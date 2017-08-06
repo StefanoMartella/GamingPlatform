@@ -7,11 +7,11 @@ public class Gioco{
 
   public Gioco(){}
   public Gioco(String nome, int exp){
-	this.nome = nome;
+    this.nome = nome;
     this.exp = exp;  
   }
   public Gioco(int id, String nome, int exp){
-	this();
+    this();
     this.id = id;
   }
 
@@ -24,6 +24,6 @@ public class Gioco{
   public void setExp(int exp){ this.exp = exp; }
   
   public String toString(){
-	return this.getId() + " - " + this.getNome();
+    return this.getId() + " - " + this.getNome();
   }
 }
