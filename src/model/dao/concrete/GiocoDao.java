@@ -25,7 +25,7 @@ public class GiocoDao implements GiocoDaoInterface{
   DELETE_ALL = "DELETE FROM gioco";
 
   private static String
-  VOTES_AVARAGE = "SELECT AVG(votazione) FROM (gioco JOIN voto on gioco.id = voto.gioco) WHERE id = ?";
+  VOTES_AVERAGE = "SELECT AVG(votazione) FROM (gioco JOIN voto on gioco.id = voto.gioco) WHERE id = ?";
 
   private static final String
   ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ? AND recensione.approvazione = 1";
@@ -76,10 +76,10 @@ public class GiocoDao implements GiocoDaoInterface{
   }
 
   @Override
-  public float getVotesAvarege(Gioco gioco) throws SQLException{
+  public float getVotesAverage(Gioco gioco) throws SQLException{
     float votes_avarage;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(VOTES_AVARAGE);
+    PreparedStatement ps = connection.prepareStatement(VOTES_AVERAGE);
     ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
     votes_avarage = rset.getFloat("AVG(votazione)");
