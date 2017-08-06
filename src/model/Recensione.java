@@ -8,12 +8,15 @@ public class Recensione{
   private int idUtente;
 
   public Recensione(){}
+  public Recensione(String testo, int idGioco, int idUtente){
+	this.testo = testo;
+    this.idGioco = idGioco;
+    this.idUtente = idUtente;  
+  }
   public Recensione(int id, boolean approvazione, String testo, int idGioco, int idUtente){
+	this();
     this.id = id;
     this.approvazione = approvazione;
-    this.testo = testo;
-    this.idGioco = idGioco;
-    this.idUtente = idUtente;
   }
 
   public int getId(){ return this.id; }
@@ -27,4 +30,8 @@ public class Recensione{
   public void setTesto(String testo){ this.testo = testo; }
   public void setIdGioco(int idGioco){ this.idGioco = idGioco; }
   public void setIdUtente(int idUtente){ this.idUtente = idUtente; }
+  
+  public String toString(){
+	return this.getId() + " - " +this.getTesto();
+  }
 }

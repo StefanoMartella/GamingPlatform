@@ -12,13 +12,16 @@ public class Utente{
   private int puntiExp;
 
   public Utente(){}
-  public Utente(int id, String nome, String cognome, String username, String email, String password, String tipo, int livello, int puntiExp){
-    this.id = id;
-    this.nome = nome;
+  public Utente(String nome, String cognome, String username, String email, String password){
+	this.nome = nome;
     this.cognome = cognome;
     this.username = username;
     this.email = email;
-    this.password = password;
+    this.password = password;  
+  }
+  public Utente(int id, String nome, String cognome, String username, String email, String password, String tipo, int livello, int puntiExp){
+    this();
+	this.id = id;
     this.tipo = tipo;
     this.livello = livello;
     this.puntiExp = puntiExp;
@@ -43,4 +46,8 @@ public class Utente{
   public void setTipo(String tipo){ this.tipo = tipo; }
   public void setLivello(int livello){ this.livello = livello; }
   public void setPuntiExp(int puntiExp){ this.puntiExp = puntiExp; }
+  
+  public String toString(){
+	return this.getNome() + " " + this.getCognome() + " ," + this.getUsername();
+  }
 }

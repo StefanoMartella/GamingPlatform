@@ -6,10 +6,13 @@ public class Gioco{
   private int exp;
 
   public Gioco(){}
+  public Gioco(String nome, int exp){
+	this.nome = nome;
+    this.exp = exp;  
+  }
   public Gioco(int id, String nome, int exp){
+	this();
     this.id = id;
-    this.nome = nome;
-    this.exp = exp;
   }
 
   public int getId(){ return this.id; }
@@ -19,4 +22,8 @@ public class Gioco{
   public void setId(int id){ this.id = id; }
   public void setNome(String nome){ this.nome = nome; }
   public void setExp(int exp){ this.exp = exp; }
+  
+  public String toString(){
+	return this.getId() + " - " + this.getNome();
+  }
 }
