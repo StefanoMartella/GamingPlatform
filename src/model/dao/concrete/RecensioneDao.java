@@ -59,7 +59,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Recensione recensione = new Recensione(rset.getInt("id"), rset.getBoolean("approvazione"), rset.getString("testo"), rset.getInt("gioco"), rset.getInt("utente"));
-			filtred_reviews.add(recensione);
+      filtred_reviews.add(recensione);
     }
     ps.close();
     rset.close();
