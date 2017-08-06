@@ -72,13 +72,13 @@ public class UtenteDao implements UtenteDaoInterface{
   public List<Utente> allUsers() throws SQLException{
     List<Utente> all_users = new ArrayList<Utente>();
     Connection connection = DB.openConnection();
-    Statement ps = connection.createStatement();
-    ResultSet rset = ps.executeQuery(ALL);
+    Statement s = connection.createStatement();
+    ResultSet rset = s.executeQuery(ALL);
     while (rset.next()){
       Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"), rset.getString("password"), rset.getString("tipo"), 0, 0);
       all_users.add(utente);
     }
-    ps.close();
+    s.close();
     rset.close();
     connection.close();
     return all_users;
@@ -87,9 +87,9 @@ public class UtenteDao implements UtenteDaoInterface{
   @Override
   public void deleteAllUsers() throws SQLException{
     Connection connection = DB.openConnection();
-    Statement ps = connection.createStatement();
-    ps.executeUpdate(DELETE_ALL);
-    ps.close();
+    Statement s = connection.createStatement();
+    s.executeUpdate(DELETE_ALL);
+    s.close();
     connection.close();
   }
 

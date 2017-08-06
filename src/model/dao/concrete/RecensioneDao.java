@@ -56,13 +56,13 @@ public class RecensioneDao implements RecensioneDaoInterface{
   public List<Recensione> filterReviews(String QUERY) throws SQLException{
     List<Recensione> filtred_reviews = new ArrayList<Recensione>();
     Connection connection = DB.openConnection();
-    Statement ps = connection.createStatement();
-    ResultSet rset = ps.executeQuery(QUERY);
+    Statement s = connection.createStatement();
+    ResultSet rset = s.executeQuery(QUERY);
     while (rset.next()){
       Recensione recensione = new Recensione(rset.getInt("id"), rset.getBoolean("approvazione"), rset.getString("testo"), rset.getInt("gioco"), rset.getInt("utente"));
       filtred_reviews.add(recensione);
     }
-    ps.close();
+    s.close();
     rset.close();
     connection.close();
     return filtred_reviews;
@@ -81,9 +81,9 @@ public class RecensioneDao implements RecensioneDaoInterface{
   @Override
   public void deleteAllReviews() throws SQLException{
     Connection connection = DB.openConnection();
-    Statement ps = connection.createStatement();
-    ps.executeUpdate(DELETE_ALL);
-    ps.close();
+    Statement s = connection.createStatement();
+    s.executeUpdate(DELETE_ALL);
+    s.close();
     connection.close();
   }
 

@@ -59,13 +59,13 @@ public class GiocoDao implements GiocoDaoInterface{
   public List<Gioco> allGames() throws SQLException{
     List<Gioco> all_games = new ArrayList<Gioco>();
     Connection connection = DB.openConnection();
-    Statement ps = connection.createStatement();
-    ResultSet rset = ps.executeQuery(ALL);
+    Statement s = connection.createStatement();
+    ResultSet rset = s.executeQuery(ALL);
     while (rset.next()){
       Gioco gioco = new Gioco(rset.getInt("id"), rset.getString("nome"), rset.getInt("exp"));
       all_games.add(gioco);
     }
-    ps.close();
+    s.close();
     rset.close();
     connection.close();
     return all_games;
@@ -74,9 +74,9 @@ public class GiocoDao implements GiocoDaoInterface{
   @Override
   public void deleteAllGames() throws SQLException{
     Connection connection = DB.openConnection();
-    Statement ps = connection.createStatement();
-    ps.executeUpdate(DELETE_ALL);
-    ps.close();
+    Statement s = connection.createStatement();
+    s.executeUpdate(DELETE_ALL);
+    s.close();
     connection.close();
   }
 
