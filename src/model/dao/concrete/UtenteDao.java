@@ -75,7 +75,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
       Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"), rset.getString("password"), rset.getString("tipo"), 0, 0);
-			all_users.add(utente);
+      all_users.add(utente);
     }
     ps.close();
     rset.close();
