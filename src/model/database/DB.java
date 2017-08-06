@@ -12,14 +12,15 @@ public class DB{
 
   public static Connection openConnection(){
     try {
-			Class.forName(DRIVER).newInstance();
-			Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-			return connection;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (Exception ex){
-			System.err.println("Impossibile salvare/caricare i dati! Il database non risponde!");
-		}
-		return null;
+	Class.forName(DRIVER).newInstance();
+	Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+	return connection;
+    } 
+    catch (SQLException e) {
+	e.printStackTrace();
+    } catch (Exception ex){
+	System.err.println("Impossibile salvare/caricare i dati! Il database non risponde!");
+    }
+    return null;
   }
 }
