@@ -25,7 +25,7 @@ public class GiocoDao implements GiocoDaoInterface{
   DELETE_ALL = "DELETE FROM gioco";
 
   private static String
-  VOTES_AVERAGE = "SELECT AVG(votazione) as average FROM gioco JOIN voto on gioco.id = voto.gioco WHERE id = ?";
+  VOTES_AVERAGE = "SELECT AVG(votazione) as average FROM gioco JOIN voto ON gioco.id = voto.gioco WHERE id = ?";
 
   private static final String
   ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ? AND recensione.approvazione = 1";
