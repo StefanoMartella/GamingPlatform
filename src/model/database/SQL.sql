@@ -16,7 +16,7 @@ CREATE TABLE `utente`(
 `tipo` varchar(20) NOT NULL DEFAULT 'utente',
 `livello` int(10) NOT NULL DEFAULT '0',
 `puntiExp` int(10) NOT NULL DEFAULT '0'
-)ENGINE=innoDB;
+);
 
 
 /*RECENSIONE*/
@@ -29,7 +29,7 @@ CREATE TABLE `recensione`(
 `gioco` int(5) NOT NULL REFERENCES gioco (`id`),
 `utente` int(5) NOT NULL REFERENCES utente (`id`),
 UNIQUE (`gioco`, `utente`)
-)ENGINE=innoDB;
+);
 
 
 /*GIOCO*/
@@ -39,7 +39,7 @@ CREATE TABLE `gioco`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `nome` varchar(30) NOT NULL UNIQUE,
 `exp` int(2) NOT NULL
-)ENGINE=innoDB;
+);
 
 
 /*TIMELINE*/
@@ -50,7 +50,7 @@ CREATE TABLE `timeline`(
 `livello` int(2) NOT NULL DEFAULT '0',
 `utente` int(5) NOT NULL REFERENCES utente (`id`),
 PRIMARY KEY (`utente`,`livello`)
-)ENGINE=innoDB;
+);
 
 
 /*VOTO*/
@@ -61,7 +61,7 @@ CREATE TABLE `voto`(
 `utente` int(5) NOT NULL REFERENCES utente (`id`),
 `gioco` int(5) NOT NULL REFERENCES gioco (`id`),
 PRIMARY KEY (`utente`, `gioco`)
-)ENGINE=innoDB;
+);
 
 /* TRIGGER on level update */
 
