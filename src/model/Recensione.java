@@ -9,12 +9,12 @@ public class Recensione{
 
   public Recensione(){}
   public Recensione(String testo, int idGioco, int idUtente){
-	this.testo = testo;
+    this.testo = testo;
     this.idGioco = idGioco;
     this.idUtente = idUtente;  
   }
   public Recensione(int id, boolean approvazione, String testo, int idGioco, int idUtente){
-	this();
+    this();
     this.id = id;
     this.approvazione = approvazione;
   }
@@ -32,6 +32,6 @@ public class Recensione{
   public void setIdUtente(int idUtente){ this.idUtente = idUtente; }
   
   public String toString(){
-	return this.getId() + " - " +this.getTesto();
+    return this.getId() + " - " +this.getTesto();
   }
 }
