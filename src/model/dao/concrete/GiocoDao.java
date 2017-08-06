@@ -25,7 +25,7 @@ public class GiocoDao implements GiocoDaoInterface{
   DELETE_ALL = "DELETE FROM gioco";
 
   private static String
-  VOTES_AVERAGE = "SELECT AVG(votazione) FROM (gioco JOIN voto on gioco.id = voto.gioco) WHERE id = ?";
+  VOTES_AVERAGE = "SELECT AVG(votazione) as average FROM gioco JOIN voto on gioco.id = voto.gioco WHERE id = ?";
 
   private static final String
   ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ? AND recensione.approvazione = 1";
@@ -86,7 +86,7 @@ public class GiocoDao implements GiocoDaoInterface{
     PreparedStatement ps = connection.prepareStatement(VOTES_AVERAGE);
     ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
-    votes_avarage = rset.getDouble("AVG(votazione)");
+    votes_avarage = rset.getDouble("average");
     connection.close();
     return votes_avarage;
   }
