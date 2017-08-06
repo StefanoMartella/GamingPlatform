@@ -41,7 +41,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.setInt(2, gioco.getExp());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -51,7 +51,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.setInt(1, gioco.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -66,7 +66,7 @@ public class GiocoDao implements GiocoDaoInterface{
 		}
     ps.close();
     rset.close();
-	connection.close();
+    connection.close();
     return all_games;
   }
 
@@ -76,7 +76,7 @@ public class GiocoDao implements GiocoDaoInterface{
     PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -87,7 +87,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
     votes_avarage = rset.getDouble("AVG(votazione)");
-	connection.close();
+    connection.close();
     return votes_avarage;
   }
 
@@ -104,7 +104,7 @@ public class GiocoDao implements GiocoDaoInterface{
     }
     ps.close();
     rset.close();
-	connection.close();
+    connection.close();
     return game_reviews;
   }
 
@@ -119,7 +119,7 @@ public class GiocoDao implements GiocoDaoInterface{
     if(rset.getInt("total") == 1){ already_voted = true; }
     ps.close();
     rset.close();
-	connection.close();
+    connection.close();
     return already_voted;
   }
 }
