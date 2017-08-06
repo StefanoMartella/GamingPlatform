@@ -85,6 +85,14 @@ AFTER INSERT ON `utente`
 FOR EACH ROW
 INSERT INTO timeline(utente, data, livello) VALUES (NEW.id, DATE(NOW()), NEW.livello);
 
+/* TRIGGER on new user deletion */
+
+DROP TRIGGER IF EXISTS `utentecancellato`;
+CREATE TRIGGER `utentecancellato`
+AFTER DELETE ON `utente`
+FOR EACH ROW 
+DELETE FROM timeline WHERE utente = OLD.id;
+
 
 /* DUMP UTENTE */
 
