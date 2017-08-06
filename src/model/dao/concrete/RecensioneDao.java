@@ -54,7 +54,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
   }
 
   public List<Recensione> filterReviews(String QUERY) throws SQLException{
-    List<Recensione> filtred_reviews = new ArrayList<Recensione>();
+    List<Recensione> filtred_reviews = new ArrayList<>();
     Connection connection = DB.openConnection();
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(QUERY);
