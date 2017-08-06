@@ -13,25 +13,25 @@ import model.*;
 
 public class GiocoDao implements GiocoDaoInterface{
   private static final String
-  INSERT = "INSERT INTO gioco(nome, exp) VALUES (?, ?)";
+  INSERT = "INSERT INTO gioco(nome, exp) VALUES (?, ?);";
 
   private static final String
-  DELETE = "DELETE FROM gioco WHERE id = ?";
+  DELETE = "DELETE FROM gioco WHERE id = ?;";
 
   private static final String
-  ALL = "SELECT * FROM gioco";
+  ALL = "SELECT * FROM gioco;";
 
   private static final String
-  DELETE_ALL = "DELETE FROM gioco";
+  DELETE_ALL = "DELETE FROM gioco;";
 
   private static String
-  VOTES_AVERAGE = "SELECT AVG(votazione) AS average FROM gioco JOIN voto ON gioco.id = voto.gioco WHERE id = ?";
+  VOTES_AVERAGE = "SELECT AVG(votazione) AS average FROM gioco JOIN voto ON gioco.id = voto.gioco WHERE id = ?;";
 
   private static final String
-  ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ? AND recensione.approvazione = 1";
+  ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ? AND recensione.approvazione = 1;";
 
   private  static final String
-  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?";
+  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?;";
 
   @Override
   public void insertGame(Gioco gioco) throws SQLException{
