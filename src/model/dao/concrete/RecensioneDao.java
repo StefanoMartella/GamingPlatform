@@ -13,22 +13,22 @@ import model.*;
 
 public class RecensioneDao implements RecensioneDaoInterface{
   private static final String
-  INSERT = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?)";
+  INSERT = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?);";
 
   private static final String
-  DELETE = "DELETE FROM recensione WHERE id = ?";
+  DELETE = "DELETE FROM recensione WHERE id = ?;";
 
   private static final String
-  ALL = "SELECT * FROM recensione";
+  ALL = "SELECT * FROM recensione;";
 
   private static final String
-  ALL_NOT_APPROVED = "SELECT * FROM recensione WHERE approvazione = 0";
+  ALL_NOT_APPROVED = "SELECT * FROM recensione WHERE approvazione = 0;";
 
   private static final String
-  DELETE_ALL = "DELETE FROM gioco";
+  DELETE_ALL = "DELETE FROM gioco;";
 
   private static final String
-  ALREADY_MADE = "SELECT COUNT(*) AS total FROM recensione WHERE gioco = ? and utente = ?";
+  ALREADY_MADE = "SELECT COUNT(*) AS total FROM recensione WHERE gioco = ? and utente = ?;";
 
   @Override
   public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException{
