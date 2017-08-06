@@ -70,7 +70,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   @Override
   public List<Utente> allUsers() throws SQLException{
-    List<Utente> all_users = new ArrayList<Utente>();
+    List<Utente> all_users = new ArrayList<>();
     Connection connection = DB.openConnection();
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(ALL);
@@ -154,7 +154,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   @Override
   public TreeMap<Integer, String> getTimeline(Utente utente) throws SQLException{
-    TreeMap<Integer, String> timeline = new TreeMap<Integer, String>();
+    TreeMap<Integer, String> timeline = new TreeMap<>();
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(GET_TIMELINE);
     ps.setInt(1, utente.getId());
