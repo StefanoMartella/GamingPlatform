@@ -14,34 +14,34 @@ import model.*;
 
 public class UtenteDao implements UtenteDaoInterface{
   private static final String
-  INSERT = "INSERT INTO utente(nome, cognome, username, email, password) VALUES (?, ?, ?, ?, ?)";
+  INSERT = "INSERT INTO utente(nome, cognome, username, email, password) VALUES (?, ?, ?, ?, ?);";
 
   private static final String
-  DELETE = "DELETE FROM utente WHERE id = ?";
+  DELETE = "DELETE FROM utente WHERE id = ?;";
 
   private static final String
-  ALL = "SELECT * FROM utente";
+  ALL = "SELECT * FROM utente;";
 
   private static final String
-  DELETE_ALL = "DELETE FROM utente";
+  DELETE_ALL = "DELETE FROM utente;";
 
   private static final String
-  VOTE_GAME = "INSERT INTO voto(votazione, gioco, utente) VALUES (?, ?, ?)";
+  VOTE_GAME = "INSERT INTO voto(votazione, gioco, utente) VALUES (?, ?, ?);";
 
   private static final String
-  REVIEW_GAME = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?)";
+  REVIEW_GAME = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?);";
 
   private static final String
-  APPROVE_REVIEW = "UPDATE recensione SET approvazione = 1 WHERE id = ?";
+  APPROVE_REVIEW = "UPDATE recensione SET approvazione = 1 WHERE id = ?;";
 
   private static final String
-  PROMOTE_USER = "UPDATE utente SET tipo = \"M\" WHERE id = ?";
+  PROMOTE_USER = "UPDATE utente SET tipo = \"M\" WHERE id = ?;";
 
   private static final String
-  DEMOTE_USER = "UPDATE utente SET tipo = \"U\" WHERE id = ?";
+  DEMOTE_USER = "UPDATE utente SET tipo = \"U\" WHERE id = ?;";
 
   private static final String
-  GET_TIMELINE = "SELECT * FROM timeline WHERE utente = ?";
+  GET_TIMELINE = "SELECT * FROM timeline WHERE utente = ?;";
 
   @Override
   public void insertUser(Utente utente) throws SQLException{
