@@ -54,7 +54,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setString(5, utente.getPassword());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -64,7 +64,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(1, utente.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -79,7 +79,7 @@ public class UtenteDao implements UtenteDaoInterface{
     }
     ps.close();
     rset.close();
-	connection.close();
+    connection.close();
     return all_users;
   }
 
@@ -89,7 +89,7 @@ public class UtenteDao implements UtenteDaoInterface{
     PreparedStatement ps = connection.prepareStatement(DELETE_ALL);
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -101,7 +101,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(3, gioco.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -113,7 +113,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(3, utente.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -123,7 +123,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(1, utente.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -133,7 +133,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(1, utente.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -143,7 +143,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(1, recensione.getId());
     ps.executeUpdate();
     ps.close();
-	connection.close();
+    connection.close();
   }
 
   @Override
@@ -163,7 +163,7 @@ public class UtenteDao implements UtenteDaoInterface{
     }
     ps.close();
     rset.close();
-	connection.close();
+    connection.close();
     return timeline;
   }
 }
