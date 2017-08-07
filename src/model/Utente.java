@@ -20,8 +20,13 @@ public class Utente{
     this.password = password;  
   }
   public Utente(int id, String nome, String cognome, String username, String email, String password, String tipo, int livello, int puntiExp){
-    this();
-    this.id = id;
+    // Calling this() causes problems with interactions with db.
+	this.id = id;
+	this.nome = nome;
+    this.cognome = cognome;
+    this.username = username;
+    this.email = email;
+    this.password = password; 
     this.tipo = tipo;
     this.livello = livello;
     this.puntiExp = puntiExp;
