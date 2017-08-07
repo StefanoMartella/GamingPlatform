@@ -75,7 +75,7 @@ public class UtenteDao implements UtenteDaoInterface{
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(ALL);
     while (rset.next()){
-      Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"), rset.getString("password"), rset.getString("tipo"), 0, 0);
+      Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"), rset.getString("password"), rset.getString("tipo"), rset.getInt("livello"), rset.getInt("puntiExp"));
       all_users.add(utente);
     }
     s.close();
