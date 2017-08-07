@@ -104,8 +104,8 @@ public class UtenteDao implements UtenteDaoInterface{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(VOTE_GAME);
     ps.setInt(1, voto);
-    ps.setInt(2, utente.getId());
-    ps.setInt(3, gioco.getId());
+    ps.setInt(2, gioco.getId());
+    ps.setInt(3, utente.getId());
     ps.executeUpdate();
     ps.close();
     connection.close();
