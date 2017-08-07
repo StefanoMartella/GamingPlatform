@@ -110,7 +110,7 @@ public class UtenteDao implements UtenteDaoInterface{
     PreparedStatement ps = connection.prepareStatement(FIND_BY_USERNAME);
     ps.setString(1, username);
     ResultSet rset = ps.executeQuery();
-    rset.first();
+    if (rset.first() == false) return null;
     utente = new Utente(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getInt(8), rset.getInt(9));
     ps.close();
     rset.close();
