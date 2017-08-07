@@ -32,6 +32,6 @@ public class Recensione{
   public void setIdUtente(int idUtente){ this.idUtente = idUtente; }
   
   public String toString(){
-    return (this.getId() + " - " + this.getTesto());
+    return this.getId() + " - " + this.getTesto();
   }
 }
