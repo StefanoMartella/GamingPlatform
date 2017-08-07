@@ -36,10 +36,10 @@ public class UtenteDao implements UtenteDaoInterface{
   APPROVE_REVIEW = "UPDATE recensione SET approvazione = 1 WHERE id = ?;";
 
   private static final String
-  PROMOTE_USER = "UPDATE utente SET tipo = \"M\" WHERE id = ?;";
+  PROMOTE_USER = "UPDATE utente SET tipo = \"moderatore\" WHERE id = ?;";
 
   private static final String
-  DEMOTE_USER = "UPDATE utente SET tipo = \"U\" WHERE id = ?;";
+  DEMOTE_USER = "UPDATE utente SET tipo = \"utente\" WHERE id = ?;";
 
   private static final String
   GET_TIMELINE = "SELECT * FROM timeline WHERE utente = ?;";
