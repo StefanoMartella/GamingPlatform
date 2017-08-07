@@ -175,7 +175,7 @@ public class UtenteDao implements UtenteDaoInterface{
   }
   
   @Override
-  public boolean gameAlredyVotedByUser(Utente utente, Gioco gioco) throws SQLException{
+  public boolean gameAlreadyVotedByUser(Utente utente, Gioco gioco) throws SQLException{
     boolean already_voted = false;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALREADY_VOTED);
