@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS `Gaming`;
 USE `Gaming`;
 
 
-/*UTENTE*/
+/* UTENTE */
 
 DROP TABLE IF EXISTS `utente`;
 CREATE TABLE `utente`(
@@ -19,8 +19,7 @@ CREATE TABLE `utente`(
 );
 
 
-
-/*GIOCO*/
+/* GIOCO */
 
 DROP TABLE IF EXISTS `gioco`;
 CREATE TABLE `gioco`(
@@ -30,7 +29,7 @@ CREATE TABLE `gioco`(
 );
 
 
-/*RECENSIONE*/
+/* RECENSIONE */
 
 DROP TABLE IF EXISTS `recensione`;
 CREATE TABLE `recensione`(
@@ -44,7 +43,8 @@ FOREIGN KEY (utente) REFERENCES utente(`id`),
 UNIQUE (`gioco`, `utente`)
 );
 
-/*TIMELINE*/
+
+/* TIMELINE */
 
 DROP TABLE IF EXISTS `timeline`;
 CREATE TABLE `timeline`(
@@ -56,7 +56,7 @@ FOREIGN KEY (utente) REFERENCES utente (`id`)
 );
 
 
-/*VOTO*/
+/* VOTO */
 
 DROP TABLE IF EXISTS `voto`;
 CREATE TABLE `voto`(
@@ -67,6 +67,7 @@ PRIMARY KEY (`utente`, `gioco`),
 FOREIGN KEY (utente) REFERENCES utente (`id`),
 FOREIGN KEY (gioco) REFERENCES gioco (`id`)
 );
+
 
 /* TRIGGER on level update */
 
@@ -90,6 +91,7 @@ AFTER INSERT ON `utente`
 FOR EACH ROW
 INSERT INTO timeline(utente, data, livello) VALUES (NEW.id, DATE(NOW()), NEW.livello);
 
+
 /* TRIGGER on new user deletion */
 
 DROP TRIGGER IF EXISTS `utentecancellato`;
@@ -108,7 +110,6 @@ INSERT INTO `utente`(`id`,`nome`,`cognome`,`username`,`email`,`password`,`tipo`,
 (4, 'Steve', 'Rogers', 'CapitanAmerica', 'capitano@avengers.com', 'scudo', 'moderatore', 2, 50);
 
 
-
 /* DUMP GIOCO */
 
 INSERT INTO `gioco`(`id`,`nome`,`exp`) VALUES
@@ -117,6 +118,7 @@ INSERT INTO `gioco`(`id`,`nome`,`exp`) VALUES
 (3, 'Asso piglia tutto', 10),
 (4, 'AcchiappaLaTalpa', 20),
 (5, 'Clash Royale', 3);
+
 
 /* DUMP RECENSIONI */
 
@@ -128,8 +130,6 @@ INSERT INTO `recensione`(`id`,`approvazione`,`testo`,`gioco`,`utente`) VALUES
 (5, 1, 'Fenomenale', 1, 2),
 (6, 1, 'Bel Gioco!!', 4 , 1),
 (7, 1, 'Un po bruttino', 3, 4);
-
-
 
 
 /* DUMP TIMELINE */
