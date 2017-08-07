@@ -48,6 +48,6 @@ public class Utente{
   public void setPuntiExp(int puntiExp){ this.puntiExp = puntiExp; }
   
   public String toString(){
-    return (this.getNome() + " " + this.getCognome() + " ," + this.getUsername());
+    return this.getNome() + " " + this.getCognome() + " ," + this.getUsername();
   }
 }
