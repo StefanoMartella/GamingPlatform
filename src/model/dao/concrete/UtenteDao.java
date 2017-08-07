@@ -192,17 +192,17 @@ public class UtenteDao implements UtenteDaoInterface{
   
   @Override
   public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException{
-    boolean already_made = false;
+    boolean already_reviewed = false;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(ALREADY_REVIEWED);
     ps.setInt(1, utente.getId());
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt(1) == 1){ already_made = true; }
+    if(rset.getInt(1) == 1){ already_reviewed = true; }
     ps.close();
     rset.close();
     connection.close();
-    return already_made;
+    return already_reviewed;
   }
 }
