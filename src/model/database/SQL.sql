@@ -37,10 +37,8 @@ CREATE TABLE `recensione`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `approvazione` tinyint(1) NOT NULL DEFAULT '0',
 `testo` varchar(255) NOT NULL,
-`gioco` int(5) NOT NULL,
-`utente` int(5) NOT NULL,
-FOREIGN KEY (gioco) REFERENCES gioco(id),
-FOREIGN KEY (utente) REFERENCES utente(id),
+`gioco` int(5) FOREIGN KEY REFERENCES gioco(`id`),
+`utente` int(5) FOREIGN KEY REFERENCES utente(`id`),
 UNIQUE (`gioco`, `utente`)
 );
 
@@ -50,7 +48,7 @@ DROP TABLE IF EXISTS `timeline`;
 CREATE TABLE `timeline`(
 `data` date NOT NULL,
 `livello` int(2) NOT NULL DEFAULT '0',
-`utente` int(5) NOT NULL REFERENCES utente (`id`),
+`utente` int(5) FOREIGN KEY REFERENCES utente (`id`),
 PRIMARY KEY (`utente`,`livello`)
 );
 
@@ -60,8 +58,8 @@ PRIMARY KEY (`utente`,`livello`)
 DROP TABLE IF EXISTS `voto`;
 CREATE TABLE `voto`(
 `votazione` int(1) NOT NULL DEFAULT '0',
-`utente` int(5) NOT NULL REFERENCES utente (`id`),
-`gioco` int(5) NOT NULL REFERENCES gioco (`id`),
+`utente` int(5) FOREIGN KEY REFERENCES utente (`id`),
+`gioco` int(5) FOREIGN KEY REFERENCES gioco (`id`),
 PRIMARY KEY (`utente`, `gioco`)
 );
 
