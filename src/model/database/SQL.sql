@@ -1,11 +1,11 @@
-CREATE DATABASE IF NOT EXISTS `Gaming`;
+DROP DATABASE IF EXISTS `Gaming`;
+CREATE DATABASE `Gaming`;
 
 USE `Gaming`;
 
 
 /* UTENTE */
 
-DROP TABLE IF EXISTS `utente`;
 CREATE TABLE `utente`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `nome` varchar(20) NOT NULL,
@@ -21,7 +21,6 @@ CREATE TABLE `utente`(
 
 /* GIOCO */
 
-DROP TABLE IF EXISTS `gioco`;
 CREATE TABLE `gioco`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `nome` varchar(30) NOT NULL UNIQUE,
@@ -31,7 +30,6 @@ CREATE TABLE `gioco`(
 
 /* RECENSIONE */
 
-DROP TABLE IF EXISTS `recensione`;
 CREATE TABLE `recensione`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `approvazione` tinyint(1) NOT NULL DEFAULT '0',
@@ -46,7 +44,6 @@ UNIQUE (`gioco`, `utente`)
 
 /* TIMELINE */
 
-DROP TABLE IF EXISTS `timeline`;
 CREATE TABLE `timeline`(
 `data` date NOT NULL,
 `livello` int(2) NOT NULL DEFAULT '0',
@@ -58,7 +55,6 @@ FOREIGN KEY (utente) REFERENCES utente (`id`)
 
 /* VOTO */
 
-DROP TABLE IF EXISTS `voto`;
 CREATE TABLE `voto`(
 `votazione` int(1) NOT NULL DEFAULT '0',
 `utente` int(5) ,
@@ -71,7 +67,6 @@ FOREIGN KEY (gioco) REFERENCES gioco (`id`)
 
 /* TRIGGER on level update */
 
-DROP TRIGGER IF EXISTS `updatetimeline`;
 DELIMITER $$
 CREATE TRIGGER `updatetimeline`
 AFTER UPDATE ON `utente`
@@ -85,7 +80,6 @@ DELIMITER ;
 
 /* TRIGGER on new user registration */
 
-DROP TRIGGER IF EXISTS `nuovoutente`;
 CREATE TRIGGER `nuovoutente`
 AFTER INSERT ON `utente`
 FOR EACH ROW
@@ -94,7 +88,6 @@ INSERT INTO timeline(utente, data, livello) VALUES (NEW.id, DATE(NOW()), NEW.liv
 
 /* TRIGGER on new user deletion */
 
-DROP TRIGGER IF EXISTS `utentecancellato`;
 CREATE TRIGGER `utentecancellato`
 AFTER DELETE ON `utente`
 FOR EACH ROW 
