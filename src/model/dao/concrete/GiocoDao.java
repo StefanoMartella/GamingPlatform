@@ -88,6 +88,8 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
     votes_avarage = rset.getDouble("average");
+    ps.close();
+    rset.close();
     connection.close();
     return votes_avarage;
   }
