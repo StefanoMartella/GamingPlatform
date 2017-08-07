@@ -75,7 +75,7 @@ public class UtenteDao implements UtenteDaoInterface{
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(ALL);
     while (rset.next()){
-      Utente utente = new Utente(rset.getInt("id"), rset.getString("nome"), rset.getString("cognome"), rset.getString("username"), rset.getString("email"), rset.getString("password"), rset.getString("tipo"), rset.getInt("livello"), rset.getInt("puntiExp"));
+      Utente utente = new Utente(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getInt(8), rset.getInt(9));
       all_users.add(utente);
     }
     s.close();
@@ -160,7 +160,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(1, utente.getId());
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
-      timeline.put(rset.getInt("livello"), rset.getDate("data").toString());
+      timeline.put(rset.getInt(2), rset.getDate(1).toString());
     }
     ps.close();
     rset.close();

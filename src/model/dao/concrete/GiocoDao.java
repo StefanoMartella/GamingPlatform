@@ -62,7 +62,7 @@ public class GiocoDao implements GiocoDaoInterface{
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(ALL);
     while (rset.next()){
-      Gioco gioco = new Gioco(rset.getInt("id"), rset.getString("nome"), rset.getInt("exp"));
+      Gioco gioco = new Gioco(rset.getInt(1), rset.getString(2), rset.getInt(3));
       all_games.add(gioco);
     }
     s.close();
@@ -81,13 +81,14 @@ public class GiocoDao implements GiocoDaoInterface{
   }
 
   @Override
-  public double getVotesAverage(Gioco gioco) throws SQLException{
-    double votes_avarage;
+  public float getVotesAverage(Gioco gioco) throws SQLException{
+    float votes_avarage;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(VOTES_AVERAGE);
     ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
-    votes_avarage = rset.getDouble("average");
+	rset.first();
+    votes_avarage = rset.getFloat(1);
     ps.close();
     rset.close();
     connection.close();
@@ -102,7 +103,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
-      Recensione recensione = new Recensione(rset.getInt("id"), rset.getBoolean("approvazione"), rset.getString("testo"), rset.getInt("gioco"), rset.getInt("utente"));
+      Recensione recensione = new Recensione(rset.getInt(1), rset.getBoolean(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
       game_reviews.add(recensione);
     }
     ps.close();
