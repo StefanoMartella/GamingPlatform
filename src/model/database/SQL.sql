@@ -19,18 +19,6 @@ CREATE TABLE `utente`(
 );
 
 
-/*RECENSIONE*/
-
-DROP TABLE IF EXISTS `recensione`;
-CREATE TABLE `recensione`(
-`id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`approvazione` tinyint(1) NOT NULL DEFAULT '0',
-`testo` varchar(255) NOT NULL,
-`gioco` int(5) NOT NULL REFERENCES gioco (`id`),
-`utente` int(5) NOT NULL REFERENCES utente (`id`),
-UNIQUE (`gioco`, `utente`)
-);
-
 
 /*GIOCO*/
 
@@ -41,6 +29,20 @@ CREATE TABLE `gioco`(
 `exp` int(2) NOT NULL
 );
 
+
+/*RECENSIONE*/
+
+DROP TABLE IF EXISTS `recensione`;
+CREATE TABLE `recensione`(
+`id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`approvazione` tinyint(1) NOT NULL DEFAULT '0',
+`testo` varchar(255) NOT NULL,
+`gioco` int(5) NOT NULL,
+`utente` int(5) NOT NULL,
+FOREIGN KEY (gioco) REFERENCES gioco(id),
+FOREIGN KEY (utente) REFERENCES utente(id),
+UNIQUE (`gioco`, `utente`)
+);
 
 /*TIMELINE*/
 
@@ -103,6 +105,16 @@ INSERT INTO `utente`(`id`,`nome`,`cognome`,`username`,`email`,`password`,`tipo`,
 (4, 'Steve', 'Rogers', 'CapitanAmerica', 'capitano@avengers.com', 'scudo', 'moderatore', 2, 50);
 
 
+
+/* DUMP GIOCO */
+
+INSERT INTO `gioco`(`id`,`nome`,`exp`) VALUES
+(1, 'Poker', 30),
+(2, 'Briscola', 5),
+(3, 'Asso piglia tutto', 10),
+(4, 'AcchiappaLaTalpa', 20),
+(5, 'Clash Royale', 3);
+
 /* DUMP RECENSIONI */
 
 INSERT INTO `recensione`(`id`,`approvazione`,`testo`,`gioco`,`utente`) VALUES
@@ -115,14 +127,6 @@ INSERT INTO `recensione`(`id`,`approvazione`,`testo`,`gioco`,`utente`) VALUES
 (7, 1, 'Un po bruttino', 3, 4);
 
 
-/* DUMP GIOCO */
-
-INSERT INTO `gioco`(`id`,`nome`,`exp`) VALUES
-(1, 'Poker', 30),
-(2, 'Briscola', 5),
-(3, 'Asso piglia tutto', 10),
-(4, 'AcchiappaLaTalpa', 20),
-(5, 'Clash Royale', 3);
 
 
 /* DUMP TIMELINE */
