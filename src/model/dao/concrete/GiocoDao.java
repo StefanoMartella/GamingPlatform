@@ -121,7 +121,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt("total") == 1){ already_voted = true; }
+    if(rset.getInt(1) == 1){ already_voted = true; }
     ps.close();
     rset.close();
     connection.close();
