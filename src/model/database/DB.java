@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DB{
-  private static String URL = "jdbc:mysql://localhost/Gaming";
+  private static String URL = "jdbc:mysql://localhost/Gaming?autoReconnect=true&useSSL=false";
   private static String DRIVER = "com.mysql.jdbc.Driver";
   private static String USER = "gaming";
   private static String PASSWORD = "gaming";
