@@ -45,10 +45,10 @@ public class UtenteDao implements UtenteDaoInterface{
   GET_TIMELINE = "SELECT * FROM timeline WHERE utente = ?;";
   
   private  static final String
-  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?;";
+  GAME_ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?;";
   
   private static final String
-  ALREADY_REVIEWED = "SELECT COUNT(*) AS total FROM recensione WHERE utente = ? and gioco = ?;";
+  GAME_ALREADY_REVIEWED = "SELECT COUNT(*) AS total FROM recensione WHERE utente = ? and gioco = ?;";
 
   @Override
   public void insertUser(Utente utente) throws SQLException{
@@ -178,7 +178,7 @@ public class UtenteDao implements UtenteDaoInterface{
   public boolean gameAlreadyVotedByUser(Utente utente, Gioco gioco) throws SQLException{
     boolean already_voted = false;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(ALREADY_VOTED);
+    PreparedStatement ps = connection.prepareStatement(GAME_ALREADY_VOTED);
     ps.setInt(1, utente.getId());
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
@@ -194,7 +194,7 @@ public class UtenteDao implements UtenteDaoInterface{
   public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException{
     boolean already_reviewed = false;
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(ALREADY_REVIEWED);
+    PreparedStatement ps = connection.prepareStatement(GAME_ALREADY_REVIEWED);
     ps.setInt(1, utente.getId());
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
