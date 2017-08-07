@@ -95,7 +95,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
     ps.setInt(1, utente.getId());
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
-    if(rset.getInt("total") == 1){ already_made = true; }
+    rset.first();
+    if(rset.getInt(1) == 1){ already_made = true; }
     ps.close();
     rset.close();
     connection.close();
