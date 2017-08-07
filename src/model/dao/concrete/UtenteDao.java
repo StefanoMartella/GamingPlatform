@@ -48,7 +48,7 @@ public class UtenteDao implements UtenteDaoInterface{
   ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?;";
   
   private static final String
-  ALREADY_REVIEWED = "SELECT COUNT(*) AS total FROM recensione WHERE gioco = ? and utente = ?;";
+  ALREADY_REVIEWED = "SELECT COUNT(*) AS total FROM recensione WHERE utente = ? and gioco = ?;";
 
   @Override
   public void insertUser(Utente utente) throws SQLException{

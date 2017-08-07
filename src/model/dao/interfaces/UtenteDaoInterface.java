@@ -21,5 +21,5 @@ public interface UtenteDaoInterface{
   public void disapproveReview(Recensione recensione) throws SQLException;
   public TreeMap<Integer, String> getTimeline(Utente utente) throws SQLException;
   public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException;
-  public boolean gameAlredyVotedByUser(Utente utente, Gioco gioco) throws SQLException;
+  public boolean gameAlreadyVotedByUser(Utente utente, Gioco gioco) throws SQLException;
 }
