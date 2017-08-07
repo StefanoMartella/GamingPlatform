@@ -28,9 +28,6 @@ public class RecensioneDao implements RecensioneDaoInterface{
   private static final String
   DELETE_ALL = "DELETE FROM gioco;";
 
-  private static final String
-  ALREADY_MADE = "SELECT COUNT(*) AS total FROM recensione WHERE gioco = ? and utente = ?;";
-
   @Override
   public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -85,21 +82,5 @@ public class RecensioneDao implements RecensioneDaoInterface{
     s.executeUpdate(DELETE_ALL);
     s.close();
     connection.close();
-  }
-
-  @Override
-  public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException{
-    boolean already_made = false;
-    Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(ALREADY_MADE);
-    ps.setInt(1, utente.getId());
-    ps.setInt(2, gioco.getId());
-    ResultSet rset = ps.executeQuery();
-    rset.first();
-    if(rset.getInt(1) == 1){ already_made = true; }
-    ps.close();
-    rset.close();
-    connection.close();
-    return already_made;
   }
 }

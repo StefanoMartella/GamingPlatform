@@ -14,10 +14,12 @@ public interface UtenteDaoInterface{
   public List<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
   public void voteGame(int voto, Utente utente, Gioco gioco) throws SQLException;
-  public void reviewGame(String testoRecensione, Gioco gioco, Utente utente) throws SQLException;
+  public void reviewGame(String testoRecensione, Utente utente, Gioco gioco) throws SQLException;
   public void promoteUser(Utente utente) throws SQLException;
   public void demoteUser(Utente utente) throws SQLException;
   public void approveReview(Recensione recensione) throws SQLException;
   public void disapproveReview(Recensione recensione) throws SQLException;
   public TreeMap<Integer, String> getTimeline(Utente utente) throws SQLException;
+  public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException;
+  public boolean gameAlredyVotedByUser(Utente utente, Gioco gioco) throws SQLException;
 }

@@ -12,5 +12,4 @@ public interface RecensioneDaoInterface{
   public List<Recensione> allReviews() throws SQLException;
   public List<Recensione> allReviewsNotApproved() throws SQLException;
   public void deleteAllReviews() throws SQLException;
-  public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException;
 }

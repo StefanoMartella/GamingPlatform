@@ -43,6 +43,12 @@ public class UtenteDao implements UtenteDaoInterface{
 
   private static final String
   GET_TIMELINE = "SELECT * FROM timeline WHERE utente = ?;";
+  
+  private  static final String
+  ALREADY_VOTED = "SELECT COUNT(*) AS total FROM voto WHERE utente = ? and gioco = ?;";
+  
+  private static final String
+  ALREADY_REVIEWED = "SELECT COUNT(*) AS total FROM recensione WHERE gioco = ? and utente = ?;";
 
   @Override
   public void insertUser(Utente utente) throws SQLException{
@@ -106,7 +112,7 @@ public class UtenteDao implements UtenteDaoInterface{
   }
 
   @Override
-  public void reviewGame(String testoRecensione, Gioco gioco, Utente utente) throws SQLException{
+  public void reviewGame(String testoRecensione, Utente utente, Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(REVIEW_GAME);
     ps.setString(1, testoRecensione);
@@ -166,5 +172,37 @@ public class UtenteDao implements UtenteDaoInterface{
     rset.close();
     connection.close();
     return timeline;
+  }
+  
+  @Override
+  public boolean gameAlredyVotedByUser(Utente utente, Gioco gioco) throws SQLException{
+    boolean already_voted = false;
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(ALREADY_VOTED);
+    ps.setInt(1, utente.getId());
+    ps.setInt(2, gioco.getId());
+    ResultSet rset = ps.executeQuery();
+    rset.first();
+    if(rset.getInt(1) == 1){ already_voted = true; }
+    ps.close();
+    rset.close();
+    connection.close();
+    return already_voted;
+  }
+  
+  @Override
+  public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException{
+    boolean already_made = false;
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(ALREADY_REVIEWED);
+    ps.setInt(1, utente.getId());
+    ps.setInt(2, gioco.getId());
+    ResultSet rset = ps.executeQuery();
+    rset.first();
+    if(rset.getInt(1) == 1){ already_made = true; }
+    ps.close();
+    rset.close();
+    connection.close();
+    return already_made;
   }
 }
