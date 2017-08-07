@@ -11,8 +11,8 @@ public class Gioco{
     this.exp = exp;  
   }
   public Gioco(int id, String nome, int exp){
-	// Calling this() causes problems with interactions with db.
-	this.id = id;
+    // Calling this() causes problems with interactions with db.
+    this.id = id;
     this.nome = nome;
     this.exp = exp;
   }
