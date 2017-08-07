@@ -21,8 +21,8 @@ public class Utente{
   }
   public Utente(int id, String nome, String cognome, String username, String email, String password, String tipo, int livello, int puntiExp){
     // Calling this() causes problems with interactions with db.
-	this.id = id;
-	this.nome = nome;
+    this.id = id;
+    this.nome = nome;
     this.cognome = cognome;
     this.username = username;
     this.email = email;
