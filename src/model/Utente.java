@@ -12,6 +12,10 @@ public class Utente{
   private int puntiExp;
 
   public Utente(){}
+  public Utente(String username, String password){
+	this.username = username;
+	this.password = password;
+  }
   public Utente(String nome, String cognome, String username, String email, String password){
     this.nome = nome;
     this.cognome = cognome;
