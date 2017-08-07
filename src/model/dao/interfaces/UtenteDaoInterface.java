@@ -13,6 +13,7 @@ public interface UtenteDaoInterface{
   public void deleteUser(Utente utente) throws SQLException;
   public List<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
+  public Utente findUserByUsername(String username) throws SQLException;
   public void voteGame(int voto, Utente utente, Gioco gioco) throws SQLException;
   public void reviewGame(String testoRecensione, Utente utente, Gioco gioco) throws SQLException;
   public void promoteUser(Utente utente) throws SQLException;
