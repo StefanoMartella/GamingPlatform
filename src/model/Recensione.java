@@ -14,9 +14,9 @@ public class Recensione{
     this.idUtente = idUtente;  
   }
   public Recensione(int id, boolean approvazione, String testo, int idGioco, int idUtente){
-	// Calling this() causes problems with interactions with db.
-	this.id = id;
-	this.approvazione = approvazione;
+    // Calling this() causes problems with interactions with db.
+    this.id = id;
+    this.approvazione = approvazione;
     this.testo = testo;
     this.idGioco = idGioco;
     this.idUtente = idUtente;
