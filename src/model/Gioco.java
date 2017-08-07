@@ -24,6 +24,6 @@ public class Gioco{
   public void setExp(int exp){ this.exp = exp; }
   
   public String toString(){
-    return (this.getId() + " - " + this.getNome());
+    return this.getId() + " - " + this.getNome();
   }
 }
