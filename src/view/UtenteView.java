@@ -8,6 +8,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -159,7 +160,7 @@ public class UtenteView {
 		Font font = new Font("SEGOE UI Light", Font.BOLD,16);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBenvenutoUtente.setBounds(133, 35, 179, 69);
+		lblBenvenutoUtente.setBounds(133, 35, 250, 69);
 		panel_2.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("PROFILO PERSONALE");
@@ -177,11 +178,20 @@ public class UtenteView {
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel.setVisible(false);
-				panel_2.setVisible(true);
+				
 				try{
 				Utente ut = new GestioneUtenza().login(textField.getText(), new String(psswrdField.getPassword()));
-				lblBenvenutoUtente.setText("BENVENUTO " + ut.getUsername());
+				if(ut==null)
+				{
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Username o password errati", "Login error", JOptionPane.ERROR_MESSAGE);
+					textField.setText("");
+					psswrdField.setText("");
+				}
+				else{
+					panel.setVisible(false);
+					panel_2.setVisible(true);
+					lblBenvenutoUtente.setText("BENVENUTO " + ut.getUsername());
+				}
 				}
 				catch(SQLException exc){
 			exc.printStackTrace();
