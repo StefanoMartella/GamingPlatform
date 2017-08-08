@@ -52,6 +52,12 @@ public class UtenteDao implements UtenteDaoInterface{
   
   private static final String
   GAME_ALREADY_REVIEWED = "SELECT COUNT(*) AS total FROM recensione WHERE utente = ? and gioco = ?;";
+  
+  private static final String
+  USERNAME_ALREADY_USED = "SELECT COUNT(*) AS total FROM utente WHERE username = ?;";
+  
+  private static final String
+  EMAIL_ALREADY_USED = "SELECT COUNT(*) AS total FROM utente WHERE email = ?;";
 
   @Override
   public void insertUser(Utente utente) throws SQLException{
@@ -143,6 +149,16 @@ public class UtenteDao implements UtenteDaoInterface{
   }
 
   @Override
+  public void approveReview(Recensione recensione) throws SQLException{
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(APPROVE_REVIEW);
+    ps.setInt(1, recensione.getId());
+    ps.executeUpdate();
+    ps.close();
+    connection.close();
+  }
+  
+  @Override
   public void promoteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(PROMOTE_USER);
@@ -157,16 +173,6 @@ public class UtenteDao implements UtenteDaoInterface{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(DEMOTE_USER);
     ps.setInt(1, utente.getId());
-    ps.executeUpdate();
-    ps.close();
-    connection.close();
-  }
-
-  @Override
-  public void approveReview(Recensione recensione) throws SQLException{
-    Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(APPROVE_REVIEW);
-    ps.setInt(1, recensione.getId());
     ps.executeUpdate();
     ps.close();
     connection.close();
@@ -223,5 +229,29 @@ public class UtenteDao implements UtenteDaoInterface{
     rset.close();
     connection.close();
     return already_reviewed;
+  }
+   
+  public boolean usernameOrPasswordAlreadyUsed(String QUERY, String email_or_password) throws SQLException{
+	boolean username_or_password_used = false;
+	Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(QUERY);
+	ps.setString(1, email_or_password);
+	ResultSet rset = ps.executeQuery();
+	rset.first();
+	if(rset.getInt(1) == 1){ username_or_password_used = true; }
+	ps.close();
+    rset.close();
+    connection.close();
+    return username_or_password_used;
+  }
+  
+  @Override
+  public boolean usernameAlreadyUsed(String username) throws SQLException{
+	return usernameOrPasswordAlreadyUsed(USERNAME_ALREADY_USED, username);
+  }
+  
+  @Override 
+  public boolean emailAlreadyUsed(String email) throws SQLException{
+	return usernameOrPasswordAlreadyUsed(EMAIL_ALREADY_USED, email);
   }
 }

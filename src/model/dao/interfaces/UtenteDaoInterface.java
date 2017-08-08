@@ -16,11 +16,13 @@ public interface UtenteDaoInterface{
   public Utente findUserByUsername(String username) throws SQLException;
   public void voteGame(int voto, Utente utente, Gioco gioco) throws SQLException;
   public void reviewGame(String testoRecensione, Utente utente, Gioco gioco) throws SQLException;
+  public void approveReview(Recensione recensione) throws SQLException;
   public void promoteUser(Utente utente) throws SQLException;
   public void demoteUser(Utente utente) throws SQLException;
-  public void approveReview(Recensione recensione) throws SQLException;
   public void disapproveReview(Recensione recensione) throws SQLException;
   public TreeMap<Integer, String> getTimeline(Utente utente) throws SQLException;
   public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException;
   public boolean gameAlreadyVotedByUser(Utente utente, Gioco gioco) throws SQLException;
+  public boolean usernameAlreadyUsed(String username) throws SQLException;
+  public boolean emailAlreadyUsed(String email) throws SQLException;
 }
