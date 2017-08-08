@@ -232,14 +232,14 @@ public class UtenteDao implements UtenteDaoInterface{
   }
    
   public boolean usernameOrPasswordAlreadyUsed(String QUERY, String email_or_password) throws SQLException{
-	boolean username_or_password_used = false;
-	Connection connection = DB.openConnection();
+    boolean username_or_password_used = false;
+    Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(QUERY);
-	ps.setString(1, email_or_password);
-	ResultSet rset = ps.executeQuery();
-	rset.first();
-	if(rset.getInt(1) == 1){ username_or_password_used = true; }
-	ps.close();
+    ps.setString(1, email_or_password);
+    ResultSet rset = ps.executeQuery();
+    rset.first();
+    if(rset.getInt(1) == 1){ username_or_password_used = true; }
+    ps.close();
     rset.close();
     connection.close();
     return username_or_password_used;
@@ -247,11 +247,11 @@ public class UtenteDao implements UtenteDaoInterface{
   
   @Override
   public boolean usernameAlreadyUsed(String username) throws SQLException{
-	return usernameOrPasswordAlreadyUsed(USERNAME_ALREADY_USED, username);
+    return usernameOrPasswordAlreadyUsed(USERNAME_ALREADY_USED, username);
   }
   
   @Override 
   public boolean emailAlreadyUsed(String email) throws SQLException{
-	return usernameOrPasswordAlreadyUsed(EMAIL_ALREADY_USED, email);
+    return usernameOrPasswordAlreadyUsed(EMAIL_ALREADY_USED, email);
   }
 }
