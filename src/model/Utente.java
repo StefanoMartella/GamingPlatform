@@ -35,6 +35,21 @@ public class Utente{
     this.livello = livello;
     this.puntiExp = puntiExp;
   }
+  public Utente(int id, String nome, String cognome, String username, String email, String password, String tipo, int puntiExp){
+    this.id = id;
+    this.nome = nome;
+    this.cognome = cognome;
+    this.username = username;
+    this.email = email;
+    this.password = password; 
+    this.tipo = tipo;
+	if(puntiExp >= 500)
+		this.livello = 5;
+	else
+		this.livello = puntiExp/100;
+    this.puntiExp = puntiExp;
+  }
+  
 
   public int getId(){ return this.id; }
   public String getNome(){ return this.nome; }
@@ -56,7 +71,22 @@ public class Utente{
   public void setLivello(int livello){ this.livello = livello; }
   public void setPuntiExp(int puntiExp){ this.puntiExp = puntiExp; }
   
+  @Override
   public String toString(){
     return this.getNome() + " " + this.getCognome() + " ," + this.getUsername();
+  }
+  
+  @Override
+  public boolean equals(Object obj){
+	Utente utente;
+	if(obj instanceof Utente)
+		utente = (Utente)obj;
+	else
+		return false;
+	
+	if((this.username.equals(utente.username) || this.email.equals(utente.email)) && this.password.equals(utente.password))
+		return true;
+	return false;
+	  
   }
 }

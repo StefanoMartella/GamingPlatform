@@ -34,6 +34,7 @@ public class Recensione{
   public void setIdGioco(int idGioco){ this.idGioco = idGioco; }
   public void setIdUtente(int idUtente){ this.idUtente = idUtente; }
   
+  @Override
   public String toString(){
     return this.getId() + " - " + this.getTesto();
   }

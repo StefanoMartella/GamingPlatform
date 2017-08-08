@@ -11,6 +11,7 @@ public interface GiocoDaoInterface{
   public void deleteGame(Gioco gioco) throws SQLException;
   public List<Gioco> allGames() throws SQLException;
   public void deleteAllGames() throws SQLException;
+  public Gioco findGameByName(String name) throws SQLException;
   public float getVotesAverage(Gioco gioco) throws SQLException;
   public List<Recensione> allGameReviews(Gioco gioco) throws SQLException;
 }

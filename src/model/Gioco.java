@@ -25,6 +25,7 @@ public class Gioco{
   public void setNome(String nome){ this.nome = nome; }
   public void setExp(int exp){ this.exp = exp; }
   
+  @Override
   public String toString(){
     return this.getId() + " - " + this.getNome();
   }
