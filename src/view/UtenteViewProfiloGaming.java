@@ -66,9 +66,9 @@ public class UtenteViewProfiloGaming{
 		label_1.setBounds(134, 90, 166, 14);
 		panel_1.add(label_1);
 		
-		JLabel label_2 = new JLabel("Hai collezionato " + ut.getLivello() + " trofei!");
-		label_2.setBounds(134, 120, 166, 14);
-		panel_1.add(label_2);
+		JButton trofei = new JButton("visualizza trofei");
+		trofei.setBounds(134, 120, 140, 15);
+		panel_1.add(trofei);
 		
 		JLabel lblTimeline = new JLabel("Timeline:");
 		lblTimeline.setBounds(10, 200, 166, 14);
