@@ -1,7 +1,7 @@
 package model.dao.interfaces;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.util.TreeMap;
 
@@ -11,9 +11,10 @@ public interface UtenteDaoInterface{
 
   public void insertUser(Utente utente) throws SQLException;
   public void deleteUser(Utente utente) throws SQLException;
-  public List<Utente> allUsers() throws SQLException;
+  public ArrayList<Utente> allUsers() throws SQLException;
   public void deleteAllUsers() throws SQLException;
   public Utente findUserByUsername(String username) throws SQLException;
+  public void play(Utente ut, Gioco g) throws SQLException;
   public void voteGame(int voto, Utente utente, Gioco gioco) throws SQLException;
   public void reviewGame(String testoRecensione, Utente utente, Gioco gioco) throws SQLException;
   public void approveReview(Recensione recensione) throws SQLException;

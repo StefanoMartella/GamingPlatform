@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import model.dao.interfaces.RecensioneDaoInterface;
 import model.database.DB;
@@ -50,8 +49,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
     connection.close();
   }
 
-  public List<Recensione> filterReviews(String QUERY) throws SQLException{
-    List<Recensione> filtred_reviews = new ArrayList<>();
+  public ArrayList<Recensione> filterReviews(String QUERY) throws SQLException{
+    ArrayList<Recensione> filtred_reviews = new ArrayList<>();
     Connection connection = DB.openConnection();
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(QUERY);
@@ -66,12 +65,12 @@ public class RecensioneDao implements RecensioneDaoInterface{
   }
 
   @Override
-  public List<Recensione> allReviews() throws SQLException{
+  public ArrayList<Recensione> allReviews() throws SQLException{
     return filterReviews(ALL);
   }
 
   @Override
-  public List<Recensione> allReviewsNotApproved() throws SQLException{
+  public ArrayList<Recensione> allReviewsNotApproved() throws SQLException{
     return filterReviews(ALL_NOT_APPROVED);
   }
 

@@ -1,0 +1,84 @@
+package view;
+
+import controller.*;
+import model.*;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+
+import java.util.*;
+import java.sql.*;
+
+public class UtenteViewProfiloPers{
+	JFrame frmPiattaformaGaming;
+	Utente ut;
+	
+	public UtenteViewProfiloPers(JFrame frame, Utente ut){
+		this.frmPiattaformaGaming=frame;
+		this.ut=ut;
+		initialize();
+	}
+	
+	public void initialize(){
+	JPanel panel_4 = new JPanel();
+		panel_4.setBounds(0, 0, 434, 261);
+		frmPiattaformaGaming.getContentPane().add(panel_4);
+		panel_4.setLayout(null);
+		panel_4.setVisible(true);
+		
+		JLabel lblNewLabel_3 = new JLabel("Nome");
+		lblNewLabel_3.setBounds(10, 31, 114, 14);
+		panel_4.add(lblNewLabel_3);
+		
+		JLabel lblLivello_1 = new JLabel("Cognome");
+		lblLivello_1.setBounds(10, 85, 114, 14);
+		panel_4.add(lblLivello_1);
+		
+		JLabel lblLivello = new JLabel("Username");
+		lblLivello.setBounds(10, 149, 114, 14);
+		panel_4.add(lblLivello);
+		
+		JLabel lblTrofei = new JLabel("E-Mail");
+		lblTrofei.setBounds(10, 215, 114, 14);
+		panel_4.add(lblTrofei);
+		
+		JLabel lblNewLabel_4 = new JLabel(ut.getNome());
+		lblNewLabel_4.setBounds(134, 31, 166, 14);
+		panel_4.add(lblNewLabel_4);
+		
+		JLabel label = new JLabel(ut.getCognome());
+		label.setBounds(134, 85, 166, 14);
+		panel_4.add(label);
+		
+		JLabel label_1 = new JLabel(ut.getUsername());
+		label_1.setBounds(134, 149, 166, 14);
+		panel_4.add(label_1);
+		
+		JLabel label_2 = new JLabel(ut.getEmail());
+		label_2.setBounds(134, 215, 166, 14);
+		panel_4.add(label_2);
+		
+		JButton btnHome = new JButton("HOME");
+		btnHome.setBounds(335, 227, 89, 23);
+		panel_4.add(btnHome);
+		
+		
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_4.setVisible(false);
+				new UtenteView(frmPiattaformaGaming, ut);
+		}});
+	}
+}

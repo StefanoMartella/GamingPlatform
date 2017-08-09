@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeMap;
 
 import model.dao.interfaces.UtenteDaoInterface;
@@ -28,6 +27,9 @@ public class UtenteDao implements UtenteDaoInterface{
   
   private static final String
   FIND_BY_USERNAME = "SELECT * FROM utente WHERE username = ?;";
+  
+  private static final String
+  PLAY = "UPDATE utente SET puntiExp = ? + ? WHERE username = ?;";
 
   private static final String
   VOTE_GAME = "INSERT INTO voto(votazione, gioco, utente) VALUES (?, ?, ?);";
@@ -84,8 +86,8 @@ public class UtenteDao implements UtenteDaoInterface{
   }
 
   @Override
-  public List<Utente> allUsers() throws SQLException{
-    List<Utente> all_users = new ArrayList<>();
+  public ArrayList<Utente> allUsers() throws SQLException{
+    ArrayList<Utente> all_users = new ArrayList<>();
     Connection connection = DB.openConnection();
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(ALL);
@@ -122,6 +124,19 @@ public class UtenteDao implements UtenteDaoInterface{
     rset.close();
     connection.close();
     return utente;
+  }
+  
+  @Override
+  public void play(Utente ut, Gioco g) throws SQLException{
+	Connection connection = DB.openConnection();  
+    PreparedStatement ps = connection.prepareStatement(PLAY);
+    ps.setInt(1, ut.getPuntiExp());
+	ps.setInt(2, g.getExp());
+	ps.setString(3, ut.getUsername());
+	ps.executeUpdate();
+    ps.close();
+    connection.close();
+	ut.setPuntiExp(ut.getPuntiExp()+g.getExp());
   }
   
   @Override
