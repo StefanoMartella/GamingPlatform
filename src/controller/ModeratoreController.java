@@ -6,23 +6,29 @@ import java.sql.*;
 
 public class ModeratoreController extends UtenteController{ 
 	// Eredita da UtenteController utente e gioco
-	Utente utente_base; //o moderatore, oggetto che viene passato al metodo promote o demote.
+	Utente utente_target; // oggetto che viene passato al metodo promote o demote.
 	Recensione recensione;
 	
-	public void setUtenteBase(Utente utente_base){ this.utente_base = utente_base; }
+	public void setUtenteTarget(Utente utente_target){ this.utente_target = utente_target; }
 	public void setRecensione(Recensione recensione){ this.recensione = recensione; }
-	public Utente getUtenteBase(){ return this.utente_base; }
+	public Utente getUtenteTarget(){ return this.utente_target; }
 	public Recensione getRecensione(){ return this.recensione; }
 	
 	public String promote() throws SQLException{
 		// Non serve controllare se l'utente esiste, filtraggio fatto dalla view
-		new UtenteDao().promoteUser(utente_base);
+		if( utente_target.getTipo().equals("amministratore") )
+			return "Promozione non riuscita, l'utente è un ammimistratore";
+
+		new UtenteDao().promoteUser(utente_target);
 		return "Promozione andata a buon fine.";
 	}
 	
 	public String demote() throws SQLException{
 		// Non serve controllare se l'utente esiste, filtraggio fatto dalla view
-		new UtenteDao().demoteUser(utente_base);
+		if( utente_target.getTipo().equals("amministratore") )
+			return "Retrocessione non riuscita, l'utente è un amministratore";
+
+		new UtenteDao().demoteUser(utente_target);
 		return "Retrocessione andata a buon fine.";
 	}
 	
