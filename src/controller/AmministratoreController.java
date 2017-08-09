@@ -5,12 +5,15 @@ import model.*;
 import java.sql.*;
 
 public class AmministratoreController extends UtenteController{
-	Utente moderatore;
+	Utente amministratore;
+	Utente utente;
 	Gioco gioco;
 	
-	public void setModeratore(Utente moderatore){ this.moderatore = moderatore; }
+	public void setModeratore(Utente amministratore){ this.amministratore= amministratore; }
+	public void setUtente(Utente utente){ this.utente = utente; }
 	public void setGioco(Gioco gioco){ this.gioco = gioco; }
-	public Utente getModeratore(){ return this.moderatore; }
+	public Utente getAmministratore(){ return this.amministratore; }
+	public Utente getUtente(){ return this.utente; }
 	public Gioco getGioco(){ return this.gioco; }
 	
 	public String insertGame(String nome, int exp) throws SQLException{

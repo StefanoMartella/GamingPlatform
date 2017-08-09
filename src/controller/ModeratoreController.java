@@ -5,7 +5,8 @@ import model.*;
 import java.sql.*;
 
 public class ModeratoreController extends UtenteController{ 
-	Utente utente_base;
+	// Eredita da UtenteController utente e gioco
+	Utente utente_base; //o moderatore, oggetto che viene passato al metodo promote o demote.
 	Recensione recensione;
 	
 	public void setUtenteBase(Utente utente_base){ this.utente_base = utente_base; }
@@ -15,13 +16,13 @@ public class ModeratoreController extends UtenteController{
 	
 	public String promote() throws SQLException{
 		// Non serve controllare se l'utente esiste, filtraggio fatto dalla view
-		new UtenteDao().promoteUser(utente);
+		new UtenteDao().promoteUser(utente_base);
 		return "Promozione andata a buon fine.";
 	}
 	
 	public String demote() throws SQLException{
 		// Non serve controllare se l'utente esiste, filtraggio fatto dalla view
-		new UtenteDao().demoteUser(utente);
+		new UtenteDao().demoteUser(utente_base);
 		return "Retrocessione andata a buon fine.";
 	}
 	
