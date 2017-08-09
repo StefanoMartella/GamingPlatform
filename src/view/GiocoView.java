@@ -43,72 +43,72 @@ public class GiocoView{
 		panel_6.setLayout(null);
 		panel_6.setVisible(true);
 		
-		JLabel lblNewLabel_3 = new JLabel("Nome");
-		lblNewLabel_3.setBounds(40, 11, 114, 14);
+		JLabel lblNewLabel_3 = new JLabel("Nome:");
+		lblNewLabel_3.setBounds(40, 10, 114, 14);
 		panel_6.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Esperienza fornita");
-		lblNewLabel_4.setBounds(40, 61, 114, 14);
+		JLabel lblNewLabel_4 = new JLabel("Esperienza fornita:");
+		lblNewLabel_4.setBounds(270, 10, 114, 14);
 		panel_6.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel(gioco.getNome());
-		lblNewLabel_5.setBounds(215, 11, 114, 14);
+		lblNewLabel_5.setBounds(90, 10, 114, 14);
 		panel_6.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel(""+gioco.getExp());
-		lblNewLabel_6.setBounds(230, 61, 114, 14);
+		lblNewLabel_6.setBounds(390, 10, 114, 14);
 		panel_6.add(lblNewLabel_6);
 		
 		JButton btnGioca = new JButton("GIOCA");
-		btnGioca.setBounds(340, 31, 89, 23);
+		btnGioca.setBounds(115, 227, 89, 23);
 		panel_6.add(btnGioca);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(50, 101, 111, 110);
+		textPane.setBounds(50, 40, 350, 50);
 		panel_6.add(textPane);
 		
 		JButton btnReview = new JButton("Recensisci");
-		btnReview.setBounds(43, 227, 130, 23);
+		btnReview.setBounds(165, 100, 130, 23);
 		panel_6.add(btnReview);
 		
 		ButtonGroup bg = new ButtonGroup();
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("1");
 		rdbtnNewRadioButton.setActionCommand("1");
-		rdbtnNewRadioButton.setBounds(240, 121, 40, 23);
+		rdbtnNewRadioButton.setBounds(130, 140, 40, 23);
 		panel_6.add(rdbtnNewRadioButton);
 		bg.add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("2");
 		rdbtnNewRadioButton_1.setActionCommand("2");
-		rdbtnNewRadioButton_1.setBounds(280, 121, 40, 23);
+		rdbtnNewRadioButton_1.setBounds(170, 140, 40, 23);
 		panel_6.add(rdbtnNewRadioButton_1);
 		bg.add(rdbtnNewRadioButton_1);
 		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("3");
 		rdbtnNewRadioButton_2.setActionCommand("3");
-		rdbtnNewRadioButton_2.setBounds(320, 121, 40, 23);
+		rdbtnNewRadioButton_2.setBounds(210, 140, 40, 23);
 		panel_6.add(rdbtnNewRadioButton_2);
 		bg.add(rdbtnNewRadioButton_2);
 		
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("4");
 		rdbtnNewRadioButton_3.setActionCommand("4");
-		rdbtnNewRadioButton_3.setBounds(360, 121, 40, 23);
+		rdbtnNewRadioButton_3.setBounds(250, 140, 40, 23);
 		panel_6.add(rdbtnNewRadioButton_3);
 		bg.add(rdbtnNewRadioButton_3);
 		
 		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("5");
 		rdbtnNewRadioButton_4.setActionCommand("5");
-		rdbtnNewRadioButton_4.setBounds(400, 121, 40, 23);
+		rdbtnNewRadioButton_4.setBounds(290, 140, 40, 23);
 		panel_6.add(rdbtnNewRadioButton_4);
 		bg.add(rdbtnNewRadioButton_4);
 		
-		JButton btnVota = new JButton("VOTA");
-		btnVota.setBounds(282, 155, 89, 23);
+		JButton btnVota = new JButton("Vota");
+		btnVota.setBounds(187, 170, 89, 23);
 		panel_6.add(btnVota);
 		
 		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(335, 227, 89, 23);
+		btnBack.setBounds(250, 227, 89, 23);
 		panel_6.add(btnBack);
 		
 		

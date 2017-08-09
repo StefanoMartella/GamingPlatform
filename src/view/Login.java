@@ -74,39 +74,39 @@ public class Login {
 		panel.setVisible(true);
 		
 		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setBounds(56, 41, 99, 14);
+		lblNewLabel.setBounds(45, 65, 99, 14);
 		panel.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(56, 125, 99, 14);
+		lblPassword.setBounds(45, 120, 99, 14);
 		panel.add(lblPassword);
 		
 		textField = new JTextField();
-		textField.setBounds(138, 38, 86, 20);
+		textField.setBounds(130, 65, 86, 20);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		psswrdField = new JPasswordField();
 		psswrdField.setColumns(10);
-		psswrdField.setBounds(138, 122, 86, 20);
+		psswrdField.setBounds(130, 120, 86, 20);
 		psswrdField.setEchoChar('*'); 
 		panel.add(psswrdField);
 		
 		JLabel lblNewLabel_1 = new JLabel("Sei nuovo?");
-		lblNewLabel_1.setBounds(338, 52, 86, 14);
+		lblNewLabel_1.setBounds(330, 75, 86, 14);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Registrati!");
-		lblNewLabel_2.setBounds(338, 77, 86, 14);
+		lblNewLabel_2.setBounds(330, 95, 86, 14);
 		panel.add(lblNewLabel_2);
 		
 		JButton btnSignIn = new JButton("SIGN-IN");
-		btnSignIn.setBounds(324, 102, 89, 23);
+		btnSignIn.setBounds(315, 120, 89, 23);
 		panel.add(btnSignIn);
 		
 		JButton btnLogin = new JButton("LOGIN");
 		
-		btnLogin.setBounds(138, 150, 89, 23);
+		btnLogin.setBounds(130, 170, 89, 23);
 		panel.add(btnLogin);
 		
 		btnLogin.addActionListener(new ActionListener() {
