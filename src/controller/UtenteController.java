@@ -8,10 +8,10 @@ public class UtenteController{
 	Utente utente;
 	Gioco gioco;
 	
-	public void setUtente(Utente utente){ this.utente = utente; };
-	public void setGioco(Gioco gioco){ this.gioco = gioco; };
-	public Utente getUtente(){return this.utente;};
-	public Gioco getGioco(){return this.gioco;};
+	public void setUtente(Utente utente){ this.utente = utente; }
+	public void setGioco(Gioco gioco){ this.gioco = gioco; }
+	public Utente getUtente(){ return this.utente; }
+	public Gioco getGioco(){ return this.gioco; }
 	
 	public String vote(int voto) throws SQLException{
 		if(new UtenteDao().gameAlreadyVotedByUser(utente, gioco))
