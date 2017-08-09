@@ -107,9 +107,9 @@ public class GiocoView{
 		btnVota.setBounds(282, 155, 89, 23);
 		panel_6.add(btnVota);
 		
-		JButton btnHome = new JButton("HOME");
-		btnHome.setBounds(335, 227, 89, 23);
-		panel_6.add(btnHome);
+		JButton btnBack = new JButton("Indietro");
+		btnBack.setBounds(335, 227, 89, 23);
+		panel_6.add(btnBack);
 		
 		
 		btnGioca.addActionListener(new ActionListener() {
@@ -135,10 +135,10 @@ public class GiocoView{
 		}
 		});
 		
-		btnHome.addActionListener(new ActionListener() {
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_6.setVisible(false);
-				new UtenteView(frmPiattaformaGaming, ut);
+				new UtenteViewGL(frmPiattaformaGaming, ut);
 		}});
 		
 	}

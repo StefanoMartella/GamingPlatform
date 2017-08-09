@@ -54,7 +54,7 @@ public class Login {
 		this.frmPiattaformaGaming=frm;
 		frmPiattaformaGaming = new JFrame();
 		frmPiattaformaGaming.setTitle("Piattaforma gaming");
-		frmPiattaformaGaming.setBounds(100, 100, 450, 300);
+		frmPiattaformaGaming.setBounds(700, 300, 450, 300);
 		frmPiattaformaGaming.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPiattaformaGaming.getContentPane().setLayout(null);
 		frmPiattaformaGaming.setResizable(false);

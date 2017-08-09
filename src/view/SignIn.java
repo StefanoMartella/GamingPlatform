@@ -95,7 +95,7 @@ public class SignIn{
 		btnRegistrati.setBounds(183, 157, 139, 23);
 		panel_3.add(btnRegistrati);
 		
-		JButton btnLogin = new JButton("INDIETRO");
+		JButton btnLogin = new JButton("Indietro");
 		btnLogin.setBounds(335, 227, 89, 23);
 		panel_3.add(btnLogin);
 		

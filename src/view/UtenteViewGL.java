@@ -39,6 +39,22 @@ public class UtenteViewGL{
 		panel_5.setLayout(null);
 		panel_5.setVisible(true);
 		
+		JButton btnHome = new JButton("Home");
+		btnHome.setBounds(335, 227, 89, 23);
+		panel_5.add(btnHome);
+		
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(ut.getTipo().equals("moderatore")){
+					panel_5.setVisible(false);
+					new ModeratoreView(frmPiattaformaGaming, ut);
+				}
+				else{
+					panel_5.setVisible(false);
+					new UtenteView(frmPiattaformaGaming, ut);
+				}
+		}});
+		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JButton> jl = new ArrayList<JButton>();
 		for(Gioco g: gl){

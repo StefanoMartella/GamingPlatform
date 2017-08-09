@@ -70,15 +70,21 @@ public class UtenteViewProfiloGaming{
 		label_2.setBounds(134, 215, 166, 14);
 		panel_1.add(label_2);
 		
-		JButton btnHome = new JButton("HOME");
+		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(335, 227, 89, 23);
 		panel_1.add(btnHome);
 		
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(false);
-				new UtenteView(frmPiattaformaGaming, ut);
+				if(ut.getTipo().equals("moderatore")){
+					panel_1.setVisible(false);
+					new ModeratoreView(frmPiattaformaGaming, ut);
+				}
+				else{
+					panel_1.setVisible(false);
+					new UtenteView(frmPiattaformaGaming, ut);
+				}
 		}});
 	}
 }

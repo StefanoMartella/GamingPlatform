@@ -46,25 +46,25 @@ public class UtenteView {
 		Font font = new Font("SEGOE UI Light", Font.BOLD,16);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBenvenutoUtente.setBounds(113, 17, 250, 69);
+		lblBenvenutoUtente.setBounds(100, 17, 250, 69);
 		lblBenvenutoUtente.setText("BENVENUTO " + ut.getUsername());
 		panel_2.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("PROFILO PERSONALE");
-		btnProfiloPersonale.setBounds(154, 86, 160, 30);
+		btnProfiloPersonale.setBounds(145, 86, 160, 30);
 		panel_2.add(btnProfiloPersonale);
 		
 		JButton btnProfiloGaming = new JButton("PROFILO GAMING");
-		btnProfiloGaming.setBounds(154, 132, 160, 30);
+		btnProfiloGaming.setBounds(145, 132, 160, 30);
 		panel_2.add(btnProfiloGaming);
 		
 		JButton btnVaiAiGiochi = new JButton("VAI AI GIOCHI!");
-		btnVaiAiGiochi.setBounds(154, 178, 160, 30);
+		btnVaiAiGiochi.setBounds(145, 178, 160, 30);
 		panel_2.add(btnVaiAiGiochi);
 		
 		
 		JButton btnLogout = new JButton("LOGOUT");
-		btnLogout.setBounds(154,224,160,30);
+		btnLogout.setBounds(145,224,160,30);
 		panel_2.add(btnLogout);
 		
 		
