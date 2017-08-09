@@ -30,8 +30,4 @@ public class AmministratoreController extends UtenteController{
 		new UtenteDao().deleteUser(utente);
 		return "Utente eliminato con successo!";
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5a2327551b76ccbc3913a22e3062c43a8bab43e9

@@ -41,8 +41,4 @@ public class ModeratoreController extends UtenteController{
 		new UtenteDao().approveReview(recensione);
 		return "Recensione approvata.";
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5a2327551b76ccbc3913a22e3062c43a8bab43e9
