@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.TreeMap;
+
 import model.*;
 import model.dao.concrete.*;
 import java.sql.*;
@@ -48,6 +50,17 @@ public class UtenteController{
 		}
 		catch(SQLException exc){
 			exc.printStackTrace();
+		}
+		return null;
+	}
+	
+	public TreeMap<Integer, String> timeline(String username){
+		try{
+			Utente utente = new UtenteDao().findUserByUsername(username);
+			return new UtenteDao().getTimeline(utente);
+		}
+		catch(SQLException e){
+			e.printStackTrace();
 		}
 		return null;
 	}

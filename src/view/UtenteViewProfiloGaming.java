@@ -70,6 +70,23 @@ public class UtenteViewProfiloGaming{
 		label_2.setBounds(134, 120, 166, 14);
 		panel_1.add(label_2);
 		
+		JLabel lblTimeline = new JLabel("Timeline:");
+		lblTimeline.setBounds(10, 200, 166, 14);
+		panel_1.add(lblTimeline);
+		
+		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
+		ArrayList<JLabel> jl = new ArrayList<JLabel>();
+		
+		for(Map.Entry entry : timeline.entrySet()){
+			jl.add(new JLabel(entry.getValue().toString() + "     -    livello  " + entry.getKey().toString()));
+		}
+		int i = 0;
+		for(JLabel current : jl){
+			current.setBounds(134, 160+20*i,160,30);
+			panel_1.add(current);
+			i++;
+		}
+		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(335, 227, 89, 23);
 		panel_1.add(btnHome);
