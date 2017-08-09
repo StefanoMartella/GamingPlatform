@@ -10,6 +10,7 @@ public class UtenteController{
 
 	public UtenteController(){};
 	
+<<<<<<< HEAD
 	public UtenteController(Utente u, Gioco g){
 		this.utente=u;
 		this.gioco=g;
@@ -23,6 +24,12 @@ public class UtenteController{
 		}
 		
 	}
+=======
+	public void setUtente(Utente utente){ this.utente = utente; }
+	public void setGioco(Gioco gioco){ this.gioco = gioco; }
+	public Utente getUtente(){ return this.utente; }
+	public Gioco getGioco(){ return this.gioco; }
+>>>>>>> 5a2327551b76ccbc3913a22e3062c43a8bab43e9
 	
 	public String vote(int voto){
 		try{
