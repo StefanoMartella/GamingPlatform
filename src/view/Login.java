@@ -112,7 +112,6 @@ public class Login {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				try{
 				Utente ut = new GestioneUtenza().login(textField.getText(), new String(psswrdField.getPassword()));
 				if(ut==null)
 				{
@@ -133,14 +132,8 @@ public class Login {
 					}
 				
 				}
-				}
-				catch(SQLException exc){
-			exc.printStackTrace();
 		}
-		
-		
-			}
-		});
+			});
 		
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

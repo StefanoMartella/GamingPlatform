@@ -39,8 +39,7 @@ public class UtenteViewGL{
 		panel_5.setLayout(null);
 		panel_5.setVisible(true);
 		
-		try{
-		List<Gioco> gl = new GiocoDao().allGames();
+		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JButton> jl = new ArrayList<JButton>();
 		for(Gioco g: gl){
 				jl.add(new JButton(g.getNome()));
@@ -52,18 +51,9 @@ public class UtenteViewGL{
 			i++;
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try{
 				panel_5.setVisible(false);
-				new GiocoView(frmPiattaformaGaming, ut, new GiocoDao().findGameByName(j.getText()));
-				}
-				catch(SQLException exc){
-			exc.printStackTrace();
-		}
+				new GiocoView(frmPiattaformaGaming, ut, new GiocoController().findGame(j.getText()));
 		}});
-		}
-		}
-		catch(SQLException exc){
-			exc.printStackTrace();
 		}
 	}
 

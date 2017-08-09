@@ -95,10 +95,20 @@ public class SignIn{
 		btnRegistrati.setBounds(183, 157, 139, 23);
 		panel_3.add(btnRegistrati);
 		
+		JButton btnLogin = new JButton("INDIETRO");
+		btnLogin.setBounds(335, 227, 89, 23);
+		panel_3.add(btnLogin);
+		
+		
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_3.setVisible(false);
+				new Login();
+		}});
+		
 		
 		btnRegistrati.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try{
 					int test = new GestioneUtenza().signIn(
 						textField_2.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText(),
 						new String(passwordField.getPassword()));
@@ -125,10 +135,6 @@ public class SignIn{
 					textField_4.setText("");
 					textField_5.setText("");
 					passwordField.setText("");
-					}
-					catch(SQLException exc){
-			exc.printStackTrace();
-		}
 				}
 			
 		});

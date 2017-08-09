@@ -30,6 +30,9 @@ public class UtenteDao implements UtenteDaoInterface{
   
   private static final String
   PLAY = "UPDATE utente SET puntiExp = ? + ? WHERE username = ?;";
+  
+  private static final String
+  UPDATELEVEL = "UPDATE utente SET livello = ? / 100 WHERE username = ?;";
 
   private static final String
   VOTE_GAME = "INSERT INTO voto(votazione, gioco, utente) VALUES (?, ?, ?);";
@@ -134,9 +137,22 @@ public class UtenteDao implements UtenteDaoInterface{
 	ps.setInt(2, g.getExp());
 	ps.setString(3, ut.getUsername());
 	ps.executeUpdate();
-    ps.close();
+	ps.close();
+	PreparedStatement ps2 = connection.prepareStatement(UPDATELEVEL);
+	if(ut.getPuntiExp()>= 500)
+		ps2.setInt(1, 5);
+	else
+		ps2.setInt(1, ut.getPuntiExp());
+	ps2.setString(2, ut.getUsername());
+	ps2.executeUpdate();
+	ps2.close();
     connection.close();
 	ut.setPuntiExp(ut.getPuntiExp()+g.getExp());
+	if(ut.getPuntiExp()>= 500){
+		ut.setLivello(5);
+	}
+	else
+		ut.setLivello(ut.getPuntiExp()/100);
   }
   
   @Override
