@@ -120,12 +120,12 @@ public class Login {
 					psswrdField.setText("");
 				}
 				else{
-					if(ut.getTipo().equals("utente")){
 					panel.setVisible(false);
-					new UtenteView(frmPiattaformaGaming, ut);
+					if(ut.getTipo().equals("utente")){
+						new UtenteView(frmPiattaformaGaming, ut);
 					}
 					if(ut.getTipo().equals("moderatore")){
-						
+						new ModeratoreView(frmPiattaformaGaming, ut);
 					}
 					if(ut.getTipo().equals("amministratore")){
 						
