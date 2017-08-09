@@ -9,12 +9,11 @@ public class AmministratoreController extends UtenteController{
 	Utente utente;
 	Gioco gioco;
 	
-	public void setModeratore(Utente amministratore){ this.amministratore= amministratore; }
-	public void setUtente(Utente utente){ this.utente = utente; }
-	public void setGioco(Gioco gioco){ this.gioco = gioco; }
-	public Utente getAmministratore(){ return this.amministratore; }
-	public Utente getUtente(){ return this.utente; }
-	public Gioco getGioco(){ return this.gioco; }
+	public AmministratoreController(Utente amm, Utente ut, Gioco g){
+		this.amministratore=amm;
+		this.utente=ut;
+		this.gioco=g;
+	}
 	
 	public String insertGame(String nome, int exp) throws SQLException{
 		new GiocoDao().insertGame(new Gioco(nome, exp));

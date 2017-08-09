@@ -9,10 +9,15 @@ public class ModeratoreController extends UtenteController{
 	Utente utente_target; // oggetto che viene passato al metodo promote o demote.
 	Recensione recensione;
 	
-	public void setUtenteTarget(Utente utente_target){ this.utente_target = utente_target; }
-	public void setRecensione(Recensione recensione){ this.recensione = recensione; }
-	public Utente getUtenteTarget(){ return this.utente_target; }
-	public Recensione getRecensione(){ return this.recensione; }
+	public ModeratoreController(){
+		super();
+	}
+	
+	public ModeratoreController(Utente u, Gioco g, Utente u_T, Recensione rec){
+		super(u,g);
+		this.utente_target=u_T;
+		this.recensione=rec;
+	}
 	
 	public String promote() throws SQLException{
 		// Non serve controllare se l'utente esiste, filtraggio fatto dalla view
