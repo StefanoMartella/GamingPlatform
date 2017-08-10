@@ -69,7 +69,7 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("visualizza trofei");
-		trofei.setBounds(134, 120, 150, 15);
+		trofei.setBounds(134, 120, 170, 15);
 		panel_1.add(trofei);
 		
 		JLabel lblTimeline = new JLabel("Timeline:");
@@ -79,15 +79,15 @@ public class UtenteViewProfiloGaming{
 		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		
-		String time_line = "Data              - Livello\n";
+		String time_line = "        Data           |      Livello\n--------------------------------------\n";
 		for(Map.Entry entry : timeline.entrySet()){
-			time_line += entry.getValue().toString() + " - livello " + entry.getKey().toString() + "\n";
+			time_line += "  " + entry.getValue().toString() + "    |     livello " + entry.getKey().toString() + "\n";
 		}
 			
 		JTextArea text = new JTextArea(time_line);
         text.setEditable(false);
 		JScrollPane scroll = new JScrollPane(text);
-		scroll.setBounds(134, 160, 150, 80); 
+		scroll.setBounds(134, 160, 170, 85); 
 		panel_1.add(scroll);
 		
 		JButton btnHome = new JButton("Home");

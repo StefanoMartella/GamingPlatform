@@ -67,7 +67,7 @@ public class UtenteViewProfiloPers{
 		panel_4.add(label_1);
 		
 		JLabel label_2 = new JLabel(ut.getEmail());
-		label_2.setBounds(134, 150, 166, 14);
+		label_2.setBounds(134, 150, 250, 20);
 		panel_4.add(label_2);
 		
 		JButton btnHome = new JButton("Home");
