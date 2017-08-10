@@ -57,7 +57,7 @@ public class Login {
 		frmPiattaformaGaming.setBounds(700, 300, 450, 300);
 		frmPiattaformaGaming.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPiattaformaGaming.getContentPane().setLayout(null);
-		frmPiattaformaGaming.setResizable(false);
+		
 		initialize();
 	}
 

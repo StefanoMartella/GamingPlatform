@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -33,11 +34,13 @@ public class UtenteViewGL{
 	}
 	
 	public void initialize(){
+		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBounds(0, 0, 434, 261);
 		frmPiattaformaGaming.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 		panel_5.setVisible(true);
+		
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(335, 227, 89, 23);
@@ -70,6 +73,7 @@ public class UtenteViewGL{
 				panel_5.setVisible(false);
 				new GiocoView(frmPiattaformaGaming, ut, new GiocoController().findGame(j.getText()));
 		}});
+
 		}
 	}
 

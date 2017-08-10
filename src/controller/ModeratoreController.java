@@ -3,12 +3,17 @@ package controller;
 import model.dao.concrete.*;
 import model.*;
 import java.sql.*;
+import java.util.*;
 
 public class ModeratoreController extends UtenteController{ 
 	// Utente utente;
 	// Gioco gioco;
 	Utente utente_target;
 	Recensione recensione;
+	
+	public ModeratoreController(){
+		
+	}
 	
 	public ModeratoreController(Utente utente, Gioco gioco){
 		super();
@@ -18,6 +23,9 @@ public class ModeratoreController extends UtenteController{
 		super(utente,gioco);
 		this.utente_target=utente_target;
 		this.recensione=recensione;
+	}
+	public ModeratoreController(Utente utente_target){
+		this.utente_target=utente_target;
 	}
 	
 	public String promote(){
@@ -63,6 +71,15 @@ public class ModeratoreController extends UtenteController{
 		try{
 			new UtenteDao().approveReview(recensione);
 			return "Recensione approvata.";
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public ArrayList<Utente> usersList(){
+		try{
+			return new UtenteDao().allUsers();
 		}
 		catch(SQLException e){
 			e.printStackTrace();

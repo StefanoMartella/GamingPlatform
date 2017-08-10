@@ -21,6 +21,16 @@ public class GestioneUtenza{
 		return null;
 	} 
 	
+	public Utente findUser(String username){
+		try{
+			return new UtenteDao().findUserByUsername(username);
+		}
+		catch(SQLException exc){
+			exc.printStackTrace();
+		}
+		return null;
+	} 
+	
 	public int signIn(String name, String surname, String username, String mail, String password){
 		try{
 			if(new UtenteDao().usernameAlreadyUsed(username)){ return 1;}

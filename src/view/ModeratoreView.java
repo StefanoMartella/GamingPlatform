@@ -94,10 +94,17 @@ public class ModeratoreView {
 				panel_2.setVisible(false);
 				new UtenteViewProfiloGaming(frmPiattaformaGaming,ut);
 		}});
+		
 		btnVaiAiGiochi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);
 				new UtenteViewGL(frmPiattaformaGaming,ut);
+		}});
+		
+		btnListaUtente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_2.setVisible(false);
+				new ModeratoreViewLU(frmPiattaformaGaming,ut);
 		}});
 	}
 }

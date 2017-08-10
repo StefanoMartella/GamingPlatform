@@ -79,9 +79,9 @@ public class UtenteViewProfiloGaming{
 		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		
-		String time_line = "";
+		String time_line = "Data              - Livello\n";
 		for(Map.Entry entry : timeline.entrySet()){
-			time_line += entry.getValue().toString() + "   - livello " + entry.getKey().toString() + "\n";
+			time_line += entry.getValue().toString() + " - livello " + entry.getKey().toString() + "\n";
 		}
 			
 		JTextArea text = new JTextArea(time_line);
