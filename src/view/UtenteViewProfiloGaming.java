@@ -8,6 +8,8 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -67,25 +69,26 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("visualizza trofei");
-		trofei.setBounds(134, 120, 140, 15);
+		trofei.setBounds(134, 120, 150, 15);
 		panel_1.add(trofei);
 		
 		JLabel lblTimeline = new JLabel("Timeline:");
-		lblTimeline.setBounds(10, 200, 166, 14);
+		lblTimeline.setBounds(10, 190, 166, 14);
 		panel_1.add(lblTimeline);
 		
 		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		
+		String time_line = "";
 		for(Map.Entry entry : timeline.entrySet()){
-			jl.add(new JLabel(entry.getValue().toString() + "     -    livello  " + entry.getKey().toString()));
+			time_line += entry.getValue().toString() + "   - livello " + entry.getKey().toString() + "\n";
 		}
-		int i = 0;
-		for(JLabel current : jl){
-			current.setBounds(134, 160+20*i,160,30);
-			panel_1.add(current);
-			i++;
-		}
+			
+		JTextArea text = new JTextArea(time_line);
+        text.setEditable(false);
+		JScrollPane scroll = new JScrollPane(text);
+		scroll.setBounds(134, 160, 150, 80); 
+		panel_1.add(scroll);
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(335, 227, 89, 23);
