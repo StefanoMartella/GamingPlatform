@@ -139,20 +139,20 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.executeUpdate();
     ps.close();
     PreparedStatement ps2 = connection.prepareStatement(UPDATE_LEVEL);
-    if(ut.getPuntiExp()>= 500)
-  	ps2.setInt(1, 5);
+	if(ut.getPuntiExp()>= 500)
+		ps2.setInt(1, 5);
     else
-	ps2.setInt(1, ut.getPuntiExp()/100);
+		ps2.setInt(1, ut.getPuntiExp()/100);
     ps2.setString(2, ut.getUsername());
     ps2.executeUpdate();
     ps2.close();
     connection.close();
     ut.setPuntiExp(ut.getPuntiExp()+g.getExp());
     if(ut.getPuntiExp()>= 500){
-	ut.setLivello(5);
-     }
-     else
-	ut.setLivello(ut.getPuntiExp()/100);
+		ut.setLivello(5);
+    }
+    else
+		ut.setLivello(ut.getPuntiExp()/100);
   }
   
   @Override
