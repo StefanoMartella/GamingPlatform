@@ -79,7 +79,7 @@ public class UtenteViewProfiloGaming{
 		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		
-		String time_line = "        Data           |      Livello\n--------------------------------------\n";
+		String time_line = "          Data         |      Livello\n--------------------------------------\n";
 		for(Map.Entry entry : timeline.entrySet()){
 			time_line += "  " + entry.getValue().toString() + "    |     livello " + entry.getKey().toString() + "\n";
 		}
