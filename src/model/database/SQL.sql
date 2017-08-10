@@ -36,8 +36,8 @@ CREATE TABLE `recensione`(
 `testo` varchar(255) NOT NULL,
 `gioco` int(5) ,
 `utente` int(5) ,
-FOREIGN KEY (gioco) REFERENCES gioco(`id`),
-FOREIGN KEY (utente) REFERENCES utente(`id`),
+FOREIGN KEY (gioco) REFERENCES gioco(`id`) ON DELETE CASCADE,
+FOREIGN KEY (utente) REFERENCES utente(`id`) ON DELETE CASCADE,
 UNIQUE (`gioco`, `utente`)
 );
 
@@ -49,7 +49,7 @@ CREATE TABLE `timeline`(
 `livello` int(2) NOT NULL DEFAULT '0',
 `utente` int(5) ,
 PRIMARY KEY (`utente`,`livello`),
-FOREIGN KEY (utente) REFERENCES utente (`id`)
+FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE
 );
 
 
@@ -60,8 +60,8 @@ CREATE TABLE `voto`(
 `utente` int(5) ,
 `gioco` int(5) ,
 PRIMARY KEY (`utente`, `gioco`),
-FOREIGN KEY (utente) REFERENCES utente (`id`),
-FOREIGN KEY (gioco) REFERENCES gioco (`id`)
+FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE,
+FOREIGN KEY (gioco) REFERENCES gioco (`id`) ON DELETE CASCADE
 );
 
 

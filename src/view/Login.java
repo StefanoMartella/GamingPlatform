@@ -128,7 +128,7 @@ public class Login {
 						new ModeratoreView(frmPiattaformaGaming, ut);
 					}
 					if(ut.getTipo().equals("amministratore")){
-						
+						new AmministratoreView(frmPiattaformaGaming, ut);
 					}
 				
 				}

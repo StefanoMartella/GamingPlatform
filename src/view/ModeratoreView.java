@@ -101,6 +101,12 @@ public class ModeratoreView {
 				new UtenteViewGL(frmPiattaformaGaming,ut);
 		}});
 		
+		btnLR.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_2.setVisible(false);
+				new ModeratoreViewLR(frmPiattaformaGaming,ut);
+		}});
+		
 		btnListaUtente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);

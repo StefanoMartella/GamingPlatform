@@ -12,4 +12,5 @@ public interface RecensioneDaoInterface{
   public ArrayList<Recensione> allReviews() throws SQLException;
   public ArrayList<Recensione> allReviewsNotApproved() throws SQLException;
   public void deleteAllReviews() throws SQLException;
+  public Recensione findReviewById(int id) throws SQLException;
 }

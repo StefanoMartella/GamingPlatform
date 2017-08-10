@@ -56,7 +56,7 @@ public class ModeratoreController extends UtenteController{
 		return null;
 	}
 	
-	public String approve(){
+	public String approve(Recensione recensione){
 		try{
 			new UtenteDao().approveReview(recensione);
 			return "Recensione approvata.";
@@ -67,10 +67,10 @@ public class ModeratoreController extends UtenteController{
 		return null;
 	}
 	
-	public String disapprove(){
+	public String disapprove(Recensione recensione){
 		try{
 			new UtenteDao().approveReview(recensione);
-			return "Recensione approvata.";
+			return "Recensione respinta.";
 		}
 		catch(SQLException e){
 			e.printStackTrace();
@@ -80,6 +80,26 @@ public class ModeratoreController extends UtenteController{
 	public ArrayList<Utente> usersList(){
 		try{
 			return new UtenteDao().allUsers();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ArrayList<Recensione> reviewsList(){
+		try{
+			return new RecensioneDao().allReviewsNotApproved();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public Recensione findReview(int id){
+		try{
+			return new RecensioneDao().findReviewById(id);
 		}
 		catch(SQLException e){
 			e.printStackTrace();

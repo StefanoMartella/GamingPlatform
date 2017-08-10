@@ -9,9 +9,17 @@ public class AmministratoreController extends UtenteController{
 	Utente utente;
 	Gioco gioco;
 	
+	public AmministratoreController(){}
+	
 	public AmministratoreController(Utente amministratore, Utente utente, Gioco gioco){
 		this.amministratore=amministratore;
 		this.utente=utente;
+		this.gioco=gioco;
+	}
+	public AmministratoreController(Utente utente){
+		this.utente=utente;
+	}
+	public AmministratoreController(Gioco gioco){
 		this.gioco=gioco;
 	}
 	
