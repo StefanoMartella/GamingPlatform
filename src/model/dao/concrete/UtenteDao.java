@@ -32,7 +32,7 @@ public class UtenteDao implements UtenteDaoInterface{
   PLAY = "UPDATE utente SET puntiExp = ? + ? WHERE username = ?;";
   
   private static final String
-  UPDATELEVEL = "UPDATE utente SET livello = ? WHERE username = ?;";
+  UPDATE_LEVEL = "UPDATE utente SET livello = ? WHERE username = ?;";
 
   private static final String
   VOTE_GAME = "INSERT INTO voto(votazione, gioco, utente) VALUES (?, ?, ?);";
@@ -131,28 +131,28 @@ public class UtenteDao implements UtenteDaoInterface{
   
   @Override
   public void play(Utente ut, Gioco g) throws SQLException{
-	Connection connection = DB.openConnection();  
+    Connection connection = DB.openConnection();  
     PreparedStatement ps = connection.prepareStatement(PLAY);
     ps.setInt(1, ut.getPuntiExp());
-	ps.setInt(2, g.getExp());
-	ps.setString(3, ut.getUsername());
-	ps.executeUpdate();
-	ps.close();
-	PreparedStatement ps2 = connection.prepareStatement(UPDATELEVEL);
-	if(ut.getPuntiExp()>= 500)
-		ps2.setInt(1, 5);
-	else
-		ps2.setInt(1, ut.getPuntiExp()/100);
-	ps2.setString(2, ut.getUsername());
-	ps2.executeUpdate();
-	ps2.close();
+    ps.setInt(2, g.getExp());
+    ps.setString(3, ut.getUsername());
+    ps.executeUpdate();
+    ps.close();
+    PreparedStatement ps2 = connection.prepareStatement(UPDATE_LEVEL);
+    if(ut.getPuntiExp()>= 500)
+  	ps2.setInt(1, 5);
+    else
+	ps2.setInt(1, ut.getPuntiExp()/100);
+    ps2.setString(2, ut.getUsername());
+    ps2.executeUpdate();
+    ps2.close();
     connection.close();
-	ut.setPuntiExp(ut.getPuntiExp()+g.getExp());
-	if(ut.getPuntiExp()>= 500){
-		ut.setLivello(5);
-	}
-	else
-		ut.setLivello(ut.getPuntiExp()/100);
+    ut.setPuntiExp(ut.getPuntiExp()+g.getExp());
+    if(ut.getPuntiExp()>= 500){
+	ut.setLivello(5);
+     }
+     else
+	ut.setLivello(ut.getPuntiExp()/100);
   }
   
   @Override
