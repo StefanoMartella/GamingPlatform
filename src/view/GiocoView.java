@@ -5,6 +5,7 @@ import model.*;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.text.DecimalFormat;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -68,8 +69,12 @@ public class GiocoView{
 		panel_6.add(textPane);
 		
 		JButton btnReview = new JButton("Recensisci");
-		btnReview.setBounds(165, 100, 130, 23);
+		btnReview.setBounds(50, 100, 130, 23);
 		panel_6.add(btnReview);
+		
+		JButton btnvReview = new JButton("Vedi recensioni");
+		btnvReview.setBounds(270, 100, 130, 23);
+		panel_6.add(btnvReview);
 		
 		ButtonGroup bg = new ButtonGroup();
 		
@@ -104,8 +109,13 @@ public class GiocoView{
 		bg.add(rdbtnNewRadioButton_4);
 		
 		JButton btnVota = new JButton("Vota");
-		btnVota.setBounds(187, 170, 89, 23);
+		btnVota.setBounds(130, 170, 89, 23);
 		panel_6.add(btnVota);
+		
+		DecimalFormat df = new DecimalFormat("###.#");
+		JLabel mediaVoti = new JLabel("Media voti: " + df.format(new GiocoController(gioco).avgVote()));
+		mediaVoti.setBounds(250,165,150,30);
+		panel_6.add(mediaVoti);
 		
 		JButton btnBack = new JButton("Indietro");
 		btnBack.setBounds(250, 227, 89, 23);
@@ -127,8 +137,17 @@ public class GiocoView{
 							textPane.setText("");
 		}});
 		
+		btnvReview.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_6.setVisible(false);
+				new GiocoRecensioniView(frmPiattaformaGaming,ut,gioco);
+		}});
+		
 		btnVota.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(bg.getSelection()==null)
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Devi scegliere un voto", "Vote error", JOptionPane.ERROR_MESSAGE);
+				else
 				JOptionPane.showMessageDialog(
 							frmPiattaformaGaming, new UtenteController(ut,gioco).vote(Integer.parseInt(bg.getSelection().getActionCommand())));
 							textPane.setText("");

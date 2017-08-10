@@ -17,6 +17,10 @@ public class GiocoController{
 		this.utente=utente;
 		this.gioco=gioco;
 	}
+	public GiocoController(Gioco gioco){
+		
+		this.gioco=gioco;
+	}
 	
 	public ArrayList<Gioco> listOfGames(){
 		try{
@@ -31,6 +35,26 @@ public class GiocoController{
 	public Gioco findGame(String nome){
 		try{
 			return new GiocoDao().findGameByName(nome);
+		}
+		catch(SQLException exc){
+			exc.printStackTrace();
+		}
+		return null;
+	}
+	
+	public float avgVote(){
+		try{
+			return new GiocoDao().getVotesAverage(gioco);
+		}
+		catch(SQLException exc){
+			exc.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public ArrayList<Recensione> allReviews(){
+		try{
+			return new GiocoDao().allGameReviews(gioco);
 		}
 		catch(SQLException exc){
 			exc.printStackTrace();
