@@ -5,45 +5,68 @@ import model.*;
 import java.sql.*;
 
 public class ModeratoreController extends UtenteController{ 
-	// Eredita da UtenteController utente e gioco
-	Utente utente_target; // oggetto che viene passato al metodo promote o demote.
+	// Utente utente;
+	// Gioco gioco;
+	Utente utente_target;
 	Recensione recensione;
 	
-	public ModeratoreController(){
+	public ModeratoreController(Utente utente, Gioco gioco){
 		super();
 	}
 	
-	public ModeratoreController(Utente u, Gioco g, Utente u_T, Recensione rec){
-		super(u,g);
-		this.utente_target=u_T;
-		this.recensione=rec;
+	public ModeratoreController(Utente utente, Gioco gioco, Utente utente_target, Recensione recensione){
+		super(utente,gioco);
+		this.utente_target=utente_target;
+		this.recensione=recensione;
 	}
 	
-	public String promote() throws SQLException{
-		// Non serve controllare se l'utente esiste, filtraggio fatto dalla view
-		if( utente_target.getTipo().equals("amministratore") )
-			return "Promozione non riuscita, l'utente è un ammimistratore";
+	public String promote(){
+		try{
+			if( utente_target.getTipo().equals("amministratore") )
+				return "Promozione non riuscita, l'utente è un ammimistratore";
 
-		new UtenteDao().promoteUser(utente_target);
-		return "Promozione andata a buon fine.";
-	}
+			new UtenteDao().promoteUser(utente_target);
+			return "Promozione andata a buon fine.";
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	} 
 	
-	public String demote() throws SQLException{
-		// Non serve controllare se l'utente esiste, filtraggio fatto dalla view
-		if( utente_target.getTipo().equals("amministratore") )
-			return "Retrocessione non riuscita, l'utente è un amministratore";
+	public String demote(){
+		try{
+			if( utente_target.getTipo().equals("amministratore") )
+				return "Retrocessione non riuscita, l'utente è un amministratore";
 
-		new UtenteDao().demoteUser(utente_target);
-		return "Retrocessione andata a buon fine.";
+			new UtenteDao().demoteUser(utente_target);
+			return "Retrocessione andata a buon fine.";
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	public String approve() throws SQLException{
-		new UtenteDao().approveReview(recensione);
-		return "Recensione approvata.";
+	public String approve(){
+		try{
+			new UtenteDao().approveReview(recensione);
+			return "Recensione approvata.";
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	public String disapprove() throws SQLException{
-		new UtenteDao().approveReview(recensione);
-		return "Recensione approvata.";
+	public String disapprove(){
+		try{
+			new UtenteDao().approveReview(recensione);
+			return "Recensione approvata.";
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

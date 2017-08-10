@@ -59,7 +59,7 @@ public class GiocoView{
 		lblNewLabel_6.setBounds(390, 10, 114, 14);
 		panel_6.add(lblNewLabel_6);
 		
-		JButton btnGioca = new JButton("GIOCA");
+		JButton btnGioca = new JButton("Gioca");
 		btnGioca.setBounds(115, 227, 89, 23);
 		panel_6.add(btnGioca);
 		

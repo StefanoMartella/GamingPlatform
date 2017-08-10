@@ -12,10 +12,11 @@ public class UtenteController{
 
 	public UtenteController(){};
 	
-	public UtenteController(Utente u, Gioco g){
-		this.utente=u;
-		this.gioco=g;
+	public UtenteController(Utente utente, Gioco gioco){
+		this.utente=utente;
+		this.gioco=gioco;
 	}
+	
 	public void play(){
 		try{
 			new UtenteDao().play(utente,gioco);
@@ -29,7 +30,7 @@ public class UtenteController{
 	public String vote(int voto){
 		try{
 			if(new UtenteDao().gameAlreadyVotedByUser(utente, gioco))
-			return "Hai già votato questo gioco.";
+			return "Hai gia' votato questo gioco.";
 		
 			new UtenteDao().voteGame(voto,utente,gioco);
 			return "Votazione andata a buon fine!";
@@ -43,10 +44,10 @@ public class UtenteController{
 	public String review(String testoRecensione){
 		try{
 			if(new UtenteDao().reviewAlreadyMadeByUser(utente,gioco))
-			return "Hai già scritto una recensione per questo gioco.";
+			return "Hai gia' scritto una recensione per questo gioco.";
 		
 		new UtenteDao().reviewGame(testoRecensione, utente, gioco);
-		return "Recensione inviata; dovrete aspettare il consenso di un moderatore.";
+		return "Recensione inviata, dovrete aspettare il consenso di un moderatore.";
 		}
 		catch(SQLException exc){
 			exc.printStackTrace();

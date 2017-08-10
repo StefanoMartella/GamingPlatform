@@ -13,9 +13,9 @@ public class GiocoController{
 		
 	}
 	
-	public GiocoController(Utente u, Gioco g){
-		this.gioco=g;
-		this.utente=u;
+	public GiocoController(Utente utente, Gioco gioco){
+		this.utente=utente;
+		this.gioco=gioco;
 	}
 	
 	public ArrayList<Gioco> listOfGames(){
