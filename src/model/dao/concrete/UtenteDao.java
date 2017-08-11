@@ -142,7 +142,7 @@ public class UtenteDao implements UtenteDaoInterface{
 	if(ut.getPuntiExp()>= 500)
 		ps2.setInt(1, 5);
     else
-		ps2.setInt(1, ut.getPuntiExp()/100);
+		ps2.setInt(1, (ut.getPuntiExp()+g.getExp())/100);
     ps2.setString(2, ut.getUsername());
     ps2.executeUpdate();
     ps2.close();
