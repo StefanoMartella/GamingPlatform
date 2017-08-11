@@ -29,9 +29,8 @@ public class AmministratoreController extends UtenteController{
 			return "Gioco inserito con successo!";
 		}
 		catch(SQLException e){
-			e.printStackTrace();
+			return "Gioco gia' esistente.";
 		}
-		return null;
 	}
 	
 	public String deleteGame(){		

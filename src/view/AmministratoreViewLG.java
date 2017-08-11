@@ -2,17 +2,19 @@ package view;
 
 import controller.*;
 import model.*;
-import model.dao.concrete.*;
+
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Dimension;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -21,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.GridLayout;
 
 import java.util.*;
 import java.sql.*;
@@ -38,10 +41,13 @@ public class AmministratoreViewLG{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 434, 261);
+		panel_9.setBounds(0, 0, 450, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		panel_9.setVisible(true);
+		
+		JPanel ps = new JPanel();
+		ps.setLayout(new GridLayout(0,2));
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(335, 227, 89, 23);
@@ -65,17 +71,16 @@ public class AmministratoreViewLG{
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
+		int i=0;
 		for(Gioco g: gl){
 				jl.add(new JLabel(g.getNome()));
 		}
-		int i=0;
 		for(JLabel j: jl){
-			j.setBounds(15,15+25*i,120,20);
-			panel_9.add(j);
+			ps.add(j);
 			i++;
 			JButton selez = new JButton("ELIMINA");
-			selez.setBounds(200,j.getY(),100,20);
-			panel_9.add(selez);
+			selez.setSize(180,20);
+			ps.add(selez);
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
@@ -84,5 +89,9 @@ public class AmministratoreViewLG{
 							selez.setVisible(false);
 			}});
 		}
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.setSize(430,210);
+		panel_9.add(scroll);
 	}
 }

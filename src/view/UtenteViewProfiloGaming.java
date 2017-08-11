@@ -87,6 +87,7 @@ public class UtenteViewProfiloGaming{
 		JTextArea text = new JTextArea(time_line);
         text.setEditable(false);
 		JScrollPane scroll = new JScrollPane(text);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
 		scroll.setBounds(134, 160, 170, 85); 
 		panel_1.add(scroll);
 		
