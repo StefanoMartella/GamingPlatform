@@ -2,7 +2,6 @@ package view;
 
 import controller.*;
 import model.*;
-import model.dao.concrete.*;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -21,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.Dimension;
 
 import java.util.*;
 import java.sql.*;
@@ -43,6 +44,9 @@ public class AmministratoreViewLU{
 		panel_9.setLayout(null);
 		panel_9.setVisible(true);
 		
+		JPanel ps = new JPanel();
+		ps.setLayout(new GridLayout(0,2,0,20));
+		
 		List<Utente> lU = new ModeratoreController().usersList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		for(Utente u: lU){
@@ -51,12 +55,11 @@ public class AmministratoreViewLU{
 		}
 		int i=0;
 		for(JLabel j: jl){
-			j.setBounds(15,15+25*i,120,20);
-			panel_9.add(j);
+			ps.add(j);
 			i++;
 			JButton selez = new JButton("ELIMINA");
-			selez.setBounds(200,j.getY(),100,20);
-			panel_9.add(selez);
+			selez.setPreferredSize(new Dimension(40, 40));
+			ps.add(selez);
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
@@ -66,8 +69,13 @@ public class AmministratoreViewLU{
 			}});
 		}
 		
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.setSize(430,210);
+		panel_9.add(scroll);
+		
 		JButton btnBack = new JButton("HOME");
-		btnBack.setBounds(330, 227, 89, 23);
+		btnBack.setBounds(335, 227, 89, 23);
 		panel_9.add(btnBack);
 		
 		btnBack.addActionListener(new ActionListener() {

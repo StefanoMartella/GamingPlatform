@@ -6,7 +6,7 @@ import model.*;
 
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Dimension;
+
 
 
 import javax.swing.JFrame;
@@ -47,7 +47,7 @@ public class AmministratoreViewLG{
 		panel_9.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new GridLayout(0,2));
+		ps.setLayout(new GridLayout(0,2, 0, 20));
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(335, 227, 89, 23);
