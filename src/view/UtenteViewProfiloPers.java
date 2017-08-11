@@ -81,7 +81,7 @@ public class UtenteViewProfiloPers{
 					panel_4.setVisible(false);
 					new ModeratoreView(frmPiattaformaGaming, ut);
 				}
-				if(ut.getTipo().equals("amministratore")){
+				else if(ut.getTipo().equals("amministratore")){
 					panel_4.setVisible(false);
 					new AmministratoreView(frmPiattaformaGaming, ut);
 				}
