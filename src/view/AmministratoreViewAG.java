@@ -61,7 +61,7 @@ public class AmministratoreViewAG{
 		panel_9.add(textField2);
 		textField.setColumns(10);
 		
-		JButton btnA = new JButton("AGGIUNGI");
+		JButton btnA = new JButton("Aggiungi");
 		btnA.setBounds(120, 170, 89, 23);
 		panel_9.add(btnA);
 		
@@ -73,7 +73,7 @@ public class AmministratoreViewAG{
 				textField2.setText("");
 		}});
 		
-		JButton btnBack = new JButton("INDIETRO");
+		JButton btnBack = new JButton("Indietro");
 		btnBack.setBounds(330, 227, 89, 23);
 		panel_9.add(btnBack);
 		

@@ -51,11 +51,9 @@ public class UtenteViewGL{
 		for(Gioco g: gl){
 				jl.add(new JButton(g.getNome()));
 		}
-		int i=0;
 		for(JButton j: jl){
-			j.setPreferredSize(new Dimension(40, 40));
+			j.setPreferredSize(new Dimension(100, 10));
 			ps.add(j);
-			i++;
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_5.setVisible(false);
@@ -64,11 +62,11 @@ public class UtenteViewGL{
 		
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setSize(430,200);
+		scroll.setSize(450,235);
 		panel_5.add(scroll);
 		
-		JButton btnHome = new JButton("HOME");
-		btnHome.setBounds(335, 227, 89, 23);
+		JButton btnHome = new JButton("Home");
+		btnHome.setBounds(339, 238, 89, 23);
 		panel_5.add(btnHome);
 
 		btnHome.addActionListener(new ActionListener() {

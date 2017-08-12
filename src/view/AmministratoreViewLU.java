@@ -39,7 +39,7 @@ public class AmministratoreViewLU{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 434, 261);
+		panel_9.setBounds(0, 0, 450, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		panel_9.setVisible(true);
@@ -51,14 +51,12 @@ public class AmministratoreViewLU{
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		for(Utente u: lU){
 			if(!u.getTipo().equals("amministratore"))
-				jl.add(new JLabel(u.getUsername()));
+				jl.add(new JLabel("   " + u.getUsername()));
 		}
-		int i=0;
 		for(JLabel j: jl){
 			ps.add(j);
-			i++;
-			JButton selez = new JButton("ELIMINA");
-			selez.setPreferredSize(new Dimension(40, 40));
+			JButton selez = new JButton("Elimina");
+			selez.setSize(30,20);
 			ps.add(selez);
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -71,14 +69,14 @@ public class AmministratoreViewLU{
 		
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setSize(430,210);
+		scroll.setSize(450,235);
 		panel_9.add(scroll);
 		
-		JButton btnBack = new JButton("HOME");
-		btnBack.setBounds(335, 227, 89, 23);
-		panel_9.add(btnBack);
+		JButton btnHome = new JButton("Home");
+		btnHome.setBounds(339, 238, 89, 23);
+		panel_9.add(btnHome);
 		
-		btnBack.addActionListener(new ActionListener() {
+		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_9.setVisible(false);
 				new AmministratoreView(frmPiattaformaGaming, ut);

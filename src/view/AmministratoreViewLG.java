@@ -50,7 +50,7 @@ public class AmministratoreViewLG{
 		ps.setLayout(new GridLayout(0,2, 0, 20));
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(335, 227, 89, 23);
+		btnHome.setBounds(339, 238, 89, 23);
 		panel_9.add(btnHome);
 		
 		btnHome.addActionListener(new ActionListener() {
@@ -59,8 +59,8 @@ public class AmministratoreViewLG{
 					new AmministratoreView(frmPiattaformaGaming, ut);
 		}});
 		
-		JButton btnAG = new JButton("INSERISCI");
-		btnAG.setBounds(15, 227, 130, 23);
+		JButton btnAG = new JButton("Inserisci");
+		btnAG.setBounds(15, 238, 89, 23);
 		panel_9.add(btnAG);
 		
 		btnAG.addActionListener(new ActionListener() {
@@ -71,15 +71,13 @@ public class AmministratoreViewLG{
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
-		int i=0;
 		for(Gioco g: gl){
-				jl.add(new JLabel(g.getNome()));
+				jl.add(new JLabel("   " + g.getNome()));
 		}
 		for(JLabel j: jl){
 			ps.add(j);
-			i++;
-			JButton selez = new JButton("ELIMINA");
-			selez.setSize(180,20);
+			JButton selez = new JButton("Elimina");
+			selez.setSize(30,20);
 			ps.add(selez);
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -91,7 +89,7 @@ public class AmministratoreViewLG{
 		}
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setSize(430,210);
+		scroll.setSize(450,235);
 		panel_9.add(scroll);
 	}
 }
