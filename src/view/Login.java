@@ -104,7 +104,7 @@ public class Login {
 		btnSignIn.setBounds(315, 120, 89, 23);
 		panel.add(btnSignIn);
 		
-		JButton btnLogin = new JButton("Login");
+		JButton btnLogin = new JButton("Accedi");
 		
 		btnLogin.setBounds(130, 170, 89, 23);
 		panel.add(btnLogin);
