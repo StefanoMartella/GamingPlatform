@@ -39,7 +39,7 @@ public class ModeratoreViewLR{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 434, 261);
+		panel_9.setBounds(0, 0, 465, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		panel_9.setVisible(true);
