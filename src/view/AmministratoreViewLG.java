@@ -72,7 +72,7 @@ public class AmministratoreViewLG{
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		for(Gioco g: gl){
-				jl.add(new JLabel("   " + g.getNome()));
+				jl.add(new JLabel("" + g.getNome()));
 		}
 		for(JLabel j: jl){
 			ps.add(j);

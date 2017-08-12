@@ -51,7 +51,7 @@ public class AmministratoreViewLU{
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		for(Utente u: lU){
 			if(!u.getTipo().equals("amministratore"))
-				jl.add(new JLabel("   " + u.getUsername()));
+				jl.add(new JLabel("" + u.getUsername()));
 		}
 		for(JLabel j: jl){
 			ps.add(j);

@@ -38,13 +38,13 @@ public class UtenteViewGL{
 	public void initialize(){
 		
 		JPanel panel_5 = new JPanel();
-		panel_5.setBounds(0, 0, 450, 261);
+		panel_5.setBounds(0, 0, 465, 315);
 		frmPiattaformaGaming.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 		panel_5.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new GridLayout(0,1,0,20));
+		ps.setLayout(new GridLayout(0,2));
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JButton> jl = new ArrayList<JButton>();
@@ -52,21 +52,22 @@ public class UtenteViewGL{
 				jl.add(new JButton(g.getNome()));
 		}
 		for(JButton j: jl){
-			j.setPreferredSize(new Dimension(100, 10));
 			ps.add(j);
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_5.setVisible(false);
 				new GiocoView(frmPiattaformaGaming, ut, new GiocoController().findGame(j.getText()));
-		}});
+			}});
+		}
 		
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setSize(450,235);
+		scroll.setBounds(0,0,460,235);
 		panel_5.add(scroll);
 		
+		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(339, 238, 89, 23);
+		btnHome.setBounds(185, 258, 90, 23);
 		panel_5.add(btnHome);
 
 		btnHome.addActionListener(new ActionListener() {
@@ -80,7 +81,6 @@ public class UtenteViewGL{
 					new UtenteView(frmPiattaformaGaming, ut);
 				}
 		}});
-		}
 	}
-
 }
+

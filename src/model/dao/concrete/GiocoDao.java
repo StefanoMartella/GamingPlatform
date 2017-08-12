@@ -19,7 +19,7 @@ public class GiocoDao implements GiocoDaoInterface{
   DELETE = "DELETE FROM gioco WHERE id = ?;";
 
   private static final String
-  ALL = "SELECT * FROM gioco;";
+  ALL = "SELECT * FROM gioco ORDER BY nome;";
 
   private static final String
   DELETE_ALL = "DELETE FROM gioco;";
