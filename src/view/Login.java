@@ -54,7 +54,7 @@ public class Login {
 		this.frmPiattaformaGaming=frm;
 		frmPiattaformaGaming = new JFrame();
 		frmPiattaformaGaming.setTitle("Piattaforma gaming");
-		frmPiattaformaGaming.setBounds(700, 300, 450, 300);
+		frmPiattaformaGaming.setBounds(700, 300, 465, 315);
 		frmPiattaformaGaming.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPiattaformaGaming.getContentPane().setLayout(null);
 		
@@ -73,40 +73,39 @@ public class Login {
 		panel.setLayout(null);
 		panel.setVisible(true);
 		
+		JLabel name = new JLabel("Gaming Platform");
+		name.setForeground(Color.BLUE);
+		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC, 20);
+		name.setFont(font);
+		name.setBounds(175, 20, 200, 35);
+		panel.add(name);
+		
 		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setBounds(45, 65, 99, 14);
+		lblNewLabel.setBounds(75, 95, 150, 20);
 		panel.add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(45, 120, 99, 14);
+		lblPassword.setBounds(75, 140, 150, 20);
 		panel.add(lblPassword);
 		
 		textField = new JTextField();
-		textField.setBounds(130, 65, 86, 20);
+		textField.setBounds(160, 95, 200, 25);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		psswrdField = new JPasswordField();
 		psswrdField.setColumns(10);
-		psswrdField.setBounds(130, 120, 86, 20);
+		psswrdField.setBounds(160, 140, 200, 25);
 		psswrdField.setEchoChar('*'); 
 		panel.add(psswrdField);
 		
-		JLabel lblNewLabel_1 = new JLabel("Sei nuovo?");
-		lblNewLabel_1.setBounds(330, 75, 86, 14);
-		panel.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Registrati!");
-		lblNewLabel_2.setBounds(330, 95, 86, 14);
-		panel.add(lblNewLabel_2);
-		
-		JButton btnSignIn = new JButton("Sign-Up");
-		btnSignIn.setBounds(315, 120, 89, 23);
+		JButton btnSignIn = new JButton("Registrati");
+		btnSignIn.setBounds(270, 195, 89, 23);
 		panel.add(btnSignIn);
 		
 		JButton btnLogin = new JButton("Accedi");
 		
-		btnLogin.setBounds(130, 170, 89, 23);
+		btnLogin.setBounds(160, 195, 89, 23);
 		panel.add(btnLogin);
 		
 		btnLogin.addActionListener(new ActionListener() {

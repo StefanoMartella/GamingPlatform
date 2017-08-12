@@ -46,7 +46,7 @@ public class UtenteView {
 		Font font = new Font("SEGOE UI Light", Font.BOLD,16);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBenvenutoUtente.setBounds(100, 17, 250, 69);
+		lblBenvenutoUtente.setBounds(50, 17, 350, 69);
 		lblBenvenutoUtente.setText("BENVENUTO " + ut.getUsername());
 		panel_2.add(lblBenvenutoUtente);
 		
