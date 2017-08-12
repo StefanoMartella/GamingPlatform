@@ -100,11 +100,11 @@ public class Login {
 		lblNewLabel_2.setBounds(330, 95, 86, 14);
 		panel.add(lblNewLabel_2);
 		
-		JButton btnSignIn = new JButton("SIGN-IN");
+		JButton btnSignIn = new JButton("Sign-Up");
 		btnSignIn.setBounds(315, 120, 89, 23);
 		panel.add(btnSignIn);
 		
-		JButton btnLogin = new JButton("LOGIN");
+		JButton btnLogin = new JButton("Login");
 		
 		btnLogin.setBounds(130, 170, 89, 23);
 		panel.add(btnLogin);
