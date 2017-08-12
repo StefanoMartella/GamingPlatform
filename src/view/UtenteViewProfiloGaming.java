@@ -92,7 +92,7 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(scroll);
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(335, 227, 89, 23);
+		btnHome.setBounds(345, 235, 89, 23);
 		panel_1.add(btnHome);
 		
 		
@@ -106,6 +106,13 @@ public class UtenteViewProfiloGaming{
 					panel_1.setVisible(false);
 					new UtenteView(frmPiattaformaGaming, ut);
 				}
+		}});
+		
+		trofei.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ut = null;
+				panel_1.setVisible(false);
+				new UtenteViewTrofei(frmPiattaformaGaming, ut);
 		}});
 	}
 }

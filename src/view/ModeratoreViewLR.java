@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.GridLayout;
 
 import java.util.*;
 import java.sql.*;
@@ -43,6 +44,9 @@ public class ModeratoreViewLR{
 		panel_9.setLayout(null);
 		panel_9.setVisible(true);
 		
+		JPanel ps = new JPanel();
+		ps.setLayout(new GridLayout(0,2, 0, 20));
+		
 		List<Recensione> lr = new ModeratoreController().reviewsList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		
@@ -55,14 +59,11 @@ public class ModeratoreViewLR{
 		}
 		
 		Object[] options = {"PUBBLICA", "NEGA"};
-		int i=0;
 		for(JLabel j: jl){
-			j.setBounds(15,30+25*i,120,20);
-			panel_9.add(j);
-			i++;
+			ps.add(j);
 			JButton selez = new JButton("LEGGI");
-			selez.setBounds(200,j.getY(),100,20);
-			panel_9.add(selez);
+			selez.setSize(30,20);
+			ps.add(selez);
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 							int n = JOptionPane.showOptionDialog(frmPiattaformaGaming, new ModeratoreController().findReview(Integer.parseInt(j.getText())).getTesto(),
@@ -83,7 +84,7 @@ public class ModeratoreViewLR{
 		}
 		
 		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(330, 227, 89, 23);
+		btnBack.setBounds(330, 242, 89, 18);
 		panel_9.add(btnBack);
 		
 		btnBack.addActionListener(new ActionListener() {
@@ -91,5 +92,10 @@ public class ModeratoreViewLR{
 				panel_9.setVisible(false);
 				new ModeratoreView(frmPiattaformaGaming, ut);
 		}});
+		
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.setSize(460,240);
+		panel_9.add(scroll);
 	}
 }

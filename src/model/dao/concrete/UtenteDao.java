@@ -20,7 +20,7 @@ public class UtenteDao implements UtenteDaoInterface{
   DELETE = "DELETE FROM utente WHERE id = ?;";
 
   private static final String
-  ALL = "SELECT * FROM utente;";
+  ALL = "SELECT * FROM utente ORDER BY username;";
 
   private static final String
   DELETE_ALL = "DELETE FROM utente;";

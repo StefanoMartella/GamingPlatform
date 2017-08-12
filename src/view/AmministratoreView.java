@@ -47,23 +47,23 @@ public class AmministratoreView {
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBenvenutoUtente.setBounds(100, 8, 250, 30);
-		lblBenvenutoUtente.setText("BENVENUTO [A]" + ut.getUsername());
+		lblBenvenutoUtente.setText("BENVENUTO [A] " + ut.getUsername());
 		panel_0.add(lblBenvenutoUtente);
 		
-		JButton btnProfiloPersonale = new JButton("PROFILO PERSONALE");
-		btnProfiloPersonale.setBounds(145, 50, 160, 30);
+		JButton btnProfiloPersonale = new JButton("Profilo Personale");
+		btnProfiloPersonale.setBounds(145, 60, 160, 30);
 		panel_0.add(btnProfiloPersonale);
 		
-		JButton btnLG = new JButton("LISTA GIOCHI");
-		btnLG.setBounds(145, 90, 160, 30);
+		JButton btnLG = new JButton("Lista Giochi");
+		btnLG.setBounds(145, 110, 160, 30);
 		panel_0.add(btnLG);
 		
-		JButton btnLU = new JButton("LISTA UTENTI");
-		btnLU.setBounds(145, 130, 160, 30);
+		JButton btnLU = new JButton("Lista Utenti");
+		btnLU.setBounds(145, 160, 160, 30);
 		panel_0.add(btnLU);
 		
-		JButton btnLogout = new JButton("LOGOUT");
-		btnLogout.setBounds(145,170,160,30);
+		JButton btnLogout = new JButton("Esci");
+		btnLogout.setBounds(145,210,160,30);
 		panel_0.add(btnLogout);
 		
 		btnProfiloPersonale.addActionListener(new ActionListener() {

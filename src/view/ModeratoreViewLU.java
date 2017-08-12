@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.FlowLayout;
 
 import java.util.*;
 import java.sql.*;
@@ -37,10 +39,13 @@ public class ModeratoreViewLU{
 	
 	public void initialize(){
 		JPanel panel_8 = new JPanel();
-		panel_8.setBounds(0, 0, 434, 261);
+		panel_8.setBounds(0, 0, 465, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_8);
 		panel_8.setLayout(null);
 		panel_8.setVisible(true);
+		
+		JPanel ps = new JPanel();
+		ps.setLayout(new GridLayout(0,2, 0, 20));
 		
 		List<Utente> lU = new ModeratoreController().usersList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
@@ -48,19 +53,16 @@ public class ModeratoreViewLU{
 			if(!(u.getTipo().equals("amministratore") || u.getUsername().equals(ut.getUsername())))
 				jl.add(new JLabel(u.getUsername()));
 		}
-		int i=0;
 		for(JLabel j: jl){
-			j.setBounds(15,15+25*i,120,20);
-			panel_8.add(j);
-			i++;
+			ps.add(j);
 			JButton selez;
 			String type = new GestioneUtenza().findUser(j.getText()).getTipo();
 			if(type.equals("moderatore"))
 				selez = new JButton("RETROCEDI");
 			else
 				selez = new JButton("PROMUOVI");
-			selez.setBounds(200,j.getY(),100,20);
-			panel_8.add(selez);
+			selez.setSize(30,20);
+			ps.add(selez);
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if(selez.getText().equals("RETROCEDI")){
@@ -79,7 +81,7 @@ public class ModeratoreViewLU{
 			}});
 		}
 		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(330, 227, 89, 23);
+		btnBack.setBounds(330, 242, 89, 18);
 		panel_8.add(btnBack);
 		
 		btnBack.addActionListener(new ActionListener() {
@@ -87,5 +89,10 @@ public class ModeratoreViewLU{
 				panel_8.setVisible(false);
 				new ModeratoreView(frmPiattaformaGaming, ut);
 		}});
+		
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.setSize(460,240);
+		panel_8.add(scroll);
 	}
 }

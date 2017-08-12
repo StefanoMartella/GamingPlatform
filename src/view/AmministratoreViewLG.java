@@ -41,7 +41,7 @@ public class AmministratoreViewLG{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 450, 300);
+		panel_9.setBounds(0, 0, 465, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		panel_9.setVisible(true);
@@ -50,7 +50,7 @@ public class AmministratoreViewLG{
 		ps.setLayout(new GridLayout(0,2, 0, 20));
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(339, 238, 89, 23);
+		btnHome.setBounds(339, 243, 89, 18);
 		panel_9.add(btnHome);
 		
 		btnHome.addActionListener(new ActionListener() {
@@ -60,7 +60,7 @@ public class AmministratoreViewLG{
 		}});
 		
 		JButton btnAG = new JButton("Inserisci");
-		btnAG.setBounds(15, 238, 89, 23);
+		btnAG.setBounds(15, 243, 89, 18);
 		panel_9.add(btnAG);
 		
 		btnAG.addActionListener(new ActionListener() {
@@ -89,7 +89,7 @@ public class AmministratoreViewLG{
 		}
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setSize(450,235);
+		scroll.setSize(460,240);
 		panel_9.add(scroll);
 	}
 }

@@ -44,25 +44,25 @@ public class AmministratoreViewAG{
 		panel_9.setVisible(true);
 		
 		JLabel lblNewLabel = new JLabel("Nome");
-		lblNewLabel.setBounds(15, 130, 99, 14);
+		lblNewLabel.setBounds(70, 70, 99, 14);
 		panel_9.add(lblNewLabel);
 		
 		JLabel lblPE = new JLabel("Punti EXP");
-		lblPE.setBounds(170, 130, 99, 14);
+		lblPE.setBounds(70, 130, 99, 14);
 		panel_9.add(lblPE);
 		
 		JTextField textField = new JTextField();
-		textField.setBounds(70, 130, 86, 20);
+		textField.setBounds(175, 70, 200, 25);
 		panel_9.add(textField);
 		textField.setColumns(10);
 		
 		JTextField textField2 = new JTextField();
-		textField2.setBounds(230, 130, 86, 20);
+		textField2.setBounds(175, 130, 200, 25);
 		panel_9.add(textField2);
 		textField.setColumns(10);
 		
 		JButton btnA = new JButton("Aggiungi");
-		btnA.setBounds(120, 170, 89, 23);
+		btnA.setBounds(175, 210, 89, 23);
 		panel_9.add(btnA);
 		
 		btnA.addActionListener(new ActionListener() {
@@ -74,7 +74,7 @@ public class AmministratoreViewAG{
 		}});
 		
 		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(330, 227, 89, 23);
+		btnBack.setBounds(285, 210, 89, 23);
 		panel_9.add(btnBack);
 		
 		btnBack.addActionListener(new ActionListener() {

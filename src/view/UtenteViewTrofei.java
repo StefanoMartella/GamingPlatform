@@ -46,7 +46,7 @@ public class UtenteViewTrofei {
 		
 		ImageIcon iconSX = new ImageIcon("../Immagini/Trofei/FrecciaSX.png");
 		ImageIcon iconDX = new ImageIcon("../Immagini/Trofei/FrecciaDX.png");
-		ImageIcon[] icon = new ImageIcon[ut.getLivello()]();
+		ImageIcon[] icon = new ImageIcon[ut.getLivello()];
 		
 		for(int i=0; i < ut.getLivello(); i++)
 			icon[i] = new ImageIcon("../Immagini/Trofei/Trofeo"+i+".png");
