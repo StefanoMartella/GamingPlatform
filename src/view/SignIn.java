@@ -57,6 +57,10 @@ public class SignIn{
 		JLabel lblPassword_1 = new JLabel("Password");
 		lblPassword_1.setBounds(55, 145, 173, 14);
 		panel_3.add(lblPassword_1);	
+		
+		JLabel lblPassword_2 = new JLabel("Ripeti Password");
+		lblPassword_2.setBounds(55, 175, 173, 14);
+		panel_3.add(lblPassword_2);	
 	
 	
 	
@@ -86,16 +90,22 @@ public class SignIn{
 		
 		JPasswordField passwordField;
 		passwordField = new JPasswordField();
-		passwordField.setBounds(183, 145, 173, 20);
+		passwordField.setBounds(183, 175, 173, 20);
 		passwordField.setEchoChar('*'); 
 		panel_3.add(passwordField);
 		
-		JButton btnRegistrati = new JButton("REGISTRATI");
-		btnRegistrati.setBounds(200, 178, 139, 23);
+		JPasswordField passwordField2;
+		passwordField2 = new JPasswordField();
+		passwordField2.setBounds(183, 145, 173, 20);
+		passwordField2.setEchoChar('*'); 
+		panel_3.add(passwordField2);
+		
+		JButton btnRegistrati = new JButton("Registrati");
+		btnRegistrati.setBounds(170, 210, 89, 23);
 		panel_3.add(btnRegistrati);
 		
 		JButton btnLogin = new JButton("Indietro");
-		btnLogin.setBounds(335, 227, 89, 23);
+		btnLogin.setBounds(280, 210, 89, 23);
 		panel_3.add(btnLogin);
 		
 		
@@ -110,7 +120,7 @@ public class SignIn{
 			public void actionPerformed(ActionEvent arg0) {
 					int test = new GestioneUtenza().signIn(
 						textField_2.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText(),
-						new String(passwordField.getPassword()));
+						new String(passwordField.getPassword()), new String(passwordField2.getPassword()));
 					if(test==0){
 							JOptionPane.showMessageDialog(
 							frmPiattaformaGaming, "Registrato con successo");
@@ -129,11 +139,16 @@ public class SignIn{
 						JOptionPane.showMessageDialog(
 					frmPiattaformaGaming, "Compilare tutti i campi", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
 					}
-					textField_2.setText("");
-					textField_3.setText("");
-					textField_4.setText("");
-					textField_5.setText("");
+					if(test==4){
+						JOptionPane.showMessageDialog(
+					frmPiattaformaGaming, "Le due password non coincidono!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+					}
+					textField_2.setText(textField_2.getText());
+					textField_3.setText(textField_3.getText());
+					textField_4.setText(textField_4.getText());
+					textField_5.setText(textField_5.getText());
 					passwordField.setText("");
+					passwordField2.setText("");
 				}
 			
 		});
