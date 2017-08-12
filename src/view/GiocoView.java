@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -21,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.BorderLayout;
 
 import java.util.*;
 import java.sql.*;
@@ -124,9 +126,24 @@ public class GiocoView{
 		
 		btnGioca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+					int lvl = ut.getLivello();
 					new UtenteController(ut,gioco).play();
 					JOptionPane.showMessageDialog(
 							frmPiattaformaGaming, "Hai giocato!");
+					if(ut.getLivello()>lvl){
+						JPanel opP = new JPanel();
+						opP.setLayout(new BorderLayout());
+						JLabel text = new JLabel();
+						text.setText("<html><body>Complimenti, hai raggiunto il livello " + ut.getLivello() +
+							"<br>Hai ottenuto un trofeo!</body></html>");
+						ImageIcon icon = new ImageIcon("../Immagini/Trofei/Trofeo" + ut.getLivello() + ".ico");
+						JLabel ico = new JLabel(icon);
+						opP.add(ico,BorderLayout.SOUTH);
+						opP.add(text,BorderLayout.EAST);
+						JOptionPane.showMessageDialog(
+							frmPiattaformaGaming, opP, "Nuovo livello",
+							JOptionPane.PLAIN_MESSAGE);
+					}
 			}
 		});
 		
