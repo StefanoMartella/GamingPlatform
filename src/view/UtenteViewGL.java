@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
-import java.awt.GridLayout;
+import net.miginfocom.swing.MigLayout;
 import java.awt.Dimension;
 
 import java.util.*;
@@ -44,7 +44,9 @@ public class UtenteViewGL{
 		panel_5.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new GridLayout(0,1));
+		ps.setLayout(new MigLayout("center center, wrap, gapy 15"));
+		
+		int i=0;
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JButton> jl = new ArrayList<JButton>();
@@ -52,7 +54,8 @@ public class UtenteViewGL{
 				jl.add(new JButton(g.getNome()));
 		}
 		for(JButton j: jl){
-			ps.add(j);
+			ps.add(j, "width 180");
+			i++;
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_5.setVisible(false);
@@ -63,11 +66,12 @@ public class UtenteViewGL{
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
 		scroll.setBounds(0,0,460,240);
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
 		panel_5.add(scroll);
 		
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(185, 245, 90, 15);
+		btnHome.setBounds(180, 250, 90, 25);
 		panel_5.add(btnHome);
 
 		btnHome.addActionListener(new ActionListener() {

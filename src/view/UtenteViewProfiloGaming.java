@@ -110,7 +110,6 @@ public class UtenteViewProfiloGaming{
 		
 		trofei.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ut = null;
 				panel_1.setVisible(false);
 				new UtenteViewTrofei(frmPiattaformaGaming, ut);
 		}});

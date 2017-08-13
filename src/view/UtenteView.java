@@ -36,7 +36,7 @@ public class UtenteView {
 	public void initialize() {
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 434, 261);
+		panel_2.setBounds(0, 0, 434, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		panel_2.setVisible(true);
