@@ -67,6 +67,9 @@ public class ModeratoreView {
 		
 		JButton btnLR = new JButton("LISTA RECENSIONI");
 		btnLR.setBounds(266, 132, 160, 30);
+		List<Recensione> lr = new ModeratoreController().reviewsList();
+		if(!lr.isEmpty())
+				btnLR.setBackground(Color.RED);
 		panel_2.add(btnLR);
 		
 		JButton btnLogout = new JButton("LOGOUT");

@@ -45,9 +45,12 @@ public class UtenteController{
 		try{
 			if(new UtenteDao().reviewAlreadyMadeByUser(utente,gioco))
 			return "Hai gia' scritto una recensione per questo gioco.";
-		
+		else{
 		new UtenteDao().reviewGame(testoRecensione, utente, gioco);
+		if(utente.getTipo().equals("moderatore"))
+			return "Recensione inserita!";
 		return "Recensione inviata, dovrete aspettare il consenso di un moderatore.";
+		}
 		}
 		catch(SQLException exc){
 			exc.printStackTrace();

@@ -100,9 +100,9 @@ public class Login {
 		psswrdField.setEchoChar('*'); 
 		panel.add(psswrdField);
 		
-		JButton btnSignIn = new JButton("Registrati");
-		btnSignIn.setBounds(270, 195, 89, 23);
-		panel.add(btnSignIn);
+		JButton btnSignUp = new JButton("Registrati");
+		btnSignUp.setBounds(270, 195, 89, 23);
+		panel.add(btnSignUp);
 		
 		JButton btnLogin = new JButton("Accedi");
 		
@@ -135,10 +135,10 @@ public class Login {
 		}
 			});
 		
-		btnSignIn.addActionListener(new ActionListener() {
+		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panel.setVisible(false);
-				new SignIn(frmPiattaformaGaming);
+				new SignUp(frmPiattaformaGaming);
 			}
 		});
 		

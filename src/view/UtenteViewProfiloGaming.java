@@ -68,8 +68,8 @@ public class UtenteViewProfiloGaming{
 		label_1.setBounds(134, 90, 166, 14);
 		panel_1.add(label_1);
 		
-		JButton trofei = new JButton("visualizza trofei");
-		trofei.setBounds(134, 120, 170, 15);
+		JButton trofei = new JButton("Visualizza trofei");
+		trofei.setBounds(134, 120, 170, 20);
 		panel_1.add(trofei);
 		
 		JLabel lblTimeline = new JLabel("Timeline:");
@@ -92,7 +92,7 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(scroll);
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(345, 235, 89, 23);
+		btnHome.setBounds(345, 235, 89, 25);
 		panel_1.add(btnHome);
 		
 		

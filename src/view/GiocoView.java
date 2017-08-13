@@ -150,7 +150,7 @@ public class GiocoView{
 		btnReview.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, new UtenteController(ut,gioco).review(textPane.getText()));
+							frmPiattaformaGaming, new UtenteController(ut,gioco).review("Recensione di " + ut.getUsername() + ":\n" + textPane.getText()));
 							textPane.setText("");
 		}});
 		

@@ -21,11 +21,11 @@ import java.awt.Color;
 import java.util.*;
 import java.sql.*;
 
-public class SignIn{
+public class SignUp{
 	
 	JFrame frmPiattaformaGaming;
 	
-	public SignIn(JFrame frm){
+	public SignUp(JFrame frm){
 		this.frmPiattaformaGaming = frm;
 		initialize();
 	}

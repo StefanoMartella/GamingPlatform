@@ -23,7 +23,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
-import java.awt.GridLayout;
+import net.miginfocom.swing.MigLayout;
 
 import java.util.*;
 import java.sql.*;
@@ -43,15 +43,14 @@ public class AmministratoreViewLG{
 		JPanel panel_9 = new JPanel();
 		panel_9.setBounds(0, 0, 465, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
-		panel_9.setLayout(null);
+		panel_9.setLayout(new MigLayout());
 		panel_9.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new GridLayout(0,2, 0, 20));
+		ps.setLayout(new MigLayout("", "[]170[]", "[][]"));
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(339, 243, 89, 18);
-		panel_9.add(btnHome);
+		panel_9.add(btnHome, "pos 339px 250px, width 90, height 20");
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -60,8 +59,7 @@ public class AmministratoreViewLG{
 		}});
 		
 		JButton btnAG = new JButton("Inserisci");
-		btnAG.setBounds(15, 243, 89, 18);
-		panel_9.add(btnAG);
+		panel_9.add(btnAG, "pos 15px 250px, width 90, height 20");
 		
 		btnAG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,8 +75,7 @@ public class AmministratoreViewLG{
 		for(JLabel j: jl){
 			ps.add(j);
 			JButton selez = new JButton("Elimina");
-			selez.setSize(30,20);
-			ps.add(selez);
+			ps.add(selez, "wmin 140, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
@@ -90,6 +87,6 @@ public class AmministratoreViewLG{
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
 		scroll.setSize(460,240);
-		panel_9.add(scroll);
+		panel_9.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }

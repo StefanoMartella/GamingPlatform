@@ -34,9 +34,9 @@ public class RecensioneDao implements RecensioneDaoInterface{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(INSERT);
 	if(utente.getTipo().equals("moderatore"))
-		ps.setInt(1,1);
+		ps.setByte(1,(byte)1);
 	else
-		ps.setInt(1,0);
+		ps.setByte(1,(byte)0);
     ps.setString(2, testo);
     ps.setInt(3, gioco.getId());
     ps.setInt(4, utente.getId());
@@ -61,7 +61,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
     Statement s = connection.createStatement();
     ResultSet rset = s.executeQuery(QUERY);
     while (rset.next()){
-      Recensione recensione = new Recensione(rset.getInt(1), rset.getBoolean(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
+      Recensione recensione = new Recensione(rset.getByte(1), rset.getBoolean(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
       filtred_reviews.add(recensione);
     }
     s.close();

@@ -40,13 +40,11 @@ public class UtenteViewGL{
 		JPanel panel_5 = new JPanel();
 		panel_5.setBounds(0, 0, 465, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_5);
-		panel_5.setLayout(null);
+		panel_5.setLayout(new MigLayout());
 		panel_5.setVisible(true);
 		
 		JPanel ps = new JPanel();
 		ps.setLayout(new MigLayout("center center, wrap, gapy 15"));
-		
-		int i=0;
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JButton> jl = new ArrayList<JButton>();
@@ -55,7 +53,6 @@ public class UtenteViewGL{
 		}
 		for(JButton j: jl){
 			ps.add(j, "width 180");
-			i++;
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_5.setVisible(false);
@@ -65,14 +62,13 @@ public class UtenteViewGL{
 		
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setBounds(0,0,460,240);
 		scroll.getVerticalScrollBar().setUnitIncrement(20);
-		panel_5.add(scroll);
+		panel_5.add(scroll, "pos 0px 0px, width 460, height 240");
 		
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(180, 250, 90, 25);
-		panel_5.add(btnHome);
+		panel_5.add(btnHome, "pos 180px 250px, width 90, height 25");
 
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

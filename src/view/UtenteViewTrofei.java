@@ -28,6 +28,7 @@ public class UtenteViewTrofei {
 	
 	JFrame frmPiattaformaGaming;
 	Utente ut;
+	int count = 1;
 	
 	public UtenteViewTrofei(JFrame frame, Utente utente) {
 		this.frmPiattaformaGaming=frame;
@@ -38,7 +39,7 @@ public class UtenteViewTrofei {
 	public void initialize() {
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 465, 300);
+		panel_2.setBounds(0, 0, 460, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_2);
 		panel_2.setLayout(new MigLayout());
 		panel_2.setVisible(true);
@@ -47,35 +48,54 @@ public class UtenteViewTrofei {
 		
 		ImageIcon iconSX = new ImageIcon("../Immagini/Trofei/FrecciaSX.png");
 		ImageIcon iconDX = new ImageIcon("../Immagini/Trofei/FrecciaDX.png");
-		ImageIcon[] icon = new ImageIcon[ut.getLivello()];
+		ImageIcon[] icon = new ImageIcon[ut.getLivello()+1];
 		
-		for(int i=0; i < ut.getLivello(); i++)
+		JButton arrowSX = new JButton();
+		arrowSX.setIcon(iconSX);
+		panel_2.add(arrowSX, "wmax 30, hmax 22, pos 10px 139px");
+		
+		JButton arrowDX = new JButton();
+		arrowDX.setIcon(iconDX);
+		panel_2.add(arrowDX, "wmax 30, hmax 22, pos 405px 139px");
+		
+		JButton btnBack = new JButton("Indietro");
+		panel_2.add(btnBack, "width 140, height 30, pos 160px 250px");
+		
+		for(int i=1; i < ut.getLivello()+1; i++)
 			icon[i] = new ImageIcon("../Immagini/Trofei/Trofeo"+i+".ico");
 		
 		if(ut.getLivello()>0)
-			trof =  new JLabel(new ImageIcon("../Immagini/Trofei/Trofeo.png"));
+			trof.setIcon(icon[count]);
+		else{
+			arrowSX.setVisible(false);
+			arrowDX.setVisible(false);
+			trof.setText("Non hai ancora collezionato trofei.");
+			}
 		
-		//trof.setBounds(195,100,100,100);
-		panel_2.add(trof, "pos 100px 100px");
-		
-		JButton arrowSX = new JButton();
-		//arrowSX.setBounds(10,139,30,22);
-		arrowSX.setIcon(iconSX);
-		panel_2.add(arrowSX, "pos 10px 139px");
-		
-		JButton arrowDX = new JButton();
-		//arrowDX.setBounds(420,139,30,22);
-		arrowDX.setIcon(iconDX);
-		panel_2.add(arrowDX, "pos 420px 139px");
-		
-		JButton btnBack = new JButton("Indietro");
-		//btnBack.setBounds(185, 250, 90, 23);
-		panel_2.add(btnBack, "pos 185px 250px");
+		panel_2.add(trof, "pos 155px 58px");
 		
 		arrowSX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				if(count>1){
+					trof.setIcon(icon[--count]);
+					arrowSX.setVisible(true);
+					if(count==1)
+						arrowSX.setVisible(false);
+					if(count==ut.getLivello()-1)
+						arrowDX.setVisible(true);
+				}
+		}});
+		
+		arrowDX.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(count<ut.getLivello()){
+					trof.setIcon(icon[++count]);
+					arrowDX.setVisible(true);
+					if(count==ut.getLivello())
+						arrowDX.setVisible(false);
+					if(count==2)
+						arrowSX.setVisible(true);
+				}
 		}});
 		
 		btnBack.addActionListener(new ActionListener() {

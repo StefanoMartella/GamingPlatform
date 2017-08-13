@@ -21,8 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
+import net.miginfocom.swing.MigLayout;
+
 
 import java.util.*;
 import java.sql.*;
@@ -41,11 +41,11 @@ public class ModeratoreViewLU{
 		JPanel panel_8 = new JPanel();
 		panel_8.setBounds(0, 0, 465, 300);
 		frmPiattaformaGaming.getContentPane().add(panel_8);
-		panel_8.setLayout(null);
+		panel_8.setLayout(new MigLayout());
 		panel_8.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new GridLayout(0,2, 0, 20));
+		ps.setLayout(new MigLayout("", "[]170[]", "[][]"));
 		
 		List<Utente> lU = new ModeratoreController().usersList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
@@ -58,31 +58,29 @@ public class ModeratoreViewLU{
 			JButton selez;
 			String type = new GestioneUtenza().findUser(j.getText()).getTipo();
 			if(type.equals("moderatore"))
-				selez = new JButton("RETROCEDI");
+				selez = new JButton("Retrocedi");
 			else
-				selez = new JButton("PROMUOVI");
-			selez.setSize(30,20);
-			ps.add(selez);
+				selez = new JButton("Promuovi");
+			ps.add(selez,"wmin 140, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(selez.getText().equals("RETROCEDI")){
+						if(selez.getText().equals("Retrocedi")){
 							new ModeratoreController(new GestioneUtenza().findUser(j.getText())).demote();
 							JOptionPane.showMessageDialog(
 							frmPiattaformaGaming, "Moderatore retrocesso.");
-							selez.setText("PROMUOVI");
+							selez.setText("Promuovi");
 						}
 						else{
 							new ModeratoreController(new GestioneUtenza().findUser(j.getText())).promote();
 							JOptionPane.showMessageDialog(
 							frmPiattaformaGaming, "Utente promosso!");
-							selez.setText("RETROCEDI");
+							selez.setText("Retrocedi");
 						}
 							
 			}});
 		}
 		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(330, 242, 89, 18);
-		panel_8.add(btnBack);
+		panel_8.add(btnBack, "pos 330px 242px, width 90, height 25");
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +90,6 @@ public class ModeratoreViewLU{
 		
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setSize(460,240);
-		panel_8.add(scroll);
+		panel_8.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }
