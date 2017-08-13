@@ -92,7 +92,7 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(scroll);
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(345, 235, 89, 25);
+		btnHome.setBounds(345, 240, 89, 20);
 		panel_1.add(btnHome);
 		
 		

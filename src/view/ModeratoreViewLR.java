@@ -59,7 +59,7 @@ public class ModeratoreViewLR{
 		for(JLabel j: jl){
 			ps.add(j);
 			JButton selez = new JButton("Leggi");
-			ps.add(selez, "wmin 140, wrap");
+			ps.add(selez, "wmin 170, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 							int n = JOptionPane.showOptionDialog(frmPiattaformaGaming, new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11))).getTesto(),
@@ -80,7 +80,6 @@ public class ModeratoreViewLR{
 		}
 		
 		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(330, 242, 89, 18);
 		panel_9.add(btnBack, "pos 330px 242px, width 90, height 25");
 		
 		btnBack.addActionListener(new ActionListener() {
@@ -91,6 +90,7 @@ public class ModeratoreViewLR{
 		
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
 		panel_9.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }

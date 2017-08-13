@@ -75,7 +75,7 @@ public class AmministratoreViewLG{
 		for(JLabel j: jl){
 			ps.add(j);
 			JButton selez = new JButton("Elimina");
-			ps.add(selez, "wmin 140, wrap");
+			ps.add(selez, "wmin 150, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
@@ -86,6 +86,7 @@ public class AmministratoreViewLG{
 		}
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
 		scroll.setSize(460,240);
 		panel_9.add(scroll, "pos 0px 0px, width 460, height 240");
 	}

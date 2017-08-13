@@ -61,7 +61,7 @@ public class ModeratoreViewLU{
 				selez = new JButton("Retrocedi");
 			else
 				selez = new JButton("Promuovi");
-			ps.add(selez,"wmin 140, wrap");
+			ps.add(selez,"wmin 185, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if(selez.getText().equals("Retrocedi")){
@@ -90,6 +90,7 @@ public class ModeratoreViewLU{
 		
 		JScrollPane scroll = new JScrollPane(ps);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
 		panel_8.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }

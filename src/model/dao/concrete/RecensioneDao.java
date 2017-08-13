@@ -26,8 +26,12 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   private static final String
   DELETE_ALL = "DELETE FROM gioco;";
+  
   private static final String
   FIND_REVIEW = "SELECT * FROM recensione WHERE id = ?;";
+  
+  private static final String
+  FIND_REVIEW_BY_USER_AND_GAME = "SELECT * from recensione WHERE utente = ? AND gioco = ?;";
 
   @Override
   public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException{
@@ -95,6 +99,21 @@ public class RecensioneDao implements RecensioneDaoInterface{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(FIND_REVIEW);
     ps.setInt(1, id);
+	ResultSet rset = ps.executeQuery();
+    if (rset.first() == false) return null;
+	r = new Recensione(rset.getInt(1), rset.getBoolean(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
+	ps.close();
+    connection.close();
+	return r;
+  }
+  
+  @Override
+  public Recensione findReviewByUserAndGame(Utente utente, Gioco gioco) throws SQLException{
+	Recensione r;
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(FIND_REVIEW_BY_USER_AND_GAME);
+    ps.setInt(1, utente.getId());
+	ps.setInt(2, gioco.getId());
 	ResultSet rset = ps.executeQuery();
     if (rset.first() == false) return null;
 	r = new Recensione(rset.getInt(1), rset.getBoolean(2), rset.getString(3), rset.getInt(4), rset.getInt(5));

@@ -64,13 +64,17 @@ public class UtenteViewTrofei {
 		for(int i=1; i < ut.getLivello()+1; i++)
 			icon[i] = new ImageIcon("../Immagini/Trofei/Trofeo"+i+".ico");
 		
+		if(ut.getLivello() == 1){
+			arrowSX.setVisible(false);
+			arrowDX.setVisible(false);
+		}
 		if(ut.getLivello()>0)
 			trof.setIcon(icon[count]);
 		else{
 			arrowSX.setVisible(false);
 			arrowDX.setVisible(false);
 			trof.setText("Non hai ancora collezionato trofei.");
-			}
+		}
 		
 		panel_2.add(trof, "pos 155px 58px");
 		

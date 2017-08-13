@@ -44,7 +44,7 @@ public class UtenteViewGL{
 		panel_5.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new MigLayout("center center, wrap, gapy 15"));
+		ps.setLayout(new MigLayout("center center, wrap, gapy 5"));
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JButton> jl = new ArrayList<JButton>();
@@ -52,7 +52,7 @@ public class UtenteViewGL{
 				jl.add(new JButton(g.getNome()));
 		}
 		for(JButton j: jl){
-			ps.add(j, "width 180");
+			ps.add(j, "width 420");
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_5.setVisible(false);
@@ -67,7 +67,6 @@ public class UtenteViewGL{
 		
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(180, 250, 90, 25);
 		panel_5.add(btnHome, "pos 180px 250px, width 90, height 25");
 
 		btnHome.addActionListener(new ActionListener() {
