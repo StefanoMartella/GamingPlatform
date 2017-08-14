@@ -168,6 +168,7 @@ public class GiocoView{
 				else
 				JOptionPane.showMessageDialog(
 							frmPiattaformaGaming, new UtenteController(ut,gioco).vote(Integer.parseInt(bg.getSelection().getActionCommand())));
+							mediaVoti.setText("Media voti: " + df.format(new GiocoController(gioco).avgVote()));
 							textPane.setText("");
 		}
 		});
