@@ -140,7 +140,7 @@ public class SignUp{
 									textField_2.setText(textField_2.getText());
 									textField_3.setText(textField_3.getText());
 									textField_4.setText("");
-									textField_5.setText(textField_4.getText());
+									textField_5.setText(textField_5.getText());
 									passwordField.setText(String.valueOf(passwordField.getPassword()));
 									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
 									break;
@@ -166,7 +166,17 @@ public class SignUp{
 									break;
 							
 							case 4: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Le due password non coincidono!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+									frmPiattaformaGaming, "Email non valida!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+									textField_2.setText(textField_2.getText());
+									textField_3.setText(textField_3.getText());
+									textField_4.setText(textField_4.getText());
+									textField_5.setText("");
+									passwordField.setText(String.valueOf(passwordField.getPassword()));
+									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
+									break;
+							
+							case 5: JOptionPane.showMessageDialog(
+									frmPiattaformaGaming, "La password deve essere di almeno 8 caratteri!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
 									textField_2.setText(textField_2.getText());
 									textField_3.setText(textField_3.getText());
 									textField_4.setText(textField_4.getText());
@@ -174,9 +184,9 @@ public class SignUp{
 									passwordField.setText("");
 									passwordField2.setText("");
 									break;
-							
-							case 5: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "La password deve essere di almeno 8 caratteri!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+									
+							case 6: JOptionPane.showMessageDialog(
+									frmPiattaformaGaming, "Le due password non coincidono!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
 									textField_2.setText(textField_2.getText());
 									textField_3.setText(textField_3.getText());
 									textField_4.setText(textField_4.getText());

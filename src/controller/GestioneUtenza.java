@@ -3,6 +3,8 @@ package src.controller;
 import src.model.dao.concrete.*;
 import src.model.*;
 import java.sql.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 /**
 *Class which implements methods about user's mainteinance
@@ -62,16 +64,23 @@ public class GestioneUtenza{
 	*@return int information number about enrolment status
 	**/
 	public int signIn(String name, String surname, String username, String mail, String password, String password2){
+		
+		Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+		
+		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(mail);
+		
 		try{
 			if(new UtenteDao().usernameAlreadyUsed(username)){ return 1;}
 			if(new UtenteDao().emailAlreadyUsed(mail)){ return 2;}
 		
 			if(name.equals("") || surname.equals("") || username.equals("") || mail.equals("") || password.equals("") || password2.equals(""))
 				return 3;
-			if(password.length() < 8)
+			if(!matcher.find()) 
+				return 4;
+			if(password2.length() < 8)
 				return 5;
 			if( !password.equals(password2) )
-				return 4;
+				return 6;
 			Utente ut = new Utente(name,surname,username,mail,password);
 		
 			new UtenteDao().insertUser(ut);
