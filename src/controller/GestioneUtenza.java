@@ -61,10 +61,10 @@ public class GestioneUtenza{
 	*@param password2 confirm password
 	*@return int information number about enrolment status
 	**/
-	public int signIn(String name, String surname, String username, String mail, String password, String password2){
+	public int signIn(String name, String surname, String username, String email, String password, String password2){
 		try{
 			if(new UtenteDao().usernameAlreadyUsed(username)){ return 1;}
-			if(new UtenteDao().emailAlreadyUsed(username)){ return 2;}
+			if(new UtenteDao().emailAlreadyUsed(email)){ return 2;}
 		
 			if(name.equals("") || surname.equals("") || username.equals("") || mail.equals("") || password.equals("") || password2.equals(""))
 				return 3;
