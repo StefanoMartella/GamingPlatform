@@ -6,17 +6,32 @@ import src.model.*;
 import src.model.dao.concrete.*;
 import java.sql.*;
 
+/**
+*Class which represents the controller of MVC pattern for the user
+**/
 public class UtenteController{
 	Utente utente;
 	Gioco gioco;
-
+	
+	/**
+	*Basic constructor
+	**/
 	public UtenteController(){};
 	
+	/**
+	*Full constructor
+	*@param utente user of UtenteController
+	*@param gioco game on which UtenteController will operate
+	*/
 	public UtenteController(Utente utente, Gioco gioco){
 		this.utente=utente;
 		this.gioco=gioco;
 	}
 	
+	/**
+	*Method used to play a game
+	*@return void
+	*/
 	public void play(){
 		try{
 			new UtenteDao().play(utente,gioco);
@@ -27,6 +42,12 @@ public class UtenteController{
 		
 	}
 	
+	
+	/**
+	*Method used to vote a game
+	*@param voto vote to assign
+	*@return String string information about voting
+	*/
 	public String vote(int voto){
 		try{
 			if(new UtenteDao().gameAlreadyVotedByUser(utente, gioco))
@@ -41,6 +62,12 @@ public class UtenteController{
 		return null;
 	}
 	
+	
+	/**
+	*Method used to review a game
+	*@param testoRecensione review's text
+	*@return String string information about review
+	*/
 	public String review(String testoRecensione){
 		try{
 			if(new UtenteDao().reviewAlreadyMadeByUser(utente,gioco))
@@ -60,6 +87,12 @@ public class UtenteController{
 		return null;
 	}
 	
+	
+	/**
+	*Method used to get user's timeline
+	*@param username user's username
+	*@return TreeMap<Integer, String> user's timeline
+	*/
 	public TreeMap<Integer, String> timeline(String username){
 		try{
 			Utente utente = new UtenteDao().findUserByUsername(username);

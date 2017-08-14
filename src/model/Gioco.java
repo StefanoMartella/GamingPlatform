@@ -1,7 +1,7 @@
 package src.model;
 
 /**
-*Class which represent a game
+*Class which represents a game
 **/
 
 public class Gioco{

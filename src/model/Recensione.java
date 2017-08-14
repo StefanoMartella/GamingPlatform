@@ -1,6 +1,6 @@
 package src.model;
 /**
-*Class which represent a review
+*Class which represents a review
 **/
 public class Recensione{
   private int id;

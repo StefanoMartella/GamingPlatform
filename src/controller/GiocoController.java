@@ -5,23 +5,43 @@ import src.model.*;
 import java.util.ArrayList;
 import java.sql.*;
 
+/**
+*Class which represents the controller of MVC pattern for the game
+**/
 public class GiocoController{
 	Utente utente;
 	Gioco gioco;
 	
+	/**
+	*Basic constructor
+	**/
 	public GiocoController(){
 		
 	}
 	
+	/**
+	*Full constructor
+	*@param utente user on which GiocoController will operate
+	*@param gioco game on which GiocoController will operate
+	**/
 	public GiocoController(Utente utente, Gioco gioco){
 		this.utente=utente;
 		this.gioco=gioco;
 	}
+	
+	/**
+	*Game constructor
+	*@param gioco game on which GiocoController will operate
+	**/
 	public GiocoController(Gioco gioco){
 		
 		this.gioco=gioco;
 	}
 	
+	/**
+	*Method used to get the list of games
+	*@return ArrayList<Gioco> games' list
+	*/
 	public ArrayList<Gioco> listOfGames(){
 		try{
 			return new GiocoDao().allGames();
@@ -32,6 +52,11 @@ public class GiocoController{
 		return null;
 	}
 	
+	/**
+	*Method used to find a game by its name
+	*@param nome name of game to find
+	*@return Gioco istance of game
+	**/
 	public Gioco findGame(String nome){
 		try{
 			return new GiocoDao().findGameByName(nome);
@@ -42,6 +67,11 @@ public class GiocoController{
 		return null;
 	}
 	
+	
+	/**
+	*Method used to get votes avarage of a game
+	*@return float avarage
+	**/
 	public float avgVote(){
 		try{
 			return new GiocoDao().getVotesAverage(gioco);
@@ -52,6 +82,10 @@ public class GiocoController{
 		return -1;
 	}
 	
+	/**
+	*Method used to get the list of all reviews about a game
+	*@return ArrayList<Recensione> list of reviews
+	*/
 	public ArrayList<Recensione> allReviews(){
 		try{
 			return new GiocoDao().allGameReviews(gioco);

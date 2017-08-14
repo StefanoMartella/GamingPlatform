@@ -1,6 +1,6 @@
 package src.model;
 /**
-*Class which represent a user
+*Class which represents a user
 **/
 public class Utente{
   private int id;
