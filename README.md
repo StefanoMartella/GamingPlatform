@@ -87,7 +87,7 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
  Either downloading the zip from this site.
  Now move into the downloaded/cloned directory and enter the following command to import database:
  
- ```mysql -u gaming -p < src/database/SQL.sql```
+ ```mysql -u gaming -p < src/model/database/SQL.sql```
  
  You will be prompted for password which is ```gaming```.
  You are finally ready to launch application with:
