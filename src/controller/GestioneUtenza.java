@@ -68,6 +68,8 @@ public class GestioneUtenza{
 		
 			if(name.equals("") || surname.equals("") || username.equals("") || mail.equals("") || password.equals("") || password2.equals(""))
 				return 3;
+			if(password.length() < 8)
+				return 5;
 			if( !password.equals(password2) )
 				return 4;
 			Utente ut = new Utente(name,surname,username,mail,password);
