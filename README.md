@@ -2,7 +2,7 @@
 
 Project for Object-Oriented-Software-Design course of [University of L'Aquila](http://univaq.it)
 
-#### Team
+## Team
 
 - D'Ascenzo Andrea
 - Icaro Iari
@@ -10,7 +10,7 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
 - Morelli Davide
 - Tramontozzi Paolo
 
-### Repository structure
+## Repository structure
  ```
 ├── doc
 │   └── documentation.pdf
@@ -65,12 +65,12 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
          ├── UtenteViewProfiloPers.java
          └── UtenteViewTrofei.java
 ```
-### Prerequisites
+## Prerequisites
 
  - [Java](https://www.java.com/it/download/) to run application.
  - [MySql](https://www.mysql.com/it/downloads/) to make app work with database.
  
-### Start using it
+## Start using it
  
  In order to run the project create a user in the MySQL database with:
  
@@ -94,9 +94,9 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
  
  ```java ----```
 
-### Contracts 
+## Contracts 
 
- - stefano.martella9614@gmail.com
+ - stefano.martella9614@gmail.com 
  -
  -
  -
