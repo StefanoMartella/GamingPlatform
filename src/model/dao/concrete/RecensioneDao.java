@@ -11,6 +11,9 @@ import src.model.dao.interfaces.RecensioneDaoInterface;
 import src.model.database.DB;
 import src.model.*;
 
+/**
+*Class which contains all MySql queries to get review's informations from database
+**/
 public class RecensioneDao implements RecensioneDaoInterface{
   private static final String
   INSERT = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?);";
@@ -33,6 +36,15 @@ public class RecensioneDao implements RecensioneDaoInterface{
   private static final String
   FIND_REVIEW_BY_USER_AND_GAME = "SELECT * from recensione WHERE utente = ? AND gioco = ?;";
 
+  /**
+  *Method to insert a review
+  *
+  *@param testo review's text
+  *@param gioco game reviewed
+  *@param utente user that makes review
+  *
+  *@return void
+  **/
   @Override
   public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -45,6 +57,13 @@ public class RecensioneDao implements RecensioneDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to delete a review
+  *
+  *@param recensione review to delete from database
+  *
+  *@return void
+  **/
   @Override
   public void deleteReview(Recensione recensione) throws SQLException{
     Connection connection = DB.openConnection();
@@ -55,6 +74,13 @@ public class RecensioneDao implements RecensioneDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to get all filtered reviews
+  *
+  *@param QUERY query to filter reviews
+  *
+  *@return ArrayList<Recensione> all filtered reviews
+  **/
   public ArrayList<Recensione> filterReviews(String QUERY) throws SQLException{
     ArrayList<Recensione> filtred_reviews = new ArrayList<>();
     Connection connection = DB.openConnection();
@@ -70,16 +96,31 @@ public class RecensioneDao implements RecensioneDaoInterface{
     return filtred_reviews;
   }
 
+  /**
+  *Method to get all reviews
+  *
+  *@return ArrayList<Recensione> all reviews
+  **/
   @Override
   public ArrayList<Recensione> allReviews() throws SQLException{
     return filterReviews(ALL);
   }
 
+  /**
+  *Method to get all approved reviews
+  *
+  *@return ArrayList<Recensione> all filtered reviews
+  **/
   @Override
   public ArrayList<Recensione> allReviewsNotApproved() throws SQLException{
     return filterReviews(ALL_NOT_APPROVED);
   }
 
+  /**
+  *Method to delete all reviews
+  *
+  *@return void
+  **/
   @Override
   public void deleteAllReviews() throws SQLException{
     Connection connection = DB.openConnection();
@@ -89,6 +130,13 @@ public class RecensioneDao implements RecensioneDaoInterface{
     connection.close();
   }
   
+  /**
+  *Method to find a review thanks to its id
+  *
+  *@param id review's id
+  *
+  *@return Recensione searched review
+  **/
   @Override
   public Recensione findReviewById(int id) throws SQLException{
 	Recensione r;
@@ -103,6 +151,14 @@ public class RecensioneDao implements RecensioneDaoInterface{
 	return r;
   }
   
+  /**
+  *Method to find a review thanks to user and game
+  *
+  *@param utente user who made review
+  *@param gioco reviewed game
+  *
+  *@return Recensione searched review
+  **/
   @Override
   public Recensione findReviewByUserAndGame(Utente utente, Gioco gioco) throws SQLException{
 	Recensione r;

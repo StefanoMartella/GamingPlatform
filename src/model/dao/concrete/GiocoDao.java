@@ -11,6 +11,9 @@ import src.model.dao.interfaces.GiocoDaoInterface;
 import src.model.database.DB;
 import src.model.*;
 
+/**
+*Class which contains all MySql queries to get game's informations from database
+**/
 public class GiocoDao implements GiocoDaoInterface{
   private static final String
   INSERT = "INSERT INTO gioco(nome, exp) VALUES (?, ?);";
@@ -33,6 +36,13 @@ public class GiocoDao implements GiocoDaoInterface{
   private static final String
   ALL_GAME_REVIEWS = "SELECT * FROM recensione WHERE recensione.gioco = ? AND recensione.approvazione = 1;";
 
+  /**
+  *Method to insert a game
+  *
+  *@param gioco game to insert into database
+  *
+  *@return void
+  **/
   @Override
   public void insertGame(Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
@@ -44,6 +54,13 @@ public class GiocoDao implements GiocoDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to delete a game
+  *
+  *@param gioco game to delete from database
+  *
+  *@return void
+  **/
   @Override
   public void deleteGame(Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
@@ -54,6 +71,11 @@ public class GiocoDao implements GiocoDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to get all games
+  *
+  *@return ArrayList<Gioco> all games
+  **/
   @Override
   public ArrayList<Gioco> allGames() throws SQLException{
     ArrayList<Gioco> all_games = new ArrayList<>();
@@ -70,6 +92,11 @@ public class GiocoDao implements GiocoDaoInterface{
     return all_games;
   }
 
+  /**
+  *Method to delete all games
+  *
+  *@return void
+  **/
   @Override
   public void deleteAllGames() throws SQLException{
     Connection connection = DB.openConnection();
@@ -79,6 +106,13 @@ public class GiocoDao implements GiocoDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to find a game thanks to its name
+  *
+  *@param name game's name 
+  *
+  *@return Gioco searched game
+  **/
   @Override
   public Gioco findGameByName(String name) throws SQLException{
     Gioco gioco;
@@ -94,6 +128,13 @@ public class GiocoDao implements GiocoDaoInterface{
     return gioco;
   }
   
+  /**
+  *Method to get votes average for a game
+  *
+  *@param gioco game we want votes average
+  *
+  *@return float all votes average
+  **/
   @Override
   public float getVotesAverage(Gioco gioco) throws SQLException{
     float votes_avarage;
@@ -109,6 +150,14 @@ public class GiocoDao implements GiocoDaoInterface{
     return votes_avarage;
   }
 
+  
+  /**
+  *Method to get all reviews
+  *
+  *@param gioco game we want all reviews
+  *
+  *@return ArrayList<Recensione> all games reviews
+  **/
   @Override
   public ArrayList<Recensione> allGameReviews(Gioco gioco) throws SQLException{
     ArrayList<Recensione> game_reviews = new ArrayList<>();

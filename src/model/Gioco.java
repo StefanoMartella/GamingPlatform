@@ -14,6 +14,7 @@ public class Gioco{
     this.nome = nome;
     this.exp = exp;  
   }
+  
   /**
   * Class' constructor
   *

@@ -12,6 +12,9 @@ import src.model.dao.interfaces.UtenteDaoInterface;
 import src.model.database.DB;
 import src.model.*;
 
+/**
+*Class which contains all MySql queries to get user's informations from database
+**/
 public class UtenteDao implements UtenteDaoInterface{
   private static final String
   INSERT = "INSERT INTO utente(nome, cognome, username, email, password) VALUES (?, ?, ?, ?, ?);";
@@ -64,6 +67,13 @@ public class UtenteDao implements UtenteDaoInterface{
   private static final String
   EMAIL_ALREADY_USED = "SELECT COUNT(*) AS total FROM utente WHERE email = ?;";
 
+  /**
+  *Method to insert a user
+  *
+  *@param utente user we want to add to the database
+  *
+  *@return void
+  **/
   @Override
   public void insertUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -78,6 +88,13 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to delete a user
+  *
+  *@param utente user we want to delete from database
+  *
+  *@return void
+  **/
   @Override
   public void deleteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -88,6 +105,11 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to get all users
+  *
+  *@return ArrayList<Utente> all users
+  **/
   @Override
   public ArrayList<Utente> allUsers() throws SQLException{
     ArrayList<Utente> all_users = new ArrayList<>();
@@ -104,6 +126,11 @@ public class UtenteDao implements UtenteDaoInterface{
     return all_users;
   }
 
+  /**
+  *Method to delete all users
+  *
+  *@return void
+  **/
   @Override
   public void deleteAllUsers() throws SQLException{
     Connection connection = DB.openConnection();
@@ -113,7 +140,13 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
-  
+  /**
+  *Method to find a user thanks to his username
+  *
+  *@param username user's username
+  *
+  *@return Utente searched user
+  **/
   @Override
   public Utente findUserByUsername(String username) throws SQLException{
     Utente utente;
@@ -129,6 +162,14 @@ public class UtenteDao implements UtenteDaoInterface{
     return utente;
   }
   
+  /**
+  *Method to play with a game
+  *
+  *@param ut user who plays
+  *@param g played game
+  *
+  *@return void
+  */
   @Override
   public void play(Utente ut, Gioco g) throws SQLException{
     Connection connection = DB.openConnection();  
@@ -155,6 +196,15 @@ public class UtenteDao implements UtenteDaoInterface{
 	ut.setLivello(ut.getPuntiExp()/100);
   }
   
+  /**
+  *Method to play vote a game
+  *
+  *@param voto game's vote
+  *@param utente user who votes
+  *@param gioco voted game
+  *
+  *@return void
+  */
   @Override
   public void voteGame(int voto, Utente utente, Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
@@ -167,6 +217,15 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to play review a game
+  *
+  *@param testoRecensione review's text
+  *@param utente user who reviews
+  *@param gioco reviewed game
+  *
+  *@return void
+  */
   @Override
   public void reviewGame(String testoRecensione, Utente utente, Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();
@@ -179,6 +238,13 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to approve a review
+  *
+  *@param recensione review we want to approve
+  *
+  *@return void
+  */
   @Override
   public void approveReview(Recensione recensione) throws SQLException{
     Connection connection = DB.openConnection();
@@ -189,6 +255,13 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
   
+  /**
+  *Method to promote a user
+  *
+  *@param utente user we want to promote
+  *
+  *@return void
+  */
   @Override
   public void promoteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -199,6 +272,13 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to demote a user
+  *
+  *@param utente user we want to demote
+  *
+  *@return void
+  */
   @Override
   public void demoteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -209,11 +289,25 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to disapprove a review
+  *
+  *@param recensione review we want to disapprove
+  *
+  *@return void
+  */
   @Override
   public void disapproveReview(Recensione recensione) throws SQLException{
     new RecensioneDao().deleteReview(recensione);
   }
 
+  /**
+  *Method to get user's timeline
+  *
+  *@param utente user we want the timeline
+  *
+  *@return  TreeMap<Integer, String> user's timeline
+  */
   @Override
   public TreeMap<Integer, String> getTimeline(Utente utente) throws SQLException{
     TreeMap<Integer, String> timeline = new TreeMap<>();
@@ -230,6 +324,14 @@ public class UtenteDao implements UtenteDaoInterface{
     return timeline;
   }
   
+  /**
+  *Method to check if a user has already voted a game
+  *
+  *@param utente user who votes
+  *@param gioco voted game
+  *
+  *@return  boolean true if the user has already voted the game, false otherwise
+  */
   @Override
   public boolean gameAlreadyVotedByUser(Utente utente, Gioco gioco) throws SQLException{
     boolean already_voted = false;
@@ -246,6 +348,14 @@ public class UtenteDao implements UtenteDaoInterface{
     return already_voted;
   }
   
+  /**
+  *Method to check if a user has already review a game
+  *
+  *@param utente user who reviews
+  *@param gioco reviewed game
+  *
+  *@return  boolean true if the user has already reviewed the game, false otherwise
+  */
   @Override
   public boolean reviewAlreadyMadeByUser(Utente utente, Gioco gioco) throws SQLException{
     boolean already_reviewed = false;
@@ -261,7 +371,15 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
     return already_reviewed;
   }
-   
+  
+  /**
+  *Method to check if an email or an username are already been used
+  *
+  *@param QUERY 
+  *@param String email or username
+  *
+  *@return  boolean true if email or username are already been used, false otherwise
+  */
   public boolean usernameOrEmailAlreadyUsed(String QUERY, String email_or_username) throws SQLException{
     boolean username_or_email_used = false;
     Connection connection = DB.openConnection();
@@ -276,11 +394,25 @@ public class UtenteDao implements UtenteDaoInterface{
     return username_or_email_used;
   }
   
+  /**
+  *Method to check if an username is already been used
+  *
+  *@param String username
+  *
+  *@return  boolean true if username is already been used, false otherwise
+  */
   @Override
   public boolean usernameAlreadyUsed(String username) throws SQLException{
     return usernameOrEmailAlreadyUsed(USERNAME_ALREADY_USED, username);
   }
   
+  /**
+  *Method to check if an email is already been used
+  *
+  *@param String email
+  *
+  *@return  boolean true if email is already been used, false otherwise
+  */
   @Override 
   public boolean emailAlreadyUsed(String email) throws SQLException{
     return usernameOrEmailAlreadyUsed(EMAIL_ALREADY_USED, email);

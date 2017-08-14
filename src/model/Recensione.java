@@ -8,9 +8,10 @@ public class Recensione{
   private String testo;
   private int idGioco;
   private int idUtente;
-/**
-*Basic constructor
-**/
+  
+  /**
+  *Basic constructor
+  **/
   public Recensione(){}
   
   /**
