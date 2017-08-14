@@ -59,7 +59,7 @@ public class UtenteViewTrofei {
 		panel_2.add(arrowDX, "wmax 30, hmax 22, pos 420px 139px");
 		
 		JButton btnBack = new JButton("Indietro");
-		panel_2.add(btnBack, "width 140, height 30, pos 160px 250px");
+		panel_2.add(btnBack, "width 140, height 20, pos 160px 250px");
 		
 		for(int i=1; i < ut.getLivello()+1; i++)
 			icon[i] = new ImageIcon(getClass().getResource("../img/Trofeo"+i+".png"));
@@ -76,7 +76,7 @@ public class UtenteViewTrofei {
 			trof.setText("Non hai ancora collezionato trofei.");
 		}
 		
-		panel_2.add(trof, "pos 168px 30px, width 115, height 200");
+		panel_2.add(trof, "pos 173px 30px, width 115, height 200");
 		
 		arrowSX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

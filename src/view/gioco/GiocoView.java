@@ -137,7 +137,7 @@ public class GiocoView{
 						JLabel text = new JLabel();
 						text.setText("<html><body>Complimenti, hai raggiunto il livello " + ut.getLivello() +
 							"<br>Hai ottenuto un trofeo!</body></html>");
-						ImageIcon icon = new ImageIcon("../Immagini/Trofei/Trofeo" + ut.getLivello() + ".ico");
+						ImageIcon icon = new ImageIcon(getClass().getResource("../img/Trofeo"+ ut.getLivello() +".png"));
 						JLabel ico = new JLabel(icon);
 						opP.add(ico,BorderLayout.SOUTH);
 						opP.add(text,BorderLayout.EAST);
