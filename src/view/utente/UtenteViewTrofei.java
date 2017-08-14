@@ -46,8 +46,8 @@ public class UtenteViewTrofei {
 		
 		JLabel trof = new JLabel();
 		
-		ImageIcon iconSX = new ImageIcon("../Immagini/Trofei/FrecciaSX.png");
-		ImageIcon iconDX = new ImageIcon("../Immagini/Trofei/FrecciaDX.png");
+		ImageIcon iconSX = new ImageIcon(getClass().getResource("../img/FrecciaSX.png"));
+		ImageIcon iconDX = new ImageIcon(getClass().getResource("../img/FrecciaDX.png"));
 		ImageIcon[] icon = new ImageIcon[ut.getLivello()+1];
 		
 		JButton arrowSX = new JButton();
@@ -56,13 +56,13 @@ public class UtenteViewTrofei {
 		
 		JButton arrowDX = new JButton();
 		arrowDX.setIcon(iconDX);
-		panel_2.add(arrowDX, "wmax 30, hmax 22, pos 405px 139px");
+		panel_2.add(arrowDX, "wmax 30, hmax 22, pos 420px 139px");
 		
 		JButton btnBack = new JButton("Indietro");
 		panel_2.add(btnBack, "width 140, height 30, pos 160px 250px");
 		
 		for(int i=1; i < ut.getLivello()+1; i++)
-			icon[i] = new ImageIcon("../Immagini/Trofei/Trofeo"+i+".ico");
+			icon[i] = new ImageIcon(getClass().getResource("../img/Trofeo"+i+".png"));
 		
 		if(ut.getLivello() == 1){
 			arrowSX.setVisible(false);
@@ -76,7 +76,7 @@ public class UtenteViewTrofei {
 			trof.setText("Non hai ancora collezionato trofei.");
 		}
 		
-		panel_2.add(trof, "pos 155px 58px");
+		panel_2.add(trof, "pos 168px 30px, width 115, height 200");
 		
 		arrowSX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
