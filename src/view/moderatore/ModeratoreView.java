@@ -23,7 +23,9 @@ import java.awt.Color;
 import java.util.*;
 import java.sql.*;
 
-
+/**
+*Class which represents the view of MVC pattern for moderator
+*/
 public class ModeratoreView {
 	
 	JFrame frmPiattaformaGaming;
@@ -34,7 +36,9 @@ public class ModeratoreView {
 		this.ut=ut;
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(0, 0, 434, 261);

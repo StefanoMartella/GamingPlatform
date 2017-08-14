@@ -23,6 +23,9 @@ import java.awt.Color;
 import java.util.*;
 import java.sql.*;
 
+/**
+*Class which represents the view of MVC pattern of user's personal page
+*/
 public class UtenteViewProfiloPers{
 	JFrame frmPiattaformaGaming;
 	Utente ut;
@@ -32,7 +35,9 @@ public class UtenteViewProfiloPers{
 		this.ut=ut;
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 	JPanel panel_4 = new JPanel();
 		panel_4.setBounds(0, 0, 434, 261);

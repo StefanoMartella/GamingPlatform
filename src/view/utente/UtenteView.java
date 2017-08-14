@@ -22,7 +22,9 @@ import java.awt.Color;
 import java.util.*;
 import java.sql.*;
 
-
+/**
+*Class which represents the view of MVC pattern of the user
+*/
 public class UtenteView {
 	
 	JFrame frmPiattaformaGaming;
@@ -33,7 +35,9 @@ public class UtenteView {
 		this.ut=ut;
 		initialize();
 	}
-
+/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize() {
 		
 		JPanel panel_2 = new JPanel();

@@ -28,6 +28,9 @@ import java.awt.BorderLayout;
 import java.util.*;
 import java.sql.*;
 
+/**
+*Class which represents the view of MVC pattern for the game
+*/
 public class GiocoView{
 	JFrame frmPiattaformaGaming;
 	Utente ut;
@@ -39,7 +42,9 @@ public class GiocoView{
 		this.gioco=g;
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		JPanel panel_6 = new JPanel();
 		panel_6.setBounds(0, 0, 434, 261);

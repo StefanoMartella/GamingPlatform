@@ -23,7 +23,9 @@ import java.awt.Color;
 import java.util.*;
 import java.sql.*;
 
-
+/**
+*Class which represents the view of MVC pattern of administrator
+*/
 public class AmministratoreView {
 	
 	JFrame frmPiattaformaGaming;
@@ -34,7 +36,9 @@ public class AmministratoreView {
 		this.ut=ut;
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		
 		JPanel panel_0 = new JPanel();

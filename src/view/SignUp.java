@@ -21,6 +21,9 @@ import java.awt.Color;
 import java.util.*;
 import java.sql.*;
 
+/**
+*Class which represents the view of MVC pattern of sign-up
+*/
 public class SignUp{
 	
 	JFrame frmPiattaformaGaming;
@@ -30,6 +33,9 @@ public class SignUp{
 		initialize();
 	}
 	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(0, 0, 434, 261);

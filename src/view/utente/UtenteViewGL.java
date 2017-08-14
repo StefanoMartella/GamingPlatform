@@ -27,6 +27,9 @@ import java.awt.Dimension;
 import java.util.*;
 import java.sql.*;
 
+/**
+*Class which represents the view of MVC pattern of games' list for user
+*/
 public class UtenteViewGL{
 	JFrame frmPiattaformaGaming;
 	Utente ut;
@@ -36,7 +39,9 @@ public class UtenteViewGL{
 		this.ut=ut;
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		
 		JPanel panel_5 = new JPanel();

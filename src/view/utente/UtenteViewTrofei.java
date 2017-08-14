@@ -23,7 +23,9 @@ import net.miginfocom.swing.MigLayout;
 import java.util.*;
 import java.sql.*;
 
-
+/**
+*Class which represents the view of MVC pattern of trophies' list of a user
+*/
 public class UtenteViewTrofei {
 	
 	JFrame frmPiattaformaGaming;
@@ -35,7 +37,9 @@ public class UtenteViewTrofei {
 		this.ut=utente;
 		initialize();
 	}
-
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize() {
 		
 		JPanel panel_2 = new JPanel();

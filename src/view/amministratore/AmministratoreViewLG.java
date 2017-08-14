@@ -25,6 +25,9 @@ import net.miginfocom.swing.MigLayout;
 import java.util.*;
 import java.sql.*;
 
+/**
+*Class which represents the view of MVC pattern of list of games for admin
+*/
 public class AmministratoreViewLG{
 	JFrame frmPiattaformaGaming;
 	Utente ut;
@@ -34,7 +37,9 @@ public class AmministratoreViewLG{
 		this.ut=ut;
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();

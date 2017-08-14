@@ -27,6 +27,9 @@ import net.miginfocom.swing.MigLayout;
 import java.util.*;
 import java.sql.*;
 
+/**
+*Class which represents the view of MVC pattern of users' list for moderator
+*/
 public class ModeratoreViewLU{
 	JFrame frmPiattaformaGaming;
 	Utente ut;
@@ -36,7 +39,9 @@ public class ModeratoreViewLU{
 		this.ut=ut;
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		JPanel panel_8 = new JPanel();
 		panel_8.setBounds(0, 0, 465, 300);

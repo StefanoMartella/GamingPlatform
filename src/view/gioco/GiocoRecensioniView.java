@@ -24,7 +24,9 @@ import net.miginfocom.swing.MigLayout;
 import java.util.*;
 import java.sql.*;
 
-
+/**
+*Class which represents the view of MVC pattern of game reviews' list
+*/
 public class GiocoRecensioniView {
 	
 	JFrame frmPiattaformaGaming;
@@ -38,7 +40,9 @@ public class GiocoRecensioniView {
 		
 		initialize();
 	}
-	
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	public void initialize(){
 		JPanel panel_7 = new JPanel();
 		panel_7.setBounds(0, 0, 465, 300);

@@ -60,7 +60,7 @@ public class Recensione{
   *
   *@return int id of approval
   **/
-  public boolean getApprovazione(){ return this.approvazione; }
+  public int getApprovazione(){ return this.approvazione; }
   
   /**
   *Method used to get review's text
@@ -95,7 +95,7 @@ public class Recensione{
   *@param approvazione new review's approval
   *@return void
   **/
-  public void setApprovazione(boolean approvazione){ this.approvazione = approvazione; }
+  public void setApprovazione(int approvazione){ this.approvazione = approvazione; }
   
   /**
   *Method used to set review's text

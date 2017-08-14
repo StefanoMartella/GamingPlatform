@@ -24,7 +24,9 @@ import java.awt.Color;
 import java.util.*;
 import java.sql.*;
 
-
+/**
+*Class which represents the view of MVC pattern of login
+*/
 public class Login {
 
 	private static JFrame frmPiattaformaGaming;
