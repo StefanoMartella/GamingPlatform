@@ -12,58 +12,69 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
 
 ## Repository structure
  ```
+.
 ├── doc
 │   └── documentation.pdf
+│
 ├── javadoc
+│
 └── src
-   ├── controller
-   │   ├── AmministratoreController.java
-   │   ├── GestioneUtenza.java
-   │   ├── GiocoController.java
-   │   ├── ModeratoreController.java
-   │   └── UtenteController.java
-   ├── model
-   │   ├── dao
-   │   │   ├── concrete
-   │   │   │   ├── GiocoDao.java
-   │   │   │   ├── RecensioneDao.java
-   │   │   │   └── UtenteDao.java
-   │   │   └── interfaces
-   │   │   ├── GiocoDaoInterface.java
-   │   │   ├── RecensioneDaoInterface.java
-   │   │   └── UtenteDaoInterface.java
-   │   ├── database
-   │   │   ├── DB.java
-   │   │   └── SQL.sql
-   │   ├── Gioco.java
-   │   ├── Recensione.java
-   │   └── Utente.java
-   └── view
-      ├── amministratore
-      │   ├── AmministratoreViewAG.java
-      │   ├── AmministratoreView.java
-      │   ├── AmministratoreViewLG.java
-      │   └── AmministratoreViewLU.java
-      ├── gioco
-      │   ├── GiocoRecensioniView.java
-      │   └── GiocoView.java
-      ├── img
-      │
-      ├── Login.java
-      ├── SignUp.java
-      ├── miglayout
-      │   
-      ├── moderatore
-      │   ├── ModeratoreView.java
-      │   ├── ModeratoreViewLR.java
-      │   └── ModeratoreViewLU.java
-      │
-      └── utente
-         ├── UtenteViewGL.java
-         ├── UtenteView.java
-         ├── UtenteViewProfiloGaming.java
-         ├── UtenteViewProfiloPers.java
-         └── UtenteViewTrofei.java
+    │
+    ├── controller
+    │   ├── AmministratoreController.java
+    │   ├── GestioneUtenza.java
+    │   ├── GiocoController.java
+    │   ├── ModeratoreController.java
+    │   └── UtenteController.java
+    │   
+    ├── model
+    │   │
+    │   ├── dao
+    │   │   ├── concrete
+    │   │   │   ├── GiocoDao.java
+    │   │   │   ├── RecensioneDao.java
+    │   │   │   └── UtenteDao.java
+    │   │   │
+    │   │   └── interfaces
+    │   │       ├── GiocoDaoInterface.java
+    │   │       ├── RecensioneDaoInterface.java
+    │   │       └── UtenteDaoInterface.java
+    │   │   
+    │   ├── database
+    │   │   ├── DB.java
+    │   │   └── SQL.sql
+    │   │
+    │   ├── Gioco.java
+    │   ├── Recensione.java
+    │   └── Utente.java
+    └── view
+        ├── amministratore
+        │   ├── AmministratoreViewAG.java
+        │   ├── AmministratoreView.java
+        │   ├── AmministratoreViewLG.java
+        │   └── AmministratoreViewLU.java
+        │
+        ├── gioco
+        │   ├── GiocoRecensioniView.java
+        │   └── GiocoView.java
+        │
+        ├── img
+        │
+        ├── Login.java
+        ├── SignUp.java
+        ├── miglayout
+        │   
+        ├── moderatore
+        │   ├── ModeratoreView.java
+        │   ├── ModeratoreViewLR.java
+        │   └── ModeratoreViewLU.java
+        │
+        └── utente
+            ├── UtenteViewGL.java
+            ├── UtenteView.java
+            ├── UtenteViewProfiloGaming.java
+            ├── UtenteViewProfiloPers.java
+            └── UtenteViewTrofei.java
 ```
 ## Prerequisites
 
