@@ -1,7 +1,8 @@
-package view;
+package src.view.gioco;
 
-import controller.*;
-import model.*;
+import src.controller.*;
+import src.model.*;
+import src.view.utente.*;
 
 import java.awt.EventQueue;
 import java.awt.Font;

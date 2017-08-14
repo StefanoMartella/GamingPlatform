@@ -1,4 +1,4 @@
-package model.dao.concrete;
+package src.model.dao.concrete;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.dao.interfaces.GiocoDaoInterface;
-import model.database.DB;
-import model.*;
+import src.model.dao.interfaces.GiocoDaoInterface;
+import src.model.database.DB;
+import src.model.*;
 
 public class GiocoDao implements GiocoDaoInterface{
   private static final String

@@ -1,7 +1,9 @@
-package view;
+package src.view.utente;
 
-import controller.*;
-import model.*;
+import src.controller.*;
+import src.model.*;
+import src.view.moderatore.*;
+import src.view.gioco.*;
 
 
 import java.awt.EventQueue;

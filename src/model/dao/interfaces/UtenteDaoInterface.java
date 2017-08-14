@@ -1,11 +1,11 @@
-package model.dao.interfaces;
+package src.model.dao.interfaces;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.util.TreeMap;
 
-import model.*;
+import src.model.*;
 
 public interface UtenteDaoInterface{
 

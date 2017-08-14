@@ -1,4 +1,4 @@
-package model.dao.concrete;
+package src.model.dao.concrete;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import model.dao.interfaces.UtenteDaoInterface;
-import model.database.DB;
-import model.*;
+import src.model.dao.interfaces.UtenteDaoInterface;
+import src.model.database.DB;
+import src.model.*;
 
 public class UtenteDao implements UtenteDaoInterface{
   private static final String

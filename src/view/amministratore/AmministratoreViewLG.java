@@ -1,13 +1,10 @@
-package view;
+package src.view.amministratore;
 
-import controller.*;
-import model.*;
-
+import src.controller.*;
+import src.model.*;
 
 import java.awt.EventQueue;
 import java.awt.Font;
-
-
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

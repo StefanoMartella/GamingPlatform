@@ -1,7 +1,7 @@
-package controller;
+package src.controller;
 
-import model.dao.concrete.*;
-import model.*;
+import src.model.dao.concrete.*;
+import src.model.*;
 import java.util.ArrayList;
 import java.sql.*;
 

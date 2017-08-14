@@ -1,4 +1,4 @@
-package model.dao.concrete;
+package src.model.dao.concrete;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.dao.interfaces.RecensioneDaoInterface;
-import model.database.DB;
-import model.*;
+import src.model.dao.interfaces.RecensioneDaoInterface;
+import src.model.database.DB;
+import src.model.*;
 
 public class RecensioneDao implements RecensioneDaoInterface{
   private static final String
-  INSERT = "INSERT INTO recensione(approvazione, testo, gioco, utente) VALUES (?, ?, ?, ?);";
+  INSERT = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?);";
 
   private static final String
   DELETE = "DELETE FROM recensione WHERE id = ?;";
@@ -37,13 +37,9 @@ public class RecensioneDao implements RecensioneDaoInterface{
   public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(INSERT);
-	if(utente.getTipo().equals("moderatore"))
-		ps.setByte(1,(byte)1);
-	else
-		ps.setByte(1,(byte)0);
-    ps.setString(2, testo);
-    ps.setInt(3, gioco.getId());
-    ps.setInt(4, utente.getId());
+    ps.setString(1, testo);
+    ps.setInt(2, gioco.getId());
+    ps.setInt(3, utente.getId());
     ps.executeUpdate();
     ps.close();
     connection.close();

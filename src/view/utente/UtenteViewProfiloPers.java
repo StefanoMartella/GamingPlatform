@@ -1,7 +1,9 @@
-package view;
+package src.view.utente;
 
-import controller.*;
-import model.*;
+import src.controller.*;
+import src.model.*;
+import src.view.moderatore.*;
+import src.view.amministratore.*;
 
 import java.awt.EventQueue;
 import java.awt.Font;

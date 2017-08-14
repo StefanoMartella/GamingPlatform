@@ -1,8 +1,8 @@
-package view;
+package src.view.amministratore;
 
-import controller.*;
-import model.*;
-import model.dao.concrete.*;
+import src.controller.*;
+import src.model.*;
+import src.model.dao.concrete.*;
 
 import java.awt.EventQueue;
 import java.awt.Font;
