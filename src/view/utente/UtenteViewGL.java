@@ -54,7 +54,7 @@ public class UtenteViewGL{
 				jl.add(new JButton(g.getNome()));
 		}
 		for(JButton j: jl){
-			ps.add(j, "width 420");
+			ps.add(j, "width 420, height 33");
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_5.setVisible(false);
