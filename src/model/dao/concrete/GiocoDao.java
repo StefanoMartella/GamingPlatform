@@ -166,7 +166,7 @@ public class GiocoDao implements GiocoDaoInterface{
     ps.setInt(1, gioco.getId());
     ResultSet rset = ps.executeQuery();
     while (rset.next()){
-      Recensione recensione = new Recensione(rset.getInt(1), rset.getBoolean(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
+      Recensione recensione = new Recensione(rset.getInt(1), rset.getInt(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
       game_reviews.add(recensione);
     }
     ps.close();

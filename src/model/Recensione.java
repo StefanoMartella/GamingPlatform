@@ -4,7 +4,7 @@ package src.model;
 **/
 public class Recensione{
   private int id;
-  private boolean approvazione;
+  private int approvazione;
   private String testo;
   private int idGioco;
   private int idUtente;
@@ -39,7 +39,7 @@ public class Recensione{
   *@param idUtente user's ID who has written the review
   *
   **/
-  public Recensione(int id, boolean approvazione, String testo, int idGioco, int idUtente){
+  public Recensione(int id, int approvazione, String testo, int idGioco, int idUtente){
     // Calling this() causes problems with interactions with db.
     this.id = id;
     this.approvazione = approvazione;

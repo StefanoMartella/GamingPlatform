@@ -56,6 +56,7 @@ public class UtenteViewTrofei {
 		
 		JButton arrowSX = new JButton();
 		arrowSX.setIcon(iconSX);
+		arrowSX.setVisible(false);
 		panel_2.add(arrowSX, "wmax 30, hmax 22, pos 10px 139px");
 		
 		JButton arrowDX = new JButton();
@@ -68,16 +69,11 @@ public class UtenteViewTrofei {
 		for(int i=1; i < ut.getLivello()+1; i++)
 			icon[i] = new ImageIcon(getClass().getResource("../img/Trofeo"+i+".png"));
 		
+		trof.setIcon(icon[count]);
+		
 		if(ut.getLivello() == 1){
 			arrowSX.setVisible(false);
 			arrowDX.setVisible(false);
-		}
-		if(ut.getLivello()>0)
-			trof.setIcon(icon[count]);
-		else{
-			arrowSX.setVisible(false);
-			arrowDX.setVisible(false);
-			trof.setText("Non hai ancora collezionato trofei.");
 		}
 		
 		panel_2.add(trof, "pos 173px 30px, width 115, height 200");

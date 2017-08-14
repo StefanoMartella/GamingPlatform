@@ -116,8 +116,12 @@ public class UtenteViewProfiloGaming{
 		
 		trofei.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(false);
-				new UtenteViewTrofei(frmPiattaformaGaming, ut);
+				if(ut.getLivello()<1)
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Non hai ancora collezionato trofei!", "No trofei", JOptionPane.ERROR_MESSAGE);
+				else{
+					panel_1.setVisible(false);
+					new UtenteViewTrofei(frmPiattaformaGaming, ut);
+				}
 		}});
 	}
 }
