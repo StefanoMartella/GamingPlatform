@@ -103,13 +103,13 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
  You will be prompted for password which is ```gaming```.
  You are finally ready to launch application with:
  
- ```java ----```
+ ```java *command*```
 
-## Contracts 
+## Contacts
 
- - stefano.martella9614@gmail.com 
- -
- -
- -
- -
+ - andrea.dascenzo@student.univaq.it
+ - iari.icaro@student.univaq.it
+ - stefano.martella@student.univaq.it
+ - davide.morelli1@student.univaq.it
+ - paolo.tramontozzi@student.univaq.it
  
