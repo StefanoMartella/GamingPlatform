@@ -97,10 +97,14 @@ DELETE FROM timeline WHERE utente = OLD.id;
 /* DUMP UTENTE */
 
 INSERT INTO `utente`(`id`,`nome`,`cognome`,`username`,`email`,`password`,`tipo`,`livello`,`puntiExp`) VALUES
-(1, 'Peter', 'Parker', 'Spiderman', 'uomoragno@avengers.com', 'ragnetto', 'utente', 0, 25),
-(2, 'Tony', 'Stark', 'IronMan', 'starkcorporation@avengers.com', 'avengers', 'amministratore', 3, 100),
-(3, 'Bruce', 'Banner', 'Hulk', 'incredibile@avengers.com', 'uomoverde', 'utente', 2, 30),
-(4, 'Steve', 'Rogers', 'CapitanAmerica', 'capitano@avengers.com', 'scudo', 'moderatore', 2, 50);
+(1, 'Peter', 'Parker', 'Spiderman', 'spiderman@avengers.com', 'ragnetto', 'moderatore', 0, 25),
+(2, 'Tony', 'Stark', 'IronMan', 'ironman@avengers.com', 'avengers', 'amministratore', 3, 340),
+(3, 'Bruce', 'Banner', 'Hulk', 'hulk@avengers.com', 'uomoverde', 'utente', 2, 230),
+(4, 'Steve', 'Rogers', 'CapitanAmerica', 'capitanamerica@avengers.com', 'scudo', 'utente', 2, 250),
+(5, 'Clark','Kent','Superman','superman@dc.com','krypton','utente', 3, 340),
+(6, 'Alan','Scott','Lanterna verde','lanternaverde@dc.com','anelloverde','utente', 1, 75),
+(7, 'Brece','Wayne','Batman','batman@dc.com','pipistrello','moderatore', 4, 430),
+(8, 'Jay','Garrick','Flash','flash@dc.com','fulmine','utente', 2, 220);
 
 
 /* DUMP GIOCO */
@@ -110,7 +114,12 @@ INSERT INTO `gioco`(`id`,`nome`,`exp`) VALUES
 (2, 'Briscola', 5),
 (3, 'Asso piglia tutto', 10),
 (4, 'AcchiappaLaTalpa', 20),
-(5, 'Clash Royale', 3);
+(5, 'Clash Royale', 5),
+(6, 'Risiko', 40),
+(7, 'Monopoli', 35),
+(8, 'Fifa', 20),
+(9, 'Lol', 40),
+(10,'Super Mario', 40);
 
 
 /* DUMP RECENSIONI */
@@ -128,13 +137,23 @@ INSERT INTO `recensione`(`id`,`approvazione`,`testo`,`gioco`,`utente`) VALUES
 /* DUMP TIMELINE */
 
 INSERT INTO `timeline`(`data`,`livello`,`utente`) VALUES
-('1999/03/02', 0, 2),
-('2000/12/12', 0, 3),
-('2002/03/05', 0, 4),
-('2003/06/06', 1, 2),
-('2016/02/03', 2, 2),
-('2017/03/28', 1, 3),
-('2016/12/15', 1, 4);
+('2017/08/15', 0, 2),
+('2017/08/15', 0, 3),
+('2017/08/15', 0, 4),
+('2017/08/15', 0, 5),
+('2017/08/15', 0, 6),
+('2017/08/15', 0, 7),
+('2017/08/15', 0, 8),
+('2017/08/15', 1, 2),
+('2017/08/15', 1, 5),
+('2017/08/15', 2, 5),
+('2017/08/15', 1, 7),
+('2017/08/15', 2, 7),
+('2017/08/15', 3, 7),
+('2017/08/15', 1, 8),
+('2017/08/15', 2, 2),
+('2017/08/15', 1, 3),
+('2017/08/15', 1, 4);
 
 
 /* DUMP VOTO */
