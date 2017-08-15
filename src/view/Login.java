@@ -35,6 +35,7 @@ public class Login {
 
 	/**
 	 * Launch the application.
+	 *@param args command line args
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

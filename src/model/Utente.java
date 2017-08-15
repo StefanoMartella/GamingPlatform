@@ -153,63 +153,54 @@ public class Utente{
   /**
   *Method used to set user's ID
   *@param id new user's ID
-  *@return void
   **/
   public void setId(int id){ this.id = id; }
   
   /**
   *Method used to set user's name
   *@param nome new user's name
-  *@return void
   **/
   public void setNome(String nome){ this.nome = nome; }
   
   /**
   *Method used to set user's surname
   *@param cognome new user's surname
-  *@return void
   **/
   public void setCognome(String cognome){ this.cognome = cognome; }
   
   /**
   *Method used to set user's username
   *@param username new user's username
-  *@return void
   **/
   public void setUsername(String username){ this.username = username; }
   
   /**
   *Method used to set user's email
   *@param email new user's email
-  *@return void
   **/
   public void setEmail(String email){ this.email = email; }
   
   /**
   *Method used to set user's password
   *@param password new user's password
-  *@return void
   **/
   public void setPassword(String password){ this.password = password; }
   
   /**
   *Method used to set user's type
   *@param tipo new user's type
-  *@return void
   **/
   public void setTipo(String tipo){ this.tipo = tipo; }
   
   /**
   *Method used to set user's level
   *@param livello new user's level
-  *@return void
   **/
   public void setLivello(int livello){ this.livello = livello; }
   
   /**
   *Method used to set user's experience points
   *@param puntiExp new user's exp amount
-  *@return void
   **/
   public void setPuntiExp(int puntiExp){ this.puntiExp = puntiExp; }
   
@@ -226,7 +217,7 @@ public class Utente{
   
   /**
   *Method used to compare users
-  *@param Object user to compare with
+  *@param obj user to compare with
   *@return boolean true if this user is equal to the given one, false otherwise
   **/
   @Override

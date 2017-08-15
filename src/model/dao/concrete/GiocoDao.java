@@ -40,8 +40,7 @@ public class GiocoDao implements GiocoDaoInterface{
   *Method to insert a game
   *
   *@param gioco game to insert into database
-  *
-  *@return void
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public void insertGame(Gioco gioco) throws SQLException{
@@ -56,10 +55,8 @@ public class GiocoDao implements GiocoDaoInterface{
 
   /**
   *Method to delete a game
-  *
   *@param gioco game to delete from database
-  *
-  *@return void
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public void deleteGame(Gioco gioco) throws SQLException{
@@ -73,8 +70,8 @@ public class GiocoDao implements GiocoDaoInterface{
 
   /**
   *Method to get all games
-  *
-  *@return ArrayList<Gioco> all games
+  *@throws SQLException if no database connection is found or another error occurs
+  *@return ArrayList all games
   **/
   @Override
   public ArrayList<Gioco> allGames() throws SQLException{
@@ -94,8 +91,7 @@ public class GiocoDao implements GiocoDaoInterface{
 
   /**
   *Method to delete all games
-  *
-  *@return void
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public void deleteAllGames() throws SQLException{
@@ -108,10 +104,9 @@ public class GiocoDao implements GiocoDaoInterface{
 
   /**
   *Method to find a game thanks to its name
-  *
   *@param name game's name 
-  *
   *@return Gioco searched game
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public Gioco findGameByName(String name) throws SQLException{
@@ -130,10 +125,9 @@ public class GiocoDao implements GiocoDaoInterface{
   
   /**
   *Method to get votes average for a game
-  *
   *@param gioco game we want votes average
-  *
   *@return float all votes average
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public float getVotesAverage(Gioco gioco) throws SQLException{
@@ -155,8 +149,8 @@ public class GiocoDao implements GiocoDaoInterface{
   *Method to get all reviews
   *
   *@param gioco game we want all reviews
-  *
-  *@return ArrayList<Recensione> all games reviews
+  *@return ArrayList all games reviews
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public ArrayList<Recensione> allGameReviews(Gioco gioco) throws SQLException{

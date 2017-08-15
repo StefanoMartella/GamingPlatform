@@ -32,7 +32,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Full constructor
-	*@param moderator user
+	*@param utente user
 	*@param gioco game on which ModeratoreController will operate
 	*@param utente_target user on which ModeratoreController will operate
 	*@param recensione review on which ModeratoreController will operate
@@ -90,6 +90,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which approves a review made by a simple user
+	*@param recensione review that has to be approved
 	*@return String string information about approval
 	*/
 	public String approve(Recensione recensione){
@@ -105,6 +106,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which disapproves a review made by a simple user
+	*@param recensione review that has to be disapproved
 	*@return String string information about disapproval
 	*/
 	public String disapprove(Recensione recensione){
@@ -120,7 +122,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	* Method which gives the users' list
-	*@return ArrayList<Utente> list of users
+	*@return ArrayList list of users
 	*/
 	public ArrayList<Utente> usersList(){
 		try{
@@ -134,7 +136,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	* Method which gives the reviews' list
-	*@return ArrayList<Utente> list of games
+	*@return ArrayList list of games
 	*/
 	public ArrayList<Recensione> reviewsList(){
 		try{

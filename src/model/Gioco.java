@@ -55,7 +55,6 @@ public class Gioco{
   *
   *@param id new game's id
   *
-  *@return void
   **/
   public void setId(int id){ this.id = id; }
   
@@ -64,7 +63,6 @@ public class Gioco{
   *
   *@param nome new game's name
   *
-  *@return void
   **/
   public void setNome(String nome){ this.nome = nome; }
   
@@ -73,7 +71,6 @@ public class Gioco{
   *
   *@param exp new game's exp
   *
-  *@return void
   **/
   public void setExp(int exp){ this.exp = exp; }
   

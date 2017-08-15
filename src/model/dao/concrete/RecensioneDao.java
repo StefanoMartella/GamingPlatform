@@ -38,12 +38,10 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   /**
   *Method to insert a review
-  *
   *@param testo review's text
   *@param gioco game reviewed
   *@param utente user that makes review
-  *
-  *@return void
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException{
@@ -59,10 +57,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   /**
   *Method to delete a review
-  *
   *@param recensione review to delete from database
-  *
-  *@return void
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public void deleteReview(Recensione recensione) throws SQLException{
@@ -76,10 +72,9 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   /**
   *Method to get all filtered reviews
-  *
   *@param QUERY query to filter reviews
-  *
-  *@return ArrayList<Recensione> all filtered reviews
+  *@return ArrayList all filtered reviews
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   public ArrayList<Recensione> filterReviews(String QUERY) throws SQLException{
     ArrayList<Recensione> filtred_reviews = new ArrayList<>();
@@ -98,8 +93,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   /**
   *Method to get all reviews
-  *
-  *@return ArrayList<Recensione> all reviews
+  *@return ArrayList all reviews
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public ArrayList<Recensione> allReviews() throws SQLException{
@@ -108,8 +103,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   /**
   *Method to get all approved reviews
-  *
-  *@return ArrayList<Recensione> all filtered reviews
+  *@return ArrayList all filtered reviews
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public ArrayList<Recensione> allReviewsNotApproved() throws SQLException{
@@ -118,8 +113,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
   /**
   *Method to delete all reviews
-  *
-  *@return void
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public void deleteAllReviews() throws SQLException{
@@ -132,10 +126,9 @@ public class RecensioneDao implements RecensioneDaoInterface{
   
   /**
   *Method to find a review thanks to its id
-  *
   *@param id review's id
-  *
   *@return Recensione searched review
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public Recensione findReviewById(int id) throws SQLException{
@@ -153,11 +146,10 @@ public class RecensioneDao implements RecensioneDaoInterface{
   
   /**
   *Method to find a review thanks to user and game
-  *
   *@param utente user who made review
   *@param gioco reviewed game
-  *
   *@return Recensione searched review
+  *@throws SQLException if no database connection is found or another error occurs
   **/
   @Override
   public Recensione findReviewByUserAndGame(Utente utente, Gioco gioco) throws SQLException{

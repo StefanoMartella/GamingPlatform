@@ -40,7 +40,7 @@ public class GiocoController{
 	
 	/**
 	*Method used to get the list of games
-	*@return ArrayList<Gioco> games' list
+	*@return ArrayList games' list
 	*/
 	public ArrayList<Gioco> listOfGames(){
 		try{
@@ -84,7 +84,7 @@ public class GiocoController{
 	
 	/**
 	*Method used to get the list of all reviews about a game
-	*@return ArrayList<Recensione> list of reviews
+	*@return ArrayList list of reviews
 	*/
 	public ArrayList<Recensione> allReviews(){
 		try{

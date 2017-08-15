@@ -30,7 +30,6 @@ public class UtenteController{
 	
 	/**
 	*Method used to play a game
-	*@return void
 	*/
 	public void play(){
 		try{
@@ -91,7 +90,7 @@ public class UtenteController{
 	/**
 	*Method used to get user's timeline
 	*@param username user's username
-	*@return TreeMap<Integer, String> user's timeline
+	*@return TreeMap user's timeline
 	*/
 	public TreeMap<Integer, String> timeline(String username){
 		try{

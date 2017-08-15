@@ -86,35 +86,30 @@ public class Recensione{
   /**
   *Method used to set review's ID
   *@param id new review's ID
-  *@return void
   **/
   public void setId(int id){ this.id = id; }
   
   /**
   *Method used to set review's approval
   *@param approvazione new review's approval
-  *@return void
   **/
   public void setApprovazione(int approvazione){ this.approvazione = approvazione; }
   
   /**
   *Method used to set review's text
-  *@param id new review's text
-  *@returtestovoid
+  *@param testo new review's text
   **/
   public void setTesto(String testo){ this.testo = testo; }
   
   /**
   *Method used to set review's gameID
   *@param idGioco new review's gameID
-  *@return void
   **/
   public void setIdGioco(int idGioco){ this.idGioco = idGioco; }
   
   /**
   *Method used to set review's userID
   *@param idUtente new review's userID
-  *@return void
   **/
   public void setIdUtente(int idUtente){ this.idUtente = idUtente; }
   
