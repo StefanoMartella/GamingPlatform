@@ -74,12 +74,16 @@ public class ModeratoreViewLR{
 								frmPiattaformaGaming, new ModeratoreController().approve(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))));
 								selez.setVisible(false);
 								j.setVisible(false);
+								panel_9.setVisible(false);
+								new ModeratoreViewLR(frmPiattaformaGaming, ut);
 							}
 							if(n==JOptionPane.NO_OPTION){
 								JOptionPane.showMessageDialog(
 								frmPiattaformaGaming, new ModeratoreController().disapprove(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))));
 								selez.setVisible(false);
 								j.setVisible(false);
+								panel_9.setVisible(false);
+								new ModeratoreViewLR(frmPiattaformaGaming, ut);
 							}
 			}});
 		}

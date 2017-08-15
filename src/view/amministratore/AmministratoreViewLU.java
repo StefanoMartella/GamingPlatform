@@ -72,6 +72,8 @@ public class AmministratoreViewLU{
 							frmPiattaformaGaming, new AmministratoreController(new GestioneUtenza().findUser(j.getText())).deleteUser());
 							j.setVisible(false);
 							selez.setVisible(false);
+							panel_9.setVisible(false);
+							new AmministratoreViewLU(frmPiattaformaGaming, ut);
 			}});
 		}
 		

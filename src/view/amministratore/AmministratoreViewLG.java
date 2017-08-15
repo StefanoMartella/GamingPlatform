@@ -84,6 +84,8 @@ public class AmministratoreViewLG{
 							frmPiattaformaGaming, new AmministratoreController(new GiocoController().findGame(j.getText())).deleteGame());
 							j.setVisible(false);
 							selez.setVisible(false);
+							panel_9.setVisible(false);
+							new AmministratoreViewLG(frmPiattaformaGaming, ut);
 			}});
 		}
 		JScrollPane scroll = new JScrollPane(ps);

@@ -136,6 +136,16 @@ public class SignUp{
 									break;
 							
 							case 1: JOptionPane.showMessageDialog(
+									frmPiattaformaGaming, "Compilare tutti i campi", "Errore registrazione", JOptionPane.ERROR_MESSAGE); 
+									textField_2.setText(textField_2.getText());
+									textField_3.setText(textField_3.getText());
+									textField_4.setText(textField_4.getText());
+									textField_5.setText(textField_5.getText());
+									passwordField.setText(String.valueOf(passwordField.getPassword()));
+									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
+									break;
+										
+							case 2: JOptionPane.showMessageDialog(
 									frmPiattaformaGaming, "Username già in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
 									textField_2.setText(textField_2.getText());
 									textField_3.setText(textField_3.getText());
@@ -144,23 +154,13 @@ public class SignUp{
 									passwordField.setText(String.valueOf(passwordField.getPassword()));
 									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
 									break;
-										
-							case 2: JOptionPane.showMessageDialog(
+							
+							case 3: JOptionPane.showMessageDialog(
 									frmPiattaformaGaming, "E-Mail già in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
 									textField_2.setText(textField_2.getText());
 									textField_3.setText(textField_3.getText());
 									textField_4.setText(textField_4.getText());
 									textField_5.setText("");
-									passwordField.setText(String.valueOf(passwordField.getPassword()));
-									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
-									break;
-							
-							case 3: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Compilare tutti i campi", "Errore registrazione", JOptionPane.ERROR_MESSAGE); 
-									textField_2.setText(textField_2.getText());
-									textField_3.setText(textField_3.getText());
-									textField_4.setText(textField_4.getText());
-									textField_5.setText(textField_5.getText());
 									passwordField.setText(String.valueOf(passwordField.getPassword()));
 									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
 									break;
