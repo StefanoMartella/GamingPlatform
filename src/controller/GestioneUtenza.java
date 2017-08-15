@@ -70,9 +70,10 @@ public class GestioneUtenza{
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(mail);
 		
 		try{
-			if(new UtenteDao().usernameAlreadyUsed(username)){ return 1;}
-			if(new UtenteDao().emailAlreadyUsed(mail)){ return 2;}
-		
+			if(new UtenteDao().usernameAlreadyUsed(username))
+				return 1;
+			if(new UtenteDao().emailAlreadyUsed(mail))
+				return 2;
 			if(name.equals("") || surname.equals("") || username.equals("") || mail.equals("") || password.equals("") || password2.equals(""))
 				return 3;
 			if(!matcher.find()) 
