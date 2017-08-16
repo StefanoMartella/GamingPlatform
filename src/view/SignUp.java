@@ -44,74 +44,74 @@ public class SignUp{
 		panel_3.setVisible(true);
 		
 		JLabel lblName = new JLabel("Nome");
-		lblName.setBounds(55, 25, 173, 14);
+		lblName.setBounds(55, 28, 173, 14);
 		panel_3.add(lblName);
 		
 				
 		JLabel lblCognme = new JLabel("Cognome");
-		lblCognme.setBounds(55, 55, 173, 14);
+		lblCognme.setBounds(55, 58, 173, 14);
 		panel_3.add(lblCognme);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(55, 85, 173, 14);
+		lblUsername.setBounds(55, 88, 173, 14);
 		panel_3.add(lblUsername);
 		
 		JLabel lblEmail = new JLabel("E-Mail");
-		lblEmail.setBounds(55, 115, 173, 14);
+		lblEmail.setBounds(55, 118, 173, 14);
 		panel_3.add(lblEmail);
 		
 		JLabel lblPassword_1 = new JLabel("Password");
-		lblPassword_1.setBounds(55, 145, 173, 14);
+		lblPassword_1.setBounds(55, 148, 173, 14);
 		panel_3.add(lblPassword_1);	
 		
 		JLabel lblPassword_2 = new JLabel("Ripeti Password");
-		lblPassword_2.setBounds(55, 175, 173, 14);
+		lblPassword_2.setBounds(55, 178, 173, 14);
 		panel_3.add(lblPassword_2);	
 	
 	
 	
 		JTextField textField_2;
 		textField_2 = new JTextField();
-		textField_2.setBounds(170, 25, 200, 20);
+		textField_2.setBounds(190, 25, 200, 23);
 		panel_3.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JTextField textField_3;
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(170, 55, 200, 20);
+		textField_3.setBounds(190, 55, 200, 23);
 		panel_3.add(textField_3);
 		
 		JTextField textField_4;
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(170, 85, 200, 20);
+		textField_4.setBounds(190, 85, 200, 23);
 		panel_3.add(textField_4);
 		
 		JTextField textField_5;
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(170, 115, 200, 20);
+		textField_5.setBounds(190, 115, 200, 23);
 		panel_3.add(textField_5);
 		
 		JPasswordField passwordField;
 		passwordField = new JPasswordField();
-		passwordField.setBounds(170, 175, 200, 20);
+		passwordField.setBounds(190, 175, 200, 23);
 		passwordField.setEchoChar('*'); 
 		panel_3.add(passwordField);
 		
 		JPasswordField passwordField2;
 		passwordField2 = new JPasswordField();
-		passwordField2.setBounds(170, 145, 200, 20);
+		passwordField2.setBounds(190, 145, 200, 23);
 		passwordField2.setEchoChar('*'); 
 		panel_3.add(passwordField2);
 		
 		JButton btnRegistrati = new JButton("Registrati");
-		btnRegistrati.setBounds(170, 220, 89, 23);
+		btnRegistrati.setBounds(190, 220, 89, 23);
 		panel_3.add(btnRegistrati);
 		
 		JButton btnLogin = new JButton("Indietro");
-		btnLogin.setBounds(280, 220, 89, 23);
+		btnLogin.setBounds(300, 220, 89, 23);
 		panel_3.add(btnLogin);
 		
 		

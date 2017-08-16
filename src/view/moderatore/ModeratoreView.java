@@ -78,7 +78,7 @@ public class ModeratoreView {
 				btnLR.setBackground(Color.RED);
 		panel_2.add(btnLR);
 		
-		JButton btnLogout = new JButton("LOGOUT");
+		JButton btnLogout = new JButton("ESCI");
 		btnLogout.setBounds(266,178,160,30);
 		panel_2.add(btnLogout);
 		

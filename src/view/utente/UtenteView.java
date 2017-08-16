@@ -55,20 +55,20 @@ public class UtenteView {
 		lblBenvenutoUtente.setText("BENVENUTO " + ut.getUsername());
 		panel_2.add(lblBenvenutoUtente);
 		
-		JButton btnProfiloPersonale = new JButton("Profilo Personale");
+		JButton btnProfiloPersonale = new JButton("PROFILO PERSONALE");
 		btnProfiloPersonale.setBounds(145, 86, 160, 30);
 		panel_2.add(btnProfiloPersonale);
 		
-		JButton btnProfiloGaming = new JButton("Profilo Gaming");
+		JButton btnProfiloGaming = new JButton("PROFILO GAMING");
 		btnProfiloGaming.setBounds(145, 132, 160, 30);
 		panel_2.add(btnProfiloGaming);
 		
-		JButton btnVaiAiGiochi = new JButton("Vai ai Giochi!");
+		JButton btnVaiAiGiochi = new JButton("VAI AI GIOCHI!");
 		btnVaiAiGiochi.setBounds(145, 178, 160, 30);
 		panel_2.add(btnVaiAiGiochi);
 		
 		
-		JButton btnLogout = new JButton("Esci");
+		JButton btnLogout = new JButton("ESCI");
 		btnLogout.setBounds(145,224,160,30);
 		panel_2.add(btnLogout);
 		
