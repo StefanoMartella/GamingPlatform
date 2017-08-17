@@ -10,6 +10,8 @@ import java.text.DecimalFormat;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextPane;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
@@ -19,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
@@ -84,7 +87,7 @@ public class GiocoView{
 		btnvReview.setBounds(270, 100, 130, 23);
 		panel_6.add(btnvReview);
 		
-		ButtonGroup bg = new ButtonGroup();
+		/*ButtonGroup bg = new ButtonGroup();
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("1");
 		rdbtnNewRadioButton.setActionCommand("1");
@@ -114,16 +117,26 @@ public class GiocoView{
 		rdbtnNewRadioButton_4.setActionCommand("5");
 		rdbtnNewRadioButton_4.setBounds(290, 140, 40, 23);
 		panel_6.add(rdbtnNewRadioButton_4);
-		bg.add(rdbtnNewRadioButton_4);
+		bg.add(rdbtnNewRadioButton_4);*/
+		
+		JSpinner seleziona_voto = new JSpinner();
+		seleziona_voto.setModel(new SpinnerNumberModel(1, 1, 5, 1));
+		seleziona_voto.setBounds(120,170,45,23);
+		panel_6.add(seleziona_voto);
 		
 		JButton btnVota = new JButton("Vota");
-		btnVota.setBounds(130, 170, 89, 23);
+		btnVota.setBounds(180, 170, 89, 23);
 		panel_6.add(btnVota);
 		
-		DecimalFormat df = new DecimalFormat("###.#");
-		JLabel mediaVoti = new JLabel("Media voti: " + df.format(new GiocoController(gioco).avgVote()));
-		mediaVoti.setBounds(250,165,150,30);
+		JLabel mediaVoti = new JLabel("Media voti:");
+		mediaVoti.setBounds(280,165,100,30);
 		panel_6.add(mediaVoti);
+		
+		DecimalFormat df = new DecimalFormat("###.#");
+		JLabel average = new JLabel(df.format(new GiocoController(gioco).avgVote()));
+		average.setFont(new Font("Tahoma", Font.BOLD, 14));
+		average.setBounds(345,163,30,30);
+		panel_6.add(average);
 		
 		JButton btnBack = new JButton("Indietro");
 		btnBack.setBounds(250, 227, 89, 23);
@@ -168,12 +181,9 @@ public class GiocoView{
 		
 		btnVota.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(bg.getSelection()==null)
-					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Devi scegliere un voto", "Vote error", JOptionPane.ERROR_MESSAGE);
-				else
 				JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, new UtenteController(ut,gioco).vote(Integer.parseInt(bg.getSelection().getActionCommand())));
-							mediaVoti.setText("Media voti: " + df.format(new GiocoController(gioco).avgVote()));
+							frmPiattaformaGaming, new UtenteController(ut,gioco).vote((int) seleziona_voto.getValue()));
+							average.setText(df.format(new GiocoController(gioco).avgVote()));
 							textPane.setText("");
 		}
 		});
