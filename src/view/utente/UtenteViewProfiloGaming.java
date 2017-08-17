@@ -47,56 +47,46 @@ public class UtenteViewProfiloGaming{
 		panel_1.setLayout(null);
 		panel_1.setVisible(true);
 		
-		JLabel lblNewLabel_3 = new JLabel("Username");
+		JLabel lblNewLabel_3 = new JLabel("Username:");
 		lblNewLabel_3.setBounds(10, 30, 114, 14);
 		panel_1.add(lblNewLabel_3);
 		
-		JLabel lblLivello_1 = new JLabel("Livello");
+		JLabel lblLivello_1 = new JLabel("Livello:");
 		lblLivello_1.setBounds(10, 60, 114, 14);
 		panel_1.add(lblLivello_1);
 		
-		JLabel lblLivello = new JLabel("Punti EXP");
+		JLabel lblLivello = new JLabel("Punti EXP:");
 		lblLivello.setBounds(10, 90, 114, 14);
 		panel_1.add(lblLivello);
 		
-		JLabel lblTrofei = new JLabel("Trofei");
+		JLabel lblTrofei = new JLabel("Trofei:");
 		lblTrofei.setBounds(10, 120, 114, 14);
 		panel_1.add(lblTrofei);
 		
 		JLabel lblNewLabel_4 = new JLabel(ut.getUsername());
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 13));
 		lblNewLabel_4.setBounds(134, 30, 166, 14);
 		panel_1.add(lblNewLabel_4);
 		
 		JLabel label = new JLabel(""+ut.getLivello());
+		label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
 		label.setBounds(134, 60, 166, 14);
 		panel_1.add(label);
 		
 		JLabel label_1 = new JLabel(""+ut.getPuntiExp());
+		label_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
 		label_1.setBounds(134, 90, 166, 14);
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("Visualizza trofei");
-		trofei.setBounds(134, 120, 170, 20);
+		trofei.setBounds(134, 120, 124, 20);
 		panel_1.add(trofei);
 		
 		JLabel lblTimeline = new JLabel("Timeline:");
-		lblTimeline.setBounds(10, 190, 166, 14);
+		lblTimeline.setBounds(10, 185, 166, 25);
 		panel_1.add(lblTimeline);
 		
 		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
-		//ArrayList<JLabel> jl = new ArrayList<JLabel>();
-		
-		/*String time_line = "          Data         |      Livello\n--------------------------------------\n";
-		for(Map.Entry entry : timeline.entrySet()){
-			time_line += "  " + entry.getValue().toString() + "    |     livello " + entry.getKey().toString() + "\n";
-		}
-			
-		JTextArea text = new JTextArea(time_line);
-        	text.setEditable(false);
-		JScrollPane scroll = new JScrollPane(text);
-		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.setBounds(134, 160, 170, 85); 
-		panel_1.add(scroll);*/
 		
 		String[] column_names = { "Data", "Livello" };
 		Object[][] timelineTable = new Object[timeline.size()][2];
@@ -109,12 +99,12 @@ public class UtenteViewProfiloGaming{
 
 		JTable showTimeline = new JTable(timelineTable, column_names);
 		JScrollPane scroll = new JScrollPane(showTimeline);
-		scroll.setBounds(134, 160, 170, 85);
+		scroll.setBounds(134, 150, 250, 85);
 		scroll.getVerticalScrollBar().setUnitIncrement(20);
 		panel_1.add(scroll);
 
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(345, 240, 89, 20);
+		btnHome.setBounds(345, 242, 85, 19);
 		panel_1.add(btnHome);
 		
 		
