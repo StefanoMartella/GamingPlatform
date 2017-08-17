@@ -30,7 +30,7 @@ public class GiocoDao implements GiocoDaoInterface{
   private static final String
   FIND_BY_NAME = "SELECT * FROM gioco WHERE nome = ?;";
 
-  private static String
+  private static final String
   VOTES_AVERAGE = "SELECT AVG(votazione) AS average FROM gioco JOIN voto ON gioco.id = voto.gioco WHERE id = ?;";
 
   private static final String
