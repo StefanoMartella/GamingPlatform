@@ -9,6 +9,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JOptionPane;
@@ -83,20 +84,35 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(lblTimeline);
 		
 		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
-		ArrayList<JLabel> jl = new ArrayList<JLabel>();
+		//ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		
-		String time_line = "          Data         |      Livello\n--------------------------------------\n";
+		/*String time_line = "          Data         |      Livello\n--------------------------------------\n";
 		for(Map.Entry entry : timeline.entrySet()){
 			time_line += "  " + entry.getValue().toString() + "    |     livello " + entry.getKey().toString() + "\n";
 		}
 			
 		JTextArea text = new JTextArea(time_line);
-        text.setEditable(false);
+        	text.setEditable(false);
 		JScrollPane scroll = new JScrollPane(text);
 		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
 		scroll.setBounds(134, 160, 170, 85); 
-		panel_1.add(scroll);
+		panel_1.add(scroll);*/
 		
+		String[] column_names = { "Data", "Livello" };
+		Object[][] timelineTable = new Object[timeline.size()][2];
+		int count = 0;
+		for(Map.Entry<Integer,String> entry : timeline.entrySet()){
+			timelineTable[count][0] = entry.getValue();
+			timelineTable[count][1] = entry.getKey();
+			count++;
+		}
+
+		JTable showTimeline = new JTable(timelineTable, column_names);
+		JScrollPane scroll = new JScrollPane(showTimeline);
+		scroll.setBounds(134, 160, 170, 85);
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
+		panel_1.add(scroll);
+
 		JButton btnHome = new JButton("Home");
 		btnHome.setBounds(345, 240, 89, 20);
 		panel_1.add(btnHome);
