@@ -54,6 +54,8 @@ public class AmministratoreController extends UtenteController{
 	*@return String information string about insertion
 	**/
 	public String insertGame(String nome, int exp){
+		if(exp > 100)
+			return "Un gioco puo' fornire al massimo 100 punti esperienza!";
 		try{
 			new GiocoDao().insertGame(new Gioco(nome, exp));
 			return "Gioco inserito con successo!";

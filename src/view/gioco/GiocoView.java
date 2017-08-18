@@ -60,15 +60,16 @@ public class GiocoView{
 		panel_6.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Esperienza fornita:");
-		lblNewLabel_4.setBounds(270, 10, 114, 14);
+		lblNewLabel_4.setBounds(270, 10, 110, 14);
 		panel_6.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel(gioco.getNome());
-		lblNewLabel_5.setBounds(90, 10, 114, 14);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_5.setBounds(90, 6, 150, 20);
 		panel_6.add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_6 = new JLabel(""+gioco.getExp());
-		lblNewLabel_6.setBounds(390, 10, 114, 14);
+		JLabel lblNewLabel_6 = new JLabel("" + gioco.getExp());
+		lblNewLabel_6.setBounds(390, 10, 30, 15);
 		panel_6.add(lblNewLabel_6);
 		
 		JButton btnGioca = new JButton("Gioca");
