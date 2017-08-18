@@ -87,38 +87,6 @@ public class GiocoView{
 		btnvReview.setBounds(270, 100, 130, 23);
 		panel_6.add(btnvReview);
 		
-		/*ButtonGroup bg = new ButtonGroup();
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("1");
-		rdbtnNewRadioButton.setActionCommand("1");
-		rdbtnNewRadioButton.setBounds(130, 140, 40, 23);
-		panel_6.add(rdbtnNewRadioButton);
-		bg.add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("2");
-		rdbtnNewRadioButton_1.setActionCommand("2");
-		rdbtnNewRadioButton_1.setBounds(170, 140, 40, 23);
-		panel_6.add(rdbtnNewRadioButton_1);
-		bg.add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("3");
-		rdbtnNewRadioButton_2.setActionCommand("3");
-		rdbtnNewRadioButton_2.setBounds(210, 140, 40, 23);
-		panel_6.add(rdbtnNewRadioButton_2);
-		bg.add(rdbtnNewRadioButton_2);
-		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("4");
-		rdbtnNewRadioButton_3.setActionCommand("4");
-		rdbtnNewRadioButton_3.setBounds(250, 140, 40, 23);
-		panel_6.add(rdbtnNewRadioButton_3);
-		bg.add(rdbtnNewRadioButton_3);
-		
-		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("5");
-		rdbtnNewRadioButton_4.setActionCommand("5");
-		rdbtnNewRadioButton_4.setBounds(290, 140, 40, 23);
-		panel_6.add(rdbtnNewRadioButton_4);
-		bg.add(rdbtnNewRadioButton_4);*/
-		
 		JSpinner seleziona_voto = new JSpinner();
 		seleziona_voto.setModel(new SpinnerNumberModel(1, 1, 5, 1));
 		seleziona_voto.setBounds(120,170,45,23);
