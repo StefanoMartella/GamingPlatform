@@ -56,19 +56,19 @@ public class AmministratoreView {
 		lblBenvenutoUtente.setText("BENVENUTO [A] " + ut.getUsername());
 		panel_0.add(lblBenvenutoUtente);
 		
-		JButton btnProfiloPersonale = new JButton("PROFILO PERSONALE");
+		JButton btnProfiloPersonale = new JButton("Profilo Personale");
 		btnProfiloPersonale.setBounds(145, 60, 160, 30);
 		panel_0.add(btnProfiloPersonale);
 		
-		JButton btnLG = new JButton("LISTA GIOCHI");
+		JButton btnLG = new JButton("Lista Giochi");
 		btnLG.setBounds(145, 110, 160, 30);
 		panel_0.add(btnLG);
 		
-		JButton btnLU = new JButton("LISTA UTENTI");
+		JButton btnLU = new JButton("Lista Utenti");
 		btnLU.setBounds(145, 160, 160, 30);
 		panel_0.add(btnLU);
 		
-		JButton btnLogout = new JButton("ESCI");
+		JButton btnLogout = new JButton("Esci");
 		btnLogout.setBounds(145,210,160,30);
 		panel_0.add(btnLogout);
 		

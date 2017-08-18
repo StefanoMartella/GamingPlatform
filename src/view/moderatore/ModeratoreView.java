@@ -55,30 +55,30 @@ public class ModeratoreView {
 		lblBenvenutoUtente.setText("BENVENUTO [M] " + ut.getUsername());
 		panel_2.add(lblBenvenutoUtente);
 		
-		JButton btnProfiloPersonale = new JButton("PROFILO PERSONALE");
+		JButton btnProfiloPersonale = new JButton("Profilo Personale");
 		btnProfiloPersonale.setBounds(24, 86, 160, 30);
 		panel_2.add(btnProfiloPersonale);
 		
-		JButton btnProfiloGaming = new JButton("PROFILO GAMING");
+		JButton btnProfiloGaming = new JButton("Profilo Gaming");
 		btnProfiloGaming.setBounds(24, 132, 160, 30);
 		panel_2.add(btnProfiloGaming);
 		
-		JButton btnVaiAiGiochi = new JButton("VAI AI GIOCHI!");
+		JButton btnVaiAiGiochi = new JButton("Vai ai Giochi!");
 		btnVaiAiGiochi.setBounds(24, 178, 160, 30);
 		panel_2.add(btnVaiAiGiochi);
 		
-		JButton btnListaUtente = new JButton("LISTA UTENTI");
+		JButton btnListaUtente = new JButton("Lista Utenti");
 		btnListaUtente.setBounds(266, 86, 160, 30);
 		panel_2.add(btnListaUtente);
 		
-		JButton btnLR = new JButton("LISTA RECENSIONI");
+		JButton btnLR = new JButton("Lista Recensioni");
 		btnLR.setBounds(266, 132, 160, 30);
 		List<Recensione> lr = new ModeratoreController().reviewsList();
 		if(!lr.isEmpty())
 				btnLR.setBackground(Color.RED);
 		panel_2.add(btnLR);
 		
-		JButton btnLogout = new JButton("ESCI");
+		JButton btnLogout = new JButton("Esci");
 		btnLogout.setBounds(266,178,160,30);
 		panel_2.add(btnLogout);
 		
