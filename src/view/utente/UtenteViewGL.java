@@ -74,7 +74,7 @@ public class UtenteViewGL{
 		
 		
 		JButton btnHome = new JButton("Home");
-		panel_5.add(btnHome, "pos 180px 250px, width 90, height 25");
+		panel_5.add(btnHome, "pos 180px 247px, width 90, height 17");
 
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

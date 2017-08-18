@@ -52,7 +52,7 @@ public class AmministratoreViewLG{
 		ps.setLayout(new MigLayout("", "[]170[]", "[][]"));
 		
 		JButton btnHome = new JButton("Home");
-		panel_9.add(btnHome, "pos 339px 250px, width 90, height 20");
+		panel_9.add(btnHome, "pos 339px 247px, width 90, height 20");
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,7 +61,7 @@ public class AmministratoreViewLG{
 		}});
 		
 		JButton btnAG = new JButton("Inserisci");
-		panel_9.add(btnAG, "pos 15px 250px, width 90, height 20");
+		panel_9.add(btnAG, "pos 25px 247px, width 90, height 20");
 		
 		btnAG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

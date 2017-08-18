@@ -63,22 +63,22 @@ public class UtenteViewProfiloPers{
 		panel_4.add(lblTrofei);
 		
 		JLabel lblNewLabel_4 = new JLabel(ut.getNome());
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel_4.setBounds(134, 30, 166, 14);
 		panel_4.add(lblNewLabel_4);
 		
 		JLabel label = new JLabel(ut.getCognome());
-		label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
+		label.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label.setBounds(134, 70, 166, 14);
 		panel_4.add(label);
 		
 		JLabel label_1 = new JLabel(ut.getUsername());
-		label_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
+		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label_1.setBounds(134, 110, 166, 14);
 		panel_4.add(label_1);
 		
 		JLabel label_2 = new JLabel(ut.getEmail());
-		label_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
+		label_2.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label_2.setBounds(134, 150, 250, 20);
 		panel_4.add(label_2);
 		

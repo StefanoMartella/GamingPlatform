@@ -85,7 +85,7 @@ public class ModeratoreViewLU{
 			}});
 		}
 		JButton btnBack = new JButton("Indietro");
-		panel_8.add(btnBack, "pos 330px 242px, width 90, height 25");
+		panel_8.add(btnBack, "pos 343px 247px, width 90, height 17");
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

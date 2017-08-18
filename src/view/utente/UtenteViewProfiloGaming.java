@@ -64,17 +64,17 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(lblTrofei);
 		
 		JLabel lblNewLabel_4 = new JLabel(ut.getUsername());
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 13));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel_4.setBounds(134, 30, 166, 14);
 		panel_1.add(lblNewLabel_4);
 		
 		JLabel label = new JLabel(""+ut.getLivello());
-		label.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
+		label.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label.setBounds(134, 60, 166, 14);
 		panel_1.add(label);
 		
 		JLabel label_1 = new JLabel(""+ut.getPuntiExp());
-		label_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC , 12));
+		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label_1.setBounds(134, 90, 166, 14);
 		panel_1.add(label_1);
 		

@@ -84,7 +84,7 @@ public class AmministratoreViewLU{
 		panel_9.add(scroll, "width 460, height 240, pos 0px 0px");
 		
 		JButton btnHome = new JButton("Home");
-		panel_9.add(btnHome, "pos 339px 250px, width 90, height 20");
+		panel_9.add(btnHome, "pos 339px 247px, width 90, height 20");
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
