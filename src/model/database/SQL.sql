@@ -130,7 +130,7 @@ INSERT INTO `recensione`(`id`,`approvazione`,`testo`,`gioco`,`utente`) VALUES
 (3, 0, 'Recensione di Flash', 5, 8),
 (4, 0, 'Recensione del signor Tony', 2, 2),
 (5, 1, 'Fenomenale', 1, 2),
-(6, 1, 'Bel Gioco!!', 4 , 1),
+(6, 1, 'Bel Gioco!!', 4, 6),
 (7, 1, 'Un po bruttino', 3, 4);
 
 
