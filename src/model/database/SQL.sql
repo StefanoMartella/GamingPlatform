@@ -127,7 +127,7 @@ INSERT INTO `gioco`(`id`,`nome`,`exp`) VALUES
 INSERT INTO `recensione`(`id`,`approvazione`,`testo`,`gioco`,`utente`) VALUES
 (1, 0, 'Recensione del Capitano', 1, 4),
 (2, 0, 'Recensione di HULKK', 3, 3),
-(3, 0, 'Recensione di Spiderman', 5, 1),
+(3, 0, 'Recensione di Flash', 5, 8),
 (4, 0, 'Recensione del signor Tony', 2, 2),
 (5, 1, 'Fenomenale', 1, 2),
 (6, 1, 'Bel Gioco!!', 4 , 1),

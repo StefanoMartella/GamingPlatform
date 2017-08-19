@@ -8,8 +8,7 @@ import java.sql.*;
 *Class which represents the controller of MVC pattern for the adminstrator
 **/
 public class AmministratoreController extends UtenteController{
-	Utente amministratore;
-	Utente utente;
+	Utente utente_target;
 	Gioco gioco;
 	
 	/**
@@ -20,22 +19,20 @@ public class AmministratoreController extends UtenteController{
 	
 	/**
 	*Full constructor
-	*@param amministratore AmministratoreController's adminstrator
-	*@param utente AmministratoreController's user on which admin can operate
+	*@param utente_target AmministratoreController's user on which admin can operate
 	*@param gioco AmministratoreController's game on which admin can operate
 	**/
-	public AmministratoreController(Utente amministratore, Utente utente, Gioco gioco){
-		this.amministratore=amministratore;
-		this.utente=utente;
-		this.gioco=gioco;
+	public AmministratoreController(Utente utente_target, Gioco gioco){
+		this.utente_target = utente_target;
+		this.gioco = gioco;
 	}
 	
 	/**
 	*User constructor
-	*@param utente AmministratoreController's user on which admin can operate
+	*@param utente_target AmministratoreController's user on which admin can operate
 	**/
-	public AmministratoreController(Utente utente){
-		this.utente=utente;
+	public AmministratoreController(Utente utente_target){
+		this.utente_target = utente_target;
 	}
 	
 	/**
@@ -56,8 +53,11 @@ public class AmministratoreController extends UtenteController{
 	public String insertGame(String nome, int exp){
 		if(exp > 100)
 			return "Un gioco puo' fornire al massimo 100 punti esperienza!";
+		
+		gioco = new Gioco(nome, exp);
+		
 		try{
-			new GiocoDao().insertGame(new Gioco(nome, exp));
+			new GiocoDao().insertGame(gioco);
 			return "Gioco inserito con successo!";
 		}
 		catch(SQLException e){
@@ -87,7 +87,7 @@ public class AmministratoreController extends UtenteController{
 	**/
 	public String deleteUser(){
 		try{
-			new UtenteDao().deleteUser(utente);
+			new UtenteDao().deleteUser(utente_target);
 			return "Utente eliminato con successo!";
 		}
 		catch(SQLException e){

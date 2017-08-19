@@ -10,6 +10,12 @@ public class Gioco{
   private int exp;
 
   public Gioco(){}
+  
+  /**
+  * Class' constructor
+  *@param nome game's name
+  *@param exp game's exp
+  **/
   public Gioco(String nome, int exp){
     this.nome = nome;
     this.exp = exp;  

@@ -71,7 +71,7 @@ public class ModeratoreViewLR{
 							"Recensione", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 							if(n==JOptionPane.YES_OPTION){
 								JOptionPane.showMessageDialog(
-								frmPiattaformaGaming, new ModeratoreController().approve(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))));
+								frmPiattaformaGaming, new ModeratoreController(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))).approve());
 								selez.setVisible(false);
 								j.setVisible(false);
 								panel_9.setVisible(false);
@@ -79,7 +79,7 @@ public class ModeratoreViewLR{
 							}
 							if(n==JOptionPane.NO_OPTION){
 								JOptionPane.showMessageDialog(
-								frmPiattaformaGaming, new ModeratoreController().disapprove(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))));
+								frmPiattaformaGaming, new ModeratoreController(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))).disapprove());
 								selez.setVisible(false);
 								j.setVisible(false);
 								panel_9.setVisible(false);

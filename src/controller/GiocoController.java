@@ -9,7 +9,6 @@ import java.sql.*;
 *Class which represents the controller of MVC pattern for the game
 **/
 public class GiocoController{
-	Utente utente;
 	Gioco gioco;
 	
 	/**
@@ -17,16 +16,6 @@ public class GiocoController{
 	**/
 	public GiocoController(){
 		
-	}
-	
-	/**
-	*Full constructor
-	*@param utente user on which GiocoController will operate
-	*@param gioco game on which GiocoController will operate
-	**/
-	public GiocoController(Utente utente, Gioco gioco){
-		this.utente=utente;
-		this.gioco=gioco;
 	}
 	
 	/**

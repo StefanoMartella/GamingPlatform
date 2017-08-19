@@ -19,6 +19,22 @@ public class UtenteController{
 	public UtenteController(){};
 	
 	/**
+	*Constructor to set User
+	*@param utente user
+	*/
+	public UtenteController(Utente utente){
+		this.utente = utente;
+	}
+	
+	/**
+	*Constructor to set Game
+	*@param gioco game
+	*/
+	public UtenteController(Gioco gioco){
+		this.gioco = gioco;
+	}
+	
+	/**
 	*Full constructor
 	*@param utente user of UtenteController
 	*@param gioco game on which UtenteController will operate

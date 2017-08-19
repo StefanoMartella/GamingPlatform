@@ -10,16 +10,38 @@ import java.util.*;
 public class ModeratoreController extends UtenteController{ 
 	// Utente utente;
 	// Gioco gioco;
-	Utente utente_target;
 	Recensione recensione;
 	
 	
 	/**
 	*Basic constructor
 	*/
-	public ModeratoreController(){
-		
+	public ModeratoreController(){}
+	
+	/**
+	*Constructor to set User
+	*@param utente user
+	*/
+	public ModeratoreController(Utente utente){
+		this.utente = utente;
 	}
+	
+	/**
+	*Constructor to set Game
+	*@param gioco game
+	*/
+	public ModeratoreController(Gioco gioco){
+		this.gioco = gioco;
+	}
+	
+	/**
+	*Constructor to set Review
+	*@param recensione Review
+	*/
+	public ModeratoreController(Recensione recensione){
+		this.recensione = recensione;
+	}
+	
 	
 	/**
 	*Constructor which calls UserController constructor
@@ -29,26 +51,16 @@ public class ModeratoreController extends UtenteController{
 	public ModeratoreController(Utente utente, Gioco gioco){
 		super();
 	}
-	
+
 	/**
 	*Full constructor
 	*@param utente user
 	*@param gioco game on which ModeratoreController will operate
-	*@param utente_target user on which ModeratoreController will operate
 	*@param recensione review on which ModeratoreController will operate
 	*/
-	public ModeratoreController(Utente utente, Gioco gioco, Utente utente_target, Recensione recensione){
+	public ModeratoreController(Utente utente, Gioco gioco, Recensione recensione){
 		super(utente,gioco);
-		this.utente_target=utente_target;
 		this.recensione=recensione;
-	}
-	
-	/**
-	*Utente contructor
-	*@param utente_target user on which ModeratoreController will operate
-	*/
-	public ModeratoreController(Utente utente_target){
-		this.utente_target=utente_target;
 	}
 	
 	/**
@@ -57,10 +69,10 @@ public class ModeratoreController extends UtenteController{
 	*/
 	public String promote(){
 		try{
-			if( utente_target.getTipo().equals("amministratore") )
+			if( utente.getTipo().equals("amministratore") )
 				return "Promozione non riuscita, l'utente è un ammimistratore";
 
-			new UtenteDao().promoteUser(utente_target);
+			new UtenteDao().promoteUser(utente);
 			return "Promozione andata a buon fine.";
 		}
 		catch(SQLException e){
@@ -75,10 +87,10 @@ public class ModeratoreController extends UtenteController{
 	*/
 	public String demote(){
 		try{
-			if( utente_target.getTipo().equals("amministratore") )
+			if( utente.getTipo().equals("amministratore") )
 				return "Retrocessione non riuscita, l'utente è un amministratore";
 
-			new UtenteDao().demoteUser(utente_target);
+			new UtenteDao().demoteUser(utente);
 			return "Retrocessione andata a buon fine.";
 		}
 		catch(SQLException e){
@@ -90,10 +102,9 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which approves a review made by a simple user
-	*@param recensione review that has to be approved
 	*@return String string information about approval
 	*/
-	public String approve(Recensione recensione){
+	public String approve(){
 		try{
 			new UtenteDao().approveReview(recensione);
 			return "Recensione approvata.";
@@ -106,10 +117,9 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which disapproves a review made by a simple user
-	*@param recensione review that has to be disapproved
 	*@return String string information about disapproval
 	*/
-	public String disapprove(Recensione recensione){
+	public String disapprove(){
 		try{
 			new UtenteDao().approveReview(recensione);
 			return "Recensione respinta.";
