@@ -4,6 +4,7 @@ import src.model.dao.concrete.*;
 import src.model.*;
 import java.sql.*;
 import java.util.*;
+
 /**
 *Class which represents the controller of MVC pattern for the moderator
 **/
@@ -69,9 +70,6 @@ public class ModeratoreController extends UtenteController{
 	*/
 	public String promote(){
 		try{
-			if( utente.getTipo().equals("amministratore") )
-				return "Promozione non riuscita, l'utente è un ammimistratore";
-
 			new UtenteDao().promoteUser(utente);
 			return "Promozione andata a buon fine.";
 		}
@@ -87,9 +85,6 @@ public class ModeratoreController extends UtenteController{
 	*/
 	public String demote(){
 		try{
-			if( utente.getTipo().equals("amministratore") )
-				return "Retrocessione non riuscita, l'utente è un amministratore";
-
 			new UtenteDao().demoteUser(utente);
 			return "Retrocessione andata a buon fine.";
 		}
