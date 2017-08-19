@@ -114,7 +114,7 @@ public class ModeratoreView {
 				public void actionPerformed(ActionEvent e) {
 					if( lr.isEmpty() ){
 						JOptionPane.showMessageDialog(
-						frmPiattaformaGaming, "Non ci sono recensioni da approvare/rifiutare!");
+						frmPiattaformaGaming, "Non ci sono recensioni da approvare/rifiutare!", "No recensioni", JOptionPane.ERROR_MESSAGE);
 					}
 					else{
 						panel_2.setVisible(false);
