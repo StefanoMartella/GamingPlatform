@@ -7,25 +7,27 @@ import java.sql.*;
 
 /**
 *Class which represents the controller of MVC pattern for the game
-**/
+*/
 public class GiocoController{
 	Gioco gioco;
 	
 	/**
 	*Basic constructor
-	**/
+	*/
 	public GiocoController(){}
 	
 	/**
 	*Game constructor
+	*
 	*@param gioco game on which GiocoController will operate
-	**/
+	*/
 	public GiocoController(Gioco gioco){		
 		this.gioco=gioco;
 	}
 	
 	/**
 	*Method used to get the list of games
+	*
 	*@return ArrayList games' list
 	*/
 	public ArrayList<Gioco> listOfGames(){
@@ -40,6 +42,7 @@ public class GiocoController{
 	
 	/**
 	*Method used to find a game by its name
+	*
 	*@param nome name of game to find
 	*@return Gioco istance of game
 	**/
@@ -56,6 +59,7 @@ public class GiocoController{
 	
 	/**
 	*Method used to get votes avarage of a game
+	*
 	*@return float avarage
 	**/
 	public float avgVote(){
@@ -70,6 +74,7 @@ public class GiocoController{
 	
 	/**
 	*Method used to get the list of all reviews about a game
+	*
 	*@return ArrayList list of reviews
 	*/
 	public ArrayList<Recensione> allReviews(){

@@ -5,6 +5,9 @@ import java.util.ArrayList;
 
 import src.model.*;
 
+/**
+*Interface that defines the standard operations to be performed on a Gioco model objec
+*/
 public interface GiocoDaoInterface{
 
   public void insertGame(Gioco gioco) throws SQLException;

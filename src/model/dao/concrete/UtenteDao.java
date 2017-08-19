@@ -14,7 +14,7 @@ import src.model.*;
 
 /**
 *Class which contains all MySql queries to get user's informations from database
-**/
+*/
 public class UtenteDao implements UtenteDaoInterface{
   private static final String
   INSERT = "INSERT INTO utente(nome, cognome, username, email, password) VALUES (?, ?, ?, ?, ?);";
@@ -69,9 +69,10 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to insert a user
+  *
   *@param utente user we want to add to the database
   *@throws SQLException if no database connection is found or another error occurs
-  **/
+  */
   @Override
   public void insertUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -88,9 +89,10 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to delete a user
+  *
   *@param utente user we want to delete from database
   *@throws SQLException if no database connection is found or another error occurs
-  **/
+  */
   @Override
   public void deleteUser(Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
@@ -103,9 +105,10 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to get all users
+  *
   *@return ArrayList all users
   *@throws SQLException if no database connection is found or another error occurs
-  **/
+  */
   @Override
   public ArrayList<Utente> allUsers() throws SQLException{
     ArrayList<Utente> all_users = new ArrayList<>();
@@ -124,8 +127,9 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to delete all users
+  *
   *@throws SQLException if no database connection is found or another error occurs
-  **/
+  */
   @Override
   public void deleteAllUsers() throws SQLException{
     Connection connection = DB.openConnection();
@@ -137,10 +141,11 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to find a user thanks to his username
+  *
   *@param username user's username
   *@return Utente searched user
   *@throws SQLException if no database connection is found or another error occurs
-  **/
+  */
   @Override
   public Utente findUserByUsername(String username) throws SQLException{
     Utente utente;
@@ -158,6 +163,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to play with a game
+  *
   *@param ut user who plays
   *@param g played game
   *@throws SQLException if no database connection is found or another error occurs
@@ -190,6 +196,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to play vote a game
+  *
   *@param voto game's vote
   *@param utente user who votes
   *@param gioco voted game
@@ -209,6 +216,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to play review a game
+  *
   *@param testoRecensione review's text
   *@param utente user who reviews
   *@param gioco reviewed game
@@ -228,6 +236,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to approve a review
+  *
   *@param recensione review we want to approve
   *@throws SQLException if no database connection is found or another error occurs
   */
@@ -243,6 +252,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to promote a user
+  *
   *@param utente user we want to promote
   *@throws SQLException if no database connection is found or another error occurs
   */
@@ -258,6 +268,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to demote a user
+  *
   *@param utente user we want to demote
   *@throws SQLException if no database connection is found or another error occurs
   */
@@ -273,6 +284,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to disapprove a review
+  *
   *@param recensione review we want to disapprove
   *@throws SQLException if no database connection is found or another error occurs
   */
@@ -283,6 +295,7 @@ public class UtenteDao implements UtenteDaoInterface{
 
   /**
   *Method to get user's timeline
+  *
   *@param utente user we want the timeline
   *@return  TreeMap user's timeline
   *@throws SQLException if no database connection is found or another error occurs
@@ -305,6 +318,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to check if a user has already voted a game
+  *
   *@param utente user who votes
   *@param gioco voted game
   *@return  boolean true if the user has already voted the game, false otherwise
@@ -328,6 +342,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to check if a user has already review a game
+  *
   *@param utente user who reviews
   *@param gioco reviewed game
   *@return  boolean true if the user has already reviewed the game, false otherwise
@@ -351,6 +366,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to check if an email or an username are already been used
+  *
   *@param QUERY query for the database
   *@param email_or_username email/username we want check
   *@return  boolean true if email or username are already been used, false otherwise
@@ -372,6 +388,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to check if an username is already been used
+  *
   *@param  username username
   *@return  boolean true if username is already been used, false otherwise
   *@throws SQLException if no database connection is found or another error occurs
@@ -383,6 +400,7 @@ public class UtenteDao implements UtenteDaoInterface{
   
   /**
   *Method to check if an email is already been used
+  *
   *@param  email email
   *@return  boolean true if email is already been used, false otherwise
   *@throws SQLException if no database connection is found or another error occurs

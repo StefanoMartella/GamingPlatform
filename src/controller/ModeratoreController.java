@@ -7,7 +7,7 @@ import java.util.*;
 
 /**
 *Class which represents the controller of MVC pattern for the moderator
-**/
+*/
 public class ModeratoreController extends UtenteController{ 
 	// Utente utente;
 	// Gioco gioco;
@@ -21,6 +21,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Constructor to set User
+	*
 	*@param utente user
 	*/
 	public ModeratoreController(Utente utente){
@@ -29,6 +30,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Constructor to set Game
+	*
 	*@param gioco game
 	*/
 	public ModeratoreController(Gioco gioco){
@@ -37,6 +39,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Constructor to set Review
+	*
 	*@param recensione Review
 	*/
 	public ModeratoreController(Recensione recensione){
@@ -46,6 +49,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Constructor which calls UserController constructor
+	*
 	*@param utente moderator user
 	*@param gioco game on which ModeratoreController will operate
 	*/
@@ -55,6 +59,7 @@ public class ModeratoreController extends UtenteController{
 
 	/**
 	*Full constructor
+	*
 	*@param utente user
 	*@param gioco game on which ModeratoreController will operate
 	*@param recensione review on which ModeratoreController will operate
@@ -66,6 +71,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which promotes a simple user to a moderator
+	*
 	*@return String string information about promoting
 	*/
 	public String promote(){
@@ -81,6 +87,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which demotes a moderator to a simple user
+	*
 	*@return String string information about demoting
 	*/
 	public String demote(){
@@ -97,6 +104,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which approves a review made by a simple user
+	*
 	*@return String string information about approval
 	*/
 	public String approve(){
@@ -112,6 +120,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	*Method which disapproves a review made by a simple user
+	*
 	*@return String string information about disapproval
 	*/
 	public String disapprove(){
@@ -127,6 +136,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	* Method which gives the users' list
+	*
 	*@return ArrayList list of users
 	*/
 	public ArrayList<Utente> usersList(){
@@ -141,6 +151,7 @@ public class ModeratoreController extends UtenteController{
 	
 	/**
 	* Method which gives the reviews' list
+	*
 	*@return ArrayList list of games
 	*/
 	public ArrayList<Recensione> reviewsList(){

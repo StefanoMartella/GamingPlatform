@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 /**
 *Class which has the aim to enstablish a connection with the database
-**/
+*/
 public class DB{
   private static String URL = "jdbc:mysql://localhost/Gaming?autoReconnect=true&useSSL=false";
   private static String DRIVER = "com.mysql.jdbc.Driver";
@@ -18,7 +18,7 @@ public class DB{
   *Method used to enstablish a connection with database
   *
   *@return Connection database connection
-  **/
+  */
   public static Connection openConnection(){
     try {
 	Class.forName(DRIVER).newInstance();

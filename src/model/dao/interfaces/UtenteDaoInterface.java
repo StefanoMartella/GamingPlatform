@@ -7,6 +7,9 @@ import java.util.TreeMap;
 
 import src.model.*;
 
+/**
+*Interface that defines the standard operations to be performed on a Utente model objec
+*/
 public interface UtenteDaoInterface{
 
   public void insertUser(Utente utente) throws SQLException;

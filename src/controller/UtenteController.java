@@ -8,7 +8,7 @@ import java.sql.*;
 
 /**
 *Class which represents the controller of MVC pattern for the user
-**/
+*/
 public class UtenteController{
 	Utente utente;
 	Gioco gioco;
@@ -20,6 +20,7 @@ public class UtenteController{
 	
 	/**
 	*Constructor to set User
+	*
 	*@param utente user
 	*/
 	public UtenteController(Utente utente){
@@ -28,6 +29,7 @@ public class UtenteController{
 	
 	/**
 	*Constructor to set Game
+	*
 	*@param gioco game
 	*/
 	public UtenteController(Gioco gioco){
@@ -36,6 +38,7 @@ public class UtenteController{
 	
 	/**
 	*Full constructor
+	*
 	*@param utente user of UtenteController
 	*@param gioco game on which UtenteController will operate
 	*/
@@ -60,6 +63,7 @@ public class UtenteController{
 	
 	/**
 	*Method used to vote a game
+	*
 	*@param voto vote to assign
 	*@return String string information about voting
 	*/
@@ -80,6 +84,7 @@ public class UtenteController{
 	
 	/**
 	*Method used to review a game
+	*
 	*@param testoRecensione review's text
 	*@return String string information about review
 	*/
@@ -105,6 +110,7 @@ public class UtenteController{
 	
 	/**
 	*Method used to get user's timeline
+	*
 	*@param username user's username
 	*@return TreeMap user's timeline
 	*/

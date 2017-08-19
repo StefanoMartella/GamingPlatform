@@ -1,6 +1,7 @@
 src.controller
 src.model
 src.model.dao.concrete
+src.model.dao.interfaces
 src.model.database
 src.view.amministratore
 src.view.gioco

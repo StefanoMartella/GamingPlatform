@@ -5,6 +5,9 @@ import java.util.ArrayList;
 
 import src.model.*;
 
+/**
+*Interface that defines the standard operations to be performed on a Recensione model objec
+*/
 public interface RecensioneDaoInterface{
 
   public void insertReview(String testo, Gioco gioco, Utente utente) throws SQLException;

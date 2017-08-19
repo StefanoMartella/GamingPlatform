@@ -8,15 +8,16 @@ import java.util.regex.Matcher;
 
 /**
 *Class which implements methods about user's mainteinance
-**/
+*/
 public class GestioneUtenza{
 	
 	/**
 	*Method used to login into the platform
+	*
 	*@param username user's username
 	*@param password user's password
 	*@return Utente istance of user
-	**/
+	*/
 	public Utente login(String username, String password){
 		try{
 			if(new UtenteDao().findUserByUsername(username) == null){ return null; }		
@@ -39,9 +40,10 @@ public class GestioneUtenza{
 	
 	/**
 	*Method used to find a user by his username
+	*
 	*@param username user's username
 	*@return Utente istance of user
-	**/
+	*/
 	public Utente findUser(String username){
 		try{
 			return new UtenteDao().findUserByUsername(username);
@@ -55,6 +57,7 @@ public class GestioneUtenza{
 	
 	/**
 	*Method used to sign up into the platform
+	*
 	*@param name user's name
 	*@param surname user's surname
 	*@param username user's username
@@ -62,7 +65,7 @@ public class GestioneUtenza{
 	*@param password user's password
 	*@param password2 confirm password
 	*@return int information number about enrolment status
-	**/
+	*/
 	public int signIn(String name, String surname, String username, String mail, String password, String password2){
 		
 		Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
