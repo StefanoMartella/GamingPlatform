@@ -14,16 +14,13 @@ public class GiocoController{
 	/**
 	*Basic constructor
 	**/
-	public GiocoController(){
-		
-	}
+	public GiocoController(){}
 	
 	/**
 	*Game constructor
 	*@param gioco game on which GiocoController will operate
 	**/
-	public GiocoController(Gioco gioco){
-		
+	public GiocoController(Gioco gioco){		
 		this.gioco=gioco;
 	}
 	
