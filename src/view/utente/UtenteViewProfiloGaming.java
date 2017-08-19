@@ -79,6 +79,8 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("Visualizza trofei");
+		if(ut.getLivello() == 0)
+			trofei.setBackground(Color.LIGHT_GRAY);
 		trofei.setBounds(134, 120, 124, 20);
 		panel_1.add(trofei);
 		

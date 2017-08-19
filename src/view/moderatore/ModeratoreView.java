@@ -74,8 +74,8 @@ public class ModeratoreView {
 		JButton btnLR = new JButton("Lista Recensioni");
 		btnLR.setBounds(266, 132, 160, 30);
 		List<Recensione> lr = new ModeratoreController().reviewsList();
-		if(!lr.isEmpty())
-				btnLR.setBackground(Color.RED);
+		if(lr.isEmpty())
+				btnLR.setBackground(Color.LIGHT_GRAY);
 		panel_2.add(btnLR);
 		
 		JButton btnLogout = new JButton("Esci");
@@ -111,9 +111,15 @@ public class ModeratoreView {
 		}});
 		
 		btnLR.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panel_2.setVisible(false);
-				new ModeratoreViewLR(frmPiattaformaGaming,ut);
+				public void actionPerformed(ActionEvent e) {
+					if( lr.isEmpty() ){
+						JOptionPane.showMessageDialog(
+						frmPiattaformaGaming, "Non ci sono recensioni da approvare/rifiutare!");
+					}
+					else{
+						panel_2.setVisible(false);
+						new ModeratoreViewLR(frmPiattaformaGaming,ut);
+					}
 		}});
 		
 		btnListaUtente.addActionListener(new ActionListener() {
