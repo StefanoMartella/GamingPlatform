@@ -69,8 +69,10 @@ public class UtenteController{
 	*/
 	public String vote(int voto){
 		try{
-			if(new UtenteDao().gameAlreadyVotedByUser(utente, gioco))
-			return "Hai gia' votato questo gioco.";
+			if(new UtenteDao().gameAlreadyVotedByUser(utente, gioco)){
+				new UtenteDao().updateVote(voto,utente, gioco);
+				return "Voto aggiornato!";
+			}
 		
 			new UtenteDao().voteGame(voto,utente,gioco);
 			return "Votazione andata a buon fine!";
@@ -90,16 +92,18 @@ public class UtenteController{
 	*/
 	public String review(String testoRecensione){
 		try{
-			if(new UtenteDao().reviewAlreadyMadeByUser(utente,gioco))
-			return "Hai gia' scritto una recensione per questo gioco.";
-		else{
-		new UtenteDao().reviewGame(testoRecensione, utente, gioco);
-		if(utente.getTipo().equals("moderatore")){
-			new UtenteDao().approveReview(new RecensioneDao().findReviewByUserAndGame(utente, gioco));
-			return "Recensione inserita!";
-		}
+			if(new UtenteDao().reviewAlreadyMadeByUser(utente,gioco)){
+				new UtenteDao().updateReview(testoRecensione, utente, gioco);
+				return "Recensione aggiornata, dovrete aspettare il consenso di un moderatore!";
+			}
+			else{
+				new UtenteDao().reviewGame(testoRecensione, utente, gioco);
+				if(utente.getTipo().equals("moderatore")){
+					new UtenteDao().approveReview(new RecensioneDao().findReviewByUserAndGame(utente, gioco));
+				return "Recensione inserita!";
+				}
 		return "Recensione inviata, dovrete aspettare il consenso di un moderatore.";
-		}
+			}
 		}
 		catch(SQLException exc){
 			exc.printStackTrace();

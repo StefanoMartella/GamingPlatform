@@ -125,7 +125,7 @@ public class ModeratoreController extends UtenteController{
 	*/
 	public String disapprove(){
 		try{
-			new UtenteDao().approveReview(recensione);
+			new UtenteDao().disapproveReview(recensione);
 			return "Recensione respinta.";
 		}
 		catch(SQLException e){

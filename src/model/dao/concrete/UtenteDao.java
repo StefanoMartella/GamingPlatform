@@ -41,11 +41,17 @@ public class UtenteDao implements UtenteDaoInterface{
   VOTE_GAME = "INSERT INTO voto(votazione, gioco, utente) VALUES (?, ?, ?);";
 
   private static final String
+  UPDATE_VOTE = "UPDATE voto SET votazione = ? WHERE utente = ? AND gioco = ?;";
+  
+  private static final String
   REVIEW_GAME = "INSERT INTO recensione(testo, gioco, utente) VALUES (?, ?, ?);";
 
   private static final String
   APPROVE_REVIEW = "UPDATE recensione SET approvazione = 1 WHERE id = ?;";
 
+  private static final String
+  UPDATE_REVIEW = "UPDATE recensione SET testo = ?, approvazione = 0 WHERE utente = ? AND gioco = ?;";
+  
   private static final String
   PROMOTE_USER = "UPDATE utente SET tipo = \"moderatore\" WHERE id = ?;";
 
@@ -195,7 +201,7 @@ public class UtenteDao implements UtenteDaoInterface{
   }
   
   /**
-  *Method to play vote a game
+  *Method to vote a game
   *
   *@param voto game's vote
   *@param utente user who votes
@@ -215,7 +221,27 @@ public class UtenteDao implements UtenteDaoInterface{
   }
 
   /**
-  *Method to play review a game
+  *Method update game's vote 
+  *
+  *@param voto game's vote
+  *@param utente user who votes
+  *@param gioco game voted
+  *@throws SQLException if no database connection is found or another error occurs
+  */
+  @Override
+  public void updateVote(int voto, Utente utente, Gioco gioco) throws SQLException{
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(UPDATE_VOTE);
+    ps.setInt(1, voto);
+    ps.setInt(2, utente.getId());
+	ps.setInt(3, gioco.getId());
+    ps.executeUpdate();
+    ps.close();
+    connection.close();
+  }
+  
+  /**
+  *Method review a game
   *
   *@param testoRecensione review's text
   *@param utente user who reviews
@@ -234,6 +260,26 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+    /**
+  *Method update game's review 
+  *
+  *@param testoRecensione game's review
+  *@param utente user who votes
+  *@param gioco gioco review
+  *@throws SQLException if no database connection is found or another error occurs
+  */
+  @Override
+  public void updateReview(String testoRecensione, Utente utente, Gioco gioco) throws SQLException{
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(UPDATE_REVIEW);
+    ps.setString(1, testoRecensione);
+    ps.setInt(2, utente.getId());
+	ps.setInt(3, gioco.getId());
+    ps.executeUpdate();
+    ps.close();
+    connection.close();
+  }
+  
   /**
   *Method to approve a review
   *
