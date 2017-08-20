@@ -103,8 +103,7 @@ public class Login {
 		
 		psswrdField = new JPasswordField();
 		psswrdField.setColumns(10);
-		psswrdField.setBounds(160, 140, 200, 25);
-		psswrdField.setEchoChar('*'); 
+		psswrdField.setBounds(160, 140, 200, 25); 
 		panel.add(psswrdField);
 		
 		JButton btnSignUp = new JButton("Registrati");
