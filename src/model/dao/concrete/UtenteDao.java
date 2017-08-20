@@ -20,6 +20,9 @@ public class UtenteDao implements UtenteDaoInterface{
   INSERT = "INSERT INTO utente(nome, cognome, username, email, password) VALUES (?, ?, ?, ?, ?);";
 
   private static final String
+  UPDATE = "UPDATE utente SET ? = ? WHERE id = ?;";
+  
+  private static final String
   DELETE = "DELETE FROM utente WHERE id = ?;";
 
   private static final String
@@ -93,6 +96,26 @@ public class UtenteDao implements UtenteDaoInterface{
     connection.close();
   }
 
+  /**
+  *Method to update user's informations
+  *
+  *@param column column that has to be changed
+  *@param newValue new value of selected column
+  *@param utente user we want to delete from database
+  *@throws SQLException if no database connection is found or another error occurs
+  */
+  @Override
+  public void updateUser(String column, String newValue, Utente utente) throws SQLException{
+    Connection connection = DB.openConnection();
+    PreparedStatement ps = connection.prepareStatement(UPDATE);
+	ps.setString(1, column);
+	ps.setString(2, newValue);
+    ps.setInt(3, utente.getId());
+    ps.executeUpdate();
+    ps.close();
+    connection.close();
+  }
+  
   /**
   *Method to delete a user
   *

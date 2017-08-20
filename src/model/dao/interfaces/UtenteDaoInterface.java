@@ -14,6 +14,8 @@ public interface UtenteDaoInterface{
 
   public void insertUser(Utente utente) throws SQLException;
   
+  public void updateUser(String column, String newValue, Utente utente) throws SQLException;
+  
   public void deleteUser(Utente utente) throws SQLException;
   
   public ArrayList<Utente> allUsers() throws SQLException;
