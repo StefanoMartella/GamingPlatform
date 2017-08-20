@@ -25,7 +25,7 @@ public class ModeratoreController extends UtenteController{
 	*@param utente user
 	*/
 	public ModeratoreController(Utente utente){
-		this.utente = utente;
+		super(utente);
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class ModeratoreController extends UtenteController{
 	*@param gioco game
 	*/
 	public ModeratoreController(Gioco gioco){
-		this.gioco = gioco;
+		super(gioco);
 	}
 	
 	/**
