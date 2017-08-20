@@ -35,9 +35,9 @@ import java.sql.*;
 *Class which represents the view of MVC pattern for the game
 */
 public class GiocoView{
-	JFrame frmPiattaformaGaming;
-	Utente ut;
-	Gioco gioco;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
+	private Gioco gioco;
 	
 	public GiocoView(JFrame frame, Utente ut, Gioco g){
 		this.frmPiattaformaGaming=frame;

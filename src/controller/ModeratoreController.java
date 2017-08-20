@@ -11,7 +11,7 @@ import java.util.*;
 public class ModeratoreController extends UtenteController{ 
 	// Utente utente;
 	// Gioco gioco;
-	Recensione recensione;
+	private Recensione recensione;
 	
 	
 	/**

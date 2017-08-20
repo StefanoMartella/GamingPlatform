@@ -28,9 +28,9 @@ import java.sql.*;
 */
 public class UtenteViewTrofei {
 	
-	JFrame frmPiattaformaGaming;
-	Utente ut;
-	int count = 1;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
+	private int count = 1;
 	
 	public UtenteViewTrofei(JFrame frame, Utente utente) {
 		this.frmPiattaformaGaming=frame;

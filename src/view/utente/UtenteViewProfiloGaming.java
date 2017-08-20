@@ -29,8 +29,8 @@ import java.sql.*;
 *Class which represents the view of MVC pattern of user's gaming profile
 */
 public class UtenteViewProfiloGaming{
-	JFrame frmPiattaformaGaming;
-	Utente ut;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
 	
 	public UtenteViewProfiloGaming(JFrame frame, Utente ut){
 		this.frmPiattaformaGaming=frame;

@@ -26,7 +26,7 @@ import java.sql.*;
 */
 public class SignUp{
 	
-	JFrame frmPiattaformaGaming;
+	private JFrame frmPiattaformaGaming;
 	
 	public SignUp(JFrame frm){
 		this.frmPiattaformaGaming = frm;

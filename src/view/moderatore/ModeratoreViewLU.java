@@ -31,8 +31,8 @@ import java.sql.*;
 *Class which represents the view of MVC pattern of users' list for moderator
 */
 public class ModeratoreViewLU{
-	JFrame frmPiattaformaGaming;
-	Utente ut;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
 	
 	public ModeratoreViewLU(JFrame frame, Utente ut){
 		this.frmPiattaformaGaming=frame;

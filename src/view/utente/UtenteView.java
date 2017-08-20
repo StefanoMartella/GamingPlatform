@@ -27,8 +27,8 @@ import java.sql.*;
 */
 public class UtenteView {
 	
-	JFrame frmPiattaformaGaming;
-	Utente ut;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
 	
 	public UtenteView(JFrame frame, Utente ut) {
 		this.frmPiattaformaGaming=frame;

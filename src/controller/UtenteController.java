@@ -10,8 +10,8 @@ import java.sql.*;
 *Class which represents the controller of MVC pattern for the user
 */
 public class UtenteController{
-	Utente utente;
-	Gioco gioco;
+	protected Utente utente;
+	protected Gioco gioco;
 	
 	/**
 	*Basic constructor

@@ -29,8 +29,8 @@ import java.sql.*;
 *Class which represents the view of MVC pattern of list of games for admin
 */
 public class AmministratoreViewLG{
-	JFrame frmPiattaformaGaming;
-	Utente ut;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
 	
 	public AmministratoreViewLG(JFrame frame, Utente ut){
 		this.frmPiattaformaGaming=frame;

@@ -29,9 +29,9 @@ import java.sql.*;
 */
 public class GiocoRecensioniView {
 	
-	JFrame frmPiattaformaGaming;
-	Gioco gioco;
-	Utente utente;
+	private JFrame frmPiattaformaGaming;
+	private Gioco gioco;
+	private Utente utente;
 	
 	public GiocoRecensioniView(JFrame frame, Utente utente, Gioco gioco){
 		this.frmPiattaformaGaming=frame;

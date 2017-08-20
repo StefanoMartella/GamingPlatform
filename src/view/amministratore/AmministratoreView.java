@@ -28,8 +28,8 @@ import java.sql.*;
 */
 public class AmministratoreView {
 	
-	JFrame frmPiattaformaGaming;
-	Utente ut;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
 	
 	public AmministratoreView(JFrame frame, Utente ut){
 		this.frmPiattaformaGaming = frame;

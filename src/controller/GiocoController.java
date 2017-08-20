@@ -9,7 +9,7 @@ import java.sql.*;
 *Class which represents the controller of MVC pattern for the game
 */
 public class GiocoController{
-	Gioco gioco;
+	private Gioco gioco;
 	
 	/**
 	*Basic constructor

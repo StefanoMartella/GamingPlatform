@@ -30,9 +30,6 @@ import java.sql.*;
 public class Login {
 
 	private static JFrame frmPiattaformaGaming;
-	private JTextField textField;
-	private JPasswordField psswrdField;
-
 	/**
 	 * Launch the application.
 	 *
@@ -96,12 +93,12 @@ public class Login {
 		lblPassword.setBounds(75, 140, 150, 20);
 		panel.add(lblPassword);
 		
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setBounds(160, 95, 200, 25);
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		psswrdField = new JPasswordField();
+		JPasswordField psswrdField = new JPasswordField();
 		psswrdField.setColumns(10);
 		psswrdField.setBounds(160, 140, 200, 25); 
 		panel.add(psswrdField);

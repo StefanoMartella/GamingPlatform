@@ -31,8 +31,8 @@ import java.sql.*;
 *Class which represents the view of MVC pattern of games' list for user
 */
 public class UtenteViewGL{
-	JFrame frmPiattaformaGaming;
-	Utente ut;
+	private JFrame frmPiattaformaGaming;
+	private Utente ut;
 	
 	public UtenteViewGL(JFrame frame, Utente ut){
 		this.frmPiattaformaGaming=frame;
