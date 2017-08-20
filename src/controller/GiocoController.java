@@ -45,7 +45,7 @@ public class GiocoController{
 	*
 	*@param nome name of game to find
 	*@return Gioco istance of game
-	**/
+	*/
 	public Gioco findGame(String nome){
 		try{
 			return new GiocoDao().findGameByName(nome);
