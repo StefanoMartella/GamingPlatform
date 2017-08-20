@@ -97,13 +97,11 @@ public class SignUp{
 		JPasswordField passwordField;
 		passwordField = new JPasswordField();
 		passwordField.setBounds(190, 175, 200, 23);
-		passwordField.setEchoChar('*'); 
 		panel_3.add(passwordField);
 		
 		JPasswordField passwordField2;
 		passwordField2 = new JPasswordField();
 		passwordField2.setBounds(190, 145, 200, 23);
-		passwordField2.setEchoChar('*'); 
 		panel_3.add(passwordField2);
 		
 		JButton btnRegistrati = new JButton("Registrati");
@@ -146,7 +144,7 @@ public class SignUp{
 									break;
 										
 							case 2: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Username gi‡ in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+									frmPiattaformaGaming, "Username gi√† in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
 									textField_2.setText(textField_2.getText());
 									textField_3.setText(textField_3.getText());
 									textField_4.setText("");
@@ -156,7 +154,7 @@ public class SignUp{
 									break;
 							
 							case 3: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "E-Mail gi‡ in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+									frmPiattaformaGaming, "E-Mail gi√† in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
 									textField_2.setText(textField_2.getText());
 									textField_3.setText(textField_3.getText());
 									textField_4.setText(textField_4.getText());
