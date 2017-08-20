@@ -2,6 +2,16 @@
 
 Project for Object-Oriented-Software-Design course of [University of L'Aquila](http://univaq.it)
 
+This project has the aim to realize a gaming platform in which are present three main actors: simple user, moderator and administrator.
+
+ - Simple user can store exp points and collect tropheis by playing with available games in the system, he can review and vote games        too.
+ 
+ - Moderator has the same features of simple user but he can also promote and demote other users, approve or disapprove game's              reviews.
+ 
+ - Admnistrator has the whole control of the system, he can manage users, moderators and games or by using GUI either with queries to      database.
+ 
+ For more details read the .pdf in doc folder.
+
 ## Team
 
 - D'Ascenzo Andrea
@@ -77,7 +87,7 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
             └── UtenteViewTrofei.java
 ```
 ## Prerequisites
-
+ 
  - [Java](https://www.java.com/it/download/) to run application.
  - [MySql](https://www.mysql.com/it/downloads/) to make app work with database.
  
@@ -113,3 +123,7 @@ Project for Object-Oriented-Software-Design course of [University of L'Aquila](h
  - davide.morelli1@student.univaq.it
  - paolo.tramontozzi@student.univaq.it
  
+ 
+## License
+
+ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
