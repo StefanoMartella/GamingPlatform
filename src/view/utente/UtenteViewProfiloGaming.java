@@ -65,23 +65,23 @@ public class UtenteViewProfiloGaming{
 		
 		JLabel lblNewLabel_4 = new JLabel(ut.getUsername());
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_4.setBounds(134, 30, 166, 14);
+		lblNewLabel_4.setBounds(104, 30, 166, 14);
 		panel_1.add(lblNewLabel_4);
 		
 		JLabel label = new JLabel(""+ut.getLivello());
 		label.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label.setBounds(134, 60, 166, 14);
+		label.setBounds(104, 60, 166, 14);
 		panel_1.add(label);
 		
 		JLabel label_1 = new JLabel(""+ut.getPuntiExp());
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_1.setBounds(134, 90, 166, 14);
+		label_1.setBounds(104, 90, 166, 14);
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("Visualizza trofei");
 		if(ut.getLivello() == 0)
 			trofei.setBackground(Color.LIGHT_GRAY);
-		trofei.setBounds(134, 120, 124, 20);
+		trofei.setBounds(104, 120, 124, 20);
 		panel_1.add(trofei);
 		
 		JLabel lblTimeline = new JLabel("Timeline:");
@@ -101,12 +101,12 @@ public class UtenteViewProfiloGaming{
 
 		JTable showTimeline = new JTable(timelineTable, column_names);
 		JScrollPane scroll = new JScrollPane(showTimeline);
-		scroll.setBounds(134, 150, 250, 85);
+		scroll.setBounds(104, 150, 320, 85);
 		scroll.getVerticalScrollBar().setUnitIncrement(20);
 		panel_1.add(scroll);
 
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(345, 242, 85, 19);
+		btnHome.setBounds(338, 242, 85, 19);
 		panel_1.add(btnHome);
 		
 		
