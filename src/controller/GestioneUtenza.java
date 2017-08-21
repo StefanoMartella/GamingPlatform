@@ -95,4 +95,54 @@ public class GestioneUtenza{
 		}
 		return -1;
 	}
+	
+	/**
+	*Method to update user's informations
+	*
+	*@param column value to be changed
+	*@param newValue new value for the column
+	*@param utente user that receives the update
+	*/
+	public String updateValue(String column, String newValue, Utente utente){
+		
+		try{
+			if (column.equals("nome")){
+				new UtenteDao().updateUser(column, newValue, utente);
+				return "Nome aggiornato!";
+			}
+			if (column.equals("cognome")){
+				new UtenteDao().updateUser(column, newValue, utente);
+				return "Cognome aggiornato!";
+			}
+			if (column.equals("username")){
+				if(new UtenteDao().usernameAlreadyUsed(newValue))
+					return "Username gia' in uso!";
+				new UtenteDao().updateUser(column, newValue, utente);
+				return "Username aggiornato!";
+			}
+			if (column.equals("email")){
+				Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+			
+				Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
+
+				
+				if(new UtenteDao().emailAlreadyUsed(newValue))
+					return "Email gia' in uso!";
+				if(!matcher.find())
+					return "Email non valida!";
+				new UtenteDao().updateUser(column, newValue, utente);
+				return "Email aggiornata!";
+			}
+			if (column.equals("password")){
+				if (newValue.length() < 8)
+					return "La password deve essere di minimo 8 caratteri!";
+				new UtenteDao().updateUser(column, newValue, utente);
+				return "Password aggiornata!";
+			}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

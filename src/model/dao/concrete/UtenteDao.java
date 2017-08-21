@@ -18,9 +18,6 @@ import src.model.*;
 public class UtenteDao implements UtenteDaoInterface{
   private static final String
   INSERT = "INSERT INTO utente(nome, cognome, username, email, password) VALUES (?, ?, ?, ?, ?);";
-
-  private static final String
-  UPDATE = "UPDATE utente SET ? = ? WHERE id = ?;";
   
   private static final String
   DELETE = "DELETE FROM utente WHERE id = ?;";
@@ -107,10 +104,9 @@ public class UtenteDao implements UtenteDaoInterface{
   @Override
   public void updateUser(String column, String newValue, Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
-    PreparedStatement ps = connection.prepareStatement(UPDATE);
-	ps.setString(1, column);
-	ps.setString(2, newValue);
-    ps.setInt(3, utente.getId());
+    PreparedStatement ps = connection.prepareStatement("UPDATE utente SET utente." + column + "= ? WHERE id = ?;");
+	ps.setString(1, newValue);
+    ps.setInt(2, utente.getId());
     ps.executeUpdate();
     ps.close();
     connection.close();
