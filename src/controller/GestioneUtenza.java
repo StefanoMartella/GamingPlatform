@@ -133,12 +133,29 @@ public class GestioneUtenza{
 				new UtenteDao().updateUser(column, newValue, utente);
 				return "Email aggiornata!";
 			}
-			if (column.equals("password")){
-				if (newValue.length() < 8)
-					return "La password deve essere di minimo 8 caratteri!";
-				new UtenteDao().updateUser(column, newValue, utente);
-				return "Password aggiornata!";
-			}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	*Method to update user's password
+	*
+	*@param column value to be changed
+	*@param nuova_password new password
+	*@param conferma_password password check
+	*@param utente user that receives the update
+	*/
+	public String updatePassword(String nuova_password, String conferma_password, Utente utente){
+		if(nuova_password.length() < 8)
+			return "La password deve essere di minimo 8 caratteri!";
+		if(!nuova_password.equals(conferma_password))
+			return "Le due password non coincidono!";
+		try{
+			new UtenteDao().updateUser("password", nuova_password, utente);
+			return "Password aggiornata!";
 		}
 		catch(SQLException e){
 			e.printStackTrace();

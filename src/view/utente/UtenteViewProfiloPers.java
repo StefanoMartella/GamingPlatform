@@ -108,6 +108,8 @@ public class UtenteViewProfiloPers{
 						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, ut));
 						ut.setNome(nuovo_nome);
 					}
+					panel_4.setVisible(false);
+					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
 				}	
 				if (comboBox.getSelectedItem().equals("cognome")){
 					String nuovo_cognome = JOptionPane.showInputDialog("Seleziona nuovo cognome:");
@@ -115,6 +117,8 @@ public class UtenteViewProfiloPers{
 						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, ut));
 						ut.setCognome(nuovo_cognome);
 					}
+					panel_4.setVisible(false);
+					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
 				}	
 				if (comboBox.getSelectedItem().equals("username")){
 					String nuova_username = JOptionPane.showInputDialog("Seleziona nuovo username:");
@@ -122,6 +126,8 @@ public class UtenteViewProfiloPers{
 						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, ut));
 						ut.setUsername(nuova_username);
 					}
+					panel_4.setVisible(false);
+					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
 				}	
 				if (comboBox.getSelectedItem().equals("email")){
 					String nuova_email = JOptionPane.showInputDialog("Seleziona nuovo email:");
@@ -129,11 +135,18 @@ public class UtenteViewProfiloPers{
 						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, ut));
 						ut.setEmail(nuova_email);
 					}
+					panel_4.setVisible(false);
+					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
 				}
 				if (comboBox.getSelectedItem().equals("password")){
-					String nuova_password = JOptionPane.showInputDialog("ATTENZIONE, Seleziona nuovo password:");
-					if(nuova_password != null){
-						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("password", nuova_password, ut));
+					JPasswordField pf  = new JPasswordField();
+					JPasswordField pf2 = new JPasswordField();
+					Object[] message = { pf, pf2 };
+					Integer pressed_button = JOptionPane.showConfirmDialog(null, message, "Nuova password", JOptionPane.OK_CANCEL_OPTION);
+					String nuova_password = String.valueOf(pf.getPassword());
+					String conferma_password = String.valueOf(pf2.getPassword());
+					if(pressed_button == 0){
+						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updatePassword(nuova_password, conferma_password, ut));
 						ut.setPassword(nuova_password);
 					}
 				}					
