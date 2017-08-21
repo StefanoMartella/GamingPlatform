@@ -105,7 +105,7 @@ public class UtenteDao implements UtenteDaoInterface{
   public void updateUser(String column, String newValue, Utente utente) throws SQLException{
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement("UPDATE utente SET utente." + column + "= ? WHERE id = ?;");
-	ps.setString(1, newValue);
+    ps.setString(1, newValue);
     ps.setInt(2, utente.getId());
     ps.executeUpdate();
     ps.close();
@@ -178,7 +178,8 @@ public class UtenteDao implements UtenteDaoInterface{
     PreparedStatement ps = connection.prepareStatement(FIND_BY_USERNAME);
     ps.setString(1, username);
     ResultSet rset = ps.executeQuery();
-    if (rset.first() == false) return null;
+    if (rset.first() == false) 
+        return null;
     utente = new Utente(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getInt(8), rset.getInt(9));
     ps.close();
     rset.close();
@@ -253,7 +254,7 @@ public class UtenteDao implements UtenteDaoInterface{
     PreparedStatement ps = connection.prepareStatement(UPDATE_VOTE);
     ps.setInt(1, voto);
     ps.setInt(2, utente.getId());
-	ps.setInt(3, gioco.getId());
+    ps.setInt(3, gioco.getId());
     ps.executeUpdate();
     ps.close();
     connection.close();
@@ -293,7 +294,7 @@ public class UtenteDao implements UtenteDaoInterface{
     PreparedStatement ps = connection.prepareStatement(UPDATE_REVIEW);
     ps.setString(1, testoRecensione);
     ps.setInt(2, utente.getId());
-	ps.setInt(3, gioco.getId());
+    ps.setInt(3, gioco.getId());
     ps.executeUpdate();
     ps.close();
     connection.close();
@@ -398,7 +399,8 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt(1) == 1){ already_voted = true; }
+    if(rset.getInt(1) == 1)
+        already_voted = true;
     ps.close();
     rset.close();
     connection.close();
@@ -422,7 +424,8 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt(1) == 1){ already_reviewed = true; }
+    if(rset.getInt(1) == 1)
+        already_reviewed = true;
     ps.close();
     rset.close();
     connection.close();
@@ -444,7 +447,8 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setString(1, email_or_username);
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt(1) == 1){ username_or_email_used = true; }
+    if(rset.getInt(1) == 1)
+        username_or_email_used = true;
     ps.close();
     rset.close();
     connection.close();
