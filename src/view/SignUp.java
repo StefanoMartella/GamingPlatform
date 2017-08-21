@@ -122,7 +122,7 @@ public class SignUp{
 		
 		btnRegistrati.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					int test = new GestioneUtenza().signIn(
+					int test = new GestioneUtenza().signUp(
 						textField_2.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText(),
 						new String(passwordField.getPassword()), new String(passwordField2.getPassword()));
 						

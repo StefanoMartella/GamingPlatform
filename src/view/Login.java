@@ -115,7 +115,7 @@ public class Login {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Utente ut = new GestioneUtenza().login(textField.getText(), new String(psswrdField.getPassword()));
+				Utente ut = new GestioneUtenza().logIn(textField.getText(), new String(psswrdField.getPassword()));
 				if(ut==null)
 				{
 					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Username o password errati", "Login error", JOptionPane.ERROR_MESSAGE);

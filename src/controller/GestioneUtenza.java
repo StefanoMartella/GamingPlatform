@@ -18,7 +18,7 @@ public class GestioneUtenza{
 	*@param password user's password
 	*@return Utente istance of user
 	*/
-	public Utente login(String username, String password){
+	public Utente logIn(String username, String password){
 		try{
 			if(new UtenteDao().findUserByUsername(username) == null){ return null; }		
 			
@@ -66,7 +66,7 @@ public class GestioneUtenza{
 	*@param password2 confirm password
 	*@return int information number about enrolment status
 	*/
-	public int signIn(String name, String surname, String username, String mail, String password, String password2){
+	public int signUp(String name, String surname, String username, String mail, String password, String password2){
 		
 		Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		
