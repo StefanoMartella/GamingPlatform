@@ -87,7 +87,7 @@ public class UtenteViewProfiloPers{
 		btnHome.setBounds(335, 235, 89, 20);
 		panel_4.add(btnHome);
 		
-		JLabel update = new JLabel("Aggiorna     dati:");
+		JLabel update = new JLabel("Modifica     dati:");
 		update.setBounds(10, 200, 100, 20);
 		panel_4.add(update);
 		
@@ -96,7 +96,7 @@ public class UtenteViewProfiloPers{
 		comboBox.setBounds(10, 235, 90, 20);
 		panel_4.add(comboBox);
 		
-		JButton selection = new JButton("Aggiorna");
+		JButton selection = new JButton("Modifica");
 		selection.setBounds(120,235, 100, 20);
 		panel_4.add(selection);
 		
