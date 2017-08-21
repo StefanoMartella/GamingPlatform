@@ -87,69 +87,72 @@ public class UtenteViewProfiloPers{
 		btnHome.setBounds(335, 235, 89, 20);
 		panel_4.add(btnHome);
 		
-		JLabel update = new JLabel("Modifica     dati:");
-		update.setBounds(10, 200, 100, 20);
+		JLabel update = new JLabel("Modifica      dati      personali:");
+		update.setBounds(30, 205, 200, 20);
 		panel_4.add(update);
 		
 		String[] values = {"nome", "cognome", "username", "email", "password"};
 		JComboBox<String> comboBox = new JComboBox<>(values);
-		comboBox.setBounds(10, 235, 90, 20);
+		comboBox.setBounds(10, 235, 100, 20);
 		panel_4.add(comboBox);
 		
 		JButton selection = new JButton("Modifica");
-		selection.setBounds(120,235, 100, 20);
+		selection.setBounds(110,235, 100, 20);
 		panel_4.add(selection);
 		
 		selection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (comboBox.getSelectedItem().equals("nome")){
-					String nuovo_nome = JOptionPane.showInputDialog("Seleziona nuovo nome:");
-					if(nuovo_nome != null){
-						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, ut));
-						ut.setNome(nuovo_nome);
-					}
-					panel_4.setVisible(false);
-					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
-				}	
-				if (comboBox.getSelectedItem().equals("cognome")){
-					String nuovo_cognome = JOptionPane.showInputDialog("Seleziona nuovo cognome:");
-					if(nuovo_cognome != null){
-						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, ut));
-						ut.setCognome(nuovo_cognome);
-					}
-					panel_4.setVisible(false);
-					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
-				}	
-				if (comboBox.getSelectedItem().equals("username")){
-					String nuova_username = JOptionPane.showInputDialog("Seleziona nuovo username:");
-					if(nuova_username != null){
-						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, ut));
-						ut.setUsername(nuova_username);
-					}
-					panel_4.setVisible(false);
-					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
-				}	
-				if (comboBox.getSelectedItem().equals("email")){
-					String nuova_email = JOptionPane.showInputDialog("Seleziona nuovo email:");
-					if(nuova_email != null){
-						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, ut));
-						ut.setEmail(nuova_email);
-					}
-					panel_4.setVisible(false);
-					new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
-				}
-				if (comboBox.getSelectedItem().equals("password")){
-					JPasswordField pf  = new JPasswordField();
-					JPasswordField pf2 = new JPasswordField();
-					Object[] message = { pf, pf2 };
-					Integer pressed_button = JOptionPane.showConfirmDialog(null, message, "Nuova password", JOptionPane.OK_CANCEL_OPTION);
-					String nuova_password = String.valueOf(pf.getPassword());
-					String conferma_password = String.valueOf(pf2.getPassword());
-					if(pressed_button == 0){
-						JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updatePassword(nuova_password, conferma_password, ut));
-						ut.setPassword(nuova_password);
-					}
-				}					
+				
+				switch((String) comboBox.getSelectedItem()){
+				
+				case "nome":    	String nuovo_nome = JOptionPane.showInputDialog("Seleziona nuovo nome:");
+									if(nuovo_nome != null){
+										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, ut));
+										ut.setNome(nuovo_nome);
+									}
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									break;
+					
+
+				case "cognome":		String nuovo_cognome = JOptionPane.showInputDialog("Seleziona nuovo cognome:");
+									if(nuovo_cognome != null){
+										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, ut));
+										ut.setCognome(nuovo_cognome);
+									}
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									break;
+								
+				case "username":	String nuova_username = JOptionPane.showInputDialog("Seleziona nuovo username:");
+									if(nuova_username != null){
+										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, ut));
+										ut.setUsername(nuova_username);
+									}
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									break;
+					
+				case "email":		String nuova_email = JOptionPane.showInputDialog("Seleziona nuovo email:");
+									if(nuova_email != null){
+										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, ut));
+										ut.setEmail(nuova_email);
+									}
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									break;
+									
+				case "password":	JPasswordField pf  = new JPasswordField();
+									JPasswordField pf2 = new JPasswordField();
+									Object[] message = { pf, pf2 };
+									Integer pressed_button = JOptionPane.showConfirmDialog(null, message, "Nuova password", JOptionPane.OK_CANCEL_OPTION);
+									String nuova_password = String.valueOf(pf.getPassword());
+									String conferma_password = String.valueOf(pf2.getPassword());
+									if(pressed_button == 0){
+										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("password", nuova_password, conferma_password, ut));
+										ut.setPassword(nuova_password);
+									}
+				}				
 		}});
 		
 		btnHome.addActionListener(new ActionListener() {

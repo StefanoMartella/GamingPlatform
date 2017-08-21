@@ -127,6 +127,7 @@ public class SignUp{
 						new String(passwordField.getPassword()), new String(passwordField2.getPassword()));
 						
 						switch(test){
+							
 							case 0: JOptionPane.showMessageDialog(
 									frmPiattaformaGaming, "Registrato con successo");
 									panel_3.setVisible(false);
