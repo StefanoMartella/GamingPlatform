@@ -85,6 +85,7 @@ public class Recensione{
 
   /**
   *Method used to set review's ID
+  *
   *@param id new review's ID
   */
   public void setId(int id){ this.id = id; }
