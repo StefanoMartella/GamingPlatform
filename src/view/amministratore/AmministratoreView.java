@@ -49,11 +49,11 @@ public class AmministratoreView {
 		
 		JLabel lblBenvenutoUtente = new JLabel();
 		lblBenvenutoUtente.setForeground(Color.RED);
-		Font font = new Font("SEGOE UI Light", Font.BOLD,16);
+		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC, 20);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBenvenutoUtente.setBounds(100, 8, 250, 30);
-		lblBenvenutoUtente.setText("BENVENUTO [A] " + ut.getUsername());
+		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername() + " [A]");
 		panel_0.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");

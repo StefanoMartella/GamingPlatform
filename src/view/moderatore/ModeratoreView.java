@@ -48,11 +48,11 @@ public class ModeratoreView {
 		
 		JLabel lblBenvenutoUtente = new JLabel();
 		lblBenvenutoUtente.setForeground(Color.RED);
-		Font font = new Font("SEGOE UI Light", Font.BOLD,16);
+		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC ,20);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBenvenutoUtente.setBounds(113, 17, 250, 69);
-		lblBenvenutoUtente.setText("BENVENUTO [M] " + ut.getUsername());
+		lblBenvenutoUtente.setBounds(113, 7, 250, 69);
+		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername() + " [M]");
 		panel_2.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");

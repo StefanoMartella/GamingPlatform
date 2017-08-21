@@ -47,12 +47,12 @@ public class UtenteView {
 		panel_2.setVisible(true);
 		
 		JLabel lblBenvenutoUtente = new JLabel();
-		lblBenvenutoUtente.setForeground(Color.RED);
-		Font font = new Font("SEGOE UI Light", Font.BOLD,16);
+		lblBenvenutoUtente.setForeground(Color.BLUE);
+		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC, 20);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBenvenutoUtente.setBounds(50, 17, 350, 69);
-		lblBenvenutoUtente.setText("BENVENUTO " + ut.getUsername());
+		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername());
 		panel_2.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");
