@@ -5,10 +5,6 @@ import java.util.TreeMap;
 import src.model.*;
 import src.model.dao.concrete.*;
 import java.sql.*;
-
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-
 /**
 *Class which represents the controller of MVC pattern for the user
 */

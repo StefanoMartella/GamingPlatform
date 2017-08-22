@@ -4,32 +4,20 @@ import src.controller.*;
 import src.model.*;
 import src.view.utente.*;
 
-import java.awt.EventQueue;
-import java.awt.Font;
 import java.text.DecimalFormat;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextPane;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
-import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.Color;
 import java.awt.BorderLayout;
-
-import java.util.*;
-import java.sql.*;
+import java.awt.Font;
 
 /**
 *Class which represents the view of MVC pattern for the game

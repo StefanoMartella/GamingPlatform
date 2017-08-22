@@ -1,26 +1,17 @@
 package src.view.utente;
 
-import src.controller.*;
 import src.model.*;
 import src.view.*;
 
-import java.awt.EventQueue;
-import java.awt.Font;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JOptionPane;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
 import java.awt.Color;
-
-import java.util.*;
-import java.sql.*;
+import java.awt.Font;
 
 /**
 *Class which represents the view of MVC pattern of the user

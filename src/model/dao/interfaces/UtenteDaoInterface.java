@@ -2,7 +2,6 @@ package src.model.dao.interfaces;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.ResultSet;
 import java.util.TreeMap;
 
 import src.model.*;

@@ -3,26 +3,15 @@ package src.view.gioco;
 import src.controller.*;
 import src.model.*;
 
-import java.awt.EventQueue;
-import java.awt.Font;
-
+import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
-
-import java.util.*;
-import java.sql.*;
 
 /**
 *Class which represents the view of MVC pattern of game reviews' list
