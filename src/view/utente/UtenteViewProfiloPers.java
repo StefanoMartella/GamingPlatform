@@ -103,7 +103,7 @@ public class UtenteViewProfiloPers{
 		panel_4.add(comboBox);
 		
 		JButton selection = new JButton("Modifica");
-		selection.setBounds(120, 340, 100, 20);
+		selection.setBounds(135, 340, 100, 20);
 		panel_4.add(selection);
 		
 		selection.addActionListener(new ActionListener() {
