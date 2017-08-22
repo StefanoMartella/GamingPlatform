@@ -44,13 +44,18 @@ public class ModeratoreViewLU{
 	 */
 	public void initialize(){
 		JPanel panel_8 = new JPanel();
-		panel_8.setBounds(0, 0, 465, 300);
+		panel_8.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_8);
 		panel_8.setLayout(new MigLayout());
 		panel_8.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new MigLayout("", "[]170[]", "[][]"));
+		ps.setLayout(new MigLayout("", "[]280[]", "[][]"));
+		
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
+		panel_8.add(scroll, "pos 0px 0px, width 660, height 340");
 		
 		List<Utente> lU = new ModeratoreController().usersList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
@@ -66,7 +71,7 @@ public class ModeratoreViewLU{
 				selez = new JButton("Retrocedi");
 			else
 				selez = new JButton("Promuovi");
-			ps.add(selez,"wmin 165, wrap");
+			ps.add(selez,"wmin 250, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if(selez.getText().equals("Retrocedi")){
@@ -85,17 +90,12 @@ public class ModeratoreViewLU{
 			}});
 		}
 		JButton btnBack = new JButton("Indietro");
-		panel_8.add(btnBack, "pos 343px 247px, width 90, height 17");
+		panel_8.add(btnBack, "pos 267px 345px, width 110, height 15");
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_8.setVisible(false);
 				new ModeratoreView(frmPiattaformaGaming, ut);
 		}});
-		
-		JScrollPane scroll = new JScrollPane(ps);
-		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.getVerticalScrollBar().setUnitIncrement(20);
-		panel_8.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }

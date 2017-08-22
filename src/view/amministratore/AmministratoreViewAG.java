@@ -43,32 +43,36 @@ public class AmministratoreViewAG{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 434, 261);
+		panel_9.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		panel_9.setVisible(true);
 		
 		JLabel lblNewLabel = new JLabel("Nome");
-		lblNewLabel.setBounds(70, 70, 99, 14);
+		lblNewLabel.setBounds(110, 100, 99, 14);
 		panel_9.add(lblNewLabel);
 		
 		JLabel lblPE = new JLabel("Punti EXP");
-		lblPE.setBounds(70, 130, 99, 14);
+		lblPE.setBounds(110, 160, 99, 14);
 		panel_9.add(lblPE);
 		
 		JTextField textField = new JTextField();
-		textField.setBounds(175, 70, 200, 25);
+		textField.setBounds(235, 100, 250, 25);
 		panel_9.add(textField);
 		textField.setColumns(10);
 		
 		JTextField textField2 = new JTextField();
-		textField2.setBounds(175, 130, 200, 25);
+		textField2.setBounds(235, 160, 250, 25);
 		panel_9.add(textField2);
 		textField.setColumns(10);
 		
 		JButton btnA = new JButton("Aggiungi");
-		btnA.setBounds(175, 210, 89, 23);
+		btnA.setBounds(235, 240, 100, 23);
 		panel_9.add(btnA);
+		
+		JButton btnBack = new JButton("Indietro");
+		btnBack.setBounds(380, 240, 100, 23);
+		panel_9.add(btnBack);
 		
 		btnA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,10 +81,6 @@ public class AmministratoreViewAG{
 				textField.setText("");
 				textField2.setText("");
 		}});
-		
-		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(285, 210, 89, 23);
-		panel_9.add(btnBack);
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

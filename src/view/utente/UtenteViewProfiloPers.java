@@ -42,67 +42,68 @@ public class UtenteViewProfiloPers{
 	 */
 	public void initialize(){
 	JPanel panel_4 = new JPanel();
-		panel_4.setBounds(0, 0, 434, 261);
+		panel_4.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 		panel_4.setVisible(true);
 		
 		JLabel personal = new JLabel("Profilo Personale");
-		personal.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		personal.setBounds(160, 10, 200, 25);
+		personal.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		personal.setBounds(250, 10, 200, 25);
 		panel_4.add(personal);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nome:");
-		lblNewLabel_3.setBounds(10, 70, 114, 14);
+		lblNewLabel_3.setBounds(20, 80, 114, 14);
 		panel_4.add(lblNewLabel_3);
 		
 		JLabel lblLivello_1 = new JLabel("Cognome:");
-		lblLivello_1.setBounds(10, 100, 114, 14);
+		lblLivello_1.setBounds(20, 130, 114, 14);
 		panel_4.add(lblLivello_1);
 		
 		JLabel lblLivello = new JLabel("Username:");
-		lblLivello.setBounds(10, 130, 114, 14);
+		lblLivello.setBounds(20, 180, 114, 14);
 		panel_4.add(lblLivello);
 		
 		JLabel lblTrofei = new JLabel("E-Mail:");
-		lblTrofei.setBounds(10, 160, 114, 14);
+		lblTrofei.setBounds(20, 230, 114, 14);
 		panel_4.add(lblTrofei);
 		
 		JLabel lblNewLabel_4 = new JLabel(ut.getNome());
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_4.setBounds(134, 70, 166, 14);
+		lblNewLabel_4.setBounds(200, 80, 166, 14);
 		panel_4.add(lblNewLabel_4);
 		
 		JLabel label = new JLabel(ut.getCognome());
 		label.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label.setBounds(134, 100, 166, 14);
+		label.setBounds(200, 130, 166, 14);
 		panel_4.add(label);
 		
 		JLabel label_1 = new JLabel(ut.getUsername());
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_1.setBounds(134, 130, 166, 14);
+		label_1.setBounds(200, 180, 166, 14);
 		panel_4.add(label_1);
 		
 		JLabel label_2 = new JLabel(ut.getEmail());
 		label_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_2.setBounds(134, 160, 250, 20);
+		label_2.setBounds(200, 230, 250, 20);
 		panel_4.add(label_2);
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(335, 235, 89, 20);
+		btnHome.setBounds(540, 340, 85, 20);
 		panel_4.add(btnHome);
 		
 		JLabel update = new JLabel("Modifica  dati  personali:");
-		update.setBounds(10, 213, 200, 20);
+		update.setFont(new Font("Tahoma", Font.BOLD, 14));
+		update.setBounds(25, 300, 200, 20);
 		panel_4.add(update);
 		
 		String[] values = {"nome", "cognome", "username", "email", "password"};
 		JComboBox<String> comboBox = new JComboBox<>(values);
-		comboBox.setBounds(10, 235, 100, 20);
+		comboBox.setBounds(20, 340, 100, 20);
 		panel_4.add(comboBox);
 		
 		JButton selection = new JButton("Modifica");
-		selection.setBounds(110, 235, 100, 20);
+		selection.setBounds(120, 340, 100, 20);
 		panel_4.add(selection);
 		
 		selection.addActionListener(new ActionListener() {

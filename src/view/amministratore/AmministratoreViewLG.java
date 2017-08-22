@@ -43,16 +43,22 @@ public class AmministratoreViewLG{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 465, 300);
+		panel_9.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(new MigLayout());
 		panel_9.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new MigLayout("", "[]170[]", "[][]"));
+		ps.setLayout(new MigLayout("", "[]270[]", "[][]"));
 		
 		JButton btnHome = new JButton("Home");
-		panel_9.add(btnHome, "pos 339px 247px, width 90, height 20");
+		panel_9.add(btnHome, "pos 500px 345px, width 110, height 20");
+		
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
+		scroll.setSize(460,240);
+		panel_9.add(scroll, "pos 0px 0px, width 660, height 340");
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,7 +67,7 @@ public class AmministratoreViewLG{
 		}});
 		
 		JButton btnAG = new JButton("Inserisci");
-		panel_9.add(btnAG, "pos 25px 247px, width 90, height 20");
+		panel_9.add(btnAG, "pos 40px 345px, width 110, height 20");
 		
 		btnAG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +83,7 @@ public class AmministratoreViewLG{
 		for(JLabel j: jl){
 			ps.add(j);
 			JButton selez = new JButton("Elimina");
-			ps.add(selez, "wmin 150, wrap");
+			ps.add(selez, "wmin 250, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
@@ -88,10 +94,5 @@ public class AmministratoreViewLG{
 							new AmministratoreViewLG(frmPiattaformaGaming, ut);
 			}});
 		}
-		JScrollPane scroll = new JScrollPane(ps);
-		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.getVerticalScrollBar().setUnitIncrement(20);
-		scroll.setSize(460,240);
-		panel_9.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }

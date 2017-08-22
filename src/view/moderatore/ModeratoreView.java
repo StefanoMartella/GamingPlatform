@@ -41,7 +41,7 @@ public class ModeratoreView {
 	 */
 	public void initialize(){
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 434, 261);
+		panel_2.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		panel_2.setVisible(true);
@@ -51,35 +51,35 @@ public class ModeratoreView {
 		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC ,20);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBenvenutoUtente.setBounds(113, 7, 250, 69);
+		lblBenvenutoUtente.setBounds(150, 17, 350, 69);
 		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername() + " [M]");
 		panel_2.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");
-		btnProfiloPersonale.setBounds(24, 86, 160, 30);
+		btnProfiloPersonale.setBounds(50, 140, 250, 35);
 		panel_2.add(btnProfiloPersonale);
 		
 		JButton btnProfiloGaming = new JButton("Profilo Gaming");
-		btnProfiloGaming.setBounds(24, 132, 160, 30);
+		btnProfiloGaming.setBounds(50, 200, 250, 35);
 		panel_2.add(btnProfiloGaming);
 		
 		JButton btnVaiAiGiochi = new JButton("Vai ai Giochi!");
-		btnVaiAiGiochi.setBounds(24, 178, 160, 30);
+		btnVaiAiGiochi.setBounds(50, 260, 250, 35);
 		panel_2.add(btnVaiAiGiochi);
 		
 		JButton btnListaUtente = new JButton("Lista Utenti");
-		btnListaUtente.setBounds(266, 86, 160, 30);
+		btnListaUtente.setBounds(350, 140, 250, 35);
 		panel_2.add(btnListaUtente);
 		
 		JButton btnLR = new JButton("Lista Recensioni");
-		btnLR.setBounds(266, 132, 160, 30);
+		btnLR.setBounds(350, 200, 250, 35);
 		List<Recensione> lr = new ModeratoreController().reviewsList();
 		if(lr.isEmpty())
 				btnLR.setBackground(Color.LIGHT_GRAY);
 		panel_2.add(btnLR);
 		
 		JButton btnLogout = new JButton("Esci");
-		btnLogout.setBounds(266,178,160,30);
+		btnLogout.setBounds(350,260, 250, 35);
 		panel_2.add(btnLogout);
 		
 		

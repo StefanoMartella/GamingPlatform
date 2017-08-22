@@ -50,65 +50,66 @@ public class GiocoView{
 	 */
 	public void initialize(){
 		JPanel panel_6 = new JPanel();
-		panel_6.setBounds(0, 0, 434, 261);
+		panel_6.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_6);
 		panel_6.setLayout(null);
 		panel_6.setVisible(true);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nome:");
-		lblNewLabel_3.setBounds(40, 10, 114, 14);
+		lblNewLabel_3.setBounds(55, 20, 114, 14);
 		panel_6.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Esperienza fornita:");
-		lblNewLabel_4.setBounds(270, 10, 110, 14);
+		lblNewLabel_4.setBounds(460, 20, 110, 14);
 		panel_6.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel(gioco.getNome());
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_5.setBounds(90, 6, 150, 20);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_5.setBounds(110, 17, 150, 20);
 		panel_6.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("" + gioco.getExp());
-		lblNewLabel_6.setBounds(390, 10, 30, 15);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_6.setBounds(580, 17, 30, 15);
 		panel_6.add(lblNewLabel_6);
 		
-		JButton btnGioca = new JButton("Gioca");
-		btnGioca.setBounds(115, 227, 89, 23);
-		panel_6.add(btnGioca);
-		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(50, 40, 350, 50);
+		textPane.setBounds(50, 50, 560, 80);
 		panel_6.add(textPane);
 		
 		JButton btnReview = new JButton("Recensisci");
-		btnReview.setBounds(50, 100, 130, 23);
+		btnReview.setBounds(50, 150, 130, 25);
 		panel_6.add(btnReview);
 		
 		JButton btnvReview = new JButton("Vedi recensioni");
-		btnvReview.setBounds(270, 100, 130, 23);
+		btnvReview.setBounds(480, 150, 130, 25);
 		panel_6.add(btnvReview);
 		
 		JSpinner seleziona_voto = new JSpinner();
 		seleziona_voto.setModel(new SpinnerNumberModel(1, 1, 5, 1));
-		seleziona_voto.setBounds(120,170,45,23);
+		seleziona_voto.setBounds(255,250,45,25);
 		panel_6.add(seleziona_voto);
 		
 		JButton btnVota = new JButton("Vota");
-		btnVota.setBounds(180, 170, 89, 23);
+		btnVota.setBounds(300, 250, 100, 25);
 		panel_6.add(btnVota);
 		
 		JLabel mediaVoti = new JLabel("Media voti:");
-		mediaVoti.setBounds(280,165,100,30);
+		mediaVoti.setBounds(280,195,100,30);
 		panel_6.add(mediaVoti);
 		
 		DecimalFormat df = new DecimalFormat("###.#");
 		JLabel average = new JLabel(df.format(new GiocoController(gioco).avgVote()));
-		average.setFont(new Font("Tahoma", Font.BOLD, 14));
-		average.setBounds(345,163,30,30);
+		average.setFont(new Font("Tahoma", Font.BOLD, 18));
+		average.setBounds(350,195,30,30);
 		panel_6.add(average);
 		
+		JButton btnGioca = new JButton("Gioca");
+		btnGioca.setBounds(180, 320, 100, 25);
+		panel_6.add(btnGioca);
+		
 		JButton btnBack = new JButton("Indietro");
-		btnBack.setBounds(250, 227, 89, 23);
+		btnBack.setBounds(360, 320, 100, 25);
 		panel_6.add(btnBack);
 		
 		

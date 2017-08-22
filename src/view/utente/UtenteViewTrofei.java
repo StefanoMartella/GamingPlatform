@@ -43,7 +43,7 @@ public class UtenteViewTrofei {
 	public void initialize() {
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 460, 300);
+		panel_2.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_2);
 		panel_2.setLayout(new MigLayout());
 		panel_2.setVisible(true);
@@ -57,14 +57,14 @@ public class UtenteViewTrofei {
 		JButton arrowSX = new JButton();
 		arrowSX.setIcon(iconSX);
 		arrowSX.setVisible(false);
-		panel_2.add(arrowSX, "wmax 30, hmax 22, pos 10px 139px");
+		panel_2.add(arrowSX, "wmax 50, hmax 25, pos 10px 200px");
 		
 		JButton arrowDX = new JButton();
 		arrowDX.setIcon(iconDX);
-		panel_2.add(arrowDX, "wmax 30, hmax 22, pos 420px 139px");
+		panel_2.add(arrowDX, "wmax 50, hmax 25, pos 600px 200px");
 		
 		JButton btnBack = new JButton("Indietro");
-		panel_2.add(btnBack, "width 140, height 20, pos 160px 250px");
+		panel_2.add(btnBack, "width 140, height 20, pos 250px 350px");
 		
 		for(int i=1; i < ut.getLivello()+1; i++)
 			icon[i] = new ImageIcon(getClass().getResource("../img/Trofeo"+i+".png"));
@@ -76,7 +76,7 @@ public class UtenteViewTrofei {
 			arrowDX.setVisible(false);
 		}
 		
-		panel_2.add(trof, "pos 173px 30px, width 115, height 200");
+		panel_2.add(trof, "pos 263px 0px, width 175, height 400");
 		
 		arrowSX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

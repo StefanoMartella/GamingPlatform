@@ -45,7 +45,7 @@ public class GiocoRecensioniView {
 	 */
 	public void initialize(){
 		JPanel panel_7 = new JPanel();
-		panel_7.setBounds(0, 0, 465, 300);
+		panel_7.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_7);
 		panel_7.setLayout(new MigLayout());
 		panel_7.setVisible(true);
@@ -60,18 +60,18 @@ public class GiocoRecensioniView {
 		}
 		
 		JButton btnBack = new JButton("Indietro");
-		panel_7.add(btnBack, "pos 339px 250px, width 90, height 20");
+		panel_7.add(btnBack, "pos 267px 345px, width 110, height 15");
+		
+		JScrollPane scroll = new JScrollPane(ta);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
+		scroll.setSize(460,240);
+		panel_7.add(scroll, "pos 0px 0px, width 660, height 340");
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_7.setVisible(false);
 				new GiocoView(frmPiattaformaGaming,utente,gioco);
 		}});
-		
-		JScrollPane scroll = new JScrollPane(ta);
-		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.getVerticalScrollBar().setUnitIncrement(20);
-		scroll.setSize(460,240);
-		panel_7.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }

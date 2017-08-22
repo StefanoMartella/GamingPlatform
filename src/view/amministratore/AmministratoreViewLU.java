@@ -45,15 +45,22 @@ public class AmministratoreViewLU{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 465, 300);
+		panel_9.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(new MigLayout());
 		panel_9.setVisible(true);
 
 		JPanel ps = new JPanel();
-		ps.setLayout(new MigLayout("", "[]185[]", "[][]"));
+		ps.setLayout(new MigLayout("", "[]285[]", "[][]"));
 		
-		int i=0;
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
+		scroll.setSize(460,240);
+		panel_9.add(scroll, "width 660, height 340, pos 0px 0px");
+		
+		JButton btnHome = new JButton("Home");
+		panel_9.add(btnHome, "pos 267px 345px, width 110, height 20");
 		
 		List<Utente> lU = new ModeratoreController().usersList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
@@ -63,9 +70,8 @@ public class AmministratoreViewLU{
 		}
 		for(JLabel j: jl){
 			ps.add(j);
-			i++;
 			JButton selez = new JButton("Elimina");
-			ps.add(selez, "wmin 150, wrap");
+			ps.add(selez, "wmin 250, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
@@ -76,15 +82,6 @@ public class AmministratoreViewLU{
 							new AmministratoreViewLU(frmPiattaformaGaming, ut);
 			}});
 		}
-		
-		JScrollPane scroll = new JScrollPane(ps);
-		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.getVerticalScrollBar().setUnitIncrement(20);
-		scroll.setSize(460,240);
-		panel_9.add(scroll, "width 460, height 240, pos 0px 0px");
-		
-		JButton btnHome = new JButton("Home");
-		panel_9.add(btnHome, "pos 339px 247px, width 90, height 20");
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

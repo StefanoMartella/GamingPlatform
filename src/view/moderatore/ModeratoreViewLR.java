@@ -45,13 +45,13 @@ public class ModeratoreViewLR{
 	public void initialize(){
 		
 		JPanel panel_9 = new JPanel();
-		panel_9.setBounds(0, 0, 465, 300);
+		panel_9.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_9);
 		panel_9.setLayout(new MigLayout());
 		panel_9.setVisible(true);
 		
 		JPanel ps = new JPanel();
-		ps.setLayout(new MigLayout("", "[]170[]", "[][]"));
+		ps.setLayout(new MigLayout("", "[]285[]", "[][]"));
 		
 		List<Recensione> lr = new ModeratoreController().reviewsList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
@@ -60,11 +60,16 @@ public class ModeratoreViewLR{
 				jl.add(new JLabel("Recensione " + r.getId()));
 		}
 		
+		JScrollPane scroll = new JScrollPane(ps);
+		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
+		scroll.getVerticalScrollBar().setUnitIncrement(20);
+		panel_9.add(scroll, "pos 0px 0px, width 660, height 340");
+		
 		Object[] options = {"Pubblica", "Nega"};
 		for(JLabel j: jl){
 			ps.add(j);
 			JButton selez = new JButton("Leggi");
-			ps.add(selez, "wmin 170, wrap");
+			ps.add(selez, "wmin 250, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 							int n = JOptionPane.showOptionDialog(frmPiattaformaGaming, new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11))).getTesto(),
@@ -89,17 +94,12 @@ public class ModeratoreViewLR{
 		}
 		
 		JButton btnBack = new JButton("Indietro");
-		panel_9.add(btnBack, "pos 343px 247px, width 90, height 17");
+		panel_9.add(btnBack, "pos 267px 345px, width 110, height 15");
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_9.setVisible(false);
 				new ModeratoreView(frmPiattaformaGaming, ut);
 		}});
-		
-		JScrollPane scroll = new JScrollPane(ps);
-		scroll.setVerticalScrollBarPolicy ( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
-		scroll.getVerticalScrollBar().setUnitIncrement(20);
-		panel_9.add(scroll, "pos 0px 0px, width 460, height 240");
 	}
 }

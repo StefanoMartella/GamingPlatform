@@ -41,7 +41,7 @@ public class UtenteView {
 	public void initialize() {
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 434, 300);
+		panel_2.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		panel_2.setVisible(true);
@@ -51,25 +51,25 @@ public class UtenteView {
 		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC, 20);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBenvenutoUtente.setBounds(50, 17, 350, 69);
+		lblBenvenutoUtente.setBounds(150, 17, 350, 69);
 		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername());
 		panel_2.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");
-		btnProfiloPersonale.setBounds(145, 86, 160, 30);
+		btnProfiloPersonale.setBounds(200, 100, 250, 35);
 		panel_2.add(btnProfiloPersonale);
 		
 		JButton btnProfiloGaming = new JButton("Profilo Gaming");
-		btnProfiloGaming.setBounds(145, 132, 160, 30);
+		btnProfiloGaming.setBounds(200, 160, 250, 35);
 		panel_2.add(btnProfiloGaming);
 		
 		JButton btnVaiAiGiochi = new JButton("Vai ai Giochi!");
-		btnVaiAiGiochi.setBounds(145, 178, 160, 30);
+		btnVaiAiGiochi.setBounds(200, 220, 250, 35);
 		panel_2.add(btnVaiAiGiochi);
 		
 		
 		JButton btnLogout = new JButton("Esci");
-		btnLogout.setBounds(145,224,160,30);
+		btnLogout.setBounds(200,280,250,35);
 		panel_2.add(btnLogout);
 		
 		

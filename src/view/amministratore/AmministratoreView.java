@@ -42,7 +42,7 @@ public class AmministratoreView {
 	public void initialize(){
 		
 		JPanel panel_0 = new JPanel();
-		panel_0.setBounds(0, 0, 434, 261);
+		panel_0.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_0);
 		panel_0.setLayout(null);
 		panel_0.setVisible(true);
@@ -52,24 +52,24 @@ public class AmministratoreView {
 		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC, 20);
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBenvenutoUtente.setBounds(100, 8, 250, 30);
+		lblBenvenutoUtente.setBounds(150, 17, 350, 69);
 		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername() + " [A]");
 		panel_0.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");
-		btnProfiloPersonale.setBounds(145, 60, 160, 30);
+		btnProfiloPersonale.setBounds(200, 100, 250, 35);
 		panel_0.add(btnProfiloPersonale);
 		
 		JButton btnLG = new JButton("Lista Giochi");
-		btnLG.setBounds(145, 110, 160, 30);
+		btnLG.setBounds(200, 160, 250, 35);
 		panel_0.add(btnLG);
 		
 		JButton btnLU = new JButton("Lista Utenti");
-		btnLU.setBounds(145, 160, 160, 30);
+		btnLU.setBounds(200, 220, 250, 35);
 		panel_0.add(btnLU);
 		
 		JButton btnLogout = new JButton("Esci");
-		btnLogout.setBounds(145,210,160,30);
+		btnLogout.setBounds(200,280,250,35);
 		panel_0.add(btnLogout);
 		
 		btnProfiloPersonale.addActionListener(new ActionListener() {
