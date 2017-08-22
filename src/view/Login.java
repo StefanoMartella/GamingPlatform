@@ -25,6 +25,17 @@ import java.awt.Font;
 public class Login {
 
 	private static JFrame frmPiattaformaGaming;
+	
+	/**
+	 * Method to set frame
+	 * 
+	 * @param frame frame to be setted
+	 */
+	public static void setFrame(JFrame frame) {
+		frmPiattaformaGaming = frame;
+		frame.setVisible(true);
+	}
+	
 	/**
 	 * Launch the application.
 	 *
@@ -34,8 +45,7 @@ public class Login {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login window = new Login(frmPiattaformaGaming);
-					window.frmPiattaformaGaming.setVisible(true);
+					new Login(frmPiattaformaGaming);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,15 +59,14 @@ public class Login {
 	public Login() {
 		initialize();
 	}
-	public Login(JFrame frm){
-		this.frmPiattaformaGaming=frm;
+	public  Login(JFrame frm){
 		frmPiattaformaGaming = new JFrame();
 		frmPiattaformaGaming.setTitle("Piattaforma gaming");
-		frmPiattaformaGaming.setBounds(700, 300, 665, 415);
+		frmPiattaformaGaming.setBounds(600, 300, 665, 415);
 		frmPiattaformaGaming.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPiattaformaGaming.setResizable(false);
 		frmPiattaformaGaming.getContentPane().setLayout(null);
-		
+		Login.setFrame(frmPiattaformaGaming);
 		initialize();
 	}
 

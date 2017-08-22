@@ -113,7 +113,9 @@ This project has the aim to realize a gaming platform in which are present three
  You will be prompted for password which is ```gaming```.
  You are finally ready to launch application with:
  
- ```java *command*```
+ ```java -jar src/GamingPlatform.jar```
+ 
+ or right click on GamingPlatform.jar --> open with --> Java(TM) platform SE binary.
 
 ## Contacts
 
