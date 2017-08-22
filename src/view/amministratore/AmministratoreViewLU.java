@@ -71,7 +71,7 @@ public class AmministratoreViewLU{
 		for(JLabel j: jl){
 			ps.add(j);
 			JButton selez = new JButton("Elimina");
-			ps.add(selez, "wmin 250, wrap");
+			ps.add(selez, "wmin 250, hmin 30, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(

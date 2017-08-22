@@ -71,7 +71,7 @@ public class ModeratoreViewLU{
 				selez = new JButton("Retrocedi");
 			else
 				selez = new JButton("Promuovi");
-			ps.add(selez,"wmin 250, wrap");
+			ps.add(selez,"wmin 250, hmin 30, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if(selez.getText().equals("Retrocedi")){

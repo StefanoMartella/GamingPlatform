@@ -69,7 +69,7 @@ public class ModeratoreViewLR{
 		for(JLabel j: jl){
 			ps.add(j);
 			JButton selez = new JButton("Leggi");
-			ps.add(selez, "wmin 250, wrap");
+			ps.add(selez, "wmin 255 , hmin 30, wrap");
 				selez.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 							int n = JOptionPane.showOptionDialog(frmPiattaformaGaming, new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11))).getTesto(),
