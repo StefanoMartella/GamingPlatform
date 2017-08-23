@@ -147,7 +147,7 @@ public class GestioneUtenza{
 	/**
 	*Method to update user's password
 	*
-	*@param column password colimn
+	*@param column password column
 	*@param nuova_password new password
 	*@param conferma_password password check
 	*@param utente user that receives the update
