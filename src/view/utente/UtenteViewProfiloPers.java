@@ -105,7 +105,6 @@ public class UtenteViewProfiloPers{
 				case "nome":    	String nuovo_nome = JOptionPane.showInputDialog("Seleziona nuovo nome:");
 									if(nuovo_nome != null){
 										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, ut));
-										ut.setNome(nuovo_nome);
 									}
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -115,7 +114,6 @@ public class UtenteViewProfiloPers{
 				case "cognome":		String nuovo_cognome = JOptionPane.showInputDialog("Seleziona nuovo cognome:");
 									if(nuovo_cognome != null){
 										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, ut));
-										ut.setCognome(nuovo_cognome);
 									}
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -124,7 +122,6 @@ public class UtenteViewProfiloPers{
 				case "username":	String nuova_username = JOptionPane.showInputDialog("Seleziona nuovo username:");
 									if(nuova_username != null){
 										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, ut));
-										ut.setUsername(nuova_username);
 									}
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -133,7 +130,6 @@ public class UtenteViewProfiloPers{
 				case "email":		String nuova_email = JOptionPane.showInputDialog("Seleziona nuovo email:");
 									if(nuova_email != null){
 										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, ut));
-										ut.setEmail(nuova_email);
 									}
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -147,7 +143,6 @@ public class UtenteViewProfiloPers{
 									String conferma_password = String.valueOf(pf2.getPassword());
 									if(pressed_button == 0){
 										JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("password", nuova_password, conferma_password, ut));
-										ut.setPassword(nuova_password);
 									}
 				}				
 		}});
