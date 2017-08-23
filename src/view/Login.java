@@ -27,16 +27,6 @@ public class Login {
 	private static JFrame frmPiattaformaGaming;
 	
 	/**
-	 * Method to set frame
-	 * 
-	 * @param frame frame to be setted
-	 */
-	public static void setFrame(JFrame frame) {
-		frmPiattaformaGaming = frame;
-		frame.setVisible(true);
-	}
-	
-	/**
 	 * Launch the application.
 	 *
 	 *@param args command line args
@@ -45,7 +35,7 @@ public class Login {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					new Login(frmPiattaformaGaming);
+					new Login();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,17 +46,16 @@ public class Login {
 	/**
 	 * Create the application.
 	 */
-	public Login() {
-		initialize();
-	}
-	public  Login(JFrame frm){
-		frmPiattaformaGaming = new JFrame();
-		frmPiattaformaGaming.setTitle("Piattaforma gaming");
-		frmPiattaformaGaming.setBounds(600, 300, 665, 415);
-		frmPiattaformaGaming.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmPiattaformaGaming.setResizable(false);
-		frmPiattaformaGaming.getContentPane().setLayout(null);
-		Login.setFrame(frmPiattaformaGaming);
+	public  Login(){
+		if (frmPiattaformaGaming == null) {
+			frmPiattaformaGaming = new JFrame();
+			frmPiattaformaGaming.setTitle("Piattaforma gaming");
+			frmPiattaformaGaming.setBounds(600, 300, 665, 415);
+			frmPiattaformaGaming.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frmPiattaformaGaming.setResizable(false);
+			frmPiattaformaGaming.getContentPane().setLayout(null);
+			frmPiattaformaGaming.setVisible(true);
+		}
 		initialize();
 	}
 

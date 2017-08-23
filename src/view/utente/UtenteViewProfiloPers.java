@@ -80,7 +80,7 @@ public class UtenteViewProfiloPers{
 		panel_4.add(label_2);
 		
 		JButton btnHome = new JButton("Home");
-		btnHome.setBounds(540, 340, 85, 20);
+		btnHome.setBounds(540, 340, 100, 25);
 		panel_4.add(btnHome);
 		
 		JLabel update = new JLabel("Modifica  dati  personali:");
@@ -90,11 +90,11 @@ public class UtenteViewProfiloPers{
 		
 		String[] values = {"nome", "cognome", "username", "email", "password"};
 		JComboBox<String> comboBox = new JComboBox<>(values);
-		comboBox.setBounds(20, 340, 100, 20);
+		comboBox.setBounds(20, 340, 100, 25);
 		panel_4.add(comboBox);
 		
 		JButton selection = new JButton("Modifica");
-		selection.setBounds(135, 340, 100, 20);
+		selection.setBounds(135, 340, 100, 25);
 		panel_4.add(selection);
 		
 		selection.addActionListener(new ActionListener() {
