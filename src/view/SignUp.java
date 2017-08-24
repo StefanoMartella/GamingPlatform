@@ -127,70 +127,63 @@ public class SignUp{
 						
 						switch(test){
 							
-							case 0: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Registrato con successo");
-									panel_3.setVisible(false);
-									new Login();
-									break;
+							case 0: JOptionPane.showMessageDialog(frmPiattaformaGaming, "Registrato con successo");
+								panel_3.setVisible(false);
+								new Login();
+								break;
 							
-							case 1: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Compilare tutti i campi", "Errore registrazione", JOptionPane.ERROR_MESSAGE); 
-									textField_2.setText(textField_2.getText());
-									textField_3.setText(textField_3.getText());
-									textField_4.setText(textField_4.getText());
-									textField_5.setText(textField_5.getText());
-									passwordField.setText(String.valueOf(passwordField.getPassword()));
-									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
-									break;
+							case 1: JOptionPane.showMessageDialog(frmPiattaformaGaming, "Compilare tutti i campi", "Errore registrazione", JOptionPane.ERROR_MESSAGE); 
+								textField_2.setText(textField_2.getText());
+								textField_3.setText(textField_3.getText());
+								textField_4.setText(textField_4.getText());
+								textField_5.setText(textField_5.getText());
+								passwordField.setText(String.valueOf(passwordField.getPassword()));
+								passwordField2.setText(String.valueOf(passwordField2.getPassword()));
+								break;
 										
-							case 2: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Username già in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
-									textField_2.setText(textField_2.getText());
-									textField_3.setText(textField_3.getText());
-									textField_4.setText("");
-									textField_5.setText(textField_5.getText());
-									passwordField.setText(String.valueOf(passwordField.getPassword()));
-									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
-									break;
+							case 2: JOptionPane.showMessageDialog(frmPiattaformaGaming, "Username già in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+								textField_2.setText(textField_2.getText());
+								textField_3.setText(textField_3.getText());
+								textField_4.setText("");
+								textField_5.setText(textField_5.getText());
+								passwordField.setText(String.valueOf(passwordField.getPassword()));
+								passwordField2.setText(String.valueOf(passwordField2.getPassword()));
+								break;
 							
-							case 3: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "E-Mail già in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
-									textField_2.setText(textField_2.getText());
-									textField_3.setText(textField_3.getText());
-									textField_4.setText(textField_4.getText());
-									textField_5.setText("");
-									passwordField.setText(String.valueOf(passwordField.getPassword()));
-									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
-									break;
+							case 3: JOptionPane.showMessageDialog(frmPiattaformaGaming, "E-Mail già in uso", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+								textField_2.setText(textField_2.getText());
+								textField_3.setText(textField_3.getText());
+								textField_4.setText(textField_4.getText());
+								textField_5.setText("");
+								passwordField.setText(String.valueOf(passwordField.getPassword()));
+								passwordField2.setText(String.valueOf(passwordField2.getPassword()));
+								break;
 							
-							case 4: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Email non valida!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
-									textField_2.setText(textField_2.getText());
-									textField_3.setText(textField_3.getText());
-									textField_4.setText(textField_4.getText());
-									textField_5.setText("");
-									passwordField.setText(String.valueOf(passwordField.getPassword()));
-									passwordField2.setText(String.valueOf(passwordField2.getPassword()));
-									break;
+							case 4: JOptionPane.showMessageDialog(frmPiattaformaGaming, "Email non valida!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+								textField_2.setText(textField_2.getText());
+								textField_3.setText(textField_3.getText());
+								textField_4.setText(textField_4.getText());
+								textField_5.setText("");
+								passwordField.setText(String.valueOf(passwordField.getPassword()));
+								passwordField2.setText(String.valueOf(passwordField2.getPassword()));
+								break;
 							
-							case 5: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "La password deve essere di almeno 8 caratteri!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
-									textField_2.setText(textField_2.getText());
-									textField_3.setText(textField_3.getText());
-									textField_4.setText(textField_4.getText());
-									textField_5.setText(textField_5.getText());
-									passwordField.setText("");
-									passwordField2.setText("");
-									break;
+							case 5: JOptionPane.showMessageDialog(frmPiattaformaGaming, "La password deve essere di almeno 8 caratteri!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+								textField_2.setText(textField_2.getText());
+								textField_3.setText(textField_3.getText());
+								textField_4.setText(textField_4.getText());
+								textField_5.setText(textField_5.getText());
+								passwordField.setText("");
+								passwordField2.setText("");
+								break;
 									
-							case 6: JOptionPane.showMessageDialog(
-									frmPiattaformaGaming, "Le due password non coincidono!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
-									textField_2.setText(textField_2.getText());
-									textField_3.setText(textField_3.getText());
-									textField_4.setText(textField_4.getText());
-									textField_5.setText(textField_5.getText());
-									passwordField.setText("");
-									passwordField2.setText("");
+							case 6: JOptionPane.showMessageDialog(frmPiattaformaGaming, "Le due password non coincidono!", "Errore registrazione", JOptionPane.ERROR_MESSAGE);
+								textField_2.setText(textField_2.getText());
+								textField_3.setText(textField_3.getText());
+								textField_4.setText(textField_4.getText());
+								textField_5.setText(textField_5.getText());
+								passwordField.setText("");
+								passwordField2.setText("");
 						}
 			}
 		});
