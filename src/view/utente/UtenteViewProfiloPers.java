@@ -104,32 +104,36 @@ public class UtenteViewProfiloPers{
 				switch((String) comboBox.getSelectedItem()){
 				
 					case "nome":    	String nuovo_nome = JOptionPane.showInputDialog("Seleziona nuovo nome:");
-								if(nuovo_nome != null)
+								if(nuovo_nome != null){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, ut));
-								panel_4.setVisible(false);
-								new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+								}
 								break;
 
 
 					case "cognome":		String nuovo_cognome = JOptionPane.showInputDialog("Seleziona nuovo cognome:");
-								if(nuovo_cognome != null)
+								if(nuovo_cognome != null){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, ut));
-								panel_4.setVisible(false);
-								new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+								}
 								break;
 
 					case "username":	String nuova_username = JOptionPane.showInputDialog("Seleziona nuovo username:");
-								if(nuova_username != null)
+								if(nuova_username != null){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, ut));
-								panel_4.setVisible(false);
-								new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+								}
 								break;
 
 					case "email":		String nuova_email = JOptionPane.showInputDialog("Seleziona nuovo email:");
-								if(nuova_email != null)
+								if(nuova_email != null){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, ut));
-								panel_4.setVisible(false);
-								new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									panel_4.setVisible(false);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+								}
 								break;
 
 					case "password":	JPasswordField pf  = new JPasswordField();
