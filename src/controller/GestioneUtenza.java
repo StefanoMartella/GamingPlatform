@@ -110,29 +110,29 @@ public class GestioneUtenza{
 			switch(column){
 				
 				case "nome":		new UtenteDao().updateUser(column, newValue, utente);
-									utente.setNome(newValue);
-									return "Nome aggiornato!";
+							utente.setNome(newValue);
+							return "Nome aggiornato!";
 								
 				case "cognome":		new UtenteDao().updateUser(column, newValue, utente);
-									utente.setCognome(newValue);
-									return "Cognome aggiornato!";
+							utente.setCognome(newValue);
+							return "Cognome aggiornato!";
 								
 				case "username":	if(new UtenteDao().usernameAlreadyUsed(newValue))
-										return "Username gia' in uso!";
-									new UtenteDao().updateUser(column, newValue, utente);
-									utente.setUsername(newValue);
-									return "Username aggiornato!";
+								return "Username gia' in uso!";
+							new UtenteDao().updateUser(column, newValue, utente);
+							utente.setUsername(newValue);
+							return "Username aggiornato!";
 									
 				case "email":		Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-									Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
+							Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
 									
-									if(new UtenteDao().emailAlreadyUsed(newValue))
-										return "Email gia' in uso!";
-									if(!matcher.find())
-										return "Email non valida!";
-									new UtenteDao().updateUser(column, newValue, utente);
-									utente.setEmail(newValue);
-									return "Email aggiornata!";
+							if(new UtenteDao().emailAlreadyUsed(newValue))
+								return "Email gia' in uso!";
+							if(!matcher.find())
+								return "Email non valida!";
+							new UtenteDao().updateUser(column, newValue, utente);
+							utente.setEmail(newValue);
+							return "Email aggiornata!";
 
 			}
 		}
