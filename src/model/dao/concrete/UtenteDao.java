@@ -440,7 +440,7 @@ public class UtenteDao implements UtenteDaoInterface{
   *@return  boolean true if email or username are already been used, false otherwise
   *@throws SQLException if no database connection is found or another error occurs
   */
-  public boolean usernameOrEmailAlreadyUsed(String QUERY, String email_or_username) throws SQLException{
+  private boolean usernameOrEmailAlreadyUsed(String QUERY, String email_or_username) throws SQLException{
     boolean username_or_email_used = false;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(QUERY);
