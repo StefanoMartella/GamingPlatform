@@ -103,7 +103,7 @@ INSERT INTO `utente`(`id`,`nome`,`cognome`,`username`,`email`,`password`,`tipo`,
 (4, 'Steve', 'Rogers', 'CapitanAmerica', 'capitanamerica@avengers.com', 'scudo', 'utente', 2, 250),
 (5, 'Clark','Kent','Superman','superman@dc.com','krypton','utente', 3, 340),
 (6, 'Alan','Scott','Lanterna verde','lanternaverde@dc.com','anelloverde','utente', 1, 75),
-(7, 'Brece','Wayne','Batman','batman@dc.com','pipistrello','moderatore', 4, 430),
+(7, 'Bruce','Wayne','Batman','batman@dc.com','pipistrello','moderatore', 4, 430),
 (8, 'Jay','Garrick','Flash','flash@dc.com','fulmine','utente', 2, 220);
 
 
