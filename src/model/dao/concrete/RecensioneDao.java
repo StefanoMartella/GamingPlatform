@@ -79,7 +79,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
   *@return ArrayList all filtered reviews
   *@throws SQLException if no database connection is found or another error occurs
   */
-  public ArrayList<Recensione> filterReviews(String QUERY) throws SQLException{
+  private ArrayList<Recensione> filterReviews(String QUERY) throws SQLException{
     ArrayList<Recensione> filtred_reviews = new ArrayList<>();
     Connection connection = DB.openConnection();
     Statement s = connection.createStatement();
