@@ -1,9 +1,5 @@
 package src.view.gioco;
 
-import src.controller.*;
-import src.model.*;
-import src.view.utente.*;
-
 import java.text.DecimalFormat;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,6 +15,10 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.Font;
 
+import src.controller.*;
+import src.model.*;
+import src.view.utente.*;
+
 /**
 *Class which represents the view of MVC pattern for the game
 */
@@ -28,9 +28,9 @@ public class GiocoView{
 	private Gioco gioco;
 	
 	public GiocoView(JFrame frame, Utente ut, Gioco g){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
-		this.gioco=g;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
+		this.gioco = g;
 		initialize();
 	}
 	
@@ -104,24 +104,20 @@ public class GiocoView{
 		
 		btnGioca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					int lvl = ut.getLivello();
-					new UtenteController(ut,gioco).play();
-					JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, "Hai giocato!");
-					if(ut.getLivello()>lvl){
-						JPanel opP = new JPanel();
-						opP.setLayout(new BorderLayout());
-						JLabel text = new JLabel();
-						text.setText("<html><body>Complimenti, hai raggiunto il livello " + ut.getLivello() +
-							"<br>Hai ottenuto un trofeo!</body></html>");
-						ImageIcon icon = new ImageIcon(getClass().getResource("../img/Trofeo"+ ut.getLivello() +".png"));
-						JLabel ico = new JLabel(icon);
-						opP.add(ico,BorderLayout.SOUTH);
-						opP.add(text,BorderLayout.EAST);
-						JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, opP, "Nuovo livello",
-							JOptionPane.PLAIN_MESSAGE);
-					}
+				int lvl = ut.getLivello();
+				new UtenteController(ut,gioco).play();
+				JOptionPane.showMessageDialog(frmPiattaformaGaming, "Hai giocato!");
+				if( ut.getLivello() > lvl ){
+					JPanel opP = new JPanel();
+					opP.setLayout(new BorderLayout());
+					JLabel text = new JLabel();
+					text.setText("<html><body>Complimenti, hai raggiunto il livello " + ut.getLivello() + "<br>Hai ottenuto un trofeo!</body></html>");
+					ImageIcon icon = new ImageIcon(getClass().getResource("../img/Trofeo"+ ut.getLivello() +".png"));
+					JLabel ico = new JLabel(icon);
+					opP.add(ico,BorderLayout.SOUTH);
+					opP.add(text,BorderLayout.EAST);
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, opP, "Nuovo livello",JOptionPane.PLAIN_MESSAGE);
+				}
 			}
 		});
 		
@@ -140,10 +136,9 @@ public class GiocoView{
 		
 		btnVota.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, new UtenteController(ut,gioco).vote((int) seleziona_voto.getValue()));
-							average.setText(df.format(new GiocoController(gioco).avgVote()));
-							textPane.setText("");
+				JOptionPane.showMessageDialog(frmPiattaformaGaming, new UtenteController(ut,gioco).vote((int) seleziona_voto.getValue()));
+				average.setText(df.format(new GiocoController(gioco).avgVote()));
+				textPane.setText("");
 		}
 		});
 		

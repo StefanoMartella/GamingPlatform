@@ -1,9 +1,10 @@
 package src.controller;
 
+import java.util.ArrayList;
+import java.sql.SQLException;
+
 import src.model.dao.concrete.*;
 import src.model.*;
-import java.util.ArrayList;
-import java.sql.*;
 
 /**
 *Class which represents the controller of MVC pattern for the game
@@ -22,7 +23,7 @@ public class GiocoController{
 	*@param gioco game on which GiocoController will operate
 	*/
 	public GiocoController(Gioco gioco){		
-		this.gioco=gioco;
+		this.gioco = gioco;
 	}
 	
 	/**

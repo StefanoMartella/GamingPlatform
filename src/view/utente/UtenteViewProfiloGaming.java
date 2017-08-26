@@ -1,10 +1,7 @@
 package src.view.utente;
 
-import src.controller.*;
-import src.model.*;
-import src.view.moderatore.*;
-
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -17,6 +14,10 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 
+import src.controller.*;
+import src.model.*;
+import src.view.moderatore.*;
+
 /**
 *Class which represents the view of MVC pattern of user's gaming profile
 */
@@ -25,8 +26,8 @@ public class UtenteViewProfiloGaming{
 	private Utente ut;
 	
 	public UtenteViewProfiloGaming(JFrame frame, Utente ut){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -77,7 +78,7 @@ public class UtenteViewProfiloGaming{
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("Visualizza trofei");
-		if(ut.getLivello() == 0)
+		if( ut.getLivello() == 0 )
 			trofei.setBackground(Color.LIGHT_GRAY);
 		trofei.setBounds(200, 192, 124, 25);
 		panel_1.add(trofei);
@@ -91,7 +92,7 @@ public class UtenteViewProfiloGaming{
 		String[] column_names = { "Data", "Livello" };
 		Object[][] timelineTable = new Object[timeline.size()][2];
 		int count = 0;
-		for(Map.Entry<Integer,String> entry : timeline.entrySet()){
+		for( Map.Entry<Integer,String> entry : timeline.entrySet() ){
 			timelineTable[count][0] = entry.getValue();
 			timelineTable[count][1] = entry.getKey();
 			count++;
@@ -110,7 +111,7 @@ public class UtenteViewProfiloGaming{
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ut.getTipo().equals("moderatore")){
+				if( ut.getTipo().equals("moderatore") ){
 					panel_1.setVisible(false);
 					new ModeratoreView(frmPiattaformaGaming, ut);
 				}
@@ -122,7 +123,7 @@ public class UtenteViewProfiloGaming{
 		
 		trofei.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ut.getLivello()<1)
+				if( ut.getLivello() < 1 )
 					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Non hai ancora collezionato trofei!", "No trofei", JOptionPane.ERROR_MESSAGE);
 				else{
 					panel_1.setVisible(false);

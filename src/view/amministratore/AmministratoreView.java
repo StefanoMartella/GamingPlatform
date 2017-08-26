@@ -1,9 +1,5 @@
 package src.view.amministratore;
 
-import src.model.*;
-import src.view.*;
-import src.view.utente.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -13,6 +9,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
+
+import src.model.*;
+import src.view.*;
+import src.view.utente.*;
 
 /**
 *Class which represents the view of MVC pattern of administrator
@@ -24,7 +24,7 @@ public class AmministratoreView {
 	
 	public AmministratoreView(JFrame frame, Utente ut){
 		this.frmPiattaformaGaming = frame;
-		this.ut=ut;
+		this.ut = ut;
 		initialize();
 	}
 	

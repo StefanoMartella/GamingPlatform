@@ -248,12 +248,12 @@ public class Utente{
   @Override
   public boolean equals(Object obj){
     Utente utente;
-    if(obj instanceof Utente)
+    if( obj instanceof Utente )
         utente = (Utente) obj;
     else
 	return false;
 	
-    if(this.username.equals(utente.getUsername()) || this.email.equals(utente.getEmail()))
+    if( this.username.equals(utente.getUsername()) || this.email.equals(utente.getEmail()) )
 	return true;
     return false; 
   }

@@ -1,9 +1,7 @@
 package src.view.amministratore;
 
-import src.controller.*;
-import src.model.*;
-
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -14,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 
+import src.controller.*;
+import src.model.*;
+
 /**
 *Class which represents the view of MVC pattern of list of games for admin
 */
@@ -22,8 +23,8 @@ public class AmministratoreViewLG{
 	private Utente ut;
 	
 	public AmministratoreViewLG(JFrame frame, Utente ut){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -67,21 +68,20 @@ public class AmministratoreViewLG{
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
-		for(Gioco g: gl){
+		for( Gioco g : gl ){
 				jl.add(new JLabel("" + g.getNome()));
 		}
-		for(JLabel j: jl){
+		for( JLabel j : jl ){
 			ps.add(j);
 			JButton selez = new JButton("Elimina");
 			ps.add(selez, "wmin 250,, hmin 30, wrap");
-				selez.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, new AmministratoreController(new GiocoController().findGame(j.getText())).deleteGame());
-							j.setVisible(false);
-							selez.setVisible(false);
-							panel_9.setVisible(false);
-							new AmministratoreViewLG(frmPiattaformaGaming, ut);
+			selez.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, new AmministratoreController(new GiocoController().findGame(j.getText())).deleteGame());
+					j.setVisible(false);
+					selez.setVisible(false);
+					panel_9.setVisible(false);
+					new AmministratoreViewLG(frmPiattaformaGaming, ut);
 			}});
 		}
 	}

@@ -136,12 +136,12 @@ public class Recensione{
   */
   public boolean equals(Object obj){
     Recensione recensione;
-    if(obj instanceof Recensione)
+    if( obj instanceof Recensione )
         recensione = (Recensione) obj;
     else
         return false;
 
-    if(this.idGioco == recensione.getIdGioco() && this.idUtente == recensione.getIdUtente() && this.testo.equals(recensione.getTesto()))
+    if( this.idGioco == recensione.getIdGioco() && this.idUtente == recensione.getIdUtente() && this.testo.equals(recensione.getTesto()) )
         return true;
     return false;
   }

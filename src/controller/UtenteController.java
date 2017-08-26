@@ -1,10 +1,10 @@
 package src.controller;
 
 import java.util.TreeMap;
+import java.sql.SQLException;
 
 import src.model.*;
 import src.model.dao.concrete.*;
-import java.sql.*;
 
 /**
 *Class which represents the controller of MVC pattern for the user
@@ -43,8 +43,8 @@ public class UtenteController{
 	*@param gioco game on which UtenteController will operate
 	*/
 	public UtenteController(Utente utente, Gioco gioco){
-		this.utente=utente;
-		this.gioco=gioco;
+		this.utente = utente;
+		this.gioco = gioco;
 	}
 	
 	/**
@@ -69,7 +69,7 @@ public class UtenteController{
 	*/
 	public String vote(int voto){
 		try{
-			if(new UtenteDao().gameAlreadyVotedByUser(utente, gioco)){
+			if( new UtenteDao().gameAlreadyVotedByUser(utente, gioco) ){
 				new UtenteDao().updateVote(voto,utente, gioco);
 				return "Voto aggiornato!";
 			}
@@ -92,13 +92,13 @@ public class UtenteController{
 	*/
 	public String review(String testoRecensione){
 		try{
-			if(new UtenteDao().reviewAlreadyMadeByUser(utente,gioco)){
+			if( new UtenteDao().reviewAlreadyMadeByUser(utente,gioco) ){
 				new UtenteDao().updateReview(testoRecensione, utente, gioco);
 				return "Recensione aggiornata, dovrete aspettare il consenso di un moderatore!";
 			}
 			else{
 				new UtenteDao().reviewGame(testoRecensione, utente, gioco);
-				if(utente.getTipo().equals("moderatore")){
+				if( utente.getTipo().equals("moderatore") ){
 					new UtenteDao().approveReview(new RecensioneDao().findReviewByUserAndGame(utente, gioco));
 				return "Recensione inserita!";
 				}

@@ -1,9 +1,6 @@
 package src.view.gioco;
 
-import src.controller.*;
-import src.model.*;
-
-import java.util.*;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -12,6 +9,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
+
+import src.controller.*;
+import src.model.*;
 
 /**
 *Class which represents the view of MVC pattern of game reviews' list
@@ -23,10 +23,9 @@ public class GiocoRecensioniView {
 	private Utente utente;
 	
 	public GiocoRecensioniView(JFrame frame, Utente utente, Gioco gioco){
-		this.frmPiattaformaGaming=frame;
-		this.gioco=gioco;
-		this.utente=utente;
-		
+		this.frmPiattaformaGaming = frame;
+		this.gioco = gioco;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -45,7 +44,7 @@ public class GiocoRecensioniView {
 		panel_7.add(ta);
 		
 		ArrayList<Recensione> al = new GiocoController(gioco).allReviews();
-		for(Recensione r: al){
+		for( Recensione r : al ){
 			ta.setText(ta.getText() + "  - " +  r.getTesto() + "\n\n");
 		}
 		

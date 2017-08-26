@@ -1,10 +1,5 @@
 package src.view.utente;
 
-import src.controller.*;
-import src.model.*;
-import src.view.moderatore.*;
-import src.view.amministratore.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -16,6 +11,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
+import src.controller.*;
+import src.model.*;
+import src.view.moderatore.*;
+import src.view.amministratore.*;
+
 /**
 *Class which represents the view of MVC pattern of user's personal page
 */
@@ -24,8 +24,8 @@ public class UtenteViewProfiloPers{
 	private Utente ut;
 	
 	public UtenteViewProfiloPers(JFrame frame, Utente ut){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -33,7 +33,7 @@ public class UtenteViewProfiloPers{
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize(){
-	JPanel panel_4 = new JPanel();
+		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
@@ -101,10 +101,10 @@ public class UtenteViewProfiloPers{
 		selection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				switch((String) comboBox.getSelectedItem()){
+				switch( (String) comboBox.getSelectedItem() ){
 				
 					case "nome":    	String nuovo_nome = JOptionPane.showInputDialog("Seleziona nuovo nome:");
-								if(nuovo_nome != null){
+								if( nuovo_nome != null ){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, ut));
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -113,7 +113,7 @@ public class UtenteViewProfiloPers{
 
 
 					case "cognome":		String nuovo_cognome = JOptionPane.showInputDialog("Seleziona nuovo cognome:");
-								if(nuovo_cognome != null){
+								if( nuovo_cognome != null ){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, ut));
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -121,7 +121,7 @@ public class UtenteViewProfiloPers{
 								break;
 
 					case "username":	String nuova_username = JOptionPane.showInputDialog("Seleziona nuovo username:");
-								if(nuova_username != null){
+								if( nuova_username != null ){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, ut));
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -129,7 +129,7 @@ public class UtenteViewProfiloPers{
 								break;
 
 					case "email":		String nuova_email = JOptionPane.showInputDialog("Seleziona nuovo email:");
-								if(nuova_email != null){
+								if( nuova_email != null ){
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, ut));
 									panel_4.setVisible(false);
 									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
@@ -142,18 +142,18 @@ public class UtenteViewProfiloPers{
 								Integer pressed_button = JOptionPane.showConfirmDialog(null, message, "Nuova password", JOptionPane.OK_CANCEL_OPTION);
 								String nuova_password = String.valueOf(pf.getPassword());
 								String conferma_password = String.valueOf(pf2.getPassword());
-								if(pressed_button == 0)
+								if( pressed_button == 0 )
 									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("password", nuova_password, conferma_password, ut));
 				}				
 		}});
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ut.getTipo().equals("moderatore")){
+				if( ut.getTipo().equals("moderatore") ){
 					panel_4.setVisible(false);
 					new ModeratoreView(frmPiattaformaGaming, ut);
 				}
-				else if(ut.getTipo().equals("amministratore")){
+				else if( ut.getTipo().equals("amministratore") ){
 					panel_4.setVisible(false);
 					new AmministratoreView(frmPiattaformaGaming, ut);
 				}

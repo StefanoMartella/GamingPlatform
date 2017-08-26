@@ -1,7 +1,5 @@
 package src.view;
 
-import src.controller.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -13,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+
+import src.controller.*;
 
 /**
 *Class which represents the view of MVC pattern of sign-up
@@ -125,7 +125,7 @@ public class SignUp{
 						textField_2.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText(),
 						new String(passwordField.getPassword()), new String(passwordField2.getPassword()));
 						
-						switch(test){
+						switch( test ){
 							
 							case 0: JOptionPane.showMessageDialog(frmPiattaformaGaming, "Registrato con successo");
 								panel_3.setVisible(false);

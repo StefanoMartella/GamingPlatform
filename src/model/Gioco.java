@@ -96,12 +96,12 @@ public class Gioco{
   @Override
   public boolean equals(Object obj){
     Gioco gioco;
-    if(obj instanceof Gioco)
+    if( obj instanceof Gioco )
         gioco = (Gioco) obj;
     else
         return false;
 
-    if(this.nome.equals(gioco.getNome()) && this.exp == gioco.getExp())
+    if( this.nome.equals(gioco.getNome()) && this.exp == gioco.getExp() )
         return true;
     return false;
   }

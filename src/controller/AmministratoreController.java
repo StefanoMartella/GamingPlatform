@@ -1,8 +1,9 @@
 package src.controller;
 
+import java.sql.SQLException;
+
 import src.model.dao.concrete.*;
 import src.model.*;
-import java.sql.*;
 
 /**
 *Class which represents the controller of MVC pattern for the adminstrator
@@ -43,7 +44,7 @@ public class AmministratoreController{
 	*@param gioco AmministratoreController's game on which admin can operate
 	*/
 	public AmministratoreController(Gioco gioco){
-		this.gioco=gioco;
+		this.gioco = gioco;
 	}
 	
 	
@@ -55,7 +56,7 @@ public class AmministratoreController{
 	*@return String information string about insertion
 	*/
 	public String insertGame(String nome, int exp){
-		if(exp > 100)
+		if( exp > 100 )
 			return "Un gioco puo' fornire al massimo 100 punti esperienza!";
 		
 		gioco = new Gioco(nome, exp);

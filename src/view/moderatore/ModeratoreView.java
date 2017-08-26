@@ -1,11 +1,7 @@
 package src.view.moderatore;
 
-import src.controller.*;
-import src.model.*;
-import src.view.*;
-import src.view.utente.*;
-
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -17,6 +13,11 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
 
+import src.controller.*;
+import src.model.*;
+import src.view.*;
+import src.view.utente.*;
+
 /**
 *Class which represents the view of MVC pattern for moderator
 */
@@ -27,7 +28,7 @@ public class ModeratoreView {
 	
 	public ModeratoreView(JFrame frame, Utente ut){
 		this.frmPiattaformaGaming = frame;
-		this.ut=ut;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -69,7 +70,7 @@ public class ModeratoreView {
 		JButton btnLR = new JButton("Lista Recensioni");
 		btnLR.setBounds(350, 200, 250, 35);
 		List<Recensione> lr = new ModeratoreController().reviewsList();
-		if(lr.isEmpty())
+		if( lr.isEmpty() )
 				btnLR.setBackground(Color.LIGHT_GRAY);
 		panel_2.add(btnLR);
 		
@@ -106,15 +107,14 @@ public class ModeratoreView {
 		}});
 		
 		btnLR.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if( lr.isEmpty() ){
-						JOptionPane.showMessageDialog(
-						frmPiattaformaGaming, "Non ci sono recensioni da approvare/rifiutare!", "No recensioni", JOptionPane.ERROR_MESSAGE);
-					}
-					else{
-						panel_2.setVisible(false);
-						new ModeratoreViewLR(frmPiattaformaGaming,ut);
-					}
+			public void actionPerformed(ActionEvent e) {
+				if( lr.isEmpty() ){
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Non ci sono recensioni da approvare/rifiutare!", "No recensioni", JOptionPane.ERROR_MESSAGE);
+				}
+				else{
+					panel_2.setVisible(false);
+					new ModeratoreViewLR(frmPiattaformaGaming,ut);
+				}
 		}});
 		
 		btnListaUtente.addActionListener(new ActionListener() {

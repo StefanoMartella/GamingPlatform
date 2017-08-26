@@ -1,10 +1,11 @@
 package src.controller;
 
-import src.model.dao.concrete.*;
-import src.model.*;
-import java.sql.*;
+import java.sql.SQLException;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+
+import src.model.dao.concrete.*;
+import src.model.*;
 
 /**
 *Class which implements methods about user's mainteinance
@@ -20,14 +21,14 @@ public class GestioneUtenza{
 	*/
 	public Utente logIn(String username, String password){
 		try{
-			if(new UtenteDao().findUserByUsername(username) == null){ return null; }		
+			if( new UtenteDao().findUserByUsername(username) == null ){ return null; }		
 			
 			Utente utente = new UtenteDao().findUserByUsername(username);
 			//Mysql is case insensitive
 			if ( !utente.getUsername().equals(username) ){
 				return null;
 			}
-			if(password.equals(utente.getPassword())){
+			if( password.equals(utente.getPassword()) ){
 				return utente;
 			}
 			return null;
@@ -73,17 +74,17 @@ public class GestioneUtenza{
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(mail);
 		
 		try{
-			if(name.equals("") || surname.equals("") || username.equals("") || mail.equals("") || password.equals("") || password2.equals(""))
+			if( name.equals("") || surname.equals("") || username.equals("") || mail.equals("") || password.equals("") || password2.equals("") )
 				return 1;
-			if(new UtenteDao().usernameAlreadyUsed(username))
+			if( new UtenteDao().usernameAlreadyUsed(username) )
 				return 2;
-			if(new UtenteDao().emailAlreadyUsed(mail))
+			if( new UtenteDao().emailAlreadyUsed(mail) )
 				return 3;
-			if(!matcher.find()) 
+			if( !matcher.find() ) 
 				return 4;
-			if(password2.length() < 8)
+			if( password2.length() < 8 )
 				return 5;
-			if(!password.equals(password2))
+			if( !password.equals(password2) )
 				return 6;
 			Utente ut = new Utente(name,surname,username,mail,password);
 		
@@ -107,7 +108,7 @@ public class GestioneUtenza{
 	public String updateValue(String column, String newValue, Utente utente){
 		
 		try{
-			switch(column){
+			switch( column ){
 				
 				case "nome":		new UtenteDao().updateUser(column, newValue, utente);
 							utente.setNome(newValue);
@@ -126,9 +127,9 @@ public class GestioneUtenza{
 				case "email":		Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 							Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
 									
-							if(new UtenteDao().emailAlreadyUsed(newValue))
+							if( new UtenteDao().emailAlreadyUsed(newValue) )
 								return "Email gia' in uso!";
-							if(!matcher.find())
+							if( !matcher.find() )
 								return "Email non valida!";
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setEmail(newValue);
@@ -154,9 +155,9 @@ public class GestioneUtenza{
 	*@return String message to be displayed
 	*/
 	public String updateValue(String column, String nuova_password, String conferma_password, Utente utente){
-		if(nuova_password.length() < 8)
+		if( nuova_password.length() < 8 )
 			return "La password deve essere di minimo 8 caratteri!";
-		if(!nuova_password.equals(conferma_password))
+		if( !nuova_password.equals(conferma_password) )
 			return "Le due password non coincidono!";
 		try{
 			new UtenteDao().updateUser(column, nuova_password, utente);

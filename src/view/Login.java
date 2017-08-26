@@ -1,11 +1,5 @@
 package src.view;
 
-import src.controller.*;
-import src.model.*;
-import src.view.utente.*;
-import src.view.moderatore.*;
-import src.view.amministratore.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -18,6 +12,12 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+
+import src.controller.*;
+import src.model.*;
+import src.view.utente.*;
+import src.view.moderatore.*;
+import src.view.amministratore.*;
 
 /**
 *Class which represents the view of MVC pattern of login
@@ -47,7 +47,7 @@ public class Login {
 	 * Create the application.
 	 */
 	public  Login(){
-		if (frmPiattaformaGaming == null) {
+		if ( frmPiattaformaGaming == null ) {
 			frmPiattaformaGaming = new JFrame();
 			frmPiattaformaGaming.setTitle("Piattaforma gaming");
 			frmPiattaformaGaming.setBounds(600, 300, 665, 415);
@@ -109,7 +109,7 @@ public class Login {
 			public void actionPerformed(ActionEvent e) {
 				
 				Utente ut = new GestioneUtenza().logIn(textField.getText(), new String(psswrdField.getPassword()));
-				if(ut==null)
+				if( ut == null )
 				{
 					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Username o password errati", "Login error", JOptionPane.ERROR_MESSAGE);
 					textField.setText("");
@@ -117,13 +117,13 @@ public class Login {
 				}
 				else{
 					panel.setVisible(false);
-					if(ut.getTipo().equals("utente")){
+					if( ut.getTipo().equals("utente") ){
 						new UtenteView(frmPiattaformaGaming, ut);
 					}
-					if(ut.getTipo().equals("moderatore")){
+					if( ut.getTipo().equals("moderatore") ){
 						new ModeratoreView(frmPiattaformaGaming, ut);
 					}
-					if(ut.getTipo().equals("amministratore")){
+					if( ut.getTipo().equals("amministratore") ){
 						new AmministratoreView(frmPiattaformaGaming, ut);
 					}
 				

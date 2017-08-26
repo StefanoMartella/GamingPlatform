@@ -1,9 +1,10 @@
 package src.controller;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import src.model.dao.concrete.*;
 import src.model.*;
-import java.sql.*;
-import java.util.*;
 
 /**
 *Class which represents the controller of MVC pattern for the moderator
@@ -66,7 +67,7 @@ public class ModeratoreController extends UtenteController{
 	*/
 	public ModeratoreController(Utente utente, Gioco gioco, Recensione recensione){
 		super(utente,gioco);
-		this.recensione=recensione;
+		this.recensione = recensione;
 	}
 	
 	/**

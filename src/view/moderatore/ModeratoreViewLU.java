@@ -1,9 +1,7 @@
 package src.view.moderatore;
 
-import src.controller.*;
-import src.model.*;
-
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -14,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 
+import src.controller.*;
+import src.model.*;
+
 /**
 *Class which represents the view of MVC pattern of users' list for moderator
 */
@@ -22,8 +23,8 @@ public class ModeratoreViewLU{
 	private Utente ut;
 	
 	public ModeratoreViewLU(JFrame frame, Utente ut){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -47,33 +48,32 @@ public class ModeratoreViewLU{
 		
 		List<Utente> lU = new ModeratoreController().usersList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
-		for(Utente u: lU){
-			if(!(u.getTipo().equals("amministratore") || u.getUsername().equals(ut.getUsername())))
+		for( Utente u : lU ){
+			if( !(u.getTipo().equals("amministratore") || u.getUsername().equals(ut.getUsername())) )
 				jl.add(new JLabel(u.getUsername()));
 		}
-		for(JLabel j: jl){
+		for( JLabel j : jl ){
 			ps.add(j);
 			JButton selez;
 			String type = new GestioneUtenza().findUser(j.getText()).getTipo();
-			if(type.equals("moderatore"))
+			if( type.equals("moderatore") )
 				selez = new JButton("Retrocedi");
 			else
 				selez = new JButton("Promuovi");
 			ps.add(selez,"wmin 250, hmin 30, wrap");
-				selez.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if(selez.getText().equals("Retrocedi")){
-							new ModeratoreController(new GestioneUtenza().findUser(j.getText())).demote();
-							JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, "Moderatore retrocesso.");
-							selez.setText("Promuovi");
-						}
-						else{
-							new ModeratoreController(new GestioneUtenza().findUser(j.getText())).promote();
-							JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, "Utente promosso!");
-							selez.setText("Retrocedi");
-						}
+			selez.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if( selez.getText().equals("Retrocedi") ){
+						new ModeratoreController(new GestioneUtenza().findUser(j.getText())).demote();
+						JOptionPane.showMessageDialog(
+						frmPiattaformaGaming, "Moderatore retrocesso.");
+						selez.setText("Promuovi");
+					}
+					else{
+						new ModeratoreController(new GestioneUtenza().findUser(j.getText())).promote();
+						JOptionPane.showMessageDialog(frmPiattaformaGaming, "Utente promosso!");
+						selez.setText("Retrocedi");
+					}
 							
 			}});
 		}

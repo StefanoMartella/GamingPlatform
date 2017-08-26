@@ -1,8 +1,5 @@
 package src.view.amministratore;
 
-import src.controller.*;
-import src.model.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -12,6 +9,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import src.controller.*;
+import src.model.*;
+
 /**
 *Class which represents the view of MVC pattern of game addition by admin
 */
@@ -20,8 +20,8 @@ public class AmministratoreViewAG{
 	private Utente ut;
 	
 	public AmministratoreViewAG(JFrame frame, Utente ut){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -64,8 +64,7 @@ public class AmministratoreViewAG{
 		
 		btnA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, new AmministratoreController().insertGame(textField.getText(),Integer.parseInt(textField2.getText())));
+				JOptionPane.showMessageDialog(frmPiattaformaGaming, new AmministratoreController().insertGame(textField.getText(),Integer.parseInt(textField2.getText())));
 				textField.setText("");
 				textField2.setText("");
 		}});

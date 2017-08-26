@@ -1,7 +1,5 @@
 package src.view.utente;
 
-import src.model.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -10,6 +8,8 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
+
+import src.model.*;
 
 /**
 *Class which represents the view of MVC pattern of trophies' list of a user
@@ -21,8 +21,8 @@ public class UtenteViewTrofei {
 	private int count = 1;
 	
 	public UtenteViewTrofei(JFrame frame, Utente utente) {
-		this.frmPiattaformaGaming=frame;
-		this.ut=utente;
+		this.frmPiattaformaGaming = frame;
+		this.ut = utente;
 		initialize();
 	}
 	
@@ -55,12 +55,12 @@ public class UtenteViewTrofei {
 		JButton btnBack = new JButton("Indietro");
 		panel_2.add(btnBack, "width 140, height 20, pos 250px 350px");
 		
-		for(int i=1; i < ut.getLivello()+1; i++)
+		for( int i=1; i < ut.getLivello()+1; i++ )
 			icon[i] = new ImageIcon(getClass().getResource("../img/Trofeo"+i+".png"));
 		
 		trof.setIcon(icon[count]);
 		
-		if(ut.getLivello() == 1){
+		if( ut.getLivello() == 1 ){
 			arrowSX.setVisible(false);
 			arrowDX.setVisible(false);
 		}
@@ -69,24 +69,24 @@ public class UtenteViewTrofei {
 		
 		arrowSX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(count>1){
+				if( count > 1 ){
 					trof.setIcon(icon[--count]);
 					arrowSX.setVisible(true);
-					if(count==1)
+					if( count == 1 )
 						arrowSX.setVisible(false);
-					if(count==ut.getLivello()-1)
+					if( count == ut.getLivello()-1 )
 						arrowDX.setVisible(true);
 				}
 		}});
 		
 		arrowDX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(count<ut.getLivello()){
+				if( count < ut.getLivello() ){
 					trof.setIcon(icon[++count]);
 					arrowDX.setVisible(true);
-					if(count==ut.getLivello())
+					if( count == ut.getLivello() )
 						arrowDX.setVisible(false);
-					if(count==2)
+					if( count == 2 )
 						arrowSX.setVisible(true);
 				}
 		}});

@@ -1,11 +1,7 @@
 package src.view.utente;
 
-import src.controller.*;
-import src.model.*;
-import src.view.moderatore.*;
-import src.view.gioco.*;
-
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -13,6 +9,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
+
+import src.controller.*;
+import src.model.*;
+import src.view.moderatore.*;
+import src.view.gioco.*;
 
 /**
 *Class which represents the view of MVC pattern of games' list for user
@@ -22,8 +23,8 @@ public class UtenteViewGL{
 	private Utente ut;
 	
 	public UtenteViewGL(JFrame frame, Utente ut){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -43,10 +44,10 @@ public class UtenteViewGL{
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
 		ArrayList<JButton> jl = new ArrayList<JButton>();
-		for(Gioco g: gl){
+		for( Gioco g: gl ){
 				jl.add(new JButton(g.getNome()));
 		}
-		for(JButton j: jl){
+		for( JButton j : jl ){
 			ps.add(j, "width 620, height 35");
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -66,7 +67,7 @@ public class UtenteViewGL{
 
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ut.getTipo().equals("moderatore")){
+				if( ut.getTipo().equals("moderatore") ){
 					panel_5.setVisible(false);
 					new ModeratoreView(frmPiattaformaGaming, ut);
 				}

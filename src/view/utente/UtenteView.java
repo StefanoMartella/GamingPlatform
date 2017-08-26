@@ -1,8 +1,5 @@
 package src.view.utente;
 
-import src.model.*;
-import src.view.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -13,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 
+import src.model.*;
+import src.view.*;
+
 /**
 *Class which represents the view of MVC pattern of the user
 */
@@ -22,8 +22,8 @@ public class UtenteView {
 	private Utente ut;
 	
 	public UtenteView(JFrame frame, Utente ut) {
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	

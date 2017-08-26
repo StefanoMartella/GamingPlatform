@@ -1,9 +1,7 @@
 package src.view.moderatore;
 
-import src.controller.*;
-import src.model.*;
-
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
@@ -14,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import net.miginfocom.swing.MigLayout;
 
+import src.controller.*;
+import src.model.*;
+
 /**
 *Class which represents the view of MVC pattern of reviews' list for moderator 
 */
@@ -22,8 +23,8 @@ public class ModeratoreViewLR{
 	private Utente ut;
 	
 	public ModeratoreViewLR(JFrame frame, Utente ut){
-		this.frmPiattaformaGaming=frame;
-		this.ut=ut;
+		this.frmPiattaformaGaming = frame;
+		this.ut = ut;
 		initialize();
 	}
 	
@@ -44,7 +45,7 @@ public class ModeratoreViewLR{
 		List<Recensione> lr = new ModeratoreController().reviewsList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		
-		for(Recensione r: lr){
+		for( Recensione r : lr ){
 				jl.add(new JLabel("Recensione " + r.getId()));
 		}
 		
@@ -54,30 +55,27 @@ public class ModeratoreViewLR{
 		panel_9.add(scroll, "pos 0px 0px, width 660, height 340");
 		
 		Object[] options = {"Pubblica", "Nega"};
-		for(JLabel j: jl){
+		for( JLabel j : jl ){
 			ps.add(j);
 			JButton selez = new JButton("Leggi");
 			ps.add(selez, "wmin 255 , hmin 30, wrap");
-				selez.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-							int n = JOptionPane.showOptionDialog(frmPiattaformaGaming, new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11))).getTesto(),
-							"Recensione", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
-							if(n==JOptionPane.YES_OPTION){
-								JOptionPane.showMessageDialog(
-								frmPiattaformaGaming, new ModeratoreController(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))).approve());
-								selez.setVisible(false);
-								j.setVisible(false);
-								panel_9.setVisible(false);
-								new ModeratoreViewLR(frmPiattaformaGaming, ut);
-							}
-							if(n==JOptionPane.NO_OPTION){
-								JOptionPane.showMessageDialog(
-								frmPiattaformaGaming, new ModeratoreController(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))).disapprove());
-								selez.setVisible(false);
-								j.setVisible(false);
-								panel_9.setVisible(false);
-								new ModeratoreViewLR(frmPiattaformaGaming, ut);
-							}
+			selez.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+						int n = JOptionPane.showOptionDialog(frmPiattaformaGaming, new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11))).getTesto(),"Recensione", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+						if( n == JOptionPane.YES_OPTION ){
+							JOptionPane.showMessageDialog(frmPiattaformaGaming, new ModeratoreController(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))).approve());
+							selez.setVisible(false);
+							j.setVisible(false);
+							panel_9.setVisible(false);
+							new ModeratoreViewLR(frmPiattaformaGaming, ut);
+						}
+						if( n == JOptionPane.NO_OPTION ){
+							JOptionPane.showMessageDialog(frmPiattaformaGaming, new ModeratoreController(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))).disapprove());
+							selez.setVisible(false);
+							j.setVisible(false);
+							panel_9.setVisible(false);
+							new ModeratoreViewLR(frmPiattaformaGaming, ut);
+						}
 			}});
 		}
 		
