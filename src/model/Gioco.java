@@ -86,4 +86,23 @@ public class Gioco{
   public String toString(){
     return this.getId() + " - " + this.getNome();
   }
+
+  /**
+  *Method to compare games
+  *
+  *@param obj game to compare with
+  *@return boolean true if this game is equals to the given one, false otherwise
+  */
+  @Override
+  public boolean equals(Object obj){
+    Gioco gioco;
+    if(obj instanceof Gioco)
+        gioco = (Gioco) obj;
+    else
+        return false;
+
+    if(this.nome.equals(gioco.getNome()) && this.exp == gioco.getExp())
+        return true;
+    return false;
+  }
 }

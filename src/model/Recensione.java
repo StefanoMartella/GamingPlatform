@@ -127,4 +127,22 @@ public class Recensione{
   public String toString(){
     return this.getId() + " - " + this.getTesto();
   }
+
+  /**
+  *Method to compare reviews
+  *
+  *@param obj review to compare with
+  *@return boolean true if this review is equals to the given one, false otherwise
+  */
+  public boolean equals(Object obj){
+    Recensione recensione;
+    if(obj instanceof Recensione)
+        recensione = (Recensione) obj;
+    else
+        return false;
+
+    if(this.idGioco == recensione.getIdGioco() && this.idUtente == recensione.getIdUtente() && this.testo.equals(recensione.getTesto()))
+        return true;
+    return false;
+  }
 }
