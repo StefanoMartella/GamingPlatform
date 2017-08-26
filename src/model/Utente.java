@@ -225,8 +225,7 @@ public class Utente{
   *
   *@param puntiExp new user's exp amount
   */
-  public void setPuntiExp(int puntiExp){ this.puntiExp = puntiExp; }
-  
+  public void setPuntiExp(int puntiExp){ this.puntiExp = puntiExp; }  
   
   /**
   *Method used to get user's info
@@ -237,7 +236,6 @@ public class Utente{
   public String toString(){
     return this.getNome() + " " + this.getCognome() + " ," + this.getUsername();
   }
-  
   
   /**
   *Method used to compare users
