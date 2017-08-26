@@ -7,7 +7,7 @@ import java.sql.*;
 /**
 *Class which represents the controller of MVC pattern for the adminstrator
 */
-public class AmministratoreController extends UtenteController{
+public class AmministratoreController{
 	private Utente utente_target;
 	private Gioco gioco;
 	
