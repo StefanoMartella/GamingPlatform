@@ -33,6 +33,7 @@ public class GiocoView{
 		this.gioco=g;
 		initialize();
 	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

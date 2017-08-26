@@ -27,6 +27,7 @@ public class AmministratoreView {
 		this.ut=ut;
 		initialize();
 	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

@@ -25,6 +25,7 @@ public class UtenteViewTrofei {
 		this.ut=utente;
 		initialize();
 	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

@@ -29,6 +29,7 @@ public class GiocoRecensioniView {
 		
 		initialize();
 	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

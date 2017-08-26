@@ -30,6 +30,7 @@ public class ModeratoreView {
 		this.ut=ut;
 		initialize();
 	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

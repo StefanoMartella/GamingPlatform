@@ -26,6 +26,7 @@ public class ModeratoreViewLR{
 		this.ut=ut;
 		initialize();
 	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */

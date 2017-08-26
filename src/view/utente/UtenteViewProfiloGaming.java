@@ -29,6 +29,7 @@ public class UtenteViewProfiloGaming{
 		this.ut=ut;
 		initialize();
 	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
