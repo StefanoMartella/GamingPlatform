@@ -249,7 +249,7 @@ public class Utente{
   public boolean equals(Object obj){
     Utente utente;
     if(obj instanceof Utente)
-        utente = (Utente)obj;
+        utente = (Utente) obj;
     else
 	return false;
 	
