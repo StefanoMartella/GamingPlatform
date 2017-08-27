@@ -93,11 +93,11 @@ public class Utente{
     this.email = email;
     this.password = password; 
     this.tipo = tipo;
-	if(puntiExp >= 500)
-		this.livello = 5;
-	else
-		this.livello = puntiExp/100;
     this.puntiExp = puntiExp;
+    if( puntiExp >= 500 )
+        this.livello = 5;
+    else
+        this.livello = puntiExp/100;
   }
   
   
