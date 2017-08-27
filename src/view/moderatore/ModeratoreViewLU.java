@@ -71,8 +71,7 @@ public class ModeratoreViewLU{
 				public void actionPerformed(ActionEvent e) {
 					if( selez.getText().equals("Retrocedi") ){
 						new ModeratoreController(new GestioneUtenza().findUser(j.getText())).demote();
-						JOptionPane.showMessageDialog(
-						frmPiattaformaGaming, "Moderatore retrocesso.");
+						JOptionPane.showMessageDialog(frmPiattaformaGaming, "Moderatore retrocesso.");
 						selez.setText("Promuovi");
 					}
 					else{
