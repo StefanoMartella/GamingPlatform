@@ -21,16 +21,16 @@ public class GestioneUtenza{
 	*/
 	public Utente logIn(String username, String password){
 		try{
-			if( new UtenteDao().findUserByUsername(username) == null ){ return null; }		
+			if( new UtenteDao().findUserByUsername(username) == null )
+				return null;
 			
 			Utente utente = new UtenteDao().findUserByUsername(username);
+			
 			//Mysql is case insensitive
-			if ( !utente.getUsername().equals(username) ){
+			if ( !utente.getUsername().equals(username) )
 				return null;
-			}
-			if( password.equals(utente.getPassword()) ){
+			if( password.equals(utente.getPassword()) )
 				return utente;
-			}
 			return null;
 		}
 		catch(SQLException exc){
