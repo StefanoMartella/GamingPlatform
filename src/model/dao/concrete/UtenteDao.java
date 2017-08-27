@@ -178,7 +178,7 @@ public class UtenteDao implements UtenteDaoInterface{
     PreparedStatement ps = connection.prepareStatement(FIND_BY_USERNAME);
     ps.setString(1, username);
     ResultSet rset = ps.executeQuery();
-    if (rset.first() == false) 
+    if ( rset.first() == false ) 
         return null;
     utente = new Utente(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7), rset.getInt(8), rset.getInt(9));
     ps.close();
@@ -204,7 +204,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.executeUpdate();
     ps.close();
     PreparedStatement ps2 = connection.prepareStatement(UPDATE_LEVEL);
-    if(ut.getPuntiExp()>= 500)
+    if( ut.getPuntiExp()>= 500 )
 	ps2.setInt(1, 5);
     else
 	ps2.setInt(1, (ut.getPuntiExp()+g.getExp())/100);
@@ -213,9 +213,8 @@ public class UtenteDao implements UtenteDaoInterface{
     ps2.close();
     connection.close();
     ut.setPuntiExp(ut.getPuntiExp()+g.getExp());
-    if(ut.getPuntiExp()>= 500){
+    if( ut.getPuntiExp()>= 500 )
 	ut.setLivello(5);
-    }
     else
 	ut.setLivello(ut.getPuntiExp()/100);
   }
@@ -399,7 +398,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt(1) == 1)
+    if( rset.getInt(1) == 1 )
         already_voted = true;
     ps.close();
     rset.close();
@@ -424,7 +423,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt(1) == 1)
+    if( rset.getInt(1) == 1 )
         already_reviewed = true;
     ps.close();
     rset.close();
@@ -447,7 +446,7 @@ public class UtenteDao implements UtenteDaoInterface{
     ps.setString(1, email_or_username);
     ResultSet rset = ps.executeQuery();
     rset.first();
-    if(rset.getInt(1) == 1)
+    if( rset.getInt(1) == 1 )
         username_or_email_used = true;
     ps.close();
     rset.close();
