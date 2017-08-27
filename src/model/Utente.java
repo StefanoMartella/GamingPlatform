@@ -97,7 +97,7 @@ public class Utente{
     if( puntiExp >= 500 )
         this.livello = 5;
     else
-        this.livello = puntiExp/100;
+        this.livello = puntiExp / 100;
   }
   
   

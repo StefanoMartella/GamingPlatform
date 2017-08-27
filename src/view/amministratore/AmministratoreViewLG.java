@@ -20,11 +20,17 @@ import src.model.*;
 */
 public class AmministratoreViewLG{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public AmministratoreViewLG(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public AmministratoreViewLG(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -54,7 +60,7 @@ public class AmministratoreViewLG{
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					panel_9.setVisible(false);
-					new AmministratoreView(frmPiattaformaGaming, ut);
+					new AmministratoreView(frmPiattaformaGaming, utente);
 		}});
 		
 		JButton btnAG = new JButton("Inserisci");
@@ -63,7 +69,7 @@ public class AmministratoreViewLG{
 		btnAG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					panel_9.setVisible(false);
-					new AmministratoreViewAG(frmPiattaformaGaming, ut);
+					new AmministratoreViewAG(frmPiattaformaGaming, utente);
 		}});
 		
 		List<Gioco> gl = new GiocoController().listOfGames();
@@ -81,7 +87,7 @@ public class AmministratoreViewLG{
 					j.setVisible(false);
 					selez.setVisible(false);
 					panel_9.setVisible(false);
-					new AmministratoreViewLG(frmPiattaformaGaming, ut);
+					new AmministratoreViewLG(frmPiattaformaGaming, utente);
 			}});
 		}
 	}

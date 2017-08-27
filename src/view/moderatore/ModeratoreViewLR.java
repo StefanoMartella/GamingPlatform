@@ -20,11 +20,17 @@ import src.model.*;
 */
 public class ModeratoreViewLR{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public ModeratoreViewLR(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public ModeratoreViewLR(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -67,14 +73,14 @@ public class ModeratoreViewLR{
 							selez.setVisible(false);
 							j.setVisible(false);
 							panel_9.setVisible(false);
-							new ModeratoreViewLR(frmPiattaformaGaming, ut);
+							new ModeratoreViewLR(frmPiattaformaGaming, utente);
 						}
 						if( n == JOptionPane.NO_OPTION ){
 							JOptionPane.showMessageDialog(frmPiattaformaGaming, new ModeratoreController(new ModeratoreController().findReview(Integer.parseInt(j.getText().substring(11)))).disapprove());
 							selez.setVisible(false);
 							j.setVisible(false);
 							panel_9.setVisible(false);
-							new ModeratoreViewLR(frmPiattaformaGaming, ut);
+							new ModeratoreViewLR(frmPiattaformaGaming, utente);
 						}
 			}});
 		}
@@ -85,7 +91,7 @@ public class ModeratoreViewLR{
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_9.setVisible(false);
-				new ModeratoreView(frmPiattaformaGaming, ut);
+				new ModeratoreView(frmPiattaformaGaming, utente);
 		}});
 	}
 }

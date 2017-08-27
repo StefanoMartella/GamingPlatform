@@ -22,6 +22,13 @@ public class GiocoRecensioniView {
 	private Gioco gioco;
 	private Utente utente;
 	
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*@param gioco current game
+	*/
 	public GiocoRecensioniView(JFrame frame, Utente utente, Gioco gioco){
 		this.frmPiattaformaGaming = frame;
 		this.gioco = gioco;
@@ -60,7 +67,7 @@ public class GiocoRecensioniView {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_7.setVisible(false);
-				new GiocoView(frmPiattaformaGaming,utente,gioco);
+				new GiocoView(frmPiattaformaGaming, utente, gioco);
 		}});
 	}
 }

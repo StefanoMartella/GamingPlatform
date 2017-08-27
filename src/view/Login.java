@@ -108,8 +108,8 @@ public class Login {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Utente ut = new GestioneUtenza().logIn(textField.getText(), new String(psswrdField.getPassword()));
-				if( ut == null )
+				Utente utente = new GestioneUtenza().logIn(textField.getText(), new String(psswrdField.getPassword()));
+				if( utente == null )
 				{
 					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Username o password errati", "Login error", JOptionPane.ERROR_MESSAGE);
 					textField.setText("");
@@ -117,14 +117,14 @@ public class Login {
 				}
 				else{
 					panel.setVisible(false);
-					if( ut.getTipo().equals("utente") ){
-						new UtenteView(frmPiattaformaGaming, ut);
+					if( utente.getTipo().equals("utente") ){
+						new UtenteView(frmPiattaformaGaming, utente);
 					}
-					if( ut.getTipo().equals("moderatore") ){
-						new ModeratoreView(frmPiattaformaGaming, ut);
+					if( utente.getTipo().equals("moderatore") ){
+						new ModeratoreView(frmPiattaformaGaming, utente);
 					}
-					if( ut.getTipo().equals("amministratore") ){
-						new AmministratoreView(frmPiattaformaGaming, ut);
+					if( utente.getTipo().equals("amministratore") ){
+						new AmministratoreView(frmPiattaformaGaming, utente);
 					}
 				
 				}

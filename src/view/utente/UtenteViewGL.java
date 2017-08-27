@@ -20,11 +20,17 @@ import src.view.gioco.*;
 */
 public class UtenteViewGL{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public UtenteViewGL(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public UtenteViewGL(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -52,7 +58,7 @@ public class UtenteViewGL{
 			j.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_5.setVisible(false);
-				new GiocoView(frmPiattaformaGaming, ut, new GiocoController().findGame(j.getText()));
+				new GiocoView(frmPiattaformaGaming, utente, new GiocoController().findGame(j.getText()));
 			}});
 		}
 		
@@ -67,13 +73,13 @@ public class UtenteViewGL{
 
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if( ut.getTipo().equals("moderatore") ){
+				if( utente.getTipo().equals("moderatore") ){
 					panel_5.setVisible(false);
-					new ModeratoreView(frmPiattaformaGaming, ut);
+					new ModeratoreView(frmPiattaformaGaming, utente);
 				}
 				else{
 					panel_5.setVisible(false);
-					new UtenteView(frmPiattaformaGaming, ut);
+					new UtenteView(frmPiattaformaGaming, utente);
 				}
 		}});
 	}

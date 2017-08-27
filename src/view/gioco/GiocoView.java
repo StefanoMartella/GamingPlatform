@@ -24,13 +24,20 @@ import src.view.utente.*;
 */
 public class GiocoView{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	private Gioco gioco;
 	
-	public GiocoView(JFrame frame, Utente ut, Gioco g){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*@param gioco current game
+	*/
+	public GiocoView(JFrame frame, Utente utente, Gioco gioco){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
-		this.gioco = g;
+		this.utente = utente;
+		this.gioco = gioco;
 		initialize();
 	}
 	
@@ -104,15 +111,15 @@ public class GiocoView{
 		
 		btnGioca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int lvl = ut.getLivello();
-				new UtenteController(ut,gioco).play();
+				int lvl = utente.getLivello();
+				new UtenteController(utente, gioco).play();
 				JOptionPane.showMessageDialog(frmPiattaformaGaming, "Hai giocato!");
-				if( ut.getLivello() > lvl ){
+				if( utente.getLivello() > lvl ){
 					JPanel opP = new JPanel();
 					opP.setLayout(new BorderLayout());
 					JLabel text = new JLabel();
-					text.setText("<html><body>Complimenti, hai raggiunto il livello " + ut.getLivello() + "<br>Hai ottenuto un trofeo!</body></html>");
-					ImageIcon icon = new ImageIcon(getClass().getResource("../img/Trofeo"+ ut.getLivello() +".png"));
+					text.setText("<html><body>Complimenti, hai raggiunto il livello " + utente.getLivello() + "<br>Hai ottenuto un trofeo!</body></html>");
+					ImageIcon icon = new ImageIcon(getClass().getResource("../img/Trofeo"+ utente.getLivello() +".png"));
 					JLabel ico = new JLabel(icon);
 					opP.add(ico,BorderLayout.SOUTH);
 					opP.add(text,BorderLayout.EAST);
@@ -123,29 +130,28 @@ public class GiocoView{
 		
 		btnReview.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(
-							frmPiattaformaGaming, new UtenteController(ut,gioco).review("Recensione di " + ut.getUsername() + ":\n" + textPane.getText()));
-							textPane.setText("");
+				JOptionPane.showMessageDialog(frmPiattaformaGaming, new UtenteController(utente, gioco).review("Recensione di " + utente.getUsername() + ":\n" + textPane.getText()));
+				textPane.setText("");
 		}});
 		
 		btnvReview.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_6.setVisible(false);
-				new GiocoRecensioniView(frmPiattaformaGaming,ut,gioco);
+				new GiocoRecensioniView(frmPiattaformaGaming, utente, gioco);
 		}});
 		
 		btnVota.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frmPiattaformaGaming, new UtenteController(ut,gioco).vote((int) seleziona_voto.getValue()));
+				JOptionPane.showMessageDialog(frmPiattaformaGaming, new UtenteController(utente, gioco).vote((int) seleziona_voto.getValue()));
 				average.setText(df.format(new GiocoController(gioco).avgVote()));
 				textPane.setText("");
 		}
 		});
 		
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnBack.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
 				panel_6.setVisible(false);
-				new UtenteViewGL(frmPiattaformaGaming, ut);
+				new UtenteViewGL(frmPiattaformaGaming, utente);
 		}});
 		
 	}

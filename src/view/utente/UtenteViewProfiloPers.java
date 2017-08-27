@@ -21,11 +21,17 @@ import src.view.amministratore.*;
 */
 public class UtenteViewProfiloPers{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public UtenteViewProfiloPers(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public UtenteViewProfiloPers(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -60,22 +66,22 @@ public class UtenteViewProfiloPers{
 		lblTrofei.setBounds(20, 230, 114, 14);
 		panel_4.add(lblTrofei);
 		
-		JLabel lblNewLabel_4 = new JLabel(ut.getNome());
+		JLabel lblNewLabel_4 = new JLabel(utente.getNome());
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel_4.setBounds(200, 80, 166, 14);
 		panel_4.add(lblNewLabel_4);
 		
-		JLabel label = new JLabel(ut.getCognome());
+		JLabel label = new JLabel(utente.getCognome());
 		label.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label.setBounds(200, 130, 166, 14);
 		panel_4.add(label);
 		
-		JLabel label_1 = new JLabel(ut.getUsername());
+		JLabel label_1 = new JLabel(utente.getUsername());
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label_1.setBounds(200, 180, 166, 14);
 		panel_4.add(label_1);
 		
-		JLabel label_2 = new JLabel(ut.getEmail());
+		JLabel label_2 = new JLabel(utente.getEmail());
 		label_2.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label_2.setBounds(200, 230, 250, 20);
 		panel_4.add(label_2);
@@ -105,34 +111,34 @@ public class UtenteViewProfiloPers{
 				
 					case "nome":    	String nuovo_nome = JOptionPane.showInputDialog("Seleziona nuovo nome:");
 								if( nuovo_nome != null ){
-									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, ut));
+									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("nome", nuovo_nome, utente));
 									panel_4.setVisible(false);
-									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, utente);
 								}
 								break;
 
 
 					case "cognome":		String nuovo_cognome = JOptionPane.showInputDialog("Seleziona nuovo cognome:");
 								if( nuovo_cognome != null ){
-									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, ut));
+									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("cognome", nuovo_cognome, utente));
 									panel_4.setVisible(false);
-									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, utente);
 								}
 								break;
 
 					case "username":	String nuova_username = JOptionPane.showInputDialog("Seleziona nuovo username:");
 								if( nuova_username != null ){
-									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, ut));
+									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("username", nuova_username, utente));
 									panel_4.setVisible(false);
-									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, utente);
 								}
 								break;
 
 					case "email":		String nuova_email = JOptionPane.showInputDialog("Seleziona nuovo email:");
 								if( nuova_email != null ){
-									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, ut));
+									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("email", nuova_email, utente));
 									panel_4.setVisible(false);
-									new UtenteViewProfiloPers(frmPiattaformaGaming, ut);
+									new UtenteViewProfiloPers(frmPiattaformaGaming, utente);
 								}
 								break;
 
@@ -143,23 +149,23 @@ public class UtenteViewProfiloPers{
 								String nuova_password = String.valueOf(pf.getPassword());
 								String conferma_password = String.valueOf(pf2.getPassword());
 								if( pressed_button == 0 )
-									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("password", nuova_password, conferma_password, ut));
+									JOptionPane.showMessageDialog(frmPiattaformaGaming, new GestioneUtenza().updateValue("password", nuova_password, conferma_password, utente));
 				}				
 		}});
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if( ut.getTipo().equals("moderatore") ){
+				if( utente.getTipo().equals("moderatore") ){
 					panel_4.setVisible(false);
-					new ModeratoreView(frmPiattaformaGaming, ut);
+					new ModeratoreView(frmPiattaformaGaming, utente);
 				}
-				else if( ut.getTipo().equals("amministratore") ){
+				else if( utente.getTipo().equals("amministratore") ){
 					panel_4.setVisible(false);
-					new AmministratoreView(frmPiattaformaGaming, ut);
+					new AmministratoreView(frmPiattaformaGaming, utente);
 				}
 				else{
 					panel_4.setVisible(false);
-					new UtenteView(frmPiattaformaGaming, ut);
+					new UtenteView(frmPiattaformaGaming, utente);
 				}
 		}});
 	}

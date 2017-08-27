@@ -190,33 +190,33 @@ public class UtenteDao implements UtenteDaoInterface{
   /**
   *Method to play with a game
   *
-  *@param ut user who plays
-  *@param g played game
+  *@param utente user who plays
+  *@param gioco played game
   *@throws SQLException if no database connection is found or another error occurs
   */
   @Override
-  public void play(Utente ut, Gioco g) throws SQLException{
+  public void play(Utente utente, Gioco gioco) throws SQLException{
     Connection connection = DB.openConnection();  
     PreparedStatement ps = connection.prepareStatement(PLAY);
-    ps.setInt(1, ut.getPuntiExp());
-    ps.setInt(2, g.getExp());
-    ps.setString(3, ut.getUsername());
+    ps.setInt(1, utente.getPuntiExp());
+    ps.setInt(2, gioco.getExp());
+    ps.setString(3, utente.getUsername());
     ps.executeUpdate();
     ps.close();
     PreparedStatement ps2 = connection.prepareStatement(UPDATE_LEVEL);
-    if( ut.getPuntiExp()>= 500 )
+    if( utente.getPuntiExp()>= 500 )
 	ps2.setInt(1, 5);
     else
-	ps2.setInt(1, (ut.getPuntiExp()+g.getExp())/100);
-    ps2.setString(2, ut.getUsername());
+	ps2.setInt(1, (utente.getPuntiExp() + gioco.getExp()) / 100);
+    ps2.setString(2, utente.getUsername());
     ps2.executeUpdate();
     ps2.close();
     connection.close();
-    ut.setPuntiExp(ut.getPuntiExp()+g.getExp());
-    if( ut.getPuntiExp()>= 500 )
-	ut.setLivello(5);
+    utente.setPuntiExp(utente.getPuntiExp() + gioco.getExp());
+    if( utente.getPuntiExp()>= 500 )
+	utente.setLivello(5);
     else
-	ut.setLivello(ut.getPuntiExp()/100);
+	utente.setLivello(utente.getPuntiExp() / 100);
   }
   
   /**

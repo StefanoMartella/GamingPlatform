@@ -17,12 +17,18 @@ import src.model.*;
 public class UtenteViewTrofei {
 	
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	private int count = 1;
 	
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
 	public UtenteViewTrofei(JFrame frame, Utente utente) {
 		this.frmPiattaformaGaming = frame;
-		this.ut = utente;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -41,7 +47,7 @@ public class UtenteViewTrofei {
 		
 		ImageIcon iconSX = new ImageIcon(getClass().getResource("../img/FrecciaSX.png"));
 		ImageIcon iconDX = new ImageIcon(getClass().getResource("../img/FrecciaDX.png"));
-		ImageIcon[] icon = new ImageIcon[ut.getLivello()+1];
+		ImageIcon[] icon = new ImageIcon[utente.getLivello()+1];
 		
 		JButton arrowSX = new JButton();
 		arrowSX.setIcon(iconSX);
@@ -55,12 +61,12 @@ public class UtenteViewTrofei {
 		JButton btnBack = new JButton("Indietro");
 		panel_2.add(btnBack, "width 140, height 20, pos 250px 350px");
 		
-		for( int i=1; i < ut.getLivello()+1; i++ )
-			icon[i] = new ImageIcon(getClass().getResource("../img/Trofeo"+i+".png"));
+		for( int i=1; i < utente.getLivello()+1; i++ )
+			icon[i] = new ImageIcon(getClass().getResource("../img/Trofeo" + i + ".png"));
 		
 		trof.setIcon(icon[count]);
 		
-		if( ut.getLivello() == 1 ){
+		if( utente.getLivello() == 1 ){
 			arrowSX.setVisible(false);
 			arrowDX.setVisible(false);
 		}
@@ -74,17 +80,17 @@ public class UtenteViewTrofei {
 					arrowSX.setVisible(true);
 					if( count == 1 )
 						arrowSX.setVisible(false);
-					if( count == ut.getLivello()-1 )
+					if( count == utente.getLivello()-1 )
 						arrowDX.setVisible(true);
 				}
 		}});
 		
 		arrowDX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if( count < ut.getLivello() ){
+				if( count < utente.getLivello() ){
 					trof.setIcon(icon[++count]);
 					arrowDX.setVisible(true);
-					if( count == ut.getLivello() )
+					if( count == utente.getLivello() )
 						arrowDX.setVisible(false);
 					if( count == 2 )
 						arrowSX.setVisible(true);
@@ -94,7 +100,7 @@ public class UtenteViewTrofei {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);
-				new UtenteViewProfiloGaming(frmPiattaformaGaming, ut);
+				new UtenteViewProfiloGaming(frmPiattaformaGaming, utente);
 		}});
 		
 	}

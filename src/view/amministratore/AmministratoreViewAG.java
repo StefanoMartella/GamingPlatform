@@ -17,11 +17,17 @@ import src.model.*;
 */
 public class AmministratoreViewAG{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public AmministratoreViewAG(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public AmministratoreViewAG(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -72,7 +78,7 @@ public class AmministratoreViewAG{
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_9.setVisible(false);
-				new AmministratoreViewLG(frmPiattaformaGaming, ut);
+				new AmministratoreViewLG(frmPiattaformaGaming, utente);
 		}});
 	}
 }

@@ -20,11 +20,17 @@ import src.model.*;
 */
 public class ModeratoreViewLU{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public ModeratoreViewLU(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public ModeratoreViewLU(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -49,7 +55,7 @@ public class ModeratoreViewLU{
 		List<Utente> lU = new ModeratoreController().usersList();
 		ArrayList<JLabel> jl = new ArrayList<JLabel>();
 		for( Utente u : lU ){
-			if( !(u.getTipo().equals("amministratore") || u.getUsername().equals(ut.getUsername())) )
+			if( !(u.getTipo().equals("amministratore") || u.getUsername().equals(utente.getUsername())) )
 				jl.add(new JLabel(u.getUsername()));
 		}
 		for( JLabel j : jl ){
@@ -83,7 +89,7 @@ public class ModeratoreViewLU{
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_8.setVisible(false);
-				new ModeratoreView(frmPiattaformaGaming, ut);
+				new ModeratoreView(frmPiattaformaGaming, utente);
 		}});
 	}
 }

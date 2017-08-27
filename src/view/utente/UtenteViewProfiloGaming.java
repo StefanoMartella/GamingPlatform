@@ -23,11 +23,17 @@ import src.view.moderatore.*;
 */
 public class UtenteViewProfiloGaming{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public UtenteViewProfiloGaming(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public UtenteViewProfiloGaming(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -62,23 +68,23 @@ public class UtenteViewProfiloGaming{
 		lblTrofei.setBounds(20, 200, 114, 14);
 		panel_1.add(lblTrofei);
 		
-		JLabel lblNewLabel_4 = new JLabel(ut.getUsername());
+		JLabel lblNewLabel_4 = new JLabel(utente.getUsername());
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel_4.setBounds(200, 75, 166, 14);
 		panel_1.add(lblNewLabel_4);
 		
-		JLabel label = new JLabel(""+ut.getLivello());
+		JLabel label = new JLabel("" + utente.getLivello());
 		label.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label.setBounds(200, 115, 166, 14);
 		panel_1.add(label);
 		
-		JLabel label_1 = new JLabel(""+ut.getPuntiExp());
+		JLabel label_1 = new JLabel("" + utente.getPuntiExp());
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		label_1.setBounds(200, 155, 166, 14);
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("Visualizza trofei");
-		if( ut.getLivello() == 0 )
+		if( utente.getLivello() == 0 )
 			trofei.setBackground(Color.LIGHT_GRAY);
 		trofei.setBounds(200, 192, 124, 25);
 		panel_1.add(trofei);
@@ -87,7 +93,7 @@ public class UtenteViewProfiloGaming{
 		lblTimeline.setBounds(20, 260, 166, 25);
 		panel_1.add(lblTimeline);
 		
-		TreeMap<Integer,String> timeline = new UtenteController().timeline(ut.getUsername());
+		TreeMap<Integer,String> timeline = new UtenteController().timeline(utente.getUsername());
 		
 		String[] column_names = { "Data", "Livello" };
 		Object[][] timelineTable = new Object[timeline.size()][2];
@@ -111,23 +117,23 @@ public class UtenteViewProfiloGaming{
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if( ut.getTipo().equals("moderatore") ){
+				if( utente.getTipo().equals("moderatore") ){
 					panel_1.setVisible(false);
-					new ModeratoreView(frmPiattaformaGaming, ut);
+					new ModeratoreView(frmPiattaformaGaming, utente);
 				}
 				else{
 					panel_1.setVisible(false);
-					new UtenteView(frmPiattaformaGaming, ut);
+					new UtenteView(frmPiattaformaGaming, utente);
 				}
 		}});
 		
 		trofei.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if( ut.getLivello() < 1 )
+				if( utente.getLivello() < 1 )
 					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Non hai ancora collezionato trofei!", "No trofei", JOptionPane.ERROR_MESSAGE);
 				else{
 					panel_1.setVisible(false);
-					new UtenteViewTrofei(frmPiattaformaGaming, ut);
+					new UtenteViewTrofei(frmPiattaformaGaming, utente);
 				}
 		}});
 	}

@@ -11,7 +11,7 @@ public class Gioco{
   public Gioco(){}
   
   /**
-  * Class' constructor
+  *Class' constructor
   *
   *@param nome game's name
   *@param exp game's exp
@@ -22,7 +22,7 @@ public class Gioco{
   }
   
   /**
-  * Class' constructor
+  *Class' constructor
   *
   *@param id game's id
   *@param nome game's name
@@ -36,49 +36,49 @@ public class Gioco{
   }
   
   /**
-  * Method used to get the game's ID
+  *Method used to get the game's ID
   *
   *@return int number of ID
   */
   public int getId(){ return this.id; }
   
   /**
-  * Method used to get the game's name
+  *Method used to get the game's name
   *
   *@return String name of game
   */
   public String getNome(){ return this.nome; }
   
   /**
-  * Method used to get the game's EXP
+  *Method used to get the game's EXP
   *
   *@return int amount of exp
   */
   public int getExp(){ return this.exp; }
 
   /**
-  * Method used to set the game's ID
+  *Method used to set the game's ID
   *
   *@param id new game's id
   */
   public void setId(int id){ this.id = id; }
   
   /**
-  * Method used to set the game's name
+  *Method used to set the game's name
   *
   *@param nome new game's name
   */
   public void setNome(String nome){ this.nome = nome; }
   
   /**
-  * Method used to set the game's exp
+  *Method used to set the game's exp
   *
   *@param exp new game's exp
   */
   public void setExp(int exp){ this.exp = exp; }
   
   /**
-  * Method used to get the game's information (ID + name)
+  *Method used to get the game's information (ID + name)
   *
   *@return String game's ID and name
   */

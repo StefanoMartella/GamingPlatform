@@ -21,8 +21,13 @@ public class SignUp{
 	
 	private JFrame frmPiattaformaGaming;
 	
-	public SignUp(JFrame frm){
-		this.frmPiattaformaGaming = frm;
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*/
+	public SignUp(JFrame frame){
+		this.frmPiattaformaGaming = frame;
 		initialize();
 	}
 	

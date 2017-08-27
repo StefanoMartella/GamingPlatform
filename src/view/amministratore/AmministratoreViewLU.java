@@ -20,11 +20,17 @@ import src.model.*;
 */
 public class AmministratoreViewLU{
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public AmministratoreViewLU(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public AmministratoreViewLU(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -67,14 +73,14 @@ public class AmministratoreViewLU{
 					j.setVisible(false);
 					selez.setVisible(false);
 					panel_9.setVisible(false);
-					new AmministratoreViewLU(frmPiattaformaGaming, ut);
+					new AmministratoreViewLU(frmPiattaformaGaming, utente);
 			}});
 		}
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_9.setVisible(false);
-				new AmministratoreView(frmPiattaformaGaming, ut);
+				new AmministratoreView(frmPiattaformaGaming, utente);
 		}});
 	}
 }

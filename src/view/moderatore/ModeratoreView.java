@@ -24,11 +24,17 @@ import src.view.utente.*;
 public class ModeratoreView {
 	
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public ModeratoreView(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public ModeratoreView(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -48,7 +54,7 @@ public class ModeratoreView {
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBenvenutoUtente.setBounds(150, 17, 350, 69);
-		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername() + " [M]");
+		lblBenvenutoUtente.setText("Benvenuto " + utente.getUsername() + " [M]");
 		panel_2.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");
@@ -83,7 +89,7 @@ public class ModeratoreView {
 		
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ut = null;
+				utente = null;
 				panel_2.setVisible(false);
 				new Login();
 		}});
@@ -91,19 +97,19 @@ public class ModeratoreView {
 		btnProfiloPersonale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);
-				new UtenteViewProfiloPers(frmPiattaformaGaming,ut);
+				new UtenteViewProfiloPers(frmPiattaformaGaming, utente);
 		}});
 		
 		btnProfiloGaming.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);
-				new UtenteViewProfiloGaming(frmPiattaformaGaming,ut);
+				new UtenteViewProfiloGaming(frmPiattaformaGaming, utente);
 		}});
 		
 		btnVaiAiGiochi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);
-				new UtenteViewGL(frmPiattaformaGaming,ut);
+				new UtenteViewGL(frmPiattaformaGaming, utente);
 		}});
 		
 		btnLR.addActionListener(new ActionListener() {
@@ -113,14 +119,14 @@ public class ModeratoreView {
 				}
 				else{
 					panel_2.setVisible(false);
-					new ModeratoreViewLR(frmPiattaformaGaming,ut);
+					new ModeratoreViewLR(frmPiattaformaGaming, utente);
 				}
 		}});
 		
 		btnListaUtente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_2.setVisible(false);
-				new ModeratoreViewLU(frmPiattaformaGaming,ut);
+				new ModeratoreViewLU(frmPiattaformaGaming, utente);
 		}});
 	}
 }

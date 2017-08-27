@@ -20,11 +20,17 @@ import src.view.utente.*;
 public class AmministratoreView {
 	
 	private JFrame frmPiattaformaGaming;
-	private Utente ut;
+	private Utente utente;
 	
-	public AmministratoreView(JFrame frame, Utente ut){
+	/**
+	*Class constructor
+	*
+	*@param frame initial frame
+	*@param utente current user
+	*/
+	public AmministratoreView(JFrame frame, Utente utente){
 		this.frmPiattaformaGaming = frame;
-		this.ut = ut;
+		this.utente = utente;
 		initialize();
 	}
 	
@@ -45,7 +51,7 @@ public class AmministratoreView {
 		lblBenvenutoUtente.setFont(font);
 		lblBenvenutoUtente.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBenvenutoUtente.setBounds(150, 17, 350, 69);
-		lblBenvenutoUtente.setText("Benvenuto " + ut.getUsername() + " [A]");
+		lblBenvenutoUtente.setText("Benvenuto " + utente.getUsername() + " [A]");
 		panel_0.add(lblBenvenutoUtente);
 		
 		JButton btnProfiloPersonale = new JButton("Profilo Personale");
@@ -67,24 +73,24 @@ public class AmministratoreView {
 		btnProfiloPersonale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_0.setVisible(false);
-				new UtenteViewProfiloPers(frmPiattaformaGaming,ut);
+				new UtenteViewProfiloPers(frmPiattaformaGaming, utente);
 		}});
 		
 		btnLG.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_0.setVisible(false);
-				new AmministratoreViewLG(frmPiattaformaGaming,ut);
+				new AmministratoreViewLG(frmPiattaformaGaming, utente);
 		}});
 		
 		btnLU.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_0.setVisible(false);
-				new AmministratoreViewLU(frmPiattaformaGaming,ut);
+				new AmministratoreViewLU(frmPiattaformaGaming, utente);
 		}});
 		
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ut = null;
+				utente = null;
 				panel_0.setVisible(false);
 				new Login();
 		}});
