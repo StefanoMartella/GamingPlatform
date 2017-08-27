@@ -139,16 +139,16 @@ public class RecensioneDao implements RecensioneDaoInterface{
   */
   @Override
   public Recensione findReviewById(int id) throws SQLException{
-    Recensione r;
+    Recensione recensione;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(FIND_REVIEW);
     ps.setInt(1, id);
     ResultSet rset = ps.executeQuery();
-    if (rset.first() == false) return null;
-	r = new Recensione(rset.getInt(1), rset.getInt(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
+    if ( rset.first() == false ) return null;
+	recensione = new Recensione(rset.getInt(1), rset.getInt(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
     ps.close();
     connection.close();
-    return r;
+    return recensione;
   }
   
   /**
@@ -161,16 +161,16 @@ public class RecensioneDao implements RecensioneDaoInterface{
   */
   @Override
   public Recensione findReviewByUserAndGame(Utente utente, Gioco gioco) throws SQLException{
-    Recensione r;
+    Recensione recensione;
     Connection connection = DB.openConnection();
     PreparedStatement ps = connection.prepareStatement(FIND_REVIEW_BY_USER_AND_GAME);
     ps.setInt(1, utente.getId());
     ps.setInt(2, gioco.getId());
     ResultSet rset = ps.executeQuery();
-    if (rset.first() == false) return null;
-	r = new Recensione(rset.getInt(1), rset.getInt(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
+    if ( rset.first() == false ) return null;
+	recensione = new Recensione(rset.getInt(1), rset.getInt(2), rset.getString(3), rset.getInt(4), rset.getInt(5));
     ps.close();
     connection.close();
-    return r;
+    return recensione;
   }
 }
