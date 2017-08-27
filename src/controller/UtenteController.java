@@ -52,7 +52,7 @@ public class UtenteController{
 	*/
 	public void play(){
 		try{
-			new UtenteDao().play(utente,gioco);
+			new UtenteDao().play(utente, gioco);
 		}
 		catch(SQLException exc){
 			exc.printStackTrace();
@@ -70,11 +70,11 @@ public class UtenteController{
 	public String vote(int voto){
 		try{
 			if( new UtenteDao().gameAlreadyVotedByUser(utente, gioco) ){
-				new UtenteDao().updateVote(voto,utente, gioco);
+				new UtenteDao().updateVote(voto, utente, gioco);
 				return "Voto aggiornato!";
 			}
 		
-			new UtenteDao().voteGame(voto,utente,gioco);
+			new UtenteDao().voteGame(voto, utente, gioco);
 			return "Votazione andata a buon fine!";
 		}
 		catch(SQLException exc){
@@ -92,7 +92,7 @@ public class UtenteController{
 	*/
 	public String review(String testoRecensione){
 		try{
-			if( new UtenteDao().reviewAlreadyMadeByUser(utente,gioco) ){
+			if( new UtenteDao().reviewAlreadyMadeByUser(utente, gioco) ){
 				new UtenteDao().updateReview(testoRecensione, utente, gioco);
 				return "Recensione aggiornata, dovrete aspettare il consenso di un moderatore!";
 			}
