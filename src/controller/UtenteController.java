@@ -106,7 +106,7 @@ public class UtenteController{
 					new UtenteDao().approveReview(new RecensioneDao().findReviewByUserAndGame(utente, gioco));
 					return "Recensione inserita!";
 				}
-                return "Recensione inviata, dovrete aspettare il consenso di un moderatore.";
+                		return "Recensione inviata, dovrete aspettare il consenso di un moderatore.";
 			}
 		}
 		catch(SQLException exc){
