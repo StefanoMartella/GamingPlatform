@@ -10,7 +10,7 @@ This project has the aim to realize a gaming platform in which are present three
  
  - Admnistrator has the whole control of the system, he can manage users, moderators and games or by using GUI either with queries to      database.
  
- For more details read the .pdf in doc folder.
+ For more details read the [documentation](doc/progettoOOSD.pdf).
 
 ## Team
 
