@@ -8,11 +8,11 @@ USE `Gaming`;
 
 CREATE TABLE `utente`(
 `id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-`nome` varchar(20) NOT NULL,
-`cognome` varchar(20) NOT NULL,
-`username` varchar(30) NOT NULL UNIQUE,
+`nome` varchar(50) NOT NULL,
+`cognome` varchar(50) NOT NULL,
+`username` varchar(50) NOT NULL UNIQUE,
 `email` varchar(50) NOT NULL UNIQUE,
-`password` varchar(30) NOT NULL,
+`password` varchar(50) NOT NULL,
 `tipo` varchar(20) NOT NULL DEFAULT 'utente',
 `livello` int(10) NOT NULL DEFAULT '0',
 `puntiExp` int(10) NOT NULL DEFAULT '0'

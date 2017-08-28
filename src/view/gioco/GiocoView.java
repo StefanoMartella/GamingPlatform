@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Font;
 
@@ -79,6 +80,8 @@ public class GiocoView{
 		
 		JButton btnvReview = new JButton("Vedi recensioni");
 		btnvReview.setBounds(480, 150, 130, 25);
+		if( new GiocoController(gioco).allReviews().isEmpty() )
+			btnvReview.setBackground(Color.LIGHT_GRAY);
 		panel_6.add(btnvReview);
 		
 		JSpinner seleziona_voto = new JSpinner();
@@ -119,7 +122,7 @@ public class GiocoView{
 					opP.setLayout(new BorderLayout());
 					JLabel text = new JLabel();
 					text.setText("<html><body>Complimenti, hai raggiunto il livello " + utente.getLivello() + "<br>Hai ottenuto un trofeo!</body></html>");
-					ImageIcon icon = new ImageIcon(getClass().getResource("../img/Trofeo"+ utente.getLivello() +".png"));
+					ImageIcon icon = new ImageIcon(getClass().getResource("../img/Trofeo" + utente.getLivello() + ".png"));
 					JLabel ico = new JLabel(icon);
 					opP.add(ico,BorderLayout.SOUTH);
 					opP.add(text,BorderLayout.EAST);
@@ -130,14 +133,30 @@ public class GiocoView{
 		
 		btnReview.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frmPiattaformaGaming, new UtenteController(utente, gioco).review("Recensione di " + utente.getUsername() + ":\n" + textPane.getText()));
-				textPane.setText("");
+				if(  textPane.getText().trim().isEmpty() ){
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, "La recensione non puo' essere vuota!", "Recensione vuota", JOptionPane.ERROR_MESSAGE);
+					textPane.setText("");
+				}
+				else if( textPane.getText().length() > (239 - utente.getUsername().length()) ){
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, "La recensione puo' essere di massimo 200 caratteri!", "Recensione troppo lunga", JOptionPane.ERROR_MESSAGE);
+					textPane.setText("");
+				}
+				else{
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, new UtenteController(utente, gioco).review("Recensione di " + utente.getUsername() + ":\n" + textPane.getText()));
+					if( !new GiocoController(gioco).allReviews().isEmpty() )
+						btnvReview.setBackground(null);
+					textPane.setText("");
+				}
 		}});
 		
 		btnvReview.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel_6.setVisible(false);
-				new GiocoRecensioniView(frmPiattaformaGaming, utente, gioco);
+				if( new GiocoController(gioco).allReviews().isEmpty() )
+					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Non ci sono ancora recensioni per questo gioco!", "No recensioni", JOptionPane.ERROR_MESSAGE);
+				else{
+					panel_6.setVisible(false);
+					new GiocoRecensioniView(frmPiattaformaGaming, utente, gioco);
+				}
 		}});
 		
 		btnVota.addActionListener(new ActionListener() {

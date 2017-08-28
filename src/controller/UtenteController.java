@@ -94,15 +94,19 @@ public class UtenteController{
 		try{
 			if( new UtenteDao().reviewAlreadyMadeByUser(utente, gioco) ){
 				new UtenteDao().updateReview(testoRecensione, utente, gioco);
+				if( utente.getTipo().equals("moderatore") ){
+					new UtenteDao().approveReview(new RecensioneDao().findReviewByUserAndGame(utente, gioco));
+					return "Recensione aggiornata!";
+				}
 				return "Recensione aggiornata, dovrete aspettare il consenso di un moderatore!";
 			}
 			else{
 				new UtenteDao().reviewGame(testoRecensione, utente, gioco);
 				if( utente.getTipo().equals("moderatore") ){
 					new UtenteDao().approveReview(new RecensioneDao().findReviewByUserAndGame(utente, gioco));
-				return "Recensione inserita!";
+					return "Recensione inserita!";
 				}
-                 		return "Recensione inviata, dovrete aspettare il consenso di un moderatore.";
+                return "Recensione inviata, dovrete aspettare il consenso di un moderatore.";
 			}
 		}
 		catch(SQLException exc){

@@ -74,18 +74,21 @@ public class GestioneUtenza{
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(mail);
 		
 		try{
-			if( name.equals("") || surname.equals("") || username.equals("") || mail.equals("") || password.equals("") || password2.equals("") )
+			if( name.trim().isEmpty() || surname.trim().isEmpty() || username.trim().isEmpty() || mail.trim().isEmpty() || password.trim().isEmpty() || password2.trim().isEmpty())
 				return 1;
-			if( new UtenteDao().usernameAlreadyUsed(username) )
+			if( name.length() > 30 || surname.length() > 30 || surname.length() > 30 || mail.length() > 30 || password.length() > 30 )
 				return 2;
-			if( new UtenteDao().emailAlreadyUsed(mail) )
+			if( new UtenteDao().usernameAlreadyUsed(username) )
 				return 3;
-			if( !matcher.find() ) 
+			if( new UtenteDao().emailAlreadyUsed(mail) )
 				return 4;
-			if( password2.length() < 8 )
+			if( !matcher.find() ) 
 				return 5;
-			if( !password.equals(password2) )
+			if( password2.length() < 8 )
 				return 6;
+			if( !password.equals(password2) )
+				return 7;
+			
 			Utente ut = new Utente(name,surname,username,mail,password);
 		
 			new UtenteDao().insertUser(ut);
@@ -110,19 +113,19 @@ public class GestioneUtenza{
 		try{
 			switch( column ){
 				
-				case "nome":		if(newValue.equals(""))
+				case "nome":		if( newValue.trim().isEmpty() )
 								return "Il nome non puo' essere vuoto!";
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setNome(newValue);
 							return "Nome aggiornato!";
 								
-				case "cognome":		if(newValue.equals(""))
+				case "cognome":		if( newValue.trim().isEmpty() )
 								return "Il nome non puo' essere vuoto!";
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setCognome(newValue);
 							return "Cognome aggiornato!";
 								
-				case "username":	if(newValue.equals(""))
+				case "username":	if( newValue.trim().isEmpty() )
 								return "Lo username non puo' essere vuoto!";
 							if(new UtenteDao().usernameAlreadyUsed(newValue))
 								return "Username gia' in uso!";
@@ -130,7 +133,7 @@ public class GestioneUtenza{
 							utente.setUsername(newValue);
 							return "Username aggiornato!";
 									
-				case "email":		if(newValue.equals(""))
+				case "email":		if( newValue.trim().isEmpty() )
 								return "L'email non puo' essere vuota!";
 							Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 							Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
