@@ -89,9 +89,9 @@ public class GestioneUtenza{
 			if( !password.equals(password2) )
 				return 7;
 			
-			Utente ut = new Utente(name,surname,username,mail,password);
+			Utente utente = new Utente(name,surname,username,mail,password);
 		
-			new UtenteDao().insertUser(ut);
+			new UtenteDao().insertUser(utente);
 			return 0;
 		}
 		catch(SQLException exc){
