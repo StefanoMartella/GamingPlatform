@@ -101,9 +101,10 @@ public class Login {
 		panel.add(btnSignUp);
 		
 		JButton btnLogin = new JButton("Accedi");
-		
 		btnLogin.setBounds(220, 260, 100, 23);
 		panel.add(btnLogin);
+		
+		frmPiattaformaGaming.getRootPane().setDefaultButton(btnLogin);
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -118,12 +119,15 @@ public class Login {
 				else{
 					panel.setVisible(false);
 					if( utente.getTipo().equals("utente") ){
+						frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 						new UtenteView(frmPiattaformaGaming, utente);
 					}
 					if( utente.getTipo().equals("moderatore") ){
+						frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 						new ModeratoreView(frmPiattaformaGaming, utente);
 					}
 					if( utente.getTipo().equals("amministratore") ){
+						frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 						new AmministratoreView(frmPiattaformaGaming, utente);
 					}
 				
@@ -134,6 +138,7 @@ public class Login {
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panel.setVisible(false);
+				frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 				new SignUp(frmPiattaformaGaming);
 			}
 		});

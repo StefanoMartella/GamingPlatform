@@ -70,17 +70,17 @@ public class UtenteViewProfiloGaming{
 		
 		JLabel lblNewLabel_4 = new JLabel(utente.getUsername());
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel_4.setBounds(200, 75, 166, 14);
+		lblNewLabel_4.setBounds(200, 75, 166, 20);
 		panel_1.add(lblNewLabel_4);
 		
 		JLabel label = new JLabel("" + utente.getLivello());
 		label.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label.setBounds(200, 115, 166, 14);
+		label.setBounds(200, 115, 166, 20);
 		panel_1.add(label);
 		
 		JLabel label_1 = new JLabel("" + utente.getPuntiExp());
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_1.setBounds(200, 155, 166, 14);
+		label_1.setBounds(200, 155, 166, 20);
 		panel_1.add(label_1);
 		
 		JButton trofei = new JButton("Visualizza trofei");
@@ -114,14 +114,17 @@ public class UtenteViewProfiloGaming{
 		btnHome.setBounds(540, 340, 100, 25);
 		panel_1.add(btnHome);
 		
+		frmPiattaformaGaming.getRootPane().setDefaultButton(trofei);
 		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if( utente.getTipo().equals("moderatore") ){
+					frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 					panel_1.setVisible(false);
 					new ModeratoreView(frmPiattaformaGaming, utente);
 				}
 				else{
+					frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 					panel_1.setVisible(false);
 					new UtenteView(frmPiattaformaGaming, utente);
 				}
@@ -132,6 +135,7 @@ public class UtenteViewProfiloGaming{
 				if( utente.getLivello() < 1 )
 					JOptionPane.showMessageDialog(frmPiattaformaGaming, "Non hai ancora collezionato trofei!", "No trofei", JOptionPane.ERROR_MESSAGE);
 				else{
+					frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 					panel_1.setVisible(false);
 					new UtenteViewTrofei(frmPiattaformaGaming, utente);
 				}

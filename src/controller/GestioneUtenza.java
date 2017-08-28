@@ -110,21 +110,29 @@ public class GestioneUtenza{
 		try{
 			switch( column ){
 				
-				case "nome":		new UtenteDao().updateUser(column, newValue, utente);
+				case "nome":		if(newValue.equals(""))
+								return "Il nome non puo' essere vuoto!";
+							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setNome(newValue);
 							return "Nome aggiornato!";
 								
-				case "cognome":		new UtenteDao().updateUser(column, newValue, utente);
+				case "cognome":		if(newValue.equals(""))
+								return "Il nome non puo' essere vuoto!";
+							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setCognome(newValue);
 							return "Cognome aggiornato!";
 								
-				case "username":	if(new UtenteDao().usernameAlreadyUsed(newValue))
+				case "username":	if(newValue.equals(""))
+								return "Lo username non puo' essere vuoto!";
+							if(new UtenteDao().usernameAlreadyUsed(newValue))
 								return "Username gia' in uso!";
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setUsername(newValue);
 							return "Username aggiornato!";
 									
-				case "email":		Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+				case "email":		if(newValue.equals(""))
+								return "L'email non puo' essere vuota!";
+							Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 							Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
 									
 							if( new UtenteDao().emailAlreadyUsed(newValue) )

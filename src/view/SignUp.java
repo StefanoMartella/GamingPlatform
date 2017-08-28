@@ -116,10 +116,12 @@ public class SignUp{
 		btnLogin.setBounds(450, 320,100, 23);
 		panel_3.add(btnLogin);
 		
+		frmPiattaformaGaming.getRootPane().setDefaultButton(btnRegistrati);
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel_3.setVisible(false);
+				frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 				new Login();
 		}});
 		
@@ -132,6 +134,7 @@ public class SignUp{
 							
 						case 0: JOptionPane.showMessageDialog(frmPiattaformaGaming, "Registrato con successo");
 							panel_3.setVisible(false);
+							frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 							new Login();
 							break;
 							
