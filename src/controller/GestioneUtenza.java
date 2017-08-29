@@ -115,18 +115,24 @@ public class GestioneUtenza{
 				
 				case "nome":		if( newValue.trim().isEmpty() )
 								return "Il nome non puo' essere vuoto!";
+							if( newValue.length() > 30 )
+								return "Il nome non deve superare i 30 caratteri!";
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setNome(newValue);
 							return "Nome aggiornato!";
 								
 				case "cognome":		if( newValue.trim().isEmpty() )
 								return "Il nome non puo' essere vuoto!";
+							if( newValue.length() > 30 )
+								return "Il cognome non deve superare i 30 caratteri!";
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setCognome(newValue);
 							return "Cognome aggiornato!";
 								
 				case "username":	if( newValue.trim().isEmpty() )
 								return "Lo username non puo' essere vuoto!";
+							if( newValue.length() > 30 )
+								return "Lo username non deve superare i 30 caratteri!";
 							if(new UtenteDao().usernameAlreadyUsed(newValue))
 								return "Username gia' in uso!";
 							new UtenteDao().updateUser(column, newValue, utente);
@@ -135,6 +141,9 @@ public class GestioneUtenza{
 									
 				case "email":		if( newValue.trim().isEmpty() )
 								return "L'email non puo' essere vuota!";
+							if( newValue.length() > 30 )
+								return "L'email non deve superare i 30 caratteri!";
+							
 							Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 							Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
 									
