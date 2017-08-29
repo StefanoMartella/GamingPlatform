@@ -76,22 +76,16 @@ public class GestioneUtenza{
 		try{
 			if( name.trim().isEmpty() || surname.trim().isEmpty() || username.trim().isEmpty() || mail.trim().isEmpty() || password.trim().isEmpty() || password2.trim().isEmpty())
 				return 1;
-			
 			if( name.length() > 30 || surname.length() > 30 || surname.length() > 30 || mail.length() > 45 || password.length() > 30 )
 				return 2;
-			
 			if( new UtenteDao().usernameAlreadyUsed(username) )
 				return 3;
-			
 			if( new UtenteDao().emailAlreadyUsed(mail) )
 				return 4;
-			
 			if( !matcher.find() ) 
 				return 5;
-			
 			if( password2.length() < 8 )
 				return 6;
-			
 			if( !password.equals(password2) )
 				return 7;
 			
@@ -121,40 +115,32 @@ public class GestioneUtenza{
 				
 				case "nome":		if( newValue.trim().isEmpty() )
 								return "Il nome non puo' essere vuoto!";
-							
 							if( newValue.length() > 30 )
 								return "Il nome non deve superare i 30 caratteri!";
-							
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setNome(newValue);
 							return "Nome aggiornato!";
 								
 				case "cognome":		if( newValue.trim().isEmpty() )
 								return "Il nome non puo' essere vuoto!";
-							
 							if( newValue.length() > 30 )
 								return "Il cognome non deve superare i 30 caratteri!";
-							
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setCognome(newValue);
 							return "Cognome aggiornato!";
 								
 				case "username":	if( newValue.trim().isEmpty() )
 								return "Lo username non puo' essere vuoto!";
-							
 							if( newValue.length() > 30 )
 								return "Lo username non deve superare i 30 caratteri!";
-							
 							if(new UtenteDao().usernameAlreadyUsed(newValue))
 								return "Username gia' in uso!";
-							
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setUsername(newValue);
 							return "Username aggiornato!";
 									
 				case "email":		if( newValue.trim().isEmpty() )
-								return "L'email non puo' essere vuota!";
-							
+								return "L'email non puo' essere vuota!";							
 							if( newValue.length() > 45 )
 								return "L'email non deve superare i 45 caratteri!";
 							
@@ -163,10 +149,8 @@ public class GestioneUtenza{
 									
 							if( new UtenteDao().emailAlreadyUsed(newValue) )
 								return "Email gia' in uso!";
-							
 							if( !matcher.find() )
 								return "Email non valida!";
-							
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setEmail(newValue);
 							return "Email aggiornata!";
@@ -193,13 +177,10 @@ public class GestioneUtenza{
 	public String updateValue(String column, String nuova_password, String conferma_password, Utente utente){
 		if( nuova_password.trim().isEmpty() )
 			return "La password non puo' essere vuota!";
-		
 		if( nuova_password.length() > 30 )
 			return "Lo password non deve superare i 30 caratteri!";
-		
 		if( nuova_password.length() < 8 )
 			return "La password deve essere di minimo 8 caratteri!";
-		
 		if( !nuova_password.equals(conferma_password) )
 			return "Le due password non coincidono!";
 		
