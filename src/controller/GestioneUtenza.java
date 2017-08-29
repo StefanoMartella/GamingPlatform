@@ -77,7 +77,7 @@ public class GestioneUtenza{
 			if( name.trim().isEmpty() || surname.trim().isEmpty() || username.trim().isEmpty() || mail.trim().isEmpty() || password.trim().isEmpty() || password2.trim().isEmpty())
 				return 1;
 			
-			if( name.length() > 30 || surname.length() > 30 || surname.length() > 30 || mail.length() > 30 || password.length() > 30 )
+			if( name.length() > 30 || surname.length() > 30 || surname.length() > 30 || mail.length() > 45 || password.length() > 30 )
 				return 2;
 			
 			if( new UtenteDao().usernameAlreadyUsed(username) )
@@ -155,8 +155,8 @@ public class GestioneUtenza{
 				case "email":		if( newValue.trim().isEmpty() )
 								return "L'email non puo' essere vuota!";
 							
-							if( newValue.length() > 30 )
-								return "L'email non deve superare i 30 caratteri!";
+							if( newValue.length() > 45 )
+								return "L'email non deve superare i 45 caratteri!";
 							
 							Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 							Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);

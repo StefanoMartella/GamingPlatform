@@ -147,7 +147,7 @@ public class SignUp{
 							passwordField2.setText(String.valueOf(passwordField2.getPassword()));
 							break;
 							
-						case 2: JOptionPane.showMessageDialog(frmPiattaformaGaming, "La lunghezza dei campi non deve superare i 30 caratteri!", "Errore registrazione", JOptionPane.ERROR_MESSAGE); 
+						case 2: JOptionPane.showMessageDialog(frmPiattaformaGaming, "<html><body>La lunghezza dei campi è limitata: <br><br>nome, cognome, username e password 30 caratteri max. <br>email 45 caratteri max.</html></body>", "Errore registrazione", JOptionPane.ERROR_MESSAGE); 
 							textField_2.setText("");
 							textField_3.setText("");
 							textField_4.setText("");
