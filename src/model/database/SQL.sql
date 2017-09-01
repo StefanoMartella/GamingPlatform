@@ -7,35 +7,35 @@ USE `Gaming`;
 /* UTENTE */
 
 CREATE TABLE `utente`(
-`id` int(5) PRIMARY KEY AUTO_INCREMENT,
-`nome` varchar(50) NOT NULL,
-`cognome` varchar(50) NOT NULL,
-`username` varchar(50) NOT NULL UNIQUE,
-`email` varchar(50) NOT NULL UNIQUE,
-`password` varchar(50) NOT NULL,
-`tipo` varchar(20) NOT NULL DEFAULT 'utente',
-`livello` int(10) NOT NULL DEFAULT '0',
-`puntiExp` int(10) NOT NULL DEFAULT '0'
+`id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+`nome` VARCHAR(50) NOT NULL,
+`cognome` VARCHAR(50) NOT NULL,
+`username` VARCHAR(50) NOT NULL UNIQUE,
+`email` VARCHAR(50) NOT NULL UNIQUE,
+`password` VARCHAR(50) NOT NULL,
+`tipo` VARCHAR(20) NOT NULL DEFAULT 'utente',
+`livello` INT(10) NOT NULL DEFAULT '0',
+`puntiExp` INT(10) NOT NULL DEFAULT '0'
 );
 
 
 /* GIOCO */
 
 CREATE TABLE `gioco`(
-`id` int(5) PRIMARY KEY AUTO_INCREMENT,
-`nome` varchar(30) NOT NULL UNIQUE,
-`exp` int(2) NOT NULL
+`id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+`nome` VARCHAR(30) NOT NULL UNIQUE,
+`exp` INT(2) NOT NULL
 );
 
 
 /* RECENSIONE */
 
 CREATE TABLE `recensione`(
-`id` int(5) PRIMARY KEY AUTO_INCREMENT,
-`approvazione` tinyint(1) NOT NULL DEFAULT '0',
-`testo` varchar(255) NOT NULL,
-`gioco` int(5) ,
-`utente` int(5) ,
+`id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+`approvazione` TINYINT(1) NOT NULL DEFAULT '0',
+`testo` VARCHAR(255) NOT NULL,
+`gioco` INT(5),
+`utente` INT(5),
 FOREIGN KEY (gioco) REFERENCES gioco(`id`) ON DELETE CASCADE,
 FOREIGN KEY (utente) REFERENCES utente(`id`) ON DELETE CASCADE,
 UNIQUE (`gioco`, `utente`)
@@ -46,8 +46,8 @@ UNIQUE (`gioco`, `utente`)
 
 CREATE TABLE `timeline`(
 `data` date NOT NULL,
-`livello` int(2) NOT NULL DEFAULT '0',
-`utente` int(5) ,
+`livello` INT(2) NOT NULL DEFAULT '0',
+`utente` INT(5),
 PRIMARY KEY (`utente`,`livello`),
 FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE
 );
@@ -56,9 +56,9 @@ FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE
 /* VOTO */
 
 CREATE TABLE `voto`(
-`votazione` int(1) NOT NULL DEFAULT '0',
-`utente` int(5) ,
-`gioco` int(5) ,
+`votazione` INT(1) NOT NULL DEFAULT '0',
+`utente` INT(5),
+`gioco` INT(5),
 PRIMARY KEY (`utente`, `gioco`),
 FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE,
 FOREIGN KEY (gioco) REFERENCES gioco (`id`) ON DELETE CASCADE
