@@ -7,35 +7,35 @@ USE `Gaming`;
 /* UTENTE */
 
 CREATE TABLE `utente`(
-`id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
 `nome` VARCHAR(50) NOT NULL,
 `cognome` VARCHAR(50) NOT NULL,
 `username` VARCHAR(50) NOT NULL UNIQUE,
 `email` VARCHAR(50) NOT NULL UNIQUE,
 `password` VARCHAR(50) NOT NULL,
 `tipo` VARCHAR(20) NOT NULL DEFAULT 'utente',
-`livello` INT(10) NOT NULL DEFAULT '0',
-`puntiExp` INT(10) NOT NULL DEFAULT '0'
+`livello` INTEGER NOT NULL DEFAULT '0',
+`puntiExp` INTEGER NOT NULL DEFAULT '0'
 );
 
 
 /* GIOCO */
 
 CREATE TABLE `gioco`(
-`id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
 `nome` VARCHAR(30) NOT NULL UNIQUE,
-`exp` INT(2) NOT NULL
+`exp` INTEGER NOT NULL
 );
 
 
 /* RECENSIONE */
 
 CREATE TABLE `recensione`(
-`id` INT(5) PRIMARY KEY AUTO_INCREMENT,
+`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
 `approvazione` TINYINT(1) NOT NULL DEFAULT '0',
 `testo` VARCHAR(255) NOT NULL,
-`gioco` INT(5),
-`utente` INT(5),
+`gioco` INTEGER NOT NULL,
+`utente` INTEGER NOT NULL,
 FOREIGN KEY (gioco) REFERENCES gioco(`id`) ON DELETE CASCADE,
 FOREIGN KEY (utente) REFERENCES utente(`id`) ON DELETE CASCADE,
 UNIQUE (`gioco`, `utente`)
@@ -46,8 +46,8 @@ UNIQUE (`gioco`, `utente`)
 
 CREATE TABLE `timeline`(
 `data` date NOT NULL,
-`livello` INT(2) NOT NULL DEFAULT '0',
-`utente` INT(5),
+`livello` INTEGER NOT NULL DEFAULT '0',
+`utente` INTEGER NOT NULL,
 PRIMARY KEY (`utente`,`livello`),
 FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE
 );
@@ -57,8 +57,8 @@ FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE
 
 CREATE TABLE `voto`(
 `votazione` INT(1) NOT NULL DEFAULT '0',
-`utente` INT(5),
-`gioco` INT(5),
+`utente` INTEGER NOT NULL,
+`gioco` INTEGER NOT NULL,
 PRIMARY KEY (`utente`, `gioco`),
 FOREIGN KEY (utente) REFERENCES utente (`id`) ON DELETE CASCADE,
 FOREIGN KEY (gioco) REFERENCES gioco (`id`) ON DELETE CASCADE
