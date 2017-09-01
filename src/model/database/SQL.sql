@@ -7,7 +7,7 @@ USE `Gaming`;
 /* UTENTE */
 
 CREATE TABLE `utente`(
-`id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`id` int(5) PRIMARY KEY AUTO_INCREMENT,
 `nome` varchar(50) NOT NULL,
 `cognome` varchar(50) NOT NULL,
 `username` varchar(50) NOT NULL UNIQUE,
@@ -22,7 +22,7 @@ CREATE TABLE `utente`(
 /* GIOCO */
 
 CREATE TABLE `gioco`(
-`id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`id` int(5) PRIMARY KEY AUTO_INCREMENT,
 `nome` varchar(30) NOT NULL UNIQUE,
 `exp` int(2) NOT NULL
 );
@@ -31,7 +31,7 @@ CREATE TABLE `gioco`(
 /* RECENSIONE */
 
 CREATE TABLE `recensione`(
-`id` int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`id` int(5) PRIMARY KEY AUTO_INCREMENT,
 `approvazione` tinyint(1) NOT NULL DEFAULT '0',
 `testo` varchar(255) NOT NULL,
 `gioco` int(5) ,
