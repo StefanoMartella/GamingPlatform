@@ -119,7 +119,8 @@ public class GiocoDao implements GiocoDaoInterface{
     PreparedStatement ps = connection.prepareStatement(FIND_BY_NAME);
     ps.setString(1, name);
     ResultSet rset = ps.executeQuery();
-    if ( rset.first() == false ) return null;
+    if ( rset.first() == false ) 
+      return null;
     gioco = new Gioco(rset.getInt(1), rset.getString(2), rset.getInt(3));
     ps.close();
     rset.close();
