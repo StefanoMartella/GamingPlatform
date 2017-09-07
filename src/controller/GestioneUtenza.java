@@ -76,7 +76,7 @@ public class GestioneUtenza{
 		try{
 			if( name.trim().isEmpty() || surname.trim().isEmpty() || username.trim().isEmpty() || mail.trim().isEmpty() || password.trim().isEmpty() || password2.trim().isEmpty())
 				return 1;
-			if( name.length() > 30 || surname.length() > 30 || surname.length() > 30 || mail.length() > 45 || password.length() > 30 )
+			if( name.length() > 30 || surname.length() > 30 || surname.length() > 30 || mail.length() > 50 || password.length() > 30 )
 				return 2;
 			if( new UtenteDao().usernameAlreadyUsed(username) )
 				return 3;
@@ -89,9 +89,9 @@ public class GestioneUtenza{
 			if( !password.equals(password2) )
 				return 7;
 			
-			Utente utente = new Utente(name,surname,username,mail,password);
+			Utente ut = new Utente(name,surname,username,mail,password);
 		
-			new UtenteDao().insertUser(utente);
+			new UtenteDao().insertUser(ut);
 			return 0;
 		}
 		catch(SQLException exc){
@@ -112,50 +112,58 @@ public class GestioneUtenza{
 		
 		try{
 			switch( column ){
-				
-				case "nome":		if( newValue.trim().isEmpty() )
-								return "Il nome non puo' essere vuoto!";
-							if( newValue.length() > 30 )
-								return "Il nome non deve superare i 30 caratteri!";
+			
+			case "nome":		if( newValue.trim().isEmpty() )
+							return "Il nome non puo' essere vuoto!";
+						if( newValue.length() > 30 )
+							return "Il nome non deve superare i 30 caratteri!";
+						if( utente != null ) {
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setNome(newValue);
-							return "Nome aggiornato!";
-								
-				case "cognome":		if( newValue.trim().isEmpty() )
-								return "Il nome non puo' essere vuoto!";
-							if( newValue.length() > 30 )
-								return "Il cognome non deve superare i 30 caratteri!";
+						}
+						return "Nome aggiornato!";
+							
+			case "cognome":		if( newValue.trim().isEmpty() )
+							return "Il nome non puo' essere vuoto!";
+						if( newValue.length() > 30 )
+							return "Il cognome non deve superare i 30 caratteri!";
+						if( utente != null ){
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setCognome(newValue);
-							return "Cognome aggiornato!";
-								
-				case "username":	if( newValue.trim().isEmpty() )
-								return "Lo username non puo' essere vuoto!";
-							if( newValue.length() > 30 )
-								return "Lo username non deve superare i 30 caratteri!";
-							if(new UtenteDao().usernameAlreadyUsed(newValue))
-								return "Username gia' in uso!";
+						}
+						return "Cognome aggiornato!";
+							
+			case "username":	if( newValue.trim().isEmpty() )
+							return "Lo username non puo' essere vuoto!";
+						if( newValue.length() > 30 )
+							return "Lo username non deve superare i 30 caratteri!";
+						if(new UtenteDao().usernameAlreadyUsed(newValue))
+							return "Username gia' in uso!";
+						if( utente != null ){
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setUsername(newValue);
-							return "Username aggiornato!";
-									
-				case "email":		if( newValue.trim().isEmpty() )
-								return "L'email non puo' essere vuota!";							
-							if( newValue.length() > 45 )
-								return "L'email non deve superare i 45 caratteri!";
-							
-							Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-							Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
-									
-							if( new UtenteDao().emailAlreadyUsed(newValue) )
-								return "Email gia' in uso!";
-							if( !matcher.find() )
-								return "Email non valida!";
+						}
+						return "Username aggiornato!";
+								
+			case "email":		if( newValue.trim().isEmpty() )
+							return "L'email non puo' essere vuota!";
+						if( newValue.length() > 45 )
+							return "L'email non deve superare i 45 caratteri!";
+						
+						Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[\\w!#$%&â€™*+/=?`{|}~^-]+(?:\\.[\\w!#$%&â€™*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+						Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(newValue);
+								
+						if( new UtenteDao().emailAlreadyUsed(newValue) )
+							return "Email gia' in uso!";
+						if( !matcher.find() )
+							return "Email non valida!";
+						if( utente != null ){
 							new UtenteDao().updateUser(column, newValue, utente);
 							utente.setEmail(newValue);
-							return "Email aggiornata!";
+						}
+						return "Email aggiornata!";
 
-			}
+		}
 		}
 		catch(SQLException e){
 			e.printStackTrace();
@@ -177,10 +185,13 @@ public class GestioneUtenza{
 	public String updateValue(String column, String nuova_password, String conferma_password, Utente utente){
 		if( nuova_password.trim().isEmpty() )
 			return "La password non puo' essere vuota!";
+		
 		if( nuova_password.length() > 30 )
 			return "Lo password non deve superare i 30 caratteri!";
+		
 		if( nuova_password.length() < 8 )
 			return "La password deve essere di minimo 8 caratteri!";
+		
 		if( !nuova_password.equals(conferma_password) )
 			return "Le due password non coincidono!";
 		

@@ -6,7 +6,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -50,7 +53,6 @@ public class SignUp{
 		JLabel lblName = new JLabel("Nome");
 		lblName.setBounds(100, 70, 173, 14);
 		panel_3.add(lblName);
-		
 				
 		JLabel lblCognme = new JLabel("Cognome");
 		lblCognme.setBounds(100, 110, 173, 14);
@@ -72,41 +74,126 @@ public class SignUp{
 		lblPassword_2.setBounds(100, 270, 173, 14);
 		panel_3.add(lblPassword_2);	
 	
+		JLabel check1 = new JLabel(); // name validity check
+		JLabel check2 = new JLabel(); // surname validity check
+		JLabel check3 = new JLabel(); // username validity check
+		JLabel check4 = new JLabel(); // email validity check
+		JLabel check5 = new JLabel(); // password validity check
+		JLabel check6 = new JLabel(); // password confermation validity check
 	
-	
+		ImageIcon red_check = new ImageIcon(getClass().getResource("img/red.png"));
+		ImageIcon green_check = new ImageIcon(getClass().getResource("img/green.png"));
+		
 		JTextField textField_2;
 		textField_2 = new JTextField();
 		textField_2.setBounds(300, 65, 250, 25);
 		panel_3.add(textField_2);
-		textField_2.setColumns(10);
+		textField_2.setInputVerifier(new InputVerifier(){
+			public boolean verify(JComponent input){
+				String text = ((JTextField) input).getText();
+				check1.setBounds(555, 60, 30, 30);
+				panel_3.add(check1);
+			    if( !new GestioneUtenza().updateValue("nome", text, null).equals("Nome aggiornato!") ) {
+				    check1.setIcon(red_check);
+				    return true;
+				} 
+				check1.setIcon(green_check);
+				return true;
+			}
+		});
 		
 		JTextField textField_3;
 		textField_3 = new JTextField();
-		textField_3.setColumns(10);
 		textField_3.setBounds(300, 105, 250, 25);
 		panel_3.add(textField_3);
+		textField_3.setInputVerifier(new InputVerifier(){
+			public boolean verify(JComponent input){
+				String text = ((JTextField) input).getText();
+				check2.setBounds(555, 100, 30, 30);
+				panel_3.add(check2);
+			    if( !new GestioneUtenza().updateValue("cognome", text, null).equals("Cognome aggiornato!") ) {
+				    check2.setIcon(red_check);
+				    return true;
+				} 
+				check2.setIcon(green_check);
+				return true;
+			}
+		});
 		
 		JTextField textField_4;
 		textField_4 = new JTextField();
-		textField_4.setColumns(10);
 		textField_4.setBounds(300, 145, 250, 25);
 		panel_3.add(textField_4);
+		textField_4.setInputVerifier(new InputVerifier(){
+			public boolean verify(JComponent input){
+				String text = ((JTextField) input).getText();
+				check3.setBounds(555, 140, 30, 30);
+				panel_3.add(check3);
+				if( !new GestioneUtenza().updateValue("username", text, null).equals("Username aggiornato!") ) {
+					check3.setIcon(red_check);
+					return true;
+				} 
+				check3.setIcon(green_check);
+				return true;
+			}
+		});
 		
 		JTextField textField_5;
 		textField_5 = new JTextField();
-		textField_5.setColumns(10);
 		textField_5.setBounds(300, 185, 250, 25);
 		panel_3.add(textField_5);
+		textField_5.setInputVerifier(new InputVerifier(){
+			public boolean verify(JComponent input){
+				String text = ((JTextField) input).getText();
+				check4.setBounds(555, 180, 30, 30);
+				panel_3.add(check4);
+				if( !new GestioneUtenza().updateValue("email", text, null).equals("Email aggiornata!") ) {
+					check4.setIcon(red_check);
+					return true;
+				}
+				check4.setIcon(green_check);
+				return true;
+			}
+		});
 		
 		JPasswordField passwordField;
 		passwordField = new JPasswordField();
 		passwordField.setBounds(300, 225, 250, 25);
 		panel_3.add(passwordField);
+		passwordField.setInputVerifier(new InputVerifier(){
+			public boolean verify(JComponent input){
+				JPasswordField password = (JPasswordField) input;
+				String text = String.valueOf(password.getPassword());
+				check5.setBounds(555, 220, 30, 30);
+				panel_3.add(check5);
+			    if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30 ) {
+				    check5.setIcon(red_check);
+				    return true;
+				} 
+				check5.setIcon(green_check);
+				return true;
+			}
+		});
 		
 		JPasswordField passwordField2;
 		passwordField2 = new JPasswordField();
 		passwordField2.setBounds(300, 265, 250, 25);
 		panel_3.add(passwordField2);
+		passwordField2.setInputVerifier(new InputVerifier(){
+			public boolean verify(JComponent input){
+				JPasswordField password = (JPasswordField) input;
+				String text = String.valueOf(password.getPassword());
+				String text2 = String.valueOf(passwordField.getPassword());
+				check6.setBounds(555, 260, 30, 30);
+				panel_3.add(check6);
+			    if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30  || !text.equals(text2) ) {
+				    check6.setIcon(red_check);
+				    return true;
+				} 
+				check6.setIcon(green_check);
+				return true;
+			}
+		});
 		
 		JButton btnRegistrati = new JButton("Registrati");
 		btnRegistrati.setBounds(300, 320, 100, 23);
