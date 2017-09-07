@@ -72,6 +72,7 @@ public class GiocoView{
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(50, 50, 560, 80);
+		textPane.setToolTipText("Recensisci " + gioco.getNome());
 		panel_6.add(textPane);
 		
 		JButton btnReview = new JButton("Recensisci");

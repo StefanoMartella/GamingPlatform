@@ -68,6 +68,8 @@ public class AmministratoreViewAG{
 		btnBack.setBounds(380, 240, 100, 23);
 		panel_9.add(btnBack);
 		
+		frmPiattaformaGaming.getRootPane().setDefaultButton(btnA);
+		
 		btnA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(frmPiattaformaGaming, new AmministratoreController().insertGame(textField.getText(),Integer.parseInt(textField2.getText())));
@@ -77,6 +79,7 @@ public class AmministratoreViewAG{
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 				panel_9.setVisible(false);
 				new AmministratoreViewLG(frmPiattaformaGaming, utente);
 		}});

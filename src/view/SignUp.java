@@ -87,6 +87,7 @@ public class SignUp{
 		JTextField textField_2;
 		textField_2 = new JTextField();
 		textField_2.setBounds(300, 65, 250, 25);
+		textField_2.setToolTipText("Inserisci il tuo nome, massimo 30 caratteri.");
 		panel_3.add(textField_2);
 		textField_2.setInputVerifier(new InputVerifier(){
 			public boolean verify(JComponent input){
@@ -105,6 +106,7 @@ public class SignUp{
 		JTextField textField_3;
 		textField_3 = new JTextField();
 		textField_3.setBounds(300, 105, 250, 25);
+		textField_3.setToolTipText("Inserisci il tuo cognome, massimo 30 caratteri.");
 		panel_3.add(textField_3);
 		textField_3.setInputVerifier(new InputVerifier(){
 			public boolean verify(JComponent input){
@@ -123,6 +125,7 @@ public class SignUp{
 		JTextField textField_4;
 		textField_4 = new JTextField();
 		textField_4.setBounds(300, 145, 250, 25);
+		textField_4.setToolTipText("Inserisci il tuo username, massimo 30 caratteri.");
 		panel_3.add(textField_4);
 		textField_4.setInputVerifier(new InputVerifier(){
 			public boolean verify(JComponent input){
@@ -141,6 +144,7 @@ public class SignUp{
 		JTextField textField_5;
 		textField_5 = new JTextField();
 		textField_5.setBounds(300, 185, 250, 25);
+		textField_5.setToolTipText("Inserisci la tua email, massimo 45 caratteri.");
 		panel_3.add(textField_5);
 		textField_5.setInputVerifier(new InputVerifier(){
 			public boolean verify(JComponent input){
@@ -159,6 +163,7 @@ public class SignUp{
 		JPasswordField passwordField;
 		passwordField = new JPasswordField();
 		passwordField.setBounds(300, 225, 250, 25);
+		passwordField.setToolTipText("Inserisci la tua password, massimo 30 caratteri, minimo 8.");
 		panel_3.add(passwordField);
 		passwordField.setInputVerifier(new InputVerifier(){
 			public boolean verify(JComponent input){
@@ -178,6 +183,7 @@ public class SignUp{
 		JPasswordField passwordField2;
 		passwordField2 = new JPasswordField();
 		passwordField2.setBounds(300, 265, 250, 25);
+		passwordField2.setToolTipText("Ripeti la password.");
 		panel_3.add(passwordField2);
 		passwordField2.setInputVerifier(new InputVerifier(){
 			public boolean verify(JComponent input){

@@ -88,11 +88,11 @@ public class Login {
 		
 		JTextField textField = new JTextField();
 		textField.setBounds(220, 130, 250, 25);
+		textField.setToolTipText("Inserisci il tuo username");
 		panel.add(textField);
-		textField.setColumns(10);
 		
 		JPasswordField psswrdField = new JPasswordField();
-		psswrdField.setColumns(10);
+		psswrdField.setToolTipText("Inserisci la tua password.");
 		psswrdField.setBounds(220, 190, 250, 25); 
 		panel.add(psswrdField);
 		
