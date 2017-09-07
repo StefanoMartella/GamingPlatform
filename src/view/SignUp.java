@@ -90,15 +90,15 @@ public class SignUp{
 		panel_3.add(textField_2);
 		textField_2.setInputVerifier(new InputVerifier(){
 			public boolean verify(JComponent input){
-				String text = ((JTextField) input).getText();
-				check1.setBounds(555, 60, 30, 30);
-				panel_3.add(check1);
+			    String text = ((JTextField) input).getText();
+			    check1.setBounds(555, 60, 30, 30);
+			    panel_3.add(check1);
 			    if( !new GestioneUtenza().updateValue("nome", text, null).equals("Nome aggiornato!") ) {
 				    check1.setIcon(red_check);
 				    return true;
-				} 
-				check1.setIcon(green_check);
-				return true;
+			    } 
+			    check1.setIcon(green_check);
+			    return true;
 			}
 		});
 		
@@ -111,7 +111,7 @@ public class SignUp{
 				String text = ((JTextField) input).getText();
 				check2.setBounds(555, 100, 30, 30);
 				panel_3.add(check2);
-			    if( !new GestioneUtenza().updateValue("cognome", text, null).equals("Cognome aggiornato!") ) {
+			   	if( !new GestioneUtenza().updateValue("cognome", text, null).equals("Cognome aggiornato!") ) {
 				    check2.setIcon(red_check);
 				    return true;
 				} 
@@ -166,7 +166,7 @@ public class SignUp{
 				String text = String.valueOf(password.getPassword());
 				check5.setBounds(555, 220, 30, 30);
 				panel_3.add(check5);
-			    if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30 ) {
+			   	if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30 ) {
 				    check5.setIcon(red_check);
 				    return true;
 				} 
@@ -186,7 +186,7 @@ public class SignUp{
 				String text2 = String.valueOf(passwordField.getPassword());
 				check6.setBounds(555, 260, 30, 30);
 				panel_3.add(check6);
-			    if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30  || !text.equals(text2) ) {
+			  	if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30  || !text.equals(text2) ) {
 				    check6.setIcon(red_check);
 				    return true;
 				} 
