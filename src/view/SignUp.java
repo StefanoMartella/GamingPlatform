@@ -277,7 +277,6 @@ public class SignUp{
 
 						case 100:	password_security.setText("Eccellente");
 										password_security.setForeground(Color.GREEN);
-										break;
 
 					}
 
