@@ -268,11 +268,11 @@ public class SignUp{
 										break;
 
 						case 50:	password_security.setText("Mediocre");
-										password_security.setForeground(Color.ORANGE);
+										password_security.setForeground(Color.MAGENTA);
 										break;
 
 						case 75:	password_security.setText("Buono");
-										password_security.setForeground(Color.YELLOW);
+										password_security.setForeground(Color.ORANGE);
 										break;
 
 						case 100:	password_security.setText("Eccellente");
