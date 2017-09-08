@@ -249,38 +249,38 @@ public class SignUp{
 					String[] partialRegexChecks = { ".*[a-z]+.*", ".*[A-Z]+.*",  ".*[\\d]+.*", ".*[@#$%]+.*"};
 					
 					if (text.matches(partialRegexChecks[0])) {
-	                    strengthPercentage += 25;
+					    strengthPercentage += 25;
 					}
-	                if (text.matches(partialRegexChecks[1])) {
-	                    strengthPercentage += 25;
-	                }
-	                if (text.matches(partialRegexChecks[2])) {
-	                    strengthPercentage += 25;
-	                }
-	                if (text.matches(partialRegexChecks[3])) {
-	                    strengthPercentage += 25;
-	                }
-	                switch( strengthPercentage ) {
-	                
-	                	case 0:		
-	                	case 25:	password_security.setText("Basso");
-        							password_security.setForeground(Color.RED);
-        							break;
-        							
-	                	case 50:	password_security.setText("Mediocre");
-        							password_security.setForeground(Color.ORANGE);
-        							break;
-        							
-	                	case 75:	password_security.setText("Buono");
-        							password_security.setForeground(Color.YELLOW);
-        							break;
-	                		
-	                	case 100:	password_security.setText("Eccellente");
-        							password_security.setForeground(Color.GREEN);
-        							break;
-	                		
-	                }
-	                
+					if (text.matches(partialRegexChecks[1])) {
+					    strengthPercentage += 25;
+					}
+					if (text.matches(partialRegexChecks[2])) {
+					    strengthPercentage += 25;
+					}
+					if (text.matches(partialRegexChecks[3])) {
+					    strengthPercentage += 25;
+					}
+					switch( strengthPercentage ) {
+
+						case 0:		
+						case 25:	password_security.setText("Basso");
+										password_security.setForeground(Color.RED);
+										break;
+
+						case 50:	password_security.setText("Mediocre");
+										password_security.setForeground(Color.ORANGE);
+										break;
+
+						case 75:	password_security.setText("Buono");
+										password_security.setForeground(Color.YELLOW);
+										break;
+
+						case 100:	password_security.setText("Eccellente");
+										password_security.setForeground(Color.GREEN);
+										break;
+
+					}
+
 					password_security.setVisible(true);
 					check5.setIcon(green_check);
 				}
