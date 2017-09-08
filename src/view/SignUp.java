@@ -79,7 +79,7 @@ public class SignUp{
 		JLabel check3 = new JLabel(); // username validity check
 		JLabel check4 = new JLabel(); // email validity check
 		JLabel check5 = new JLabel(); // password validity check
-		JLabel check6 = new JLabel(); // password confermation validity check
+		JLabel check6 = new JLabel(); // password confirmation validity check
 		
 		JLabel password_security = new JLabel();
 		password_security.setFont(new Font("SEGOE UI Light", Font.BOLD, 15));
