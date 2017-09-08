@@ -5,11 +5,11 @@ import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
-import javax.swing.InputVerifier;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -89,17 +89,30 @@ public class SignUp{
 		textField_2.setBounds(300, 65, 250, 25);
 		textField_2.setToolTipText("Inserisci il tuo nome, massimo 30 caratteri.");
 		panel_3.add(textField_2);
-		textField_2.setInputVerifier(new InputVerifier(){
-			public boolean verify(JComponent input){
-			    String text = ((JTextField) input).getText();
-			    check1.setBounds(555, 60, 30, 30);
-			    panel_3.add(check1);
-			    if( !new GestioneUtenza().updateValue("nome", text, null).equals("Nome aggiornato!") ) {
-				    check1.setIcon(red_check);
-				    return true;
-			    } 
-			    check1.setIcon(green_check);
-			    return true;
+		textField_2.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				warn();
+			}
+
+			public void warn() {
+				String text = textField_2.getText();
+				check1.setBounds(555, 60, 30, 30);
+				panel_3.add(check1);
+				if( !new GestioneUtenza().updateValue("nome", text, null).equals("Nome aggiornato!") ) {
+					check1.setIcon(red_check);
+				}
+				else { 
+					check1.setIcon(green_check);
+				}
 			}
 		});
 		
@@ -108,17 +121,30 @@ public class SignUp{
 		textField_3.setBounds(300, 105, 250, 25);
 		textField_3.setToolTipText("Inserisci il tuo cognome, massimo 30 caratteri.");
 		panel_3.add(textField_3);
-		textField_3.setInputVerifier(new InputVerifier(){
-			public boolean verify(JComponent input){
-				String text = ((JTextField) input).getText();
+		textField_3.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				warn();
+			}
+
+			public void warn() {
+				String text = textField_3.getText();
 				check2.setBounds(555, 100, 30, 30);
 				panel_3.add(check2);
-			   	if( !new GestioneUtenza().updateValue("cognome", text, null).equals("Cognome aggiornato!") ) {
-				    check2.setIcon(red_check);
-				    return true;
-				} 
-				check2.setIcon(green_check);
-				return true;
+				if( !new GestioneUtenza().updateValue("cognome", text, null).equals("Cognome aggiornato!") ) {
+					check2.setIcon(red_check);
+				}
+				else { 
+					check2.setIcon(green_check);
+				}
 			}
 		});
 		
@@ -127,17 +153,30 @@ public class SignUp{
 		textField_4.setBounds(300, 145, 250, 25);
 		textField_4.setToolTipText("Inserisci il tuo username, massimo 30 caratteri.");
 		panel_3.add(textField_4);
-		textField_4.setInputVerifier(new InputVerifier(){
-			public boolean verify(JComponent input){
-				String text = ((JTextField) input).getText();
+		textField_4.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				warn();
+			}
+
+			public void warn() {
+				String text = textField_4.getText();
 				check3.setBounds(555, 140, 30, 30);
 				panel_3.add(check3);
 				if( !new GestioneUtenza().updateValue("username", text, null).equals("Username aggiornato!") ) {
 					check3.setIcon(red_check);
-					return true;
-				} 
-				check3.setIcon(green_check);
-				return true;
+				}
+				else { 
+					check3.setIcon(green_check);
+				}
 			}
 		});
 		
@@ -146,17 +185,30 @@ public class SignUp{
 		textField_5.setBounds(300, 185, 250, 25);
 		textField_5.setToolTipText("Inserisci la tua email, massimo 45 caratteri.");
 		panel_3.add(textField_5);
-		textField_5.setInputVerifier(new InputVerifier(){
-			public boolean verify(JComponent input){
-				String text = ((JTextField) input).getText();
+		textField_5.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				warn();
+			}
+
+			public void warn() {
+				String text = textField_5.getText();
 				check4.setBounds(555, 180, 30, 30);
 				panel_3.add(check4);
 				if( !new GestioneUtenza().updateValue("email", text, null).equals("Email aggiornata!") ) {
 					check4.setIcon(red_check);
-					return true;
 				}
-				check4.setIcon(green_check);
-				return true;
+				else { 
+					check4.setIcon(green_check);
+				}
 			}
 		});
 		
@@ -165,18 +217,30 @@ public class SignUp{
 		passwordField.setBounds(300, 225, 250, 25);
 		passwordField.setToolTipText("Inserisci la tua password, massimo 30 caratteri, minimo 8.");
 		panel_3.add(passwordField);
-		passwordField.setInputVerifier(new InputVerifier(){
-			public boolean verify(JComponent input){
-				JPasswordField password = (JPasswordField) input;
-				String text = String.valueOf(password.getPassword());
+		passwordField.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				warn();
+			}
+
+			public void warn() {
+				String text = String.valueOf(passwordField.getPassword());
 				check5.setBounds(555, 220, 30, 30);
 				panel_3.add(check5);
-			   	if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30 ) {
-				    check5.setIcon(red_check);
-				    return true;
+				if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30 ) {
+					check5.setIcon(red_check);
 				} 
-				check5.setIcon(green_check);
-				return true;
+				else {
+					check5.setIcon(green_check);
+				}
 			}
 		});
 		
@@ -185,19 +249,31 @@ public class SignUp{
 		passwordField2.setBounds(300, 265, 250, 25);
 		passwordField2.setToolTipText("Ripeti la password.");
 		panel_3.add(passwordField2);
-		passwordField2.setInputVerifier(new InputVerifier(){
-			public boolean verify(JComponent input){
-				JPasswordField password = (JPasswordField) input;
-				String text = String.valueOf(password.getPassword());
-				String text2 = String.valueOf(passwordField.getPassword());
+		passwordField2.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				warn();
+			}
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				warn();
+			}
+
+			public void warn() {
+				String text = String.valueOf(passwordField.getPassword());
+				String text2 = String.valueOf(passwordField2.getPassword());
 				check6.setBounds(555, 260, 30, 30);
 				panel_3.add(check6);
-			  	if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30  || !text.equals(text2) ) {
-				    check6.setIcon(red_check);
-				    return true;
+				if( text2.trim().isEmpty() || text2.length() < 8 || text2.length() > 30  || !text2.equals(text) ) {
+					check6.setIcon(red_check);
 				} 
-				check6.setIcon(green_check);
-				return true;
+				else {
+					check6.setIcon(green_check);
+				}
 			}
 		});
 		
@@ -290,7 +366,7 @@ public class SignUp{
 							textField_3.setText(textField_3.getText());
 							textField_4.setText(textField_4.getText());
 							textField_5.setText(textField_5.getText());
-							passwordField.setText("");
+							passwordField.setText(String.valueOf(passwordField.getPassword()));
 							passwordField2.setText("");
 				}
 			}
