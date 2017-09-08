@@ -80,6 +80,11 @@ public class SignUp{
 		JLabel check4 = new JLabel(); // email validity check
 		JLabel check5 = new JLabel(); // password validity check
 		JLabel check6 = new JLabel(); // password confermation validity check
+		
+		JLabel password_security = new JLabel();
+		password_security.setFont(new Font("SEGOE UI Light", Font.BOLD, 15));
+		password_security.setBounds(580, 225, 100, 20);
+		panel_3.add(password_security);
 	
 		ImageIcon red_check = new ImageIcon(getClass().getResource("img/red.png"));
 		ImageIcon green_check = new ImageIcon(getClass().getResource("img/green.png"));
@@ -237,8 +242,46 @@ public class SignUp{
 				panel_3.add(check5);
 				if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30 ) {
 					check5.setIcon(red_check);
+					password_security.setVisible(false);
 				} 
 				else {
+					int strengthPercentage=0;
+					String[] partialRegexChecks = { ".*[a-z]+.*", ".*[A-Z]+.*",  ".*[\\d]+.*", ".*[@#$%]+.*"};
+					
+					if (text.matches(partialRegexChecks[0])) {
+	                    strengthPercentage += 25;
+					}
+	                if (text.matches(partialRegexChecks[1])) {
+	                    strengthPercentage += 25;
+	                }
+	                if (text.matches(partialRegexChecks[2])) {
+	                    strengthPercentage += 25;
+	                }
+	                if (text.matches(partialRegexChecks[3])) {
+	                    strengthPercentage += 25;
+	                }
+	                switch( strengthPercentage ) {
+	                
+	                	case 0:		
+	                	case 25:	password_security.setText("Basso");
+        							password_security.setForeground(Color.RED);
+        							break;
+        							
+	                	case 50:	password_security.setText("Mediocre");
+        							password_security.setForeground(Color.ORANGE);
+        							break;
+        							
+	                	case 75:	password_security.setText("Buono");
+        							password_security.setForeground(Color.YELLOW);
+        							break;
+	                		
+	                	case 100:	password_security.setText("Eccellente");
+        							password_security.setForeground(Color.GREEN);
+        							break;
+	                		
+	                }
+	                
+					password_security.setVisible(true);
 					check5.setIcon(green_check);
 				}
 			}
