@@ -375,12 +375,12 @@ public class SignUp{
 			public void mouseClicked(MouseEvent arg0) {
 				if(show_password2.getIcon() == show){
 					show_password2.setIcon(hide);
-					show_password2.setToolTipText("Mostra password");
+					show_password2.setToolTipText("Nascondi password");
 					passwordField2.setEchoChar((char)0);
 				}
 				else {
 					show_password2.setIcon(show);
-					show_password2.setToolTipText("Nascondi password");
+					show_password2.setToolTipText("Mostra password");
 					passwordField2.setEchoChar(new JPasswordField().getEchoChar());
 				}
 			}
