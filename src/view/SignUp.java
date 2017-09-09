@@ -81,7 +81,7 @@ public class SignUp{
 		JLabel check3 = new JLabel(); // username validity check
 		JLabel check4 = new JLabel(); // email validity check
 		JLabel check5 = new JLabel(); // password validity check
-		JLabel check6 = new JLabel(); // password confermation validity check
+		JLabel check6 = new JLabel(); // password confirmation validity check
 		
 		ImageIcon hide = new ImageIcon(getClass().getResource("img/hide.png"));
 		ImageIcon show = new ImageIcon(getClass().getResource("img/show.png"));
@@ -294,7 +294,6 @@ public class SignUp{
 
 						case 100:	password_security.setText("Ottimo");
 										password_security.setForeground(Color.GREEN);
-										break;
 
 					}
 
