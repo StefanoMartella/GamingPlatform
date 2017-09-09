@@ -12,6 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -81,9 +83,24 @@ public class SignUp{
 		JLabel check5 = new JLabel(); // password validity check
 		JLabel check6 = new JLabel(); // password confermation validity check
 		
+		ImageIcon hide = new ImageIcon(getClass().getResource("img/hide.png"));
+		ImageIcon show = new ImageIcon(getClass().getResource("img/show.png"));
+		
+		JLabel show_password1 = new JLabel();
+		show_password1.setIcon(show);
+		show_password1.setToolTipText("Mostra password");
+		show_password1.setBounds(265, 228, 35, 20);
+		panel_3.add(show_password1);
+		
+		JLabel show_password2 = new JLabel();
+		show_password2.setIcon(show);
+		show_password2.setToolTipText("Mostra password");
+		show_password2.setBounds(265, 268, 35, 20);
+		panel_3.add(show_password2);
+		
 		JLabel password_security = new JLabel();
-		password_security.setFont(new Font("SEGOE UI Light", Font.BOLD, 15));
-		password_security.setBounds(580, 225, 100, 20);
+		password_security.setFont(new Font("SEGOE UI Light", Font.BOLD, 14));
+		password_security.setBounds(580, 226, 100, 20);
 		panel_3.add(password_security);
 	
 		ImageIcon red_check = new ImageIcon(getClass().getResource("img/red.png"));
@@ -275,7 +292,7 @@ public class SignUp{
 										password_security.setForeground(Color.ORANGE);
 										break;
 
-						case 100:	password_security.setText("Eccellente");
+						case 100:	password_security.setText("Ottimo");
 										password_security.setForeground(Color.GREEN);
 										break;
 
@@ -329,6 +346,54 @@ public class SignUp{
 		panel_3.add(btnLogin);
 		
 		frmPiattaformaGaming.getRootPane().setDefaultButton(btnRegistrati);
+		
+				show_password1.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(show_password1.getIcon() == show){
+					show_password1.setIcon(hide);
+					show_password1.setToolTipText("Nascondi password");
+					passwordField.setEchoChar((char)0);
+				}
+				else {
+					show_password1.setIcon(show);
+					show_password1.setToolTipText("Mostra password");
+					passwordField.setEchoChar(new JPasswordField().getEchoChar());
+				}
+			}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {}
+			@Override
+			public void mouseExited(MouseEvent arg0) {}
+			@Override
+			public void mousePressed(MouseEvent arg0) {}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {}
+		});
+		
+		show_password2.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(show_password2.getIcon() == show){
+					show_password2.setIcon(hide);
+					show_password2.setToolTipText("Mostra password");
+					passwordField2.setEchoChar((char)0);
+				}
+				else {
+					show_password2.setIcon(show);
+					show_password2.setToolTipText("Nascondi password");
+					passwordField2.setEchoChar(new JPasswordField().getEchoChar());
+				}
+			}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {}
+			@Override
+			public void mouseExited(MouseEvent arg0) {}
+			@Override
+			public void mousePressed(MouseEvent arg0) {}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {}
+		});
 		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
