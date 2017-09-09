@@ -346,7 +346,7 @@ public class SignUp{
 		
 		frmPiattaformaGaming.getRootPane().setDefaultButton(btnRegistrati);
 		
-				show_password1.addMouseListener(new MouseListener() {
+		show_password1.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(show_password1.getIcon() == show){
