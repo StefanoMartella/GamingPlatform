@@ -142,7 +142,8 @@ public class UtenteViewProfiloPers{
 
 					case "password":	JPasswordField pf  = new JPasswordField();
 								JPasswordField pf2 = new JPasswordField();
-								Object[] message = { pf, pf2 };
+								JLabel text = new JLabel("Scegli e conferma la nuova password:");
+								Object[] message = { text, pf, pf2 };
 								Integer pressed_button = JOptionPane.showConfirmDialog(null, message, "Nuova password", JOptionPane.OK_CANCEL_OPTION);
 								String nuova_password = String.valueOf(pf.getPassword());
 								String conferma_password = String.valueOf(pf2.getPassword());
