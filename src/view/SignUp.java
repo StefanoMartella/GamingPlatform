@@ -25,7 +25,7 @@ import src.controller.*;
 public class SignUp{
 	
 	private JFrame frmPiattaformaGaming;
-	boolean flag = false;
+	boolean flag = false; //flag to synchronize validity checks on password
 	
 	/**
 	*Class constructor
