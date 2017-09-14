@@ -25,6 +25,7 @@ import src.controller.*;
 public class SignUp{
 	
 	private JFrame frmPiattaformaGaming;
+	boolean flag = false;
 	
 	/**
 	*Class constructor
@@ -235,6 +236,7 @@ public class SignUp{
 		});
 		
 		JPasswordField passwordField;
+		JPasswordField passwordField2 = new JPasswordField();
 		passwordField = new JPasswordField();
 		passwordField.setBounds(300, 225, 250, 25);
 		passwordField.setToolTipText("Inserisci la tua password, massimo 30 caratteri, minimo 8.");
@@ -255,6 +257,7 @@ public class SignUp{
 
 			public void warn() {
 				String text = String.valueOf(passwordField.getPassword());
+				String text2 = String.valueOf(passwordField2.getPassword());
 				check5.setBounds(555, 220, 30, 30);
 				panel_3.add(check5);
 				if( text.trim().isEmpty() || text.length() < 8 || text.length() > 30 ) {
@@ -299,12 +302,16 @@ public class SignUp{
 
 					password_security.setVisible(true);
 					check5.setIcon(green_check);
+					if( flag == true ) {
+						if( !text.equals(text2) )
+							check6.setIcon(red_check);
+						else
+							check6.setIcon(green_check);
+					}
 				}
 			}
 		});
 		
-		JPasswordField passwordField2;
-		passwordField2 = new JPasswordField();
 		passwordField2.setBounds(300, 265, 250, 25);
 		passwordField2.setToolTipText("Ripeti la password.");
 		panel_3.add(passwordField2);
@@ -329,9 +336,13 @@ public class SignUp{
 				panel_3.add(check6);
 				if( text2.trim().isEmpty() || text2.length() < 8 || text2.length() > 30  || !text2.equals(text) ) {
 					check6.setIcon(red_check);
+					if( flag == false )
+						flag = true;
 				} 
 				else {
 					check6.setIcon(green_check);
+					if( flag == false )
+						flag = true;
 				}
 			}
 		});
