@@ -116,7 +116,8 @@ This project has the aim to realize a gaming platform in which are present three
  ```java -jar src/GamingPlatform.jar```
 
  or right click on GamingPlatform.jar --> open with --> Java(TM) platform SE binary.
- <b>NOTE:</b> To make the jar work don't move it from GamingPlatform folder.
+
+<b>NOTE:</b> To make the jar work don't move it from GamingPlatform folder.
 
 ## Contacts
 
