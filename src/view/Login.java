@@ -25,7 +25,7 @@ import src.view.amministratore.*;
 public class Login {
 
 	private static JFrame frmPiattaformaGaming;
-	
+
 	/**
 	 * Launch the application.
 	 *
@@ -50,7 +50,7 @@ public class Login {
 		if ( frmPiattaformaGaming == null ) {
 			frmPiattaformaGaming = new JFrame();
 			frmPiattaformaGaming.setTitle("Piattaforma gaming");
-			frmPiattaformaGaming.setBounds(600, 300, 665, 415);
+			frmPiattaformaGaming.setBounds(400, 200, 665, 415);
 			frmPiattaformaGaming.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frmPiattaformaGaming.setResizable(false);
 			frmPiattaformaGaming.getContentPane().setLayout(null);
@@ -63,52 +63,52 @@ public class Login {
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
-		
-		
+
+
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 665, 415);
 		frmPiattaformaGaming.getContentPane().add(panel);
 		panel.setLayout(null);
 		panel.setVisible(true);
-		
+
 		JLabel name = new JLabel("Gaming Platform");
 		name.setForeground(Color.BLUE);
 		Font font = new Font("SEGOE UI Light", Font.BOLD | Font.ITALIC, 25);
 		name.setFont(font);
 		name.setBounds(245, 20, 200, 35);
 		panel.add(name);
-		
+
 		JLabel lblNewLabel = new JLabel("Username");
 		lblNewLabel.setBounds(125, 130, 150, 20);
 		panel.add(lblNewLabel);
-		
+
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(125, 187, 150, 30);
 		panel.add(lblPassword);
-		
+
 		JTextField textField = new JTextField();
 		textField.setBounds(220, 130, 250, 25);
 		textField.setToolTipText("Inserisci il tuo username");
 		panel.add(textField);
-		
+
 		JPasswordField psswrdField = new JPasswordField();
 		psswrdField.setToolTipText("Inserisci la tua password.");
-		psswrdField.setBounds(220, 190, 250, 25); 
+		psswrdField.setBounds(220, 190, 250, 25);
 		panel.add(psswrdField);
-		
+
 		JButton btnSignUp = new JButton("Registrati");
 		btnSignUp.setBounds(370, 260, 100, 23);
 		panel.add(btnSignUp);
-		
+
 		JButton btnLogin = new JButton("Accedi");
 		btnLogin.setBounds(220, 260, 100, 23);
 		panel.add(btnLogin);
-		
+
 		frmPiattaformaGaming.getRootPane().setDefaultButton(btnLogin);
-		
+
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				Utente utente = new GestioneUtenza().logIn(textField.getText(), new String(psswrdField.getPassword()));
 				if( utente == null )
 				{
@@ -130,11 +130,11 @@ public class Login {
 						frmPiattaformaGaming.getRootPane().setDefaultButton(null);
 						new AmministratoreView(frmPiattaformaGaming, utente);
 					}
-				
+
 				}
 		}
 			});
-		
+
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panel.setVisible(false);
@@ -142,6 +142,6 @@ public class Login {
 				new SignUp(frmPiattaformaGaming);
 			}
 		});
-		
+
 	}
 }

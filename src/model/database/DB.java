@@ -8,12 +8,12 @@ import java.sql.SQLException;
 *Class which has the aim to enstablish a connection with the database
 */
 public class DB{
-  private static String URL = "jdbc:mysql://localhost/Gaming?autoReconnect=true&useSSL=false";
+  private static String URL = "jdbc:mysql://localhost/gaming?autoReconnect=true&useSSL=false";
   private static String DRIVER = "com.mysql.jdbc.Driver";
   private static String USER = "gaming";
   private static String PASSWORD = "gaming";
 
-  
+
   /**
   *Method used to enstablish a connection with database
   *
@@ -21,10 +21,10 @@ public class DB{
   */
   public static Connection openConnection(){
     try {
-	Class.forName(DRIVER).newInstance();
+	Class.forName(DRIVER);
 	Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
 	return connection;
-    } 
+    }
     catch (SQLException e) {
 	e.printStackTrace();
     } catch (Exception ex){
